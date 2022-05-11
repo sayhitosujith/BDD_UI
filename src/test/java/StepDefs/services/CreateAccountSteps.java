@@ -103,4 +103,21 @@ public class CreateAccountSteps<IJavaScriptExecutor>
         driver.quit();
         System.out.println("Logout Successfully and close the Browser");
     }
+
+    @When("I should Add Number")
+    public void iShouldAddNumber() throws InterruptedException {
+        String winHandleBefore = driver.getWindowHandle();
+        for(String winHandle : driver.getWindowHandles()){
+            driver.switchTo().window(winHandle);
+        }
+        driver.getCurrentUrl();
+        //Click on Add user
+        driver.findElement(By.xpath("//button[normalize-space()='Add number']")).click();
+        Thread.sleep(10000);
+
+        //Click on Add Number
+        driver.findElement(By.xpath("//button[@title='County']")).click();
+        driver.findElement(By.xpath("//*[@id=\"filterInput22\"]")).sendKeys("Avon");
+        Thread.sleep(10000);
+    }
 }

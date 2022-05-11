@@ -32,3 +32,5 @@ Feature: Verify Services.RingCentral
       |RC13   |
     When I enter Valid details and generate account
     Then should see account created successfully
+  #AddNumber
+    When I should Add Number
