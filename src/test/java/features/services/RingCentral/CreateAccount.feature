@@ -24,4 +24,11 @@ Feature: Verify Services.RingCentral
     And I should see user added successfully
     Then should Logout successfully
 
-
+    #...............Verify Add Number.............
+  @VerifyAddNumber
+  Scenario:Verify Add Number
+    Given I enter the Valid URL of Application by Launching Chrome Browser
+      |url    |
+      |RC13   |
+    When I enter Valid details and generate account
+    Then should see account created successfully
