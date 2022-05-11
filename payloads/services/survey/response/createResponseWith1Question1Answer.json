@@ -1,0 +1,13 @@
+{
+  "responseAnswers": [
+    {
+      "questionKey": "<questionKey_01>",
+      "answerKeys": [
+        "<answerKey_01>"
+      ],
+      "answerText":[
+        "<answerText_01>"
+      ]
+    }
+  ]
+}

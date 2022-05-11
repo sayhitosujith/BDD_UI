@@ -1,0 +1,52 @@
+{
+  "claimedOffers": [
+    {
+      "offerKey": "<offerKey>",
+      "offeringArv": 23018.0,
+      "offerTags": [
+        "<offerTags>"
+      ]
+    }
+  ],
+  "invoices": [
+    {
+      "invoiceKey": "<invoiceKey>",
+      "purchaseMode": "<purchaseMode>",
+      "subtotal": 24048.0,
+      "tax": 15336.0,
+      "discount": 31950.0,
+      "total": 18829.0,
+      "retailer": {
+        "name": "<retailerName>",
+        "location": "<retailerLocation>",
+        "address": {
+          "addressLine1": "<retailerAddressLine1>",
+          "addressLine2": "<retailerAddressLine2>",
+          "city": "<retailerCity>",
+          "state": "<retailerState>",
+          "postalCode": "<retailerPostalCode>",
+          "countryCode": "<retailerCountryCode>"
+        },
+        "phone": "<retailerPhone>"
+      },
+      "invoiceItems": [
+        {
+          "invoiceItemType": "<invoiceItemType>",
+          "name": "<invoiceName>",
+          "option": "<invoiceOption>",
+          "sku": "<sku>",
+          "quantity": 25645,
+          "unitPrice": 4756.0,
+          "unitDiscount": 23415.0,
+          "vendor": {
+            "brand": "<brand>",
+            "category": "<category>",
+            "productName": "<productName>",
+            "upc": "<upc>"
+          }
+        }
+      ],
+      "invoiceDate": "<invoiceDate>"
+    }
+  ]
+}

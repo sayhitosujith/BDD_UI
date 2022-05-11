@@ -1,0 +1,8 @@
+{
+  "wardKey": "<wardKey>",
+  "engagementKey": "<engagementKey>",
+  "domain": "<domain>",
+  "fraudScore": 1,
+  "reason": "<reason>",
+  "createdBy": "<createdBy>"
+}

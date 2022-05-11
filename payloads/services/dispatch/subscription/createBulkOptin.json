@@ -1,0 +1,18 @@
+{
+  "participantKeys": [
+    "<Participant1Key>",
+    "<Participant2Key>"
+  ],
+
+  "culture": "<culture>",
+  "channels": [
+    {
+      "channel": "<channel1>",
+      "preference": "<channel1Pref>"
+    },
+    {
+      "channel": "<channel2>",
+      "preference": "<channel2Pref>"
+    }
+  ]
+}

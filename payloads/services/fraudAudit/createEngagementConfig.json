@@ -1,0 +1,16 @@
+{
+  "engagementKey": "<engagementKey>",
+  "masterFraudDetectionLevel": 221,
+  "actionThresholds": [
+    {
+      "actionKey": "<actionKey>",
+      "fraudDetectionLevel": 133
+    }
+  ],
+  "suspiciousEventThresholds": [
+    {
+      "ruleKey": "<ruleKey>",
+      "fraudDetectionLevel": 136
+    }
+  ]
+}

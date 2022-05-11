@@ -1,0 +1,15 @@
+{
+  "engagementKey": "<engagementKey>",
+  "wardKey": "<wardKey>",
+  "ruleModelType": "<ruleModelType>",
+  "ruleJson": "<ruleJson>",
+  "typedEvaluationData": {
+    "<typedEvaluationDataKey>": {
+      "values": [
+        "<typedEvaluationDataValue>"
+      ],
+      "uploadedToWarehouse": true,
+      "dataType": "<dataType>"
+    }
+  }
+}

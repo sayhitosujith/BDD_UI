@@ -1,0 +1,16 @@
+{
+  "purchaseIncentiveKey": "<purchaseIncentiveKey>",
+  "ruleKey": "<ruleKey>",
+  "offeringKey": "<offeringKey>",
+  "name": "<name>",
+  "description": "<description>",
+  "termsUrl": "<termsUrl>",
+  "tags": [
+    "<tags>"
+  ],
+  "sortOrder": 126,
+  "participantLimit": 87,
+  "householdLimit": 105,
+  "purchaseStartsOnLocalized": "<purchaseStartsOnLocalized>",
+  "purchaseEndsOnLocalized": "<purchaseEndsOnLocalized>"
+}

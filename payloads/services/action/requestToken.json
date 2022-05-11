@@ -1,0 +1,10 @@
+{
+  "actionKey": "<actionKey>",
+  "participantKey": "<participantKey>",
+  "engagementKey":"<engagementKey>",
+  "wardKey":"<wardKey>",
+  "actionTakenOn": "2021-11-23T08:14:22.981-07:00",
+  "characteristics": {
+    "state": "AZ"
+  }
+}

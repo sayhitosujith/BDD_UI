@@ -1,0 +1,23 @@
+{
+  "fromAddress": "<fromAddress>",
+  "messageText": "<messageText>",
+  "messageHtml": "<messageHtml>",
+  "subject": "<subject>",
+  "toRecipients":[
+    {
+      "emailAddress": "<emailAddress>",
+      "friendlyName": "<friendlyName>"
+    }],
+  "ccRecipients": [
+    {
+      "emailAddress": "<ccRecipients>",
+      "friendlyName": "<friendlyName>"
+    }
+  ],
+  "bccRecipients": [
+    {
+      "emailAddress": "<bccRecipients>",
+      "friendlyName": "<friendlyName>"
+    }
+  ]
+}

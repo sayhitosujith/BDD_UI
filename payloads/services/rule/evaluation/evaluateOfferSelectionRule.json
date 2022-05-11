@@ -1,0 +1,133 @@
+{
+  "payload": {
+    "qualifiedOffers": [
+      {
+        "offerKey": "<offerKey>",
+        "offeringKey": "<offeringKey>",
+        "arv": 27344.0,
+        "matchedInvoiceItems": [
+          {
+            "invoiceItemType": "Type 9",
+            "name": "Namea1991050-e062-4348-8098-02ac5772ba38",
+            "option": "Optionc120405a-0a02-4e8f-9411-6558fb57fd3d",
+            "sku": "M9WVYUFPGJ",
+            "quantity": 7,
+            "unitPrice": 433.29,
+            "unitDiscount": 2.98,
+            "vendor": {
+              "brand": "Lowe's",
+              "category": "Groceries",
+              "productName": "Washing Machine",
+              "upc": "M3WCU22O7V"
+            },
+            "flavor": "Flavor3deb7bf1-1450-4b0b-83e8-6653da96f6ce",
+            "volume": "Volume463cfe68-f290-49fb-86d0-eee591fe3473",
+            "size": "XS",
+            "categories": [
+              "60af02e0-92ac-4427-bcb7-d95ab87ce0fa",
+              "8691b1a8-3ae2-406c-ad83-2378fa60618b",
+              "086c839a-1900-4122-bbf8-86d710b9f494"
+            ],
+            "metadata": {
+              "keyf8a10be6-fe15-4218-9166-3dc6513a817f": "value06b996ee-eba6-433a-a0f0-ab98a48c445b",
+              "key39622255-2a10-4591-b06c-20616c71d82f": "valueb94afcc1-c8ac-4b8c-970d-482ec2a5580d",
+              "key9bd5c8e9-982f-40a1-b5d1-4c03f7f1a416": "valuea19b863d-f24e-421e-84fa-7c96b9e4b33d"
+            },
+            "nonZeroQuantity": 7,
+            "totalPrice": 3033.03
+          }
+        ],
+        "offerTags": [
+          "<offerTag>"
+        ]
+      }
+    ],
+    "submission": {
+      "submissionKey": "SubmissionKey121e7204-cf74-4878-875b-2d927e4ec236",
+      "participantKey": "ParticipantKey114224db-05e6-4df9-b80f-8fb933cf06fd",
+      "participantHouseholdKey": "ParticipantHouseholdKeyd40d781a-b1ba-4255-ab76-f60f411c46f5",
+      "purchaseIncentiveKey": "PurchaseIncentiveKey78ccaa57-a302-40d6-b1b1-38080eb97a8f",
+      "submittedOn": "2021-04-15T20:50:13.6073208",
+      "createdOn": "2021-03-12T04:52:36.4235293+00:00",
+      "invoices": [
+        {
+          "invoiceKey": "InvoiceKeya088acc1-ef76-489c-aa86-e33d39e758aa",
+          "invoiceDate": "2021-10-08T17:22:13.6664596"
+        }
+      ],
+      "status": "Submitted",
+      "statusReasons": [
+        {
+          "reason": "Reason6bf87c81-b233-427a-ac5b-d769e9e5e87a",
+          "reasonType": "ManualReview"
+        }
+      ],
+      "submissionType": "Unknown"
+    },
+    "submissionClaim": {
+      "submissionClaimKey": "SubmissionClaimKeyf2b4c9ae-7a9c-427d-84fa-2e3460e425e1",
+      "submissionKey": "SubmissionKey51f3f84f-0fa3-462e-ae64-dd08db2ec6a1",
+      "claimedOffers": [
+        {
+          "offerKey": "OfferKeyb25bb52d-7310-44cd-b7fd-51b5a9dd0f07",
+          "offeringArv": 11868.0,
+          "offerTags": [
+            "0560fe42-856c-4a57-a550-7c22dbef749c",
+            "53a7bc2e-b490-478f-bc52-801c8517ee47",
+            "3f79be12-9aef-4cf5-9755-bb66a0eddbe5"
+          ]
+        }
+      ],
+      "invoices": [
+        {
+          "invoiceDate": "2022-01-19T11:06:04.6704593+00:00",
+          "purchaseMode": "InStore",
+          "subtotal": 166.61,
+          "tax": 630.21,
+          "discount": 58.89,
+          "total": 3013.59,
+          "retailer": {
+            "name": "Name3668b7ac-7c14-4b13-920c-981c663c1134",
+            "location": "3403",
+            "address": {
+              "addressLine1": "3836 Fake Street",
+              "addressLine2": "Apt #056",
+              "city": "Salem",
+              "state": "MD",
+              "postalCode": "30001",
+              "countryCode": "GE"
+            },
+            "phone": "(180)-084-3364"
+          },
+          "invoiceItems": [
+            {
+              "invoiceItemType": "Type 4",
+              "name": "Name8cf33a10-1413-4187-9772-6c815a8ec2f7",
+              "option": "Optiond5bb0e06-efbf-40e0-a98e-c7a495276405",
+              "sku": "B0AXOYYBL0",
+              "quantity": 4,
+              "unitPrice": 329.90,
+              "unitDiscount": 18.74,
+              "vendor": {
+                "brand": "Lowe's",
+                "category": "Groceries",
+                "productName": "Dryer",
+                "upc": "33E4W8GQKC"
+              },
+              "flavor": "Flavor12265f39-d2e9-4055-ac82-779822125ae7",
+              "volume": "Volume56230d9d-5ea7-46d1-80b7-9c9789570747",
+              "size": "SM",
+              "categories": [
+                "1cabdd32-39a7-442d-9f1c-941191f104dc"
+              ],
+              "nonZeroQuantity": 4,
+              "totalPrice": 1319.60
+            }
+          ]
+        }
+      ],
+      "createdOn": "2022-02-22T11:14:00.1065604+00:00"
+    }
+  },
+  "ruleKey": "<ruleKey>"
+}

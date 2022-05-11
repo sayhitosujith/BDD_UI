@@ -1,0 +1,27 @@
+{
+  "subtotalItems": [
+    {
+      "invoiceItemType": "<invoiceItemType>",
+      "name": "<invoiceItemName>",
+      "option": "<invoiceOption>",
+      "sku": "<invoiceSKU>",
+      "quantity": 7,
+      "unitPrice": 886.36,
+      "unitDiscount": 5.94,
+      "vendor": {
+        "brand": "<vendorBrand>",
+        "category": "<category>",
+        "productName": "<productName>",
+        "upc": "<upc>"
+      },
+      "flavor": "<flavor>",
+      "volume": "<volume>",
+      "size": "<size>",
+      "categories": [
+        "<invoiceCategory>"
+      ],
+      "nonZeroQuantity": 7,
+      "totalPrice": 6204.52
+    }
+  ]
+}

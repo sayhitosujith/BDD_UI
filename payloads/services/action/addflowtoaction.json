@@ -1,0 +1,10 @@
+{
+  "name": "<name>",
+  "steps": [
+    {
+      "service": "<service>",
+      "operation": "<operation>",
+      "isSatisfying": "<isSatisfying>"
+    }
+  ]
+}

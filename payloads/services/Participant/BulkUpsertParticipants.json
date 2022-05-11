@@ -1,0 +1,38 @@
+{
+  "addedBy":"<addedBy>",
+  "requests":[
+    {
+      "userName" : "<userName>",
+      "namePrefix": "<namePrefix>",
+      "firstName" : "<firstName>",
+      "middleName": "<middleName>",
+      "lastName" : "<lastName>",
+      "nameSuffix": "<nameSuffix>",
+      "birthdate": "<birthdate>",
+      "emailAddress" : "<emailAddress>",
+      "emailType" : "<emailType>",
+      "engagementKey" : "<engagementKey>",
+      "password": "<password>",
+      "isAgeVerified" : "<isAgeVerified>",
+      "ageBracket": "<ageBracket>",
+      "participantAddresses": [
+        {
+          "address1": "<address1>",
+          "address2": "<address2>",
+          "city": "<city>",
+          "state": "<state>",
+          "postalCode": "<postalCode>",
+          "countryCode": "<AddresscountryCode>",
+          "addressType": "<addressType>"
+        }
+      ],
+      "phoneNumbers": [
+        {
+          "countryCode": "<phonenumbercountryCode>",
+          "phoneNumber": "<phoneNumber>",
+          "phoneType": "<phoneType>"
+        }
+      ]
+    }
+  ]
+}

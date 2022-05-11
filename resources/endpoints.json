@@ -1,0 +1,389 @@
+{
+  "services": {
+    "participant":
+    {
+      "tokenApi": {
+        "createToken": "/connect/token"
+      },
+      "participantKeysByFilter": "/participant/ParticipantKeys/filter",
+      "RegisterParticipantforanengagement": "/engagement/{engagementKey}/register",
+       "createParticipant": "/participant/internal",
+      "createDatedParticipants": "/participant/dated",
+      "BulkUpsertParticipants": "/participant/upsert/bulk",
+      "VerifyPhoneIsValid": "/participant/phone/isValid",
+      "VerifyUpdatePasswordwithPin": "/password/{participantKey}",
+      "VerifyUpdatePassword": "/password",
+      "getParticipant": "/participant/{participantKey}/slim",
+      "getSlimParticipant": "/participant/{participantKey}/slim",
+      "VerifyUpdatePersonalInfo": "/participant/{participantKey}/personalinfo",
+      "GetForgotPasswordPin": "/password/{participantKey}/forgot-password",
+      "GetForgotEngagementPasswordPin": "/password/{participantKey}/forgot-password/{EngagementKey}",
+      "getSlimParticipantByKeyandWardKey": "/participant/{participantKey}/slim-participant",
+      "getSlimParticipanthouseholdaddress": "/participant/{participantKey}/household_address",
+      "getParticipantMailingAddress": "/participant/{participantKey}/mailing_address",
+      "getParticipantMostRecentAddress": "/participant/{participantKey}/most_recent_address",
+      "VerifyaddParticipantAddress": "/participant/{participantKey}/address",
+      "VerifyaddParticipantEmail": "/participant/{participantKey}/email",
+      "VerifyaddParticipantPhone": "/participant/{participantKey}/phone",
+      "getParticipantHouseholdDemographicKey": "/participant/{participantKey}/HouseholdDemographicKey",
+      "removeParticipantPii": "/privacy/{participantKey}",
+      "addattribute": "/attribute/{participantKey}",
+      "getAttributes": "/attribute/{participantKey}/{EngagementKey}",
+      "getWardAttributes": "/attribute/{participantKey}",
+      "VerifyaddEngagement": "/participant/action/{participantKey}/engagement",
+      "getWardParticipant": "/ward/{wardKey}?limit=100",
+      "VerifyisParticipantsisRegistered": "/participant/{participantKey}/IsRegistered/{EngagementKey}",
+      "VerifygetParticipantKeyusingfilter": "/participant/{participantKey}/IsRegistered/{EngagementKey}",
+      "VerifygetParticipantsusingfilter": "/participant/filter",
+      "VerifygetParticipantAddressusingparticipantKey": "/participant/{participantKey}/address",
+      "VerifyupdateHouseholdDemographicKeyforParticipantusingparticipantKey": "/participant/{participantKey}/householddemographickey",
+      "CreateParticipantasaction": "/participant/action",
+      "participantkeyisregisteredfortheprovidedengegementkey": "/participant/{participantKey}/IsRegistered/{EngagementKey}",
+      "CreateBulkUpsertaparticipantwithCSVfile": "/participant/upsert/bulkcsv",
+      "getAttributesforwardusingEngagementKey": "/attribute/{participantKey}/{engagementKey}",
+      "VerifyParticipantkeyisregisteredtoanengegement": "/participant/{participantKey}/IsRegistered/{engagementKey}",
+     "Getaslimparticipantusingparticipantkeyrestrictedbywardkey": "/participant/{participantKey}/slim-participant",
+      "Looksforparticipantsinthecurrentward": "/participant/attribute/{attributeKey}",
+      "Updatesparticipantsusername": "/participant/{participantKey}/username",
+      "Updatesparticipantsusernamewithanemailaddress": "/participant/{participantKey}/email-as-username",
+      "Addanengagementtoaparticipantviainternalrequest": "/participant/{participantKey}/engagement/internal",
+      "Retrieveparticipantsbasedonanattributevalue": "/participant/byattribute/{attributeKey}",
+      "Markaparticipantasundeliverable": "/participant/{participantKey}/deliverability",
+      "Retrievesalistofdemographichashesassociatedwithcurrentparticipant": "/participant/{participantKey}/demographics",
+      "Getalistofsandboxkeysusedinward": "/sandbox/{wardKey}",
+      "Retrievealistofparticipantswithinaward": "/ward/{wardKey}"
+    },
+    "cognitive": {
+      "profanity": "/screen/text"
+    },
+    "login": {
+      "DemoLogin": "/login"
+    },
+    "action": {
+      "createAction": "/action",
+      "getAction": "/{actionKey}",
+      "updateAction": "/action/{actionKey}",
+      "deleteAction": "/action/{actionKey}",
+      "getActionsForEngagement": "action/engagement/{engagementKey}",
+      "addTimeframe" : "/action/{actionKey}/timeframe",
+      "addPrerequisite": "/action/{actionKey}/prerequisite",
+      "removePrerequisite": "/action/{actionKey}/prerequisite/{prerequisiteKey}",
+      "addLimit": "/action/{actionKey}/limit",
+      "removeLimit": "/action/{actionKey}/limit/{limitKey}",
+      "addflowtoaction": "/action/{actionKey}/flow",
+      "addtimeframetoaction": "/action/{actionKey}/timeframe",
+      "addconstraints": "/action/{actionKey}/constraint",
+      "addlimitlimit": "/action/{actionKey}/limitadjustmentaction",
+      "removeflowtoaction": "/action/{actionKey}/flow/{flowKey}",
+      "removetimeframetoaction": "/action/{actionKey}/timeframe/{timeframeKey}",
+      "requestActionToken": "/token/request",
+      "removeaconstraintsfromaction": "/action/{actionKey}/constraint/{ConstraintKey}",
+      "ChecktheAvailibilityofOccuranceStep": "/token/check/{occurrenceKey}",
+      "getAvailableLimitOccurances":"/participant/{participantKey}/available/{actionKey}"
+    },
+    "address": {
+      "addressValidation": "/ValidateAddress"
+    },
+    "engage": {
+      "account": {
+        "getAllAccounts": "/account",
+        "createAccount": "/account",
+        "getAccount": "/account/{accountKey}",
+        "updateAccount": "/account/{accountKey}",
+        "searchAccount": "/account/search",
+        "accountAuthenticationProvider": "/account/{accountKey}/authenticationProvider/add",
+        "getAccountAuthenticationProviders": "account/{accountKey}/authentication",
+        "updateAccountAuthenticationProvider": "/account/{accountKey}/authenticationProvider/{accountAuthenticationProviderKey}",
+        "removeAccountAuthenticationProvider": "/account/{accountKey}/remove/{accountAuthenticationProviderKey}",
+        "activateAccountAuthenticationProvider": "/account/{accountKey}/authenticationProvider/activate/{accountAuthenticationProviderKey}",
+        "deactivateAccountAuthenticationProvider": "/account/{accountKey}/authenticationProvider/deactivate/{accountAuthenticationProviderKey}",
+        "CreateaccessGroups": "/accessgroup"
+      },
+      "ward": {
+        "getWardsBySearch": "/ward/search",
+        "getAllWards": "/ward",
+        "createWard": "/ward",
+        "updateWard": "/ward/{wardKey}",
+        "createWardAttribute": "/ward/{wardkey}/attribute",
+        "createWardAttributeValue": "/ward/attribute/{attributeKey}",
+        "getAttribute": "/ward/attribute/{attributekey}",
+        "getAttributes": "/ward/{wardKey}/attribute",
+        "deletewardAttribute": "/ward/attribute/{attributekey}",
+        "deletewardAttributeValue": "/ward/attribute/{attributekey}/{attributeValueKey}",
+        "updatewardAttribute": "/ward/attribute/{attributekey}",
+        "updatewardAttributevalue": "/ward/attribute/{attributekey}/{attributeValueKey}"
+      },
+      "accessgroup": {
+        "getaccessgroup": "/accessgroup",
+        "getaccessgroupbyfilter": "/accessgroup/filter",
+        "createaccessgroup": "/accessgroup",
+        "adddeleteengagements": "/accessgroup/{accessGroupKey}/engagements",
+        "getaccessgroupdetail": "/accessgroup/{accessGroupKey}",
+        "addremoveteam": "/accessgroup/{accessGroupKey}/teams"
+      },
+      "engagements": {
+        "getAllEngagements": "/engagement",
+        "getEngagement": "/engagement/{engagementKey}",
+        "createEngagement": "/engagement",
+        "getEngagementAttribute": "/engagement/{engagementKey}/attribute",
+        "deleteEngagementAttribute": "/engagement/{engagementKey}/attribute",
+        "updateEngagement": "/engagement/{engagementKey}",
+        "addEngagementAttribute": "/engagement/{engagementKey}/attribute/{attributeKey}",
+        "getEnrichedEngagements": "/engagement/enriched/{engagementKey}",
+        "getSalesforceMetaData": "/engagement/salesforcemetadata/{engagementKey}",
+        "getEngagementSummaries": "/engagement/summaries",
+        "getEngagementsByfilter": "/engagement/filter",
+        "getTimeZones": "/engagement/time-zones",
+        "getEngagementPhases": "/engagement/{engagementKey}/phases",
+        "getEngagementByPhaseKey" : "/engagement/phase/{phaseKey}"
+      },
+      "teams": {
+        "createTeam": "/team",
+        "getAllTeams": "/team",
+        "createTeamByAccountkey": "/team",
+        "deleteTeam": "/team/{teamKey}",
+        "getAllTeamsbyFilter": "/team/filter",
+        "getTeamDetails": "team/{teamKey}",
+        "updateTeam": "team/{teamKey}",
+        "addUsersToTeam": "team/{teamKey}/users/add",
+        "removeUsersFromTeam": "team/{teamKey}/users"
+      },
+      "EngageUsers": {
+        "createEngageUser": "/user",
+        "addEngageUserRoles": "/user/{userkeys}/roles/add",
+        "removeRoles": "/user/{userkeys}/roles/remove",
+        "isUserWardMember": "/user/{userkeys}/ward-access/{wardKey}",
+        "getUserByFilter": "/user/search",
+        "changeUserPassword": "/user/password/change",
+        "deleteEngageUser": "/user/{userkeys}"
+      },
+      "integrations": {
+        "getIntegrations": "/integration",
+        "createIntegration": "/ward/{wardKey}/integration",
+        "getIntegrationsForWard": "/ward/{wardKey}/integration",
+        "updateIntegration": "/ward/{wardKey}/integration/{integrationKey}",
+        "deleteIntegration": "/ward/{wardKey}/integration/{integrationKey}",
+        "createIntegrationForEngagement": "/engagement/{engagementKey}/integration",
+        "getIntegrationForEngagement": "/engagement/{engagementKey}/integration",
+        "getEngagementIntegrationByType": "/engagement/{engagementKey}/integration/{integrationType}",
+        "updateIntegrationForEngagement": "/engagement/{engagementKey}/integration/{integrationKey}",
+        "deleteIntegrationForEngagement": "/engagement/{engagementKey}/integration/{integrationKey}"
+      },
+      "roles": {
+        "createRole": "/role",
+        "getRole": "/role/{rolekey}",
+        "getRoleFilter": "/role/filter",
+        "updateRole": "/role/{rolekey}"
+      },
+      "tokenAPI": {
+        "trustedIdentifier": "/connect/token"
+      }
+    },
+    "survey": {
+      "createSurvey": "/survey",
+      "getSurvey": "/survey/{surveyKey}",
+      "updateSurvey": "/survey/{surveyKey}",
+      "getSurveyByFilter": "/survey/filter",
+      "getunasweredquestions": "/survey/{surveyKey}/{participantKey}/en-US/unansweredquestions",
+      "response": {
+        "createResponse": "/response/{surveyKey}/participant/{participantKey}",
+        "getResponse": "/response/{responseKey}/participant/{participantKey}",
+        "getResponsebyfilter": "/response/filter",
+        "createEngagementResponse": "/response/{surveyKey}/engagement/{engagementKey}/action",
+        "updateResponse": "/response/{responseKey}/participant/{participantKey}"
+      }
+    },
+     "sweepstakes" : {
+       "createEntry" : "/entry",
+       "getEntry" : "/entry/{sweepsConfirmKey}",
+       "createSweepstake" : "/sweepstake",
+       "getSweepstakes" : "/sweepstake/{sweepsKey}",
+       "getSweepstakesbyparticipantKey" : "/sweepstake/participant/{participantKey}",
+       "getSweepstakeEntrybyParticipantKeyAndSweepstakeKey": "/entry/participant/{participantKey}/sweepstake/{sweepstakeKey}",
+       "getSweepstakeByfilter" : "/sweepstake/filter",
+       "getEntrySetKeyByfilter": "/entry/filter",
+       "updateSweepstake": "/sweepstake/{sweepsKey}",
+       "deleteSweepstake" : "/sweepstake/{sweepsKey}"
+     },
+    "offering": {
+      "createOffering" : "/offering",
+      "createOfferingsShipping": "/offering/shipping",
+      "updateOfferingShipping": "/offering/shipping/{OfferingShippingKey}",
+      "getOffering": "/offering/{OfferingKey}",
+      "OfferingShippingKey": "/offering/shipping/{OfferingShippingKey}",
+      "getOfferingbyshippingkey": "/offering/shipping/{OfferingShippingKey}",
+      "deleteOfferingshipping": "/offering/shipping/{OfferingShippingKey}",
+      "getofferingShippingbyoffering": "/offering/{OfferingShippingKey}/shipping",
+      "getWardOfferingbyFilter": "/offering/{wardKey}/filter",
+      "getOfferingClaimStatus": "/offeringclaim",
+      "CreateShippingCarriers": "/shipping/carrier",
+      "getAllShippingCarriers": "/shipping/carrier/{shippingCarrierKey}",
+      "updateShippingCarrier" : "/shipping/carrier/{shippingCarrierKey}",
+      "getShippingCarrier": "/shipping/carrier/{shippingCarrierKey}",
+      "DeleteShippingCarriers": "/shipping/carrier/{shippingCarrierKey}",
+      "createshippingmethod": "/shipping/carrier/{shippingCarrierKey}/method",
+      "getshippingmethod": "/shipping/carrier/method/{shippingMethodKey}",
+      "updateShippingMethod": "/shipping/carrier/method/{shippingMethodKey}",
+      "deleteShippingMethod": "/shipping/carrier/method/{shippingMethodKey}",
+      "VerifygetShippingCarrierbyName": "/shipping/carrier/name/UPS",
+      "getAllShippingMethodsbyCarrier": "/shipping/carrier/{shippingCarrierKey}/method",
+      "createInventoryEditusingofferingKey": "/inventory/{OfferingKey}",
+      "getInventoryEditsusingofferingKeywithfilter": "/inventory/{OfferingKey}/filter",
+      "deleteoffering": "/offering/{OfferingKey}",
+      "updateOfferingusingofferingKey": "/offering/{OfferingKey}",
+      "getOfferingusingofferingKey": "/offering/{OfferingKey}/shipping",
+      "getofferingShippingUsingofferingShippingKey": "/offering/shipping/{OfferingShippingKey}"
+
+
+    },
+    "purchaseIncentive": {
+      "createPurchaseIncentive": "/purchase-incentive",
+      "getPurchaseIncentive": "/purchase-incentive/{purchaseIncentiveKey}",
+      "createSKUEnrichment": "/purchase-incentive/{purchaseIncentiveKey}/sku/enrichment",
+      "updatePurchaseIncentive": "/purchase-incentive/{purchaseIncentiveKey}",
+      "setPIDisabled": "/purchase-incentive/{purchaseIncentiveKey}/disabled/{disabledStatus}",
+      "getPurchaseIncentives": "/purchase-incentive/engagement/{engagementKey}",
+      "getPurchaseIncentiveByfilter": "/purchase-incentive/filter",
+      "createOffer" : "/offer",
+      "getOffer" : "/offer/{offerKey}",
+      "getOffersByPurchaseIncentiveKey" : "/offer/purchaseincentive/{purchaseIncentiveKey}",
+      "updateOffer" : "/offer/{offerKey}",
+      "setOfferDisabled" : "/offer/{offerKey}/disabled/{disabledStatus}",
+      "createPrizeAllocation" : "/offer/{offerKey}/prize-allocation",
+      "createSubmission" : "/submission/{purchaseIncentiveKey}",
+      "createHandledSubmissionAndClaim" : "/submission/{purchaseIncentiveKey}/handled_claim",
+      "createSubmissionAndClaim": "/submission/{purchaseIncentiveKey}/claim",
+      "submissionWithQualifiedSelection" : "/submission/claim/{submissionClaimKey}/qualifiedselection",
+      "getOffersBysubmissionClaimKey" : "/submission/claim/{submissionClaimKey}/offers",
+      "getPendingReviews" : "/submission/review/pending",
+      "createSubmissionOverride" : "/submission/{offerKey}/override",
+      "getRelatedSubmissions" : "/submission/{submissionKey}/related",
+      "updateSubmissionReview" : "/submission/{submissionKey}/review",
+      "updateSubmissionClaim" : "/submission/claim/{submissionClaimKey}",
+      "getSubmissionsByparticipantKey" : "/submission/participantkeys",
+      "getCanUserCreateSubmission" : "/submission/{purchaseIncentiveKey}/user/{participantKey}",
+      "getSubmissionClaimByParticipantKey" : "/submission/claim/participant/{participantKey}",
+      "getCustomerServiceOfferings" : "/submission/{submissionKey}/customerServiceOfferings",
+      "createResubmission" : "/resubmission/{submissionKey}",
+      "canUserResubmit" : "/resubmission/{submissionKey}/can-submit",
+      "claimSubmission" : "/submission/claim/{submissionKey}",
+      "createInventory": "/inventory/{offeringKey}",
+      "getCanUserCreateSubmissionWithLimit" : "/submission/{purchaseIncentiveKey}/user/{participantKey}/limit-available",
+      "getRelatedSubmissionOverrides" : "/submission/{submissionOverrideKey}/related/override",
+      "createSubmissionClaimOverride" : "/submission/claim/{submissionOverrideKey}/override",
+      "getSubmissionClaimsByFilter": "/submission/claim/filter",
+      "getSubmissionClaimByClaimKey" : "/submission/claim/{submissionClaimKey}/detail",
+      "getSubmissionClaimsByParticipantKeys" : "/submission/claim/participantkeys",
+      "getClaimsBySubmissionKeys" : "/submission/claim/submissionkeys"
+    },
+
+    "dispatch" : {
+      "subscription" : {
+        "createSubscription": "/subscription",
+        "getSubscription": "/subscription/{subscriptionKey}",
+        "createOptIn": "/subscription/{subscriptionKey}/optin/{participantKey}",
+        "getOptIn" : "/subscription/optin/{subscriptionKey}/{participantKey}",
+        "getSubscriptionByFilter": "/subscription/filter",
+        "setSubscriptionDisabled": "/subscription/{subscriptionKey}/disabled/true",
+        "optOut" : "/subscription/{subscriptionKey}/optout/{participantKey}",
+        "creatBulkOptin":"/subscription/{subscriptionKey}/optin",
+        "creatBulkOptOut":"/subscription/{subscriptionKey}/optout"
+      },
+      "SendSingle" :
+      {
+        "sendEmailToSingleRecipient": "/send_single/email"
+      }
+    },
+    "listCheck": {
+      "createList": "/list",
+      "getList": "/list/{listKey}",
+      "getListItems": "/list/{listKey}/items",
+      "createWardList": "/list/{wardKey}",
+      "getWardList":"/list/GetWardList/{wardKey}",
+      "getListObjects": "/list/{listKey}/items",
+      "addItemsToList" : "/list/{listKey}/items",
+      "removeItemsFromList": "/list/{listKey}/items",
+      "disableList": "/list/{listKey}",
+      "updateList": "/list/{listKey}/items",
+      "getPagedListItems": "/list/{listKey}/items/paged",
+      "checkItemInList" : "/check/{listKey}/{item}",
+      "checkItemsInList" : "/check/{listKey}",
+      "checkItemsInLists" : "/check/lists",
+      "createListFileUpload" : "/list/CreateListFileUpload",
+      "createWardListFileUpload" : "/list/CreateWardListFileUpload/{wardKey}"
+
+    },
+    "template": {
+      "createTemplateType": "/template/templateType",
+      "createTemplate": "/template",
+      "getTemplate": "/template/{templateKey}",
+      "updateTemplate": "/template/{templateKey}",
+      "getTemplateByFilter": "/template/filter",
+      "updateTemplateStstusVersion": "/template/{templateKey}/version/1/status"
+    },
+    "fraudAudit": {
+      "createEngagementConfig": "/engagementconfig",
+      "updateAndGetEngagementConfig" : "/engagementconfig/{engagementKey}",
+      "createViolation" : "/violation",
+      "getViolationsbyActionKey" : "/violation/action/{actionKey}",
+      "getViolationsbyParticipantKey" : "/violation/participant/{participantKey}",
+      "getManualFraudCategories" : "/violation/manual-fraud",
+      "createBlacklistIPRecord" : "/blacklist/ip",
+      "disablesBlacklistIPRecord" : "/blacklist/ip/{ipAddress}/disable",
+      "createBlacklistAddressRecord" : "/blacklist/address",
+      "disablesBlacklistAddressRecord" : "/blacklist/address/disable",
+      "createBlacklistDomainRecord" : "/blacklist/domain",
+      "disablesBlacklistDomainRecord" : "/blacklist/domain/{domain}/disable",
+      "createBlacklistPhoneRecord" : "/blacklist/phone",
+      "disablesBlacklistPhoneRecord" : "/blacklist/phone/{phone}/disable"
+    },
+    "document": {
+      "createFromTemplate": "/envelope/create_from_template",
+      "generateEmbededURL": "/embedded/generate_url/{envelopeId}",
+      "signingReturn": "/embedded/signing_return/{envelopeId}/{SignerRecipientId}",
+      "finalsigningReturn": "/embedded/signingReturnFinalTest/{envelopeId}/{SignerRecipientId}"
+    },
+    "powerBI": {
+      "getReportpanalRendering": "/embed/report/Registration"
+
+    },
+    "rule" : {
+      "createEngagementDataSet" : "/dataset/engagement",
+      "getEngagementDataSet": "/dataset/engagement/{engagementKey}",
+      "updateEngagementDataSet" : "/dataset/engagement/{engagementKey}",
+      "deleteEngagementDataSet" : "/dataset/engagement/{engagementKey}",
+      "evaluatePurchaseModelAgainstRuleSet" : "/evaluate/purchase",
+      "evaluateSamplePurchase" : "/evaluate/sample/purchase",
+      "evaluateArvCalculation" : "/evaluate/arvcalculation",
+      "evaluateSampleArvCalculation": "/evaluate/sample/arvcalculation",
+      "evaluateOfferSelectionRule" : "/evaluate/offerselection",
+      "evaluateSampleOfferSelection" : "/evaluate/sample/offerselection",
+      "evaluateDemographics" : "/evaluate/demographics",
+      "createRule" : "/rule",
+      "getRule": "/rule/{ruleKey}",
+      "updateRule": "/rule/{ruleKey}",
+      "deleteRule" : "/rule/{ruleKey}",
+      "getListOfSKUs" : "/rule/{ruleKey}/evaluationdata/{listKey}"
+    },
+    "captcha": {
+      "validatecaptcha": "/captcha/recaptcha/siteverify"
+
+    },
+    "email": {
+      "sendEmail": "/email/send",
+      "sendEmail-2": "/email/send"
+    },
+    "privacy": {
+      "createPrivacyRequest": "/request/admin",
+      "getPrivacyRequest": "/request/filter",
+      "getprivacyrequestusingcontinuationTokenfilter": "/request/filter",
+      "getprivacyrequestforaspecificWardusingfilter": "/request/ward/{wardKey}/filter"
+
+    },
+
+    "warehouse": {
+      "searchWardParticipants": "/participant/search",
+      "searchParticipantsClaim": "/participant/claims"
+    }
+  }
+}

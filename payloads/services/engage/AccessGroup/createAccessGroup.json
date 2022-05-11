@@ -1,0 +1,8 @@
+{
+  "wardKey": "<wardKey>",
+  "name": "<name>",
+  "description": "<description>",
+  "engagementKeys": [
+    "<engagementKeys>"
+  ]
+}

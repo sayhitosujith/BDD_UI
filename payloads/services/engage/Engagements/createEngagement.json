@@ -1,0 +1,10 @@
+{
+  "accountKey": "<accountKey>",
+  "wardKey": "<wardKey>",
+  "engagementKey": "<engagementKey>",
+  "name": "<name>",
+  "startsOn": "<starts-on>",
+  "endsOn": "<ends-on>",
+  "baseUrl": "<baseUrl>",
+  "features": ["<features>"]
+}

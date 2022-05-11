@@ -1,0 +1,8 @@
+{
+  "wardKey": "<wardKey>",
+  "engagementKey": "<engagementKey>",
+  "phone": "<phone>",
+  "fraudScore": 1,
+  "reason": "<reason>",
+  "createdBy": "<createdBy>"
+}

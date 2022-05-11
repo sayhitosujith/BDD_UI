@@ -1,0 +1,8 @@
+{
+  "accountKey": "<accountKey>",
+  "name": "sprint test admin two",
+  "description": "Test Admin with permissions",
+  "permissions":[
+    "_engage._engage_engagement.r"
+  ]
+}

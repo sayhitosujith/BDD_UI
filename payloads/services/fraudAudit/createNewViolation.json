@@ -1,0 +1,16 @@
+{
+  "wardKey": "<wardKey>",
+  "engagementKey": "<engagementKey>",
+  "participantKey": "<participantKey>",
+  "actionOccurrenceKey": "<actionOccuranceKey>",
+  "fraudCategory": {
+    "category": "<category>",
+    "type": "<fraudType>"
+  },
+  "fraudScore": 26,
+  "appliesTo": "<appliesTo>",
+  "correlationKeyType": "<correlationType>",
+  "correlationKey": "<correlationKey>",
+  "participantIpAddress": "<participantIPAddress>",
+  "createdOn": "<createdOn>"
+}

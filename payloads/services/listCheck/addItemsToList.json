@@ -1,0 +1,8 @@
+{
+  "items": {
+    "primeryMail": "<primeryMail>",
+    "seconderyMail": "<seconderyMail>",
+    "region": "<region>",
+    "timeZone": "<timeZone>"
+  }
+}

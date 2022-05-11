@@ -1,0 +1,33 @@
+{
+  "engagementKey": "<engagementKey>",
+  "limitActionKey": "<limitActionKey>",
+  "participantClaimLimit": "<participantClaimLimit>",
+  "householdClaimLimit": "<householdClaimLimit>",
+  "offerClaimMode": "<offerClaimMode>",
+  "submissionLimit": 99,
+  "name": "<name>",
+  "description": "<description>",
+  "details": "<details>",
+  "termsUrl": "<termsUrl>",
+  "instructions": "<instructions>",
+  "submissionAddress": {
+    "addressLine1": "<addressLine1>",
+    "addressLine2": "<addressLine2>",
+    "city": "<city>",
+    "state": "<state>",
+    "postalCode": "<postalCode>",
+    "countryCode": "<countryCode>"
+  },
+  "submissionUrl": "<submissionUrl>",
+  "metadata": {
+    "<sampleText1>": "<sampleText2>"
+  },
+  "startsOn": "<startsOn>",
+  "endsOn": "<endsOn>",
+  "submissionStartsOnLocalized": "<submissionStartsOnLocalized>",
+  "submissionEndsOnLocalized": "<submissionEndsOnLocalized>",
+  "resubmitStartsOnLocalized": "<resubmitStartsOnLocalized>",
+  "resubmitEndsOnLocalized": "<resubmitEndsOnLocalized>",
+  "purchaseStartsOnLocalized": "<purchaseStartsOnLocalized>",
+  "purchaseEndsOnLocalized": "<purchaseEndsOnLocalized>"
+}

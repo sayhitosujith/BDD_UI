@@ -1,0 +1,19 @@
+{
+  "participantKey": "<participantKey>",
+  "participantHouseholdKey": "<participantHouseholdKey>",
+  "isReviewNeeded": true,
+  "reasonsForReview": [
+    "<reasonsForReview>"
+  ],
+  "invoices": [
+    {
+      "invoiceKey": "<invoiceKey>",
+      "invoiceDate": "<invoiceDate>"
+    }
+  ],
+  "submittedOn": "<submittedOn>",
+  "submissionType": "<submissionType>",
+  "metadata": {
+    "<metadataKey>": "<metadataValue>"
+  }
+}

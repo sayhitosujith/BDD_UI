@@ -1,0 +1,17 @@
+{
+  "wardKey": "<wardKey>",
+  "engagementKey": "<engagementKey>",
+  "name":"<name>",
+  "cultures": [
+    "<culture1>",
+    "<culture2>"
+  ],
+  "channels": [
+    {
+      "channel":"<channel1>"
+    },
+    {
+      "channel": "<channel2>"
+    }
+  ]
+}

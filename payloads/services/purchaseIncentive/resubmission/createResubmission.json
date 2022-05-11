@@ -1,0 +1,10 @@
+{
+  "invoices": [
+    {
+      "invoiceKey": "<invoiceKey>",
+      "invoiceDate": "<invoiceDate>"
+    }
+  ],
+  "submittedOn": "<submittedOn>",
+  "submissionType": "<submissionType>"
+}

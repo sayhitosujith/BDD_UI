@@ -1,0 +1,28 @@
+{
+  "wardKey": "<wardKey>",
+  "engagementKey": "<engagementKey>",
+  "name": "<name>",
+  "description":"<description>",
+  "templateRenderType": "<templateRenderType>",
+  "templateTypeKey": "<templateTypeKey>",
+  "propertyTemplates": [
+    {
+      "locale": "<local>",
+      "propertyTemplateType": "<propertyTemplateType>",
+      "templateText": "<templateText>",
+      "defaultTokens": {
+        "Brand": "<Brand>"
+      }
+    },
+    {
+      "locale": "<local1>",
+      "propertyTemplateType": "<propertyTemplateType1>",
+      "templateText": "<templateText1>"
+    },
+    {
+      "locale":"<local2>",
+      "propertyTemplateType": "<propertyTemplateType2>",
+      "templateText": "<templateText2>"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "integrationKey": "CUSTOMCODE",
+  "name": "<integrationName>",
+  "values": {
+    "customCodeUrl": "<customCodeUrl>"
+  },
+  "subscribedEvents": [
+    "OnParticipantRegistered",
+    "OnParticipantUpdated",
+    "OnContactUsCreated"
+  ]
+}

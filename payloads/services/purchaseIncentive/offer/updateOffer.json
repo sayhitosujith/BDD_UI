@@ -1,0 +1,15 @@
+{
+  "offeringKey": "<offeringKey>",
+  "name": "<name>",
+  "description": "<description>",
+  "termsUrl": "<termsUrl>",
+  "arvCalculationRuleKey": "<arvCalculationRuleKey>",
+  "tags": [
+    "<tags>"
+  ],
+  "sortOrder": 151,
+  "participantLimit": 129,
+  "householdLimit": 185,
+  "purchaseStartsOnLocalized": "<purchaseStartsOnLocalized>",
+  "purchaseEndsOnLocalized": "<purchaseEndsOnLocalized>"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "<name>",
+  "isActive": "<isActive>",
+  "isLocalLoginEnabled": "<isLocalLoginEnabled>",
+  "passwordExpiration": "<passwordExpiration>"
+}

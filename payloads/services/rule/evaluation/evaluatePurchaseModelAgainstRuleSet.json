@@ -1,0 +1,56 @@
+{
+  "payload": {
+    "invoices": [
+      {
+        "invoiceDate": "<invoiceDate>",
+        "purchaseMode": "<purchaseMode>",
+        "subtotal": 598.23,
+        "tax": 752.26,
+        "discount": 72.19,
+        "total": 7124.50,
+        "retailer": {
+          "name": "<retailerName>",
+          "location": "<retailerLocation>",
+          "address": {
+            "addressLine1": "<addressLine1>",
+            "addressLine2": "<addressLine2>",
+            "city": "<city>",
+            "state": "<state>",
+            "postalCode": "<postalCode>",
+            "countryCode": "<countryCode>"
+          },
+          "phone": "<phone>"
+        },
+        "invoiceItems": [
+          {
+            "invoiceItemType": "<invoiceItemType>",
+            "name": "<invoiceItemName>",
+            "option": "<invoiceOption>",
+            "sku": "<invoiceSKU>",
+            "quantity": 7,
+            "unitPrice": 886.36,
+            "unitDiscount": 5.94,
+            "vendor": {
+              "brand": "<vendorBrand>",
+              "category": "<category>",
+              "productName": "<productName>",
+              "upc": "<upc>"
+            },
+            "flavor": "<flavor>",
+            "volume": "<volume>",
+            "size": "<size>",
+            "categories": [
+              "<invoiceCategory>"
+            ],
+            "nonZeroQuantity": 7,
+            "totalPrice": 6204.52
+          }
+        ]
+      }
+      ],
+    "createdOn": "<createdOn>"
+  },
+  "ruleKeys": [
+    "<ruleKey>"
+  ]
+}

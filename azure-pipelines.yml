@@ -1,0 +1,98 @@
+# Maven
+# Build your Java project and run tests with Apache Maven.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/java
+
+variables:
+  isMain: $[eq(variables['Build.SourceBranchName'], 'main')]
+
+parameters:
+- name: dryrun
+  displayName: 'Compile Run'
+  type: boolean
+  default: true
+- name: tags
+  displayName: 'Category'
+  type: string
+  default: '@address'
+- name: environment
+  displayName: 'Environment'
+  default: QA
+  values:
+  - CI
+  - QA
+  - STG
+  - Preprod
+  
+
+trigger:
+- main
+
+jobs:
+- job: DryRunTests
+  pool:
+    vmImage: ubuntu-latest
+  steps:
+  - task: Maven@3
+    inputs:
+      mavenPomFile: 'pom.xml'
+      mavenOptions: '-Xmx3072m'
+      javaHomeOption: 'JDKVersion'
+      jdkVersionOption: '1.8'
+      jdkArchitectureOption: 'x64'
+      goals: 'compile'
+
+  - ${{ if eq(parameters.dryrun, false) }}:
+    - script: 'mvn test -Dcucumber.options="--tags ${{parameters.tags}} --no-dry-run"'
+      displayName: 'Scripts Run'
+      env:
+        JAVA_ENV: ${{ parameters.environment }}
+
+  - ${{ if eq(parameters.dryrun, true) }}:
+    - script: 'mvn test -Dcucumber.options="--tags ${{parameters.tags}} --dry-run"'
+      displayName: 'Dry Run'
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathToPublish: 'Report'
+      artifactName: report    
+    condition: succeededOrFailed()  
+
+  - task: PublishTestResults@2
+    inputs:
+      testResultsFormat: 'JUnit'
+      testResultsFiles: 'out/cucumber.xml'
+      publishRunAttachments: true 
+    condition: succeededOrFailed()  
+
+
+- job: BuildDocker
+  pool:
+    vmImage: ubuntu-latest
+  steps:
+  - task: DockerCompose@0
+    inputs:
+      containerregistrytype: 'Azure Container Registry'
+      azureSubscription: 'Azure Deployments - Prizelogic-DevTest'
+      azureContainerRegistry: '{"loginServer":"plcrnonprod.azurecr.io", "id" : "/subscriptions/06483396-a29f-45ca-a84c-21c540d01bb3/resourceGroups/pl-registry/providers/Microsoft.ContainerRegistry/registries/plcrnonprod"}'
+      dockerComposeFile: '**/docker-compose.yml'
+      action: 'Build services'
+      includeLatestTag: true
+  - task: DockerCompose@0
+    inputs:
+      containerregistrytype: 'Azure Container Registry'
+      azureSubscription: 'Azure Deployments - Prizelogic-DevTest'
+      azureContainerRegistry: '{"loginServer":"plcrnonprod.azurecr.io", "id" : "/subscriptions/06483396-a29f-45ca-a84c-21c540d01bb3/resourceGroups/pl-registry/providers/Microsoft.ContainerRegistry/registries/plcrnonprod"}'
+      dockerComposeFile: '**/docker-compose.yml'
+      action: 'Push services'
+      includeLatestTag: true
+    condition: succeededOrFailed()  
+
+- job: PublishIntegrationYaml
+  pool:
+    vmImage: ubuntu-latest
+  steps:
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathToPublish: $(System.DefaultWorkingDirectory)/shared
+      artifactName: IntegrationYaml

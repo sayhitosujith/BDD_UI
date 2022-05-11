@@ -1,0 +1,125 @@
+{
+  "payload": {
+    "typedEvaluationData": {
+      "keyf7e30d05-b0f9-4430-a0c6-2fd60b16d0ae": {
+        "values": [
+          "bab254a8-0cf9-4854-8b52-ba6d7e1e42af",
+          "04598cf6-12d9-4551-859e-ab37f3c9fb9c",
+          "6df4e1c7-1d19-41f3-81ac-985df555aca1"
+        ],
+        "uploadedToWarehouse": true,
+        "dataType": "Other"
+      },
+      "keyf2bbe414-33df-4d41-8b31-ac42d166f17a": {
+        "values": [
+          "ea31597b-5819-4227-b651-035e0f327510",
+          "9aea0c50-cf39-43d8-a922-7ca58f36aeb0",
+          "d4a9b5c4-ef71-4c2b-8e67-0caad2a8adab"
+        ],
+        "uploadedToWarehouse": false,
+        "dataType": "Default"
+      },
+      "key55ae4dac-d8ea-4c3f-84df-0c8016bd6154": {
+        "values": [
+          "501e9840-161e-4ffd-9ca1-7dd876fa25e5",
+          "c24b573f-6dec-475d-ae99-cafc295dae87",
+          "9cd6ce7e-0aa8-478d-8ad6-3c6bdef34ed3"
+        ],
+        "uploadedToWarehouse": true,
+        "dataType": "Skus"
+      }
+    },
+    "gender": "Male",
+    "isAgeVerified": false,
+    "ageBracket": "Over13",
+    "culture": "Cultured9e4f0cd-9169-43fb-be3a-bfb9827d88df",
+    "householdDemographicKey": "HouseholdDemographicKey4aa648ba-a363-4f64-a109-c9a0297a8473",
+    "addressDeliverabilityCode": "AddressDeliverabilityCodeed288c07-9c9c-4848-9b5f-492951ed2586",
+    "birthdate": "Birthdate244fc6bc-35ae-40ff-af72-3916c25439df",
+    "participantAttributes": [
+      {
+        "value": "Value82f9df30-12a4-46bf-bc4a-4c0dc63f098a",
+        "wardAttributeKey": "WardAttributeKey6760ce3b-0bb4-4f6b-880e-a306bc4f9446"
+      },
+      {
+        "value": "Valuef73be4c1-f3e5-4c99-8cdf-17f0a382afdc",
+        "wardAttributeKey": "WardAttributeKey998188c4-7a68-4834-a947-203682aa7f39"
+      },
+      {
+        "value": "Value2fc8ad21-5fa0-458d-9b4e-d06254e7ebe7",
+        "wardAttributeKey": "WardAttributeKey7678690f-7f1f-4e58-aa08-cbb409334045"
+      }
+    ],
+    "participantAttribute": {
+      "value": "Value82f9df30-12a4-46bf-bc4a-4c0dc63f098a",
+      "wardAttributeKey": "WardAttributeKey6760ce3b-0bb4-4f6b-880e-a306bc4f9446"
+    },
+    "participantAddresses": [
+      {
+        "address1": "Address11f0e9e63-ff24-48a9-b9c6-e310ebc752ba",
+        "address2": "Address2faa951a4-5067-4686-9f0d-dc0ead157062",
+        "city": "Cityd7bd2157-4276-44ed-a918-333bb3004187",
+        "state": "Statebf62ce0d-bba3-45f7-88eb-a03f5fcb4a1a",
+        "postalCode": "PostalCode4cccbb95-b516-4038-b9d0-ff20027c2b0c",
+        "countryCode": "CountryCode93e40ca0-86ed-4b81-8585-6c75a20b3293",
+        "addressType": "Work",
+        "isAddressCorrected": true,
+        "isValid": false,
+        "isDpv": true,
+        "isPreferred": false,
+        "addedBy": "AddedByccb04036-4393-4c87-820c-d34f2a784102",
+        "createdOn": "2022-03-18T02:46:58.1915097+00:00",
+        "updatedOn": "2023-11-07T23:55:53.1434475+00:00"
+      },
+      {
+        "address1": "Address187725ad6-d1c0-47d6-91c4-bcd82a0715cb",
+        "address2": "Address2da107bb3-6e03-403c-bfe8-2a2df2ea8e5d",
+        "city": "Cityf4e37752-b7b8-4393-bb02-28e1f45d69d0",
+        "state": "State082d5653-c2cd-4448-a3ae-10d9858c3997",
+        "postalCode": "PostalCode76f89087-21b3-48b3-ab6a-b745dc5483f2",
+        "countryCode": "CountryCodef2e3bd45-7b1a-47c0-8167-d16ac247d690",
+        "addressType": "Default",
+        "isAddressCorrected": true,
+        "isValid": false,
+        "isDpv": true,
+        "isPreferred": false,
+        "addedBy": "AddedBy1f2b6b64-5c74-4537-9cb7-b156cccb909e",
+        "createdOn": "2020-06-08T20:02:44.666778+00:00",
+        "updatedOn": "2020-07-07T09:12:49.9122684+00:00"
+      },
+      {
+        "address1": "Address12e429537-4b60-49df-99a0-6bcf904b94b7",
+        "address2": "Address23058ca2c-3e9d-4ebe-a358-19559f585384",
+        "city": "City23d1acba-d249-4020-926a-e70f09db3c0c",
+        "state": "State5352bf3d-32e7-48a4-bedc-8d3572bc4a23",
+        "postalCode": "PostalCode6bc1906d-f7cb-4054-b6f7-fa546286e26f",
+        "countryCode": "CountryCodeb8e8df08-1866-43fe-8f5b-3453c67edc44",
+        "addressType": "Unspecified",
+        "isAddressCorrected": true,
+        "isValid": false,
+        "isDpv": true,
+        "isPreferred": false,
+        "addedBy": "AddedBy0cf9ba99-5f57-4f06-9891-b184c13738e0",
+        "createdOn": "2020-10-12T18:47:07.0619209+00:00",
+        "updatedOn": "2022-11-23T23:52:38.4062898+00:00"
+      }
+    ],
+    "participantAddress": {
+      "address1": "Address11f0e9e63-ff24-48a9-b9c6-e310ebc752ba",
+      "address2": "Address2faa951a4-5067-4686-9f0d-dc0ead157062",
+      "city": "Cityd7bd2157-4276-44ed-a918-333bb3004187",
+      "state": "Statebf62ce0d-bba3-45f7-88eb-a03f5fcb4a1a",
+      "postalCode": "PostalCode4cccbb95-b516-4038-b9d0-ff20027c2b0c",
+      "countryCode": "CountryCode93e40ca0-86ed-4b81-8585-6c75a20b3293",
+      "addressType": "Work",
+      "isAddressCorrected": true,
+      "isValid": false,
+      "isDpv": true,
+      "isPreferred": false,
+      "addedBy": "AddedByccb04036-4393-4c87-820c-d34f2a784102",
+      "createdOn": "2022-03-18T02:46:58.1915097+00:00",
+      "updatedOn": "2023-11-07T23:55:53.1434475+00:00"
+    }
+  },
+  "ruleKey": "<ruleKey>"
+}

@@ -1,0 +1,10 @@
+{
+  "values": {
+    "customCodeUrl": "https://ci-engage-itg-customcode.azurewebsites.net/api"
+  },
+  "subscribedEvents": [
+    "<subscribedEvents>",
+    "update.participant",
+    "create.contactus"
+  ]
+}

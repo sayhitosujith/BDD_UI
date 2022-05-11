@@ -1,0 +1,11 @@
+{
+  "name": "<name>",
+  "engagementKey": "<engagementKey>",
+  "OfferingKeys": [
+    "<OfferingKey>"
+  ],
+  "allowedActionKeys" : [
+    "<actionKey>"
+  ],
+  "maxEntryMultiplier": 10
+}

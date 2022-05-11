@@ -1,0 +1,12 @@
+{
+  "engagementKey": "<engagementKey>",
+  "typedEvaluationData": {
+    "<evaluationDataKey>": {
+      "values": [
+        "<evaluationDataValue>"
+      ],
+      "uploadedToWarehouse": true,
+      "dataType": "<dataType>"
+    }
+  }
+}

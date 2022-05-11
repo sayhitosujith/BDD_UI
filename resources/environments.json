@@ -1,0 +1,32 @@
+{
+  "DOCKER": {
+    "servicesParticipantTokenApi": "http://token_api:80",
+    "servicesActionActionApi": "http://action_api:80",
+    "servicesCognitiveCognitiveApi": "http://cognitive_api:80",
+    "ServicesEngageEngageApi": "http://engage-api:80",
+    "ValidateAddressFunctionBaseUrl": "http://address_api:80/api",
+    "servicesEngageClientCredentialsClientId": "5d65b5d6bab69c44f8fb2a90",
+    "servicesEngageClientCredentialsSecret": "5Kunk_#3Rkz!"
+  },
+  "LOCAL": {
+    "servicesParticipantTokenApi": "https://localhost:44303",
+    "servicesActionActionApi": "https://localhost:44317",
+    "servicesCognitiveCognitiveApi": "https://localhost:44397",
+    "ValidateAddressFunctionBaseUrl": "https://localhost:44323/api",
+    "ServicesEngageEngageApi": "https://localhost:44310",
+    "servicesEngageClientCredentialsClientId": "5d65b5d6bab69c44f8fb2a90",
+    "servicesEngageClientCredentialsSecret": "5Kunk_#3Rkz!"
+  },
+  "CI": {
+    "demowebshop": "http://demowebshop.tricentis.com/login"
+
+  },
+  "QA": {
+      "RC13": "http://dft11-t13-ags01.lab.nordigy.ru:8081/ag/generate"
+
+  },
+  "STG": {
+    "demowebshop": "http://demowebshop.tricentis.com/login"
+
+  }
+}

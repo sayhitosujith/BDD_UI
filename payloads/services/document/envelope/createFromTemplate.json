@@ -1,0 +1,14 @@
+{
+  "template": {
+    "templateId": "<templateId>",
+    "filename": "<filename>"
+  },
+  "signer": {
+    "name": "<name>",
+    "emailAddress": "<emailAddress>",
+    "participantKey": "<participantKey>",
+    "engagementKey": "<engagementKey>",
+    "roleName": null,
+    "createForEmbeddedRequest": true
+  }
+}

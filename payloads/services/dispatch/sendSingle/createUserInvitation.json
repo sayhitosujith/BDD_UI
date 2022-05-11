@@ -1,0 +1,15 @@
+{
+  "toRecipient": {
+    "emailAddress": "<emailAddress>",
+    "culture": "<culture>",
+    "tokens": {
+      "firstName": "<firstName>",
+      "lastName": "<lastName>",
+      "userName": "<userName>",
+      "engageUri": "<engageUri>",
+      "password": "<password>"
+    }
+  },
+  "templateKey": "<templateKey>",
+  "fromAddress": "<fromAddress>"
+}

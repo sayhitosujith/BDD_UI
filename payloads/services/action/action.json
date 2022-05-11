@@ -1,0 +1,10 @@
+{
+  "name": "<name>",
+  "description": "<description>",
+  "engagementKey": "<engagementKey>",
+  "wardkey": "<wardkey>",
+  "tags": [
+    "<1tag>",
+    "<2tag>"
+    ]
+}

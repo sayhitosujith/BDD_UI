@@ -1,0 +1,12 @@
+{
+  "ruleJson": "<ruleJson>",
+  "typedEvaluationData": {
+    "<typedEvaluationDataKey>": {
+      "values": [
+        "<typedEvaluationDataValue>"
+      ],
+      "uploadedToWarehouse": true,
+      "dataType": "<dataType>"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "wardKey": "<wardKey>",
+  "engagementKey": "<engagementKey>",
+  "name": "<name>",
+  "description": "<description>",
+  "Notes": "<notes>",
+  "InternalSku": "<internalSku>",
+  "Vendor": "<vendor>",
+  "ArvDescription": "<arvDescription>",
+  "MaxArv": 62.5,
+  "IsArvCalculated": false,
+  "IsCombinable": false,
+  "SplitArv": 135.0,
+  "IsActive": true,
+  "DeliveryType": "<deliveryType>",
+  "IsOnDemand": true,
+  "OfferingType": "<offeringType>",
+  "IsCustomerCare": false,
+  "CreatedOn":"2021-09-14T13:16:39+00:00",
+  "UpdatedOn":"2021-09-14T13:16:39+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "engagementKey": "<engagementKey>",
+  "wardKey": "<wardKey>",
+  "participantAttributes": [
+    {
+      "value": "<value>",
+      "wardAttributeKey": "<wardAttributeKey>"
+    }
+
+  ]
+}

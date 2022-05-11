@@ -1,0 +1,16 @@
+{
+  "wardKey": "<wardKey>",
+  "name": "<name>",
+  "description": "<description>",
+  "licenseType": "<licenseType>",
+  "licenseTier": "<licenseTier>",
+  "isCdpWardSpecific": "<isCdpWardSpecific>",
+  "isPiiShareable":"<isPiiShareable>" ,
+  "isPiiMatchingAllowed": "<isPiiMatchingAllowed>",
+  "isAnonymousMatchingAllowed": "<isAnonymousMatchingAllowed>",
+  "isAnalyticsEnabled": "<isAnalyticsEnabled>",
+  "isAdminEnabled": "<isAdminEnabled>",
+  "isCcpaEnabled": "<isCcpaEnabled>",
+  "isDemoGalleryEnabled": "<isDemoGalleryEnabled>",
+  "isCustomerCareEnabled": "<isCustomerCareEnabled>"
+}

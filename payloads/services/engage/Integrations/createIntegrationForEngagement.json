@@ -1,0 +1,10 @@
+{
+  "wardIntegrationKey": "<integrationKey>",
+  "values": {
+  },
+  "subscribedEvents": [
+    "create.participant",
+    "update.participant",
+    "create.contactus"
+  ]
+}

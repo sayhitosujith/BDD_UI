@@ -1,0 +1,24 @@
+{
+  "responseAnswers": [
+    {
+      "questionKey": "<questionKey_01>",
+      "answerKeys": [
+        "<answerKey_01>"
+      ],
+      "answerText":[
+        "<answerText_01>"
+      ]
+    },
+    {
+      "questionKey": "<questionKey_02>",
+      "answerKeys": [
+        "<answerKey_02>"
+      ],
+      "answerText":[
+        "<answerText_02>"
+      ]
+    }
+
+  ],
+  "participantKey" : "<participantKey>"
+}

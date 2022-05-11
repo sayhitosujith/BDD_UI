@@ -1,0 +1,95 @@
+{
+  "engagementKey": "<engagementKey>",
+  "name": "<name>",
+  "description": "<description>",
+  "wardkey": "<wardkey>",
+  "isRepeating": "<isRepeating>",
+  "defaultCulture": "<defaultCulture>",
+  "responseExpiration": "<responseExpiration>",
+  "questions": [
+    {
+      "sortOrder": "<questions_sortOrder>",
+      "supportsMultipleAnswers": "<questions_supportsMultipleAnswers>",
+      "prompts": [
+        {
+          "text": "<questions_text>",
+          "culture": "<questions_culture>"
+        }
+      ],
+      "answers": [
+        {
+          "sortOrder":  "<answers_sortOrder>",
+          "isCorrect": "<answers_isCorrect>",
+          "prompts": [
+            {
+              "text": "<answers_text>",
+              "culture": "<answers_culture>"
+            }
+          ]
+        },
+        {
+          "sortOrder": "<answers_sortOrder1>",
+          "isCorrect": "<answers_isCorrect1>",
+          "prompts": [
+            {
+              "text": "<answers_text1>",
+              "culture": "<answers_culture1>"
+            }
+          ]
+        },
+        {
+          "sortOrder": "<answers_sortOrder2>",
+          "isCorrect":  "<answers_isCorrect2>",
+          "prompts": [
+            {
+              "text": "<answers_text2>",
+              "culture": "<answers_culture2>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sortOrder": "<questions2_sortOrder>",
+      "supportsMultipleAnswers": "<questions2_supportsMultipleAnswers>",
+      "prompts": [
+        {
+          "text": "<questions2_text>",
+          "culture": "<questions2_culture>"
+        }
+      ],
+      "answers": [
+        {
+          "sortOrder":  "<answers2_sortOrder>",
+          "isCorrect": "<answers2_isCorrect>",
+          "prompts": [
+            {
+              "text": "<answers2_text>",
+              "culture": "<answers2_culture>"
+            }
+          ]
+        },
+        {
+          "sortOrder": "<answers2_sortOrder1>",
+          "isCorrect": "<answers2_isCorrect1>",
+          "prompts": [
+            {
+              "text": "<answers2_text1>",
+              "culture": "<answers2_culture1>"
+            }
+          ]
+        },
+        {
+          "sortOrder": "<answers2_sortOrder2>",
+          "isCorrect":  "<answers2_isCorrect2>",
+          "prompts": [
+            {
+              "text": "<answers2_text2>",
+              "culture": "<answers2_culture2>"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+  integrationtests:
+    image:  plcrnonprod.azurecr.io/api-automation:latest
+    command: ${TAGS}
+    environment:
+      JAVA_ENV: DOCKER # Constant to indicate we use local docker testing configs
+      WAIT_HOSTS: ${WAIT_HOSTS}
+      WAIT_HOSTS_TIMEOUT: ${WAIT_HOSTS_TIMEOUT:-120}
+    volumes:
+      - ${USERPROFILE}/out:/out

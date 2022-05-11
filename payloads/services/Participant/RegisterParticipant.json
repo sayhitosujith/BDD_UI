@@ -1,0 +1,41 @@
+{
+  "userName" : "<userName>",
+  "password" : "<password>",
+  "namePrefix": "<namePrefix>",
+  "firstName" : "<firstName>",
+  "middleName": "<middleName>",
+  "lastName" : "<lastName>",
+  "nameSuffix": "<nameSuffix>",
+  "birthdate": "<birthdate>",
+  "culture": "<culture>",
+  "emailAddress" : "<emailAddress>",
+  "emailType" : "<emailType>",
+  "engagementKey" : "<engagementKey>",
+  "engagementPassword": "<engagementPassword>",
+  "isAgeVerified" : true,
+  "ageBracket": "<ageBracket>",
+  "participantAttributes": [
+    {
+      "engagementKey" : "<engagementKey>",
+      "value": "<value>",
+      "wardAttributeKey": "<wardAttributeKey>"
+    }],
+  "participantAddresses": [
+    {
+      "address1": "<address1>",
+      "address2": "<address2>",
+      "city": "<city>",
+      "state": "<state>",
+      "postalCode": "<postalCode>",
+      "countryCode": "<countryCode>",
+      "addressType": "<addressType>"
+    }
+  ],
+  "phoneNumbers": [
+    {
+      "countryCode": "<phonecountryCode>",
+      "phoneNumber": "<phoneNumber>",
+      "phoneType": "<phoneType>"
+    }
+  ]
+}

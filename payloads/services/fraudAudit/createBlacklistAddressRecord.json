@@ -1,0 +1,15 @@
+{
+  "wardKey": "<wardKey>",
+  "engagementKey": "<engagementKey>",
+  "address": {
+    "address1": "<addressLine1>",
+    "address2": "<addressLine2>",
+    "city": "<city>",
+    "state": "<state>",
+    "postalCode": "<postalCode>",
+    "countryCode": "<countryCode>"
+  },
+  "fraudScore": 109,
+  "reason": "<reason>",
+  "createdBy": "<createdBy>"
+}

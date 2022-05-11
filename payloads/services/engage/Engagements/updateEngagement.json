@@ -1,0 +1,9 @@
+{
+  "name": "<name>",
+  "StartsOn": "<starts-on>",
+  "endsOn": "<ends-on>",
+  "prePromoStartsOn": "<starts-on>",
+  "postPromoEndsOn": "<ends-on>",
+  "baseUrl": "<baseUrl>",
+  "features": ["<features>"]
+}

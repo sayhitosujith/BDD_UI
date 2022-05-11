@@ -1,0 +1,10 @@
+{
+  "name": "<actionFlowName>",
+  "steps": [
+    {
+      "service": "<service>",
+      "operation": "<operation>",
+      "isSatisfying": true
+    }
+  ]
+}

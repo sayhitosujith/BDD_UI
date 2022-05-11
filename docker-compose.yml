@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  integrationtests:
+    image:  plcrnonprod.azurecr.io/api-automation
+    build: 
+        context: ./
+    command: ${TAGS:-@address}
+    environment:
+      #JAVA_ENV: DOCKER # Use to toggle the environment
+      #WAIT_HOSTS: cognitive_api:80,token_api:80 - Let the consuming process dictate these
+      WAIT_HOSTS_TIMEOUT: 120
+    volumes:
+      - ${USERPROFILE}/out:/out

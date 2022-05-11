@@ -1,0 +1,10 @@
+{
+  "integrationKey": "<integrationKey>",
+  "name": "<integrationName>",
+  "values": {
+    "customCodeUrl": "<customCodeUrl>"
+  },
+  "subscribedEvents": [
+    "<subscribedEvents>"
+    ]
+}
