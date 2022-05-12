@@ -118,7 +118,7 @@ jobs:
       pathToPublish: $(System.DefaultWorkingDirectory)/shared
       artifactName: IntegrationYaml
 
-        distribution: 'temurin'
+        
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
