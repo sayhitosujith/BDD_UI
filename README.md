@@ -1,2 +1,2 @@
-# API Automation
-This is an API Automation Framework to automate PrizeLogic Services
+# UI Automation
+This is an BDD UI Automation Framework to automate RingCentral Services
