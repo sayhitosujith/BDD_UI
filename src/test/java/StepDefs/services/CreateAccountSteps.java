@@ -29,38 +29,39 @@ public class CreateAccountSteps<IJavaScriptExecutor>
         System.out.println("This Step open the Chrome and launch the application.");
         Thread.sleep(10000);
     }
-    @When("I enter Valid details and generate account")
+    @When("I enter Valid details and Update account")
     public void iEnterValidDetailsAndGenerateAccount()throws InterruptedException {
-        driver.findElement(By.xpath("//input[@type='text']")).sendKeys("aqa.api.signup(brand=7710,tierid=7751)");
-        System.out.println("Enter the Text to Generate account");
+        driver.findElement(By.xpath("//input[@id='usernameField']")).sendKeys("sayhitosujith@gmail.com");
+        System.out.println("Enter the User Name");
 
-        //Click on Start
-        driver.findElement(By.xpath("//button[@class='btn btn-primary']")).click();
-        System.out.println("Click on Start");
-        //Validations.assertEquals(200, RestResponse.getStatusCode(),"Status Code to verify email sent successfully");
+
+        driver.findElement(By.xpath("//input[@id='passwordField']")).sendKeys("Qw@12345678");
+        System.out.println("Enter the Password");
+
+        driver.findElement(By.xpath("//button[@class='waves-effect waves-light btn-large btn-block btn-bold blue-btn textTransform']")).click();
+        System.out.println("Click on login button");
         Thread.sleep(20000);
 
-        //click on Results
-        driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[4]/p[3]/a[1]")).click();
-        System.out.println("click on Results");
-        System.out.println("Title - "+ driver.getTitle());
-        Thread.sleep(1000);
 
-        //Click on the main Number
-        driver.findElement(By.xpath("/html/body/div[1]/div[3]/table/tbody/tr/td[3]/a/img")).click();
-        System.out.println("Click on the main Number");
-//        WebDriverWait wait = new WebDriverWait(driver, 10);
-//        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.id("someid")));
-        Thread.sleep(30000);
+        driver.findElement(By.xpath("//div[@class='view-profile-wrapper']")).click();
+        System.out.println("Click on view profile");
+        Thread.sleep(20000);
+
+       driver.findElement(By.xpath("//input[@value='Update resume']")).sendKeys("//Users//sujith.s//Documents//RingCentral//Codes//BDD_UI//resources//files//Resume.pdf");
+        //driver.findElement(By.xpath("//input[@value='Update resume']")).click();
+
+        System.out.println("upload resume");
+        Thread.sleep(20000);
     }
 
 
 
 
-    @And("should see account created successfully")
+    @Then("should Logout Profile successfully")
     public void shouldSeeAccountCreatedSuccessfully() {
-        Validations.assertEquals("AGS2 devf13ams0101/dft11-t13-ags01.lab.nordigy.ru", driver.getTitle(),"Status code validation for Verify page title");
-        //Validations.assertEquals("http://dft11-t13-ags01.lab.nordigy.ru:8081/ag/results?jobId=16077747", driver.getCurrentUrl(),"Status code validation for Verify page URL");
+        driver.findElement(By.xpath("//div[@class='view-profile-wrapper']")).click();
+       // Validations.assertEquals("AGS2 devf13ams0101/dft11-t13-ags01.lab.nordigy.ru", driver.getTitle(),"Status code validation for Verify page title");
+        Validations.assertEquals("https://www.naukri.com/mnjuser/homepage", driver.getCurrentUrl(),"Status code validation for Verify page URL");
 
 
 
