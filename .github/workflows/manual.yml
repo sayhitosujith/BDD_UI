@@ -2,7 +2,7 @@ name: Run Selenium BDD Tests
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Runs every day at midnight
+    - cron: 'H/15 * * * * / */15 * * * *'  # Runs every day at midnight
   push:
     branches:
       - main  # Optionally, run on every push to main branch
