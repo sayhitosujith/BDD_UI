@@ -48,24 +48,14 @@ public class CreateAccountSteps<IJavaScriptExecutor>
         Thread.sleep(2000);
 
        driver.findElement(By.xpath("//input[@value='Update resume']")).sendKeys("//..//resources//files//Resume.pdf");
-        //driver.findElement(By.xpath("//input[@value='Update resume']")).click();
         Thread.sleep(2000);
         System.out.println("upload resume");
     }
 
-
-
-
     @Then("should Logout Profile successfully")
     public void shouldSeeAccountCreatedSuccessfully() {
-        //driver.findElement(By.xpath("//div[@class='view-profile-wrapper']")).click();
-       // Validations.assertEquals("AGS2 devf13ams0101/dft11-t13-ags01.lab.nordigy.ru", driver.getTitle(),"Status code validation for Verify page title");
-        //Validations.assertEquals("https://www.naukri.com/mnjuser/homepage", driver.getCurrentUrl(),"Status code validation for Verify page URL");
-       driver.quit();
-
-
+        driver.quit();
     }
-
 
     @And("I should Add User")
     public <select> void iShouldAddUser() throws InterruptedException {
