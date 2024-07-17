@@ -8,6 +8,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import util.StepUtil;
 
@@ -43,13 +44,19 @@ public class CreateAccountSteps<IJavaScriptExecutor>
         System.out.println("Click on login button");
         Thread.sleep(2000);
 
-        driver.findElement(By.xpath("//a[normalize-space()='View profile']")).click();
+        driver.findElement(By.xpath("//div[@class='view-profile-wrapper']")).click();
         System.out.println("Click on view profile");
         Thread.sleep(2000);
 
-       driver.findElement(By.xpath("//input[@value='Update resume']")).sendKeys("//..//resources//files//Resume.pdf");
-        Thread.sleep(2000);
+        WebElement upload_file = driver.findElement(By.xpath("//input[@value='Update resume']"));
+        upload_file.click();
+        upload_file.sendKeys("resources//files//Resume.pdf");
         System.out.println("upload resume");
+        Thread.sleep(2000);
+
+        //get updated date
+        WebElement updateddate = driver.findElement(By.xpath("//div[@class='updateOn typ-14Regular']"));
+        System.out.println(updateddate.getText());
     }
 
     @Then("should Logout Profile successfully")
