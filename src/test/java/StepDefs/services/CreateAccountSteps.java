@@ -45,15 +45,6 @@ public class CreateAccountSteps<IJavaScriptExecutor>
         driver.findElement(By.xpath("//a[normalize-space()='View profile']")).click();
         Thread.sleep(2000);
         System.out.println("Click on view profile");
-
-        WebElement upload_file = driver.findElement(By.xpath("//input[@value='Update resume']"));
-        upload_file.click();
-        upload_file.sendKeys("//Users//sujith.s//Downloads//Resume.pdf");
-        System.out.println("upload resume");
-
-        //get updated date
-        WebElement updateddate = driver.findElement(By.xpath("//div[@class='updateOn typ-14Regular']"));
-        System.out.println(updateddate.getText());
     }
 
     @Then("should Logout Profile successfully")
@@ -113,5 +104,28 @@ public class CreateAccountSteps<IJavaScriptExecutor>
         driver.findElement(By.xpath("//button[@title='County']")).click();
         driver.findElement(By.xpath("//*[@id=\"filterInput22\"]")).sendKeys("Avon");
         Thread.sleep(10000);
+    }
+
+    @And("I Update my Resume")
+    public void iUpdateMyResume() throws InterruptedException {
+        WebElement upload_file = driver.findElement(By.xpath("//input[@value='Update resume']"));
+        upload_file.click();
+        upload_file.sendKeys("//Users//sujith.s//Downloads//Resume.pdf");
+        System.out.println("upload resume");
+
+        //get updated date
+        WebElement updateddate = driver.findElement(By.xpath("//div[@class='updateOn typ-14Regular']"));
+        System.out.println(updateddate.getText());
+    }
+
+    @And("I Update Resume headline")
+    public void iUpdateResumeHeadline() throws InterruptedException {
+        driver.findElement(By.xpath("//div[@class='card mt15']//div//span[@class='edit icon'][normalize-space()='editOneTheme']")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//textarea[@id='resumeHeadlineTxt']")).clear();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//textarea[@id='resumeHeadlineTxt']")).sendKeys("SDET 2 Professional with Experience of 6 years. serving notice period of 1 month");
+        driver.findElement(By.xpath("//button[normalize-space()='Save']")).click();
+        System.out.println("I Update Resume headline");
     }
 }
