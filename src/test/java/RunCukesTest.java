@@ -18,7 +18,7 @@ public class RunCukesTest extends AbstractTestNGCucumberTests {
     public void preset(){
         ExtentSparkReporter extentSparkReporter = new ExtentSparkReporter("Report/report.html");
         extentSparkReporter.config().setCss(".info-bg {\n" +
-                " background-color: #ffffff; \n" +
+                " background-color: #e5e5e5; \n" +
                 " }");
         ExtentService.getInstance().attachReporter(extentSparkReporter);
         ExtentService.getInstance().setSystemInfo("OS : ", System.getProperty("os.name"));
