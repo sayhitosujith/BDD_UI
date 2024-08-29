@@ -1,0 +1,18 @@
+name: Daily Job
+
+on:
+  schedule:
+    - cron: '30 12 * * *'  # Runs at midnight UTC daily
+
+jobs:
+  run-daily:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run a script
+        run: |
+          echo "Running daily job"
+          # Add your script or command here
