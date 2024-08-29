@@ -22,7 +22,7 @@ public class CreateAccountSteps<IJavaScriptExecutor>
 
     @Given("I enter the Valid URL of Application by Launching Chrome Browser")
     public void IentertheValidURLofApplicationbyLaunchingChromeBrowser(io.cucumber.datatable.DataTable dataTable) throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver", ".//drivers//chromedriver");
+        System.setProperty("webdriver.chrome.driver", ".//drivers//chromedriver.exe");
         driver= new ChromeDriver();
         driver.manage().window().maximize();
         Map<String,String> dataMap = StepUtil.toMap(dataTable);
@@ -40,9 +40,9 @@ public class CreateAccountSteps<IJavaScriptExecutor>
 
         driver.findElement(By.xpath("//button[@class='waves-effect waves-light btn-large btn-block btn-bold blue-btn textTransform']")).click();
         System.out.println("Click on login button");
-        Thread.sleep(2000);
+        Thread.sleep(5000);
 
-        driver.findElement(By.xpath("//div[@class='view-profile-wrapper']")).click();
+        driver.findElement(By.xpath("//a[normalize-space()='View profile']")).click();
         Thread.sleep(2000);
         System.out.println("Click on view profile");
 
