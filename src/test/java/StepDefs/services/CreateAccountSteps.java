@@ -12,6 +12,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import util.StepUtil;
 
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.Map;
 
 
@@ -127,5 +132,28 @@ public class CreateAccountSteps<IJavaScriptExecutor>
         driver.findElement(By.xpath("//textarea[@id='resumeHeadlineTxt']")).sendKeys("SDET 2 Professional with Experience of 6 years. serving notice period of 1 month");
         driver.findElement(By.xpath("//button[normalize-space()='Save']")).click();
         System.out.println("I Update Resume headline");
+        //get updated date
+        WebElement updateddate = driver.findElement(By.xpath("//div[@class='updateOn typ-14Regular']"));
+        System.out.println(updateddate.getText());
     }
+
+    @And("I take screenshot")
+    public void AndiTakeScreenshot() {
+                try {
+                    // Create a Robot instance to capture the screen
+                    Robot robot = new Robot();
+                    // Get the screen size
+                    Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
+
+                    // Capture the screen
+                    BufferedImage screenFullImage = robot.createScreenCapture(screenRect);
+
+                    // Save the image to a file
+                    File file = new File("Screenshots//screenshot.png");
+                    ImageIO.write(screenFullImage, "png", file);
+                    System.out.println("Screenshot saved as screenshot.png");
+                } catch (AWTException | IOException ex) {
+                    System.err.println(ex);
+                }
+            }
 }

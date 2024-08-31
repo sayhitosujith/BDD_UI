@@ -9,7 +9,7 @@ import org.testng.annotations.BeforeClass;
         features = "src/test/java/features",
         glue = "StepDefs",
         dryRun = false,
-        tags = "@UpdateNaukri",
+        tags = "@VerifyUpdateResumeHeadlineTakeScreenshotAndUpdateAccount",
         monochrome = true)
 
 public class RunCukesTest extends AbstractTestNGCucumberTests {

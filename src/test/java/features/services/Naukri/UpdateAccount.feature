@@ -20,4 +20,15 @@ Feature: Verify Services.Naukri
     And I Update Resume headline
     Then should Logout Profile successfully
 
+         #....................Verify UpdateResume Headline Take screenshot And Update Account...........
+  @UpdateNaukri @VerifyUpdateResumeHeadlineTakeScreenshotAndUpdateAccount
+  Scenario:Verify UpdateResume Headline Take screenshot And Update Account
+    Given I enter the Valid URL of Application by Launching Chrome Browser
+      |url    |
+      |Naukri   |
+    When I enter Valid details and Update account
+    And I take screenshot
+    And I Update Resume headline
+    Then should Logout Profile successfully
+
 
