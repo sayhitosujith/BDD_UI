@@ -31,4 +31,24 @@ Feature: Verify Services.Naukri
     And I Update Resume headline
     Then should Logout Profile successfully
 
+             #....................Verify Employment Experience And Update Account...........
+  @UpdateNaukri @VerifyEmploymentExperienceAndUpdateAccount
+  Scenario:Verify Employment Experience And Update Account
+    Given I enter the Valid URL of Application by Launching Chrome Browser
+      |url    |
+      |Naukri   |
+    When I enter Valid details and Update account
+    And I Scroll Page Down and Update Total experience
+    Then should Logout Profile successfully
+
+       #....................Verify Applied jobs count...........
+  @UpdateNaukri @VerifyAppliedjobscount
+  Scenario:Verify Employment Experience And Update Account
+    Given I enter the Valid URL of Application by Launching Chrome Browser
+      |url    |
+      |Naukri   |
+    When I enter Valid details and Update account
+    And I want to Find the Number of Rows and Columns
+    Then should Logout Profile successfully
+
 

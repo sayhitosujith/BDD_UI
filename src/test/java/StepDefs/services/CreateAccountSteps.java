@@ -7,6 +7,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -17,6 +18,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 
@@ -53,7 +55,12 @@ public class CreateAccountSteps<IJavaScriptExecutor>
     }
 
     @Then("should Logout Profile successfully")
-    public void shouldSeeAccountCreatedSuccessfully() {
+    public void shouldSeeAccountCreatedSuccessfully() throws InterruptedException {
+        driver.findElement(By.xpath("//img[@alt='naukri user profile img']")).click();
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("//a[@title='Logout']")).click();
+        Thread.sleep(3000);
+        System.out.println("Logged Successfully..!!");
         driver.quit();
     }
 
@@ -129,7 +136,7 @@ public class CreateAccountSteps<IJavaScriptExecutor>
         Thread.sleep(2000);
         driver.findElement(By.xpath("//textarea[@id='resumeHeadlineTxt']")).clear();
         Thread.sleep(2000);
-        driver.findElement(By.xpath("//textarea[@id='resumeHeadlineTxt']")).sendKeys("SDET 2 Professional with Experience of 6 years. serving notice period of 1 month");
+        driver.findElement(By.xpath("//textarea[@id='resumeHeadlineTxt']")).sendKeys("SDET 2 Professional with Experience of 6 years. serving notice period of 1 month , can join immediately");
         driver.findElement(By.xpath("//button[normalize-space()='Save']")).click();
         System.out.println("I Update Resume headline");
         //get updated date
@@ -154,6 +161,70 @@ public class CreateAccountSteps<IJavaScriptExecutor>
                     System.out.println("Screenshot saved as screenshot.png");
                 } catch (AWTException | IOException ex) {
                     System.err.println(ex);
+                }
+            }
+
+    @And("I Scroll Page Down and Update Total experience")
+    public void iScrollPageDownAndUpdateTotalExperience() throws InterruptedException {
+        driver.findElement(By.xpath("//em[@class='icon edit']")).click();
+        Thread.sleep(2000);
+
+        // Scroll down the page
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+
+        // Wait for a while to observe the scrolling
+        try {
+            Thread.sleep(3000); // 3 seconds
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        driver.findElement(By.xpath("//input[@id='exp-years-droopeFor']")).clear();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//input[@id='exp-years-droopeFor']")).sendKeys("6 Years");
+        Thread.sleep(5000);
+        driver.findElement(By.xpath("//input[@id='exp-months-droopeFor']")).sendKeys("1 Month");
+        Thread.sleep(2000);
+        driver.findElement((By.xpath("//span[normalize-space()='Total experience']"))).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//button[@id='saveBasicDetailsBtn']")).click();
+        Thread.sleep(2000);
+        String exp = driver.findElement(By.xpath("//span[@name='Experience']")).getText();
+        System.out.println(exp);
+    }
+
+    @And("I want to Find the Number of Rows and Columns")
+    public void iWantToFindTheNumberOfRowsAndColumns() {
+
+                try {
+                    Thread.sleep(5000);
+                    // Scroll down the page
+                    // Locate the element you want to scroll to
+                    WebElement elementToScrollTo = driver.findElement(By.xpath("//ul[@class='mb0']"));  // Replace with the appropriate locator
+
+                    // Use JavascriptExecutor to scroll to the element
+                    JavascriptExecutor js = (JavascriptExecutor) driver;
+                    js.executeScript("arguments[0].scrollIntoView(true);", elementToScrollTo);
+
+                    // Locate the web table using a suitable locator
+                    WebElement table = driver.findElement(By.xpath("//ul[@class='mb0']"));  // Replace "tableId" with the actual ID of the table
+
+                    // Find all rows in the table
+                    java.util.List<WebElement> rows = table.findElements(By.tagName("tr"));
+                    int rowCount = rows.size();
+                    System.out.println("Number of rows in the table: " + rowCount);
+
+                    // Find all columns in the first row (header or a data row)
+                    List<WebElement> columns = rows.get(0).findElements(By.tagName("th"));  // For header row
+                    if (columns.isEmpty()) {
+                        columns = rows.get(0).findElements(By.tagName("td"));  // For data row if no header row is present
+                    }
+                    int columnCount = columns.size();
+                    System.out.println("Number of columns in the table: " + columnCount);
+
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } finally {
                 }
             }
 }
