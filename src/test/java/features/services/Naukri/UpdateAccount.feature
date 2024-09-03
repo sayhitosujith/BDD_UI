@@ -27,7 +27,6 @@ Feature: Verify Services.Naukri
       |url    |
       |Naukri   |
     When I enter Valid details and Update account
-    And I take screenshot
     And I Update Resume headline
     Then should Logout Profile successfully
 
