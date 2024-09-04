@@ -51,7 +51,7 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
         Thread.sleep(5000);
 
         driver.findElement(By.xpath("//a[normalize-space()='View profile']")).click();
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         System.out.println("Click on view profile");
     }
 
