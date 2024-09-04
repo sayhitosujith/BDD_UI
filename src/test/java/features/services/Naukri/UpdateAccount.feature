@@ -1,4 +1,4 @@
-Feature: Verify Services.Naukri
+Feature: Verify Naukri Application
 
     #....................Verify Upload Resume And Update Account...........
   @UpdateNaukri @VerifyUploadResumeAndUpdateAccount
@@ -42,7 +42,7 @@ Feature: Verify Services.Naukri
 
        #....................Verify Applied jobs count...........
   @UpdateNaukri @VerifyAppliedjobscount
-  Scenario:Verify Employment Experience And Update Account
+  Scenario:Verify Applied jobs count
     Given I enter the Valid URL of Application by Launching Chrome Browser
       |url    |
       |Naukri   |

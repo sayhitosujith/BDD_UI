@@ -1,34 +1,24 @@
 package StepDefs;
 
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter;
-import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
-import com.aventstack.extentreports.model.Log;
-import com.aventstack.extentreports.model.Test;
-import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-import com.aventstack.extentreports.reporter.configuration.ExtentSparkReporterConfig;
-import com.aventstack.extentreports.service.ExtentService;
 import configManager.DataLoad;
 import io.cucumber.core.api.Scenario;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import util.GenericUtil;
 import util.ScreenshotUtil;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
 public class Hooks extends ScreenshotUtil {
-    private static WebDriver driver;
+    private WebDriver driver;
 
     @Before
     public void beforeScenario() throws Exception{
@@ -101,7 +91,7 @@ public class Hooks extends ScreenshotUtil {
     }
 
     @After
-    public static void writeExtentReport(Scenario scenario) {
+    public void writeExtentReport(Scenario scenario) {
 
         DataLoad dataLoad = DataLoad.getInstance();
         GenericUtil genericUtil = new GenericUtil();
@@ -115,11 +105,8 @@ public class Hooks extends ScreenshotUtil {
         ExtentCucumberAdapter.getCurrentStep().info(MarkupHelper.createTable(validations));
         ExtentCucumberAdapter.getCurrentStep().getModel().updateResult();
         dataLoad.resetDataList();
-        {
             if (scenario.isFailed()) {
                 // Take screenshot if scenario fails
-                ScreenshotUtil.takeScreenshot(driver, scenario.getName());
-            }
-        }
+                TakesScreenshot screenshotDriver = (TakesScreenshot) driver;            }
     }
 }

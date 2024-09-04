@@ -1,6 +1,5 @@
 package StepDefs.services;
 
-import StepDefs.Validations;
 import configManager.ResourceData;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -11,34 +10,36 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import util.StepUtil;
 
 import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
 
-public class CreateAccountSteps<IJavaScriptExecutor>
-
-{
+public class CreateAccountSteps<IJavaScriptExecutor> {
     WebDriver driver;
 
     @Given("I enter the Valid URL of Application by Launching Chrome Browser")
     public void IentertheValidURLofApplicationbyLaunchingChromeBrowser(io.cucumber.datatable.DataTable dataTable) throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", ".//drivers//chromedriver.exe");
-        driver= new ChromeDriver();
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
-        Map<String,String> dataMap = StepUtil.toMap(dataTable);
-        driver.get(ResourceData.getEnvironmentURL(ResourceData.getEnvironment()+"."+dataMap.get("url")));
+        Map<String, String> dataMap = StepUtil.toMap(dataTable);
+        driver.get(ResourceData.getEnvironmentURL(ResourceData.getEnvironment() + "." + dataMap.get("url")));
         System.out.println("This Step open the Chrome and launch the application.");
         Thread.sleep(10000);
     }
+
     @When("I enter Valid details and Update account")
-    public void iEnterValidDetailsAndGenerateAccount()throws InterruptedException {
+    public void iEnterValidDetailsAndGenerateAccount() throws InterruptedException {
         driver.findElement(By.xpath("//input[@id='usernameField']")).sendKeys("sayhitosujith@gmail.com");
         System.out.println("Enter the User Name");
 
@@ -67,10 +68,10 @@ public class CreateAccountSteps<IJavaScriptExecutor>
     @And("I should Add User")
     public <select> void iShouldAddUser() throws InterruptedException {
         String winHandleBefore = driver.getWindowHandle();
-        for(String winHandle : driver.getWindowHandles()){
+        for (String winHandle : driver.getWindowHandles()) {
             driver.switchTo().window(winHandle);
         }
-       driver.getCurrentUrl();
+        driver.getCurrentUrl();
         //Click on Add user
         driver.findElement(By.xpath("//button[normalize-space()='Add user']")).click();
         Thread.sleep(5000);
@@ -89,7 +90,6 @@ public class CreateAccountSteps<IJavaScriptExecutor>
     }
 
 
-
     @And("I should see user added successfully")
     public void iShouldSeeUserAddedSuccessfully() {
     }
@@ -104,7 +104,7 @@ public class CreateAccountSteps<IJavaScriptExecutor>
     @When("I should Add Number")
     public void iShouldAddNumber() throws InterruptedException {
         String winHandleBefore = driver.getWindowHandle();
-        for(String winHandle : driver.getWindowHandles()){
+        for (String winHandle : driver.getWindowHandles()) {
             driver.switchTo().window(winHandle);
         }
         driver.getCurrentUrl();
@@ -146,23 +146,23 @@ public class CreateAccountSteps<IJavaScriptExecutor>
 
     @And("I take screenshot")
     public void AndiTakeScreenshot() {
-                try {
-                    // Create a Robot instance to capture the screen
-                    Robot robot = new Robot();
-                    // Get the screen size
-                    Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
+        try {
+            // Create a Robot instance to capture the screen
+            Robot robot = new Robot();
+            // Get the screen size
+            Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
 
-                    // Capture the screen
-                    BufferedImage screenFullImage = robot.createScreenCapture(screenRect);
+            // Capture the screen
+            BufferedImage screenFullImage = robot.createScreenCapture(screenRect);
 
-                    // Save the image to a file
-                    File file = new File("Screenshots//screenshot.png");
-                    ImageIO.write(screenFullImage, "png", file);
-                    System.out.println("Screenshot saved as screenshot.png");
-                } catch (AWTException | IOException ex) {
-                    System.err.println(ex);
-                }
-            }
+            // Save the image to a file
+            File file = new File("Screenshots//screenshot.png");
+            ImageIO.write(screenFullImage, "png", file);
+            System.out.println("Screenshot saved as screenshot.png");
+        } catch (AWTException | IOException ex) {
+            System.err.println(ex);
+        }
+    }
 
     @And("I Scroll Page Down and Update Total experience")
     public void iScrollPageDownAndUpdateTotalExperience() throws InterruptedException {
@@ -196,35 +196,81 @@ public class CreateAccountSteps<IJavaScriptExecutor>
     @And("I want to Find the Number of Rows and Columns")
     public void iWantToFindTheNumberOfRowsAndColumns() {
 
-                try {
-                    Thread.sleep(5000);
-                    // Scroll down the page
-                    // Locate the element you want to scroll to
-                    WebElement elementToScrollTo = driver.findElement(By.xpath("//ul[@class='mb0']"));  // Replace with the appropriate locator
+        try {
+            Thread.sleep(5000);
+            // Scroll down the page
+            // Locate the element you want to scroll to
+            WebElement elementToScrollTo = driver.findElement(By.xpath("//ul[@class='mb0']"));  // Replace with the appropriate locator
 
-                    // Use JavascriptExecutor to scroll to the element
-                    JavascriptExecutor js = (JavascriptExecutor) driver;
-                    js.executeScript("arguments[0].scrollIntoView(true);", elementToScrollTo);
+            // Use JavascriptExecutor to scroll to the element
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            js.executeScript("arguments[0].scrollIntoView(true);", elementToScrollTo);
 
-                    // Locate the web table using a suitable locator
-                    WebElement table = driver.findElement(By.xpath("//ul[@class='mb0']"));  // Replace "tableId" with the actual ID of the table
+            // Locate the web table using a suitable locator
+            WebElement table = driver.findElement(By.xpath("//ul[@class='mb0']"));  // Replace "tableId" with the actual ID of the table
 
-                    // Find all rows in the table
-                    java.util.List<WebElement> rows = table.findElements(By.tagName("tr"));
-                    int rowCount = rows.size();
-                    System.out.println("Number of rows in the table: " + rowCount);
+            // Find all rows in the table
+            java.util.List<WebElement> rows = table.findElements(By.tagName("tr"));
+            int rowCount = rows.size();
+            System.out.println("Number of rows in the table: " + rowCount);
 
-                    // Find all columns in the first row (header or a data row)
-                    List<WebElement> columns = rows.get(0).findElements(By.tagName("th"));  // For header row
-                    if (columns.isEmpty()) {
-                        columns = rows.get(0).findElements(By.tagName("td"));  // For data row if no header row is present
-                    }
-                    int columnCount = columns.size();
-                    System.out.println("Number of columns in the table: " + columnCount);
-
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } finally {
-                }
+            // Find all columns in the first row (header or a data row)
+            List<WebElement> columns = rows.get(0).findElements(By.tagName("th"));  // For header row
+            if (columns.isEmpty()) {
+                columns = rows.get(0).findElements(By.tagName("td"));  // For data row if no header row is present
             }
+            int columnCount = columns.size();
+            System.out.println("Number of columns in the table: " + columnCount);
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } finally {
+        }
+    }
+
+    @When("I enter Valid details and Login to Amazon")
+    public void iEnterValidDetailsAndLoginToAmazon() throws InterruptedException {
+        driver.findElement(By.xpath("//span[@id='nav-link-accountList-nav-line-1']")).click();
+        System.out.println("Click on Signin Button");
+        Thread.sleep(5000);
+
+        driver.findElement(By.xpath("//input[@name='email']")).sendKeys("sayhitosujith@gmail.com");
+        System.out.println("Enter the UserName");
+        Thread.sleep(5000);
+
+        driver.findElement(By.xpath("//input[@type='submit']")).click();
+        Thread.sleep(5000);
+
+        driver.findElement(By.xpath("//input[@id='ap_password']")).sendKeys("qwertyui");
+        System.out.println("Enter the password");
+        Thread.sleep(5000);
+
+        driver.findElement(By.xpath("//input[@id='signInSubmit']")).click();
+        System.out.println("Click on login button");
+        Thread.sleep(5000);
+
+    }
+
+    @And("I search Iphone{int}")
+    public void iSearchIphone(int arg0) throws InterruptedException {
+        driver.findElement(By.xpath("//input[@type='text']")).sendKeys("Iphone12");
+        driver.findElement(By.xpath("//input[@id='nav-search-submit-button']")).click();
+
+        Thread.sleep(5000);
+        List<WebElement> iphone_price = Collections.singletonList(driver.findElement(By.xpath("//span[@class='a-price-whole']")));
+       for (int i=0;i<iphone_price.size();i++){
+          String text =  iphone_price.get(i).getText();
+           System.out.println(text);
+       }
+    }
+
+    @Then("should Logout from Amazon successfully")
+    public void shouldLogoutFromAmazonSuccessfully() throws InterruptedException {
+        WebElement elementToHover = driver.findElement(By.xpath("//a[@id='nav-link-accountList']"));
+        Actions actions = new Actions(driver);
+        actions.moveToElement(elementToHover).perform();
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("//span[normalize-space()='Sign Out']")).click();
+      driver.quit();
+    }
 }
