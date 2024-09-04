@@ -19,6 +19,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -35,7 +36,7 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
         Map<String, String> dataMap = StepUtil.toMap(dataTable);
         driver.get(ResourceData.getEnvironmentURL(ResourceData.getEnvironment() + "." + dataMap.get("url")));
         System.out.println("This Step open the Chrome and launch the application.");
-        Thread.sleep(10000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
     @When("I enter Valid details and Update account")
@@ -48,19 +49,19 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
 
         driver.findElement(By.xpath("//button[@class='waves-effect waves-light btn-large btn-block btn-bold blue-btn textTransform']")).click();
         System.out.println("Click on login button");
-        Thread.sleep(5000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
         driver.findElement(By.xpath("//a[normalize-space()='View profile']")).click();
-        Thread.sleep(5000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         System.out.println("Click on view profile");
     }
 
     @Then("should Logout Profile successfully")
     public void shouldSeeAccountCreatedSuccessfully() throws InterruptedException {
         driver.findElement(By.xpath("//img[@alt='naukri user profile img']")).click();
-        Thread.sleep(3000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.findElement(By.xpath("//a[@title='Logout']")).click();
-        Thread.sleep(3000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         System.out.println("Logged Successfully..!!");
         driver.quit();
     }
@@ -74,19 +75,19 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
         driver.getCurrentUrl();
         //Click on Add user
         driver.findElement(By.xpath("//button[normalize-space()='Add user']")).click();
-        Thread.sleep(5000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         //qty
         driver.findElement(By.xpath("//input[@id='textInput']")).sendKeys("1");
-        Thread.sleep(5000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
         //select country
         driver.findElement(By.xpath("//div[contains(text(),'County')]")).click();
         driver.findElement(By.xpath("//input[@id='filterInput2']")).sendKeys("Avon");
-        Thread.sleep(1000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         //select Area code
         driver.findElement(By.xpath("//div[contains(text(),'Area code')]")).click();
         driver.findElement(By.xpath("//input[@id='filterInput3']")).sendKeys("117 - Bristol");
-        Thread.sleep(1000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
 
@@ -110,12 +111,12 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
         driver.getCurrentUrl();
         //Click on Add user
         driver.findElement(By.xpath("//button[normalize-space()='Add number']")).click();
-        Thread.sleep(10000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
         //Click on Add Number
         driver.findElement(By.xpath("//button[@title='County']")).click();
         driver.findElement(By.xpath("//*[@id=\"filterInput22\"]")).sendKeys("Avon");
-        Thread.sleep(10000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
     @And("I Update my Resume")
@@ -133,9 +134,9 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
     @And("I Update Resume headline")
     public void iUpdateResumeHeadline() throws InterruptedException {
         driver.findElement(By.xpath("//div[@class='card mt15']//div//span[@class='edit icon'][normalize-space()='editOneTheme']")).click();
-        Thread.sleep(2000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.findElement(By.xpath("//textarea[@id='resumeHeadlineTxt']")).clear();
-        Thread.sleep(2000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.findElement(By.xpath("//textarea[@id='resumeHeadlineTxt']")).sendKeys("SDET 2 Professional with Experience of 6 years. serving notice period of 1 month , can join immediately");
         driver.findElement(By.xpath("//button[normalize-space()='Save']")).click();
         System.out.println("I Update Resume headline");
@@ -167,7 +168,7 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
     @And("I Scroll Page Down and Update Total experience")
     public void iScrollPageDownAndUpdateTotalExperience() throws InterruptedException {
         driver.findElement(By.xpath("//em[@class='icon edit']")).click();
-        Thread.sleep(2000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
 
         // Scroll down the page
         JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -180,15 +181,15 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
             e.printStackTrace();
         }
         driver.findElement(By.xpath("//input[@id='exp-years-droopeFor']")).clear();
-        Thread.sleep(2000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         driver.findElement(By.xpath("//input[@id='exp-years-droopeFor']")).sendKeys("6 Years");
-        Thread.sleep(5000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         driver.findElement(By.xpath("//input[@id='exp-months-droopeFor']")).sendKeys("1 Month");
-        Thread.sleep(2000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         driver.findElement((By.xpath("//span[normalize-space()='Total experience']"))).click();
-        Thread.sleep(2000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         driver.findElement(By.xpath("//button[@id='saveBasicDetailsBtn']")).click();
-        Thread.sleep(2000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         String exp = driver.findElement(By.xpath("//span[@name='Experience']")).getText();
         System.out.println(exp);
     }
@@ -232,22 +233,23 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
     public void iEnterValidDetailsAndLoginToAmazon() throws InterruptedException {
         driver.findElement(By.xpath("//span[@id='nav-link-accountList-nav-line-1']")).click();
         System.out.println("Click on Signin Button");
-        Thread.sleep(5000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+
 
         driver.findElement(By.xpath("//input[@name='email']")).sendKeys("sayhitosujith@gmail.com");
         System.out.println("Enter the UserName");
-        Thread.sleep(5000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
         driver.findElement(By.xpath("//input[@type='submit']")).click();
-        Thread.sleep(5000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
         driver.findElement(By.xpath("//input[@id='ap_password']")).sendKeys("qwertyui");
         System.out.println("Enter the password");
-        Thread.sleep(5000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
         driver.findElement(By.xpath("//input[@id='signInSubmit']")).click();
         System.out.println("Click on login button");
-        Thread.sleep(5000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
     }
 
@@ -256,7 +258,7 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
         driver.findElement(By.xpath("//input[@type='text']")).sendKeys("Iphone12");
         driver.findElement(By.xpath("//input[@id='nav-search-submit-button']")).click();
 
-        Thread.sleep(5000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         List<WebElement> iphone_price = Collections.singletonList(driver.findElement(By.xpath("//span[@class='a-price-whole']")));
        for (int i=0;i<iphone_price.size();i++){
           String text =  iphone_price.get(i).getText();
@@ -269,7 +271,7 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
         WebElement elementToHover = driver.findElement(By.xpath("//a[@id='nav-link-accountList']"));
         Actions actions = new Actions(driver);
         actions.moveToElement(elementToHover).perform();
-        Thread.sleep(3000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.findElement(By.xpath("//span[normalize-space()='Sign Out']")).click();
       driver.quit();
     }
