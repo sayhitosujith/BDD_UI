@@ -230,54 +230,36 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
         }
     }
 
-    @When("I enter Valid details and Login to Amazon")
-    public void iEnterValidDetailsAndLoginToAmazon() throws InterruptedException {
-        driver.findElement(By.xpath("//span[@id='nav-link-accountList-nav-line-1']")).click();
-        System.out.println("Click on Signin Button");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-
-
-        driver.findElement(By.xpath("//input[@name='email']")).sendKeys("sayhitosujith@gmail.com");
-        System.out.println("Enter the UserName");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-
-        driver.findElement(By.xpath("//input[@type='submit']")).click();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-
-        driver.findElement(By.xpath("//input[@id='ap_password']")).sendKeys("qwertyui");
-        System.out.println("Enter the password");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-
-        driver.findElement(By.xpath("//input[@id='signInSubmit']")).click();
-        System.out.println("Click on login button");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-
-    }
-
-    @And("I search Iphone{int}")
-    public void iSearchIphone(int arg0) throws InterruptedException {
+    @When("I enter Valid details and search Iphone{int}")
+    public void iEnterValidDetailsandSearch(int arg0) throws InterruptedException {
         driver.findElement(By.xpath("//input[@type='text']")).sendKeys("iphone 12");
         driver.findElement(By.xpath("//input[@id='nav-search-submit-button']")).click();
 
+    }
+
+    @And("I sort the price in ascending order")
+    public void ISortThePriceInAscendingOrder() throws InterruptedException {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         List<WebElement> iphone_price = driver.findElements(By.xpath("//span[@class='a-price-whole']"));
         for (int i = 0; i < iphone_price.size(); i++) {
             String text = iphone_price.get(i).getText();
             System.out.println(text);
+
+            //string array
+            String[] iphone = {"54,899","51,999","54,899","51,99951","999,51","999,60","900,61","999,34","999,69","999,61","900","1,299","1,399","2,299","1,999"};
+            Arrays.sort(iphone);
+            System.out.println(Arrays.toString(iphone));
         }
-        //string array
-        String[] iphone = {"54,899","51,999","54,899","51,99951","999,51","999,60","900,61","999,34","999,69","999,61","900","1,299","1,399","2,299","1,999"};
-        Arrays.sort(iphone);
-        System.out.println(Arrays.toString(iphone));
     }
 
     @Then("should Logout from Amazon successfully")
     public void shouldLogoutFromAmazonSuccessfully() throws InterruptedException {
-        WebElement elementToHover = driver.findElement(By.xpath("//a[@id='nav-link-accountList']"));
-        Actions actions = new Actions(driver);
-        actions.moveToElement(elementToHover).perform();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.findElement(By.xpath("//span[normalize-space()='Sign Out']")).click();
+//        WebElement elementToHover = driver.findElement(By.xpath("//a[@id='nav-link-accountList']"));
+//        Actions actions = new Actions(driver);
+//        actions.moveToElement(elementToHover).perform();
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+//        driver.findElement(By.xpath("//span[normalize-space()='Sign Out']")).click();
+
       driver.quit();
     }
 }
