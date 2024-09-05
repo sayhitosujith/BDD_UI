@@ -1,4 +1,4 @@
-Feature: Verify Naukri Application
+Feature: Verify Amazon Application
 
     #....................Verify Upload Resume And Update Account...........
   @Amazon @SearchIphone
