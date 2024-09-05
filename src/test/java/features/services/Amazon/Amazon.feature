@@ -2,7 +2,7 @@ Feature: Verify Amazon Application
 
     #....................Verify Upload Resume And Update Account...........
   @Amazon @SearchIphone
-   Scenario:Verify Search Iphone12 and find highest price
+   Scenario:Verify Search Iphone12 and sort the price from lowest order
     Given I enter the Valid URL of Application by Launching Chrome Browser
       |url    |
       |Amazon   |
