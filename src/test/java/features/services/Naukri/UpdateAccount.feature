@@ -1,7 +1,7 @@
 Feature: Verify Naukri Application
 
     #....................Verify Upload Resume And Update Account...........
-  @UpdateNaukri @VerifyUploadResumeAndUpdateAccount
+  @Naukri @VerifyUploadResumeAndUpdateAccount
    Scenario:Verify upload resume and Update Account
     Given I enter the Valid URL of Application by Launching Chrome Browser
       |url    |
@@ -11,7 +11,7 @@ Feature: Verify Naukri Application
     Then should Logout Profile successfully
 
      #....................Verify UpdateResume Headline And Update Account...........
-  @UpdateNaukri @VerifyUpdateResumeHeadlineAndUpdateAccount
+  @Naukri @VerifyUpdateResumeHeadlineAndUpdateAccount
   Scenario:Verify UpdateResume Headline And Update Account
     Given I enter the Valid URL of Application by Launching Chrome Browser
       |url    |
@@ -21,7 +21,7 @@ Feature: Verify Naukri Application
     Then should Logout Profile successfully
 
          #....................Verify UpdateResume Headline Take screenshot And Update Account...........
-  @UpdateNaukri @VerifyUpdateResumeHeadlineTakeScreenshotAndUpdateAccount
+  @Naukri @VerifyUpdateResumeHeadlineTakeScreenshotAndUpdateAccount
   Scenario:Verify UpdateResume Headline Take screenshot And Update Account
     Given I enter the Valid URL of Application by Launching Chrome Browser
       |url    |
@@ -31,7 +31,7 @@ Feature: Verify Naukri Application
     Then should Logout Profile successfully
 
              #....................Verify Employment Experience And Update Account...........
-  @UpdateNaukri @VerifyEmploymentExperienceAndUpdateAccount
+  @Naukri @VerifyEmploymentExperienceAndUpdateAccount
   Scenario:Verify Employment Experience And Update Account
     Given I enter the Valid URL of Application by Launching Chrome Browser
       |url    |
@@ -41,7 +41,7 @@ Feature: Verify Naukri Application
     Then should Logout Profile successfully
 
        #....................Verify Applied jobs count...........
-  @UpdateNaukri @VerifyAppliedjobscount
+  @Naukri @VerifyAppliedjobscount
   Scenario:Verify Applied jobs count
     Given I enter the Valid URL of Application by Launching Chrome Browser
       |url    |
