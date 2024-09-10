@@ -43,7 +43,6 @@ public class Dataprovider {
 
         // Locate the last name field and enter the data
         WebElement lastNameField = driver.findElement(By.xpath("//input[@id='passwordField']"));
-        lastNameField.clear();
         lastNameField.sendKeys(lastName);
 
         // Submit the form (example: clicking a submit button)

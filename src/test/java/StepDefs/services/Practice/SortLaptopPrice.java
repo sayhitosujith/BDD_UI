@@ -9,7 +9,7 @@ import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
 
-public class LaptopPriceFinder {
+public class SortLaptopPrice {
     public static void main(String[] args) throws InterruptedException {
         // Set up ChromeDriver (make sure the path to chromedriver is correct)
         System.setProperty("webdriver.chrome.driver", ".//drivers//chromedriver.exe");
