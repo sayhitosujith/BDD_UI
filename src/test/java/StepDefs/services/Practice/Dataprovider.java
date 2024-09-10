@@ -23,21 +23,20 @@ public class Dataprovider {
         // Open the website
         driver.get("https://www.naukri.com/nlogin/login?utm_source=google&utm_medium=cpc&utm_campaign=Brand&gad_source=1&gclid=CjwKCAjwo6GyBhBwEiwAzQTmc34DfBd9dNPPn_R_W3UozmHxoGFxQRepNJgOcFPHLMUoYhEwNErtOxoC6a0QAvD_BwE&gclsrc=aw.ds");
         driver.manage().window().maximize();
+        Thread.sleep(3000);
     }
 
     // DataProvider method supplying test data
     @DataProvider(name = "userData")
     public Object[][] getUserData() {
         return new Object[][] {
-                {"John", "Doe", "john.doe@example.com"},
-                {"Jane", "Smith", "jane.smith@example.com"},
-                {"Alice", "Brown", "alice.brown@example.com"}
+                {"sayhitosujith@gmail.com", "Qw@12345678"},
         };
     }
 
     // Test method that uses the DataProvider
     @Test(dataProvider = "userData")
-    public void fillForm(String firstName, String lastName, String email) {
+    public void fillForm(String firstName, String lastName) {
         // Locate the first name field and enter the data
         WebElement firstNameField = driver.findElement(By.xpath("//input[@id='usernameField']"));
         firstNameField.sendKeys(firstName);
@@ -48,7 +47,7 @@ public class Dataprovider {
         lastNameField.sendKeys(lastName);
 
         // Submit the form (example: clicking a submit button)
-        driver.findElement(By.xpath("//a[normalize-space()='View profile']")).click();
+        driver.findElement(By.xpath("//button[normalize-space()='Login']")).click();
 
         // You could add verification steps here to check if the form was submitted successfully
     }
