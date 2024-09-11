@@ -3,7 +3,7 @@ package StepDefs.services.Practice;
 //if the given arrays is {1, 9, 8, 4, 0, 0, 2, 7, 0, 6, 0},
 //        it should be changed to {1, 9, 8, 4, 2, 7, 6, 0, 0, 0, 0}
 
-public class example {
+public class StringReplace {
     public static void moveZeroToEnd(int[] nums) {
         int index = 0; // this will keep track of all possitions
         //traverse
@@ -12,7 +12,7 @@ public class example {
                 nums[index++] = num;
             }
 
-                //Placing all zero elements,fill the rest of the elementsof the font
+                //Placing all zero elements,fill the rest with the elements of the font
                 while (index < nums.length) {
                     nums[index++] = 0;
                 }

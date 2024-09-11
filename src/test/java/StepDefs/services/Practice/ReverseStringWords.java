@@ -1,6 +1,6 @@
 package StepDefs.services.Practice;
 
-public class ReverseString {
+public class ReverseStringWords {
     public static String reversedWords(String str) {
         String[] words = str.split("");
 

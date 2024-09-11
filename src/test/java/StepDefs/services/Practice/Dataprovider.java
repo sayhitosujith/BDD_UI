@@ -45,7 +45,7 @@ public class Dataprovider {
         WebElement lastNameField = driver.findElement(By.xpath("//input[@id='passwordField']"));
         lastNameField.sendKeys(lastName);
 
-        // Submit the form (example: clicking a submit button)
+        // Submit the form (StringReplace: clicking a submit button)
         driver.findElement(By.xpath("//button[normalize-space()='Login']")).click();
 
         // You could add verification steps here to check if the form was submitted successfully
