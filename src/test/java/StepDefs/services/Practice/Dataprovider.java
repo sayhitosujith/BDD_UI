@@ -30,7 +30,7 @@ public class Dataprovider {
     @DataProvider(name = "userData")
     public Object[][] getUserData() {
         return new Object[][] {
-                {"sayhitosujith@gmail.com", "Qw@12345678"},
+                {"keerthidharma1201@gmail.com", "Success@2024"},
         };
     }
 
