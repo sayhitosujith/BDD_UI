@@ -6,6 +6,8 @@ import java.util.List;
 
 public class DataLoad {
 
+    private static List<HashMap<String, String>> dataList;
+    private static DataLoad singleInstance = null;
     private String requestURL;
     private String request;
     private String response;
@@ -15,15 +17,13 @@ public class DataLoad {
     private String offeringToken;
     private int executionCount;
     private String authenticationScheme;
-    private static List<HashMap<String, String>> dataList;
-
     // Services data
     private String engageAccountKey;
     private String engageAccountName;
     private String wardKey;
     private String continuationToken;
-    private  String engagementKey;
-     private String PhoneNumber;
+    private String engagementKey;
+    private String PhoneNumber;
     private String Password;
     private String Passwordwithpin;
     private String participantKey;
@@ -62,12 +62,12 @@ public class DataLoad {
     private String surveyName;
     private String surveyUpdatedElements[];
     private String surveyQuestionKeys[];
-    private List<HashMap<String,String>> surveyAnswerKeys;
+    private List<HashMap<String, String>> surveyAnswerKeys;
     private String surveyKeys[];
     private String surveyNames[];
-    private  String actionKey;
+    private String actionKey;
     private String actionToken;
-    private String [] offeringKeys;
+    private String[] offeringKeys;
     private String offeringKey;
     private String sweepstakeKey;
     private String sweepstakeName;
@@ -76,38 +76,33 @@ public class DataLoad {
     private String subscriptionKey;
     private String subscriptionName;
     private String shippingMethodKey;
-    private HashMap<String,String> optInDetails;
-    private  String phaseKey;
-    private  String phaseName;
-    private  String participantKey1;
-    private  String participantActionKey;
-    private HashMap<String,String> documentDetails;
+    private HashMap<String, String> optInDetails;
+    private String phaseKey;
+    private String phaseName;
+    private String participantKey1;
+    private String participantActionKey;
+    private HashMap<String, String> documentDetails;
     private String wardAttributeKey;
-
-
     private String ipAddress;
     private String domain;
     private String phone;
     private String invoiceKey;
-    private  String ruleKey;
-    private String [] violationDetails;
+    private String ruleKey;
+    private String[] violationDetails;
     private String violationKey;
-    private  String purchaseIncentiveKey;
-    private String [] purchaseIncentiveDetails;
+    private String purchaseIncentiveKey;
+    private String[] purchaseIncentiveDetails;
     private String offerKey;
-    private  String [] offerDetails;
+    private String[] offerDetails;
     private String submissionKey;
     private String submissionClaimKey;
     private String submissionOverrideKey;
-    private String [] engagementDataSetDetails;
+    private String[] engagementDataSetDetails;
     private String engagementDataSetKey;
-    private  String [] evaluationData;
+    private String[] evaluationData;
     private String offerTag;
     private String ruleModelType;
     private String dataType;
-
-
-
     private HashMap<String, String> actionDetails;
     private String flowKey;
     private String timeframeKey;
@@ -116,19 +111,13 @@ public class DataLoad {
     private String OfferingShippingKey;
     private String claimSourceKeys;
     private String shippingCarrierKey;
-
-
-
-
-
-    private static DataLoad singleInstance = null;
     private String prerequisiteKey;
     private String limitKey;
     private String templateTypeKey;
-    private HashMap<String,String> templateDetails;
-    private HashMap<String,String> template2Details;
-    private HashMap<String,String> listCheckDetails;
-    private String  privacyRequestKey;
+    private HashMap<String, String> templateDetails;
+    private HashMap<String, String> template2Details;
+    private HashMap<String, String> listCheckDetails;
+    private String privacyRequestKey;
 
     public DataLoad() {
     }
@@ -157,12 +146,12 @@ public class DataLoad {
         return participantToken;
     }
 
-    public void resetDataList() {
-        dataList.clear();
-    }
-
     public void setParticipantToken(String participantToken) {
         this.participantToken = participantToken;
+    }
+
+    public void resetDataList() {
+        dataList.clear();
     }
 
     public String getParticipantTokenScope() {
@@ -390,7 +379,9 @@ public class DataLoad {
         this.accessgroupname = accessgroupname;
     }
 
-    public String getAccessgroupkey() {return accessgroupkey; }
+    public String getAccessgroupkey() {
+        return accessgroupkey;
+    }
 
     public void setAccessgroupkey(String accessgroupkey) {
         this.accessgroupkey = accessgroupkey;
@@ -557,7 +548,6 @@ public class DataLoad {
     }
 
 
-
     public String getSweepstakeKey() {
         return sweepstakeKey;
     }
@@ -573,7 +563,6 @@ public class DataLoad {
     public void setSweepstakeConfirmKey(String sweepstakeConfirmKey) {
         this.sweepstakeConfirmKey = sweepstakeConfirmKey;
     }
-
 
 
     public String getSweepstakeName() {
@@ -618,7 +607,7 @@ public class DataLoad {
     }
 
     public void setActionElements(HashMap store) {
-        actionDetails = new HashMap<String,String>();
+        actionDetails = new HashMap<String, String>();
         actionDetails.putAll(store);
     }
 
@@ -656,21 +645,21 @@ public class DataLoad {
 
     public void setTemplateDetails(HashMap templateElements) {
 
-        templateDetails = new HashMap<String,String>();
+        templateDetails = new HashMap<String, String>();
         templateDetails.putAll(templateElements);
 
     }
+
     public String getTemplate2Details(String element) {
         return template2Details.get(element);
     }
 
     public void setTemplate2Details(HashMap templateElements) {
 
-        template2Details = new HashMap<String,String>();
+        template2Details = new HashMap<String, String>();
         template2Details.putAll(templateElements);
 
     }
-
 
 
     public String getWardKey() {
@@ -727,7 +716,7 @@ public class DataLoad {
     }
 
     public void setListCheckDetails(HashMap<String, String> listCheckelements) {
-        listCheckDetails = new HashMap<String,String>();
+        listCheckDetails = new HashMap<String, String>();
         listCheckDetails.putAll(listCheckelements);
     }
 
@@ -960,7 +949,7 @@ public class DataLoad {
     }
 
     public void setDocumentDetails(HashMap<String, String> documentElements) {
-        documentDetails = new HashMap<String,String>();
+        documentDetails = new HashMap<String, String>();
         documentDetails.putAll(documentElements);
     }
 

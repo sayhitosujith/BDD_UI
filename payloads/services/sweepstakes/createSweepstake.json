@@ -4,7 +4,7 @@
   "OfferingKeys": [
     "<OfferingKey>"
   ],
-  "allowedActionKeys" : [
+  "allowedActionKeys": [
     "<actionKey>"
   ],
   "maxEntryMultiplier": 10

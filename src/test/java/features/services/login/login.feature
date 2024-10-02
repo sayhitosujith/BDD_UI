@@ -4,8 +4,8 @@ Feature: Verify Services.Login
   @DemoApp_Login
   Scenario: Verify Login to DemoApp
     Given I enter the Valid URL of Demo Application by Launching Chrome Browser
-      |url        |
-      |demowebshop|
+      | url         |
+      | demowebshop |
     When I enter Valid Credentials and Login Successfully
 #      |Email                   |Password    |
 #      |sayhitosujith@gmail.com |Qw@12345678 |
@@ -15,8 +15,8 @@ Feature: Verify Services.Login
   @DemoApp_Logout
   Scenario: Verify Login to DemoApp and Logout
     Given I enter the Valid URL of Demo Application by Launching Chrome Browser
-      |url        |
-      |demowebshop|
+      | url         |
+      | demowebshop |
     When I enter Valid Credentials and Login Successfully
 #      |url         |Email                              |Password    |
 #      |Naukri_UI   |sayhitosujith<rstr6>@gmail.com     |Qw@12345678 |
@@ -27,8 +27,8 @@ Feature: Verify Services.Login
   @Addsmartphoneproducttocart
   Scenario: Add smart phone product to cart
     Given I enter the Valid URL of Demo Application by Launching Chrome Browser
-      |url        |
-      |demowebshop|
+      | url         |
+      | demowebshop |
     When I enter Valid Credentials and Login Successfully
 #      |url         |Email                              |Password    |
 #      |Naukri_UI   |sayhitosujith<rstr6>@gmail.com     |Qw@12345678 |
@@ -39,8 +39,8 @@ Feature: Verify Services.Login
   @VerifyAddProducttocart
   Scenario:Verify Add Product to cart
     Given I enter the Valid URL of Demo Application by Launching Chrome Browser
-      |url        |
-      |demowebshop|
+      | url         |
+      | demowebshop |
     When I enter Valid Credentials and Login Successfully
 #      |url         |Email                              |Password    |
 #      |Naukri_UI   |sayhitosujith<rstr6>@gmail.com     |Qw@12345678 |
@@ -54,8 +54,8 @@ Feature: Verify Services.Login
   @VerifyDeleteProductfromcart
   Scenario:Verify Update cart
     Given I enter the Valid URL of Demo Application by Launching Chrome Browser
-      |url        |
-      |demowebshop|
+      | url         |
+      | demowebshop |
     When I enter Valid Credentials and Login Successfully
 #      |url         |Email                              |Password    |
 #      |Naukri_UI   |sayhitosujith<rstr6>@gmail.com     |Qw@12345678 |

@@ -6,7 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
-import java.util.Arrays;
 import java.util.List;
 
 // print Second-Largest Price of_Iphone12

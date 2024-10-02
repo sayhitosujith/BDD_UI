@@ -200,7 +200,7 @@ Feature: Verify Services.Engage.Integrations
     Then I should see the integration created successfully with status code as 200
     #Get Integrations for a engagement
     When I am able to get the following API endpoint
-      | url                     | endpoint                                            |
+      | url                     | endpoint                                                 |
       | ServicesEngageEngageApi | services.engage.integrations.getIntegrationForEngagement |
     And I send request for get integration for engagement
     Then I should see the integration details in the response with status code as 200
@@ -251,7 +251,7 @@ Feature: Verify Services.Engage.Integrations
     Then I should see the integration created successfully with status code as 200
     #Get engagement integrations by type
     When I am able to get the following API endpoint
-      | url                     | endpoint                                            |
+      | url                     | endpoint                                                    |
       | ServicesEngageEngageApi | services.engage.integrations.getEngagementIntegrationByType |
     And I send request for get engagement integration by type as "CustomCode"
     Then I should see the integration details in the response with status code as 200

@@ -21,7 +21,7 @@ public class Hooks extends ScreenshotUtil {
     private WebDriver driver;
 
     @Before
-    public void beforeScenario() throws Exception{
+    public void beforeScenario() throws Exception {
         driver = new WebDriver() {
             @Override
             public void get(String url) {
@@ -105,8 +105,9 @@ public class Hooks extends ScreenshotUtil {
         ExtentCucumberAdapter.getCurrentStep().info(MarkupHelper.createTable(validations));
         ExtentCucumberAdapter.getCurrentStep().getModel().updateResult();
         dataLoad.resetDataList();
-            if (scenario.isFailed()) {
-                // Take screenshot if scenario fails
-                TakesScreenshot screenshotDriver = (TakesScreenshot) driver;            }
+        if (scenario.isFailed()) {
+            // Take screenshot if scenario fails
+            TakesScreenshot screenshotDriver = (TakesScreenshot) driver;
+        }
     }
 }

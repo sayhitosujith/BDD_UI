@@ -13,8 +13,8 @@ Feature: Verify Services.Engage.Roles
       | url                     | endpoint                         |
       | ServicesEngageEngageApi | services.engage.roles.createRole |
     And I send request for create a role with below details
-      |accountKey|name           |description      |permissions                 |
-      |SPRINT    |rolename<rstr6>|role description |_engage._engage_engagement.r|
+      | accountKey | name            | description      | permissions                  |
+      | SPRINT     | rolename<rstr6> | role description | _engage._engage_engagement.r |
     Then I should see account created successfully with status code 200
 
 
@@ -31,8 +31,8 @@ Feature: Verify Services.Engage.Roles
       | url                     | endpoint                         |
       | ServicesEngageEngageApi | services.engage.roles.createRole |
     And I send request for create a role with below details
-      |accountKey|name           |description      |permissions                 |
-      |SPRINT    |rolename<rstr6>|role description |_engage._engage_engagement.r|
+      | accountKey | name            | description      | permissions                  |
+      | SPRINT     | rolename<rstr6> | role description | _engage._engage_engagement.r |
     Then I should see account created successfully with status code 200
     When I am able to get the following API endpoint
       | url                     | endpoint                      |
@@ -53,11 +53,11 @@ Feature: Verify Services.Engage.Roles
       | url                     | endpoint                         |
       | ServicesEngageEngageApi | services.engage.roles.createRole |
     And I send request for create a role with below details
-      |accountKey|name           |description      |permissions                 |
-      |SPRINT    |rolename<rstr6>|role description |_engage._engage_engagement.r|
+      | accountKey | name            | description      | permissions                  |
+      | SPRINT     | rolename<rstr6> | role description | _engage._engage_engagement.r |
     Then I should see account created successfully with status code 200
     When I am able to get the following API endpoint
-      | url                     | endpoint                           |
+      | url                     | endpoint                            |
       | ServicesEngageEngageApi | services.engage.roles.getRoleFilter |
     And I send a request to get created role with filter
     Then I should see account created successfully with status code 200
@@ -75,12 +75,12 @@ Feature: Verify Services.Engage.Roles
       | url                     | endpoint                         |
       | ServicesEngageEngageApi | services.engage.roles.createRole |
     And I send request for create a role with below details
-      |accountKey|name           |description      |permissions                 |
-      |SPRINT    |rolename<rstr6>|role description |_engage._engage_engagement.r|
+      | accountKey | name            | description      | permissions                  |
+      | SPRINT     | rolename<rstr6> | role description | _engage._engage_engagement.r |
     When I am able to get the following API endpoint
       | url                     | endpoint                         |
       | ServicesEngageEngageApi | services.engage.roles.updateRole |
     When I send request to update created role with following data
-      |name           |description      |
-      |rolename<rstr6>|role description |
+      | name            | description      |
+      | rolename<rstr6> | role description |
     Then I should see account created successfully with status code 204

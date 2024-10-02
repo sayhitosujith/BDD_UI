@@ -1,19 +1,19 @@
 {
-  "addedBy":"<addedBy>",
-  "requests":[
+  "addedBy": "<addedBy>",
+  "requests": [
     {
-      "userName" : "<userName>",
+      "userName": "<userName>",
       "namePrefix": "<namePrefix>",
-      "firstName" : "<firstName>",
+      "firstName": "<firstName>",
       "middleName": "<middleName>",
-      "lastName" : "<lastName>",
+      "lastName": "<lastName>",
       "nameSuffix": "<nameSuffix>",
       "birthdate": "<birthdate>",
-      "emailAddress" : "<emailAddress>",
-      "emailType" : "<emailType>",
-      "engagementKey" : "<engagementKey>",
+      "emailAddress": "<emailAddress>",
+      "emailType": "<emailType>",
+      "engagementKey": "<engagementKey>",
       "password": "<password>",
-      "isAgeVerified" : "<isAgeVerified>",
+      "isAgeVerified": "<isAgeVerified>",
       "ageBracket": "<ageBracket>",
       "participantAddresses": [
         {

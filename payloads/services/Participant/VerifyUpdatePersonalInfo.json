@@ -1,9 +1,9 @@
 {
-  "userName" : "<userName>",
+  "userName": "<userName>",
   "namePrefix": "<namePrefix>",
-  "firstName" : "<firstName>",
+  "firstName": "<firstName>",
   "middleName": "<middleName>",
-  "lastName" : "<lastName>",
-  "isAgeVerified" : "<isAgeVerified>",
+  "lastName": "<lastName>",
+  "isAgeVerified": "<isAgeVerified>",
   "ageBracket": "<ageBracket>"
 }

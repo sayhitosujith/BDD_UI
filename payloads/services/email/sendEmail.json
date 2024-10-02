@@ -4,11 +4,12 @@
   "messageHtml": "<messageHtml>",
   "subject": "<subject>",
   "deliveryTime": "<deliveryTime>",
-  "toRecipients":[
+  "toRecipients": [
     {
       "emailAddress": "<emailAddress>",
       "friendlyName": "<friendlyName>"
-    }],
+    }
+  ],
   "ccRecipients": [
     {
       "emailAddress": "<ccRecipients>",

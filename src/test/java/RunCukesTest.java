@@ -5,7 +5,7 @@ import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.BeforeClass;
 
 @CucumberOptions(
-        plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:","pretty","json:out/cucumber.json","junit:out/cucumber.xml"},
+        plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:", "pretty", "json:out/cucumber.json", "junit:out/cucumber.xml"},
         features = "src/test/java/features",
         glue = "StepDefs",
         dryRun = false,
@@ -15,7 +15,7 @@ import org.testng.annotations.BeforeClass;
 public class RunCukesTest extends AbstractTestNGCucumberTests {
 
     @BeforeClass
-    public void preset(){
+    public void preset() {
         ExtentSparkReporter extentSparkReporter = new ExtentSparkReporter("Report/report.html");
         extentSparkReporter.config().setCss(".info-bg {\n" +
                 " background-color: #e5e5e5; \n" +

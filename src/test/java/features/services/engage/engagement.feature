@@ -24,12 +24,12 @@ Feature: Verify Services.Engage.Engagements
       | url                     | endpoint                                     |
       | ServicesEngageEngageApi | services.engage.engagements.createEngagement |
     And I send request for creating an engagement with phase
-      | accountKey | wardKey | engagementKey | name                                       | starts-on            | ends-on              | baseUrl           | features            | phaseName            | phaseStartsOn        | phaseEndsOn        |
-      | accountKey | wardKey | PL01<rnum4>  | Test Engagement Created via API Automation | 2019-01-05T12:13:00Z | 2033-01-05T12:13:00Z | https://myurl.com | Admin","Fulfillment | testEngagementPhase1 | 2019-01-05T12:13:00Z | 2033-01-05T12:13:00Z |
+      | accountKey | wardKey | engagementKey | name                                       | starts-on            | ends-on              | baseUrl           | features            | phaseName            | phaseStartsOn        | phaseEndsOn          |
+      | accountKey | wardKey | PL01<rnum4>   | Test Engagement Created via API Automation | 2019-01-05T12:13:00Z | 2033-01-05T12:13:00Z | https://myurl.com | Admin","Fulfillment | testEngagementPhase1 | 2019-01-05T12:13:00Z | 2033-01-05T12:13:00Z |
     Then I should see the new engagement must be created successfully with status code as 204
     # Get Engagement with Engagement Key
     When I am able to get the following API endpoint
-      | url                     | endpoint                                  |
+      | url                     | endpoint                                        |
       | ServicesEngageEngageApi | services.engage.engagements.getEngagementPhases |
     And I send request for get engagement with engagement key
     Then I should see the engagement phases details in response
@@ -58,12 +58,12 @@ Feature: Verify Services.Engage.Engagements
       | url                     | endpoint                                     |
       | ServicesEngageEngageApi | services.engage.engagements.createEngagement |
     And I send request for creating an engagement with phase
-      | accountKey | wardKey | engagementKey | name                                       | starts-on            | ends-on              | baseUrl           | features            | phaseName            | phaseStartsOn        | phaseEndsOn        |
-      | accountKey | wardKey | PL01<rnum4>  | Test Engagement Created via API Automation | 2019-01-05T12:13:00Z | 2033-01-05T12:13:00Z | https://myurl.com | Admin","Fulfillment | testEngagementPhase1 | 2019-01-05T12:13:00Z | 2033-01-05T12:13:00Z |
+      | accountKey | wardKey | engagementKey | name                                       | starts-on            | ends-on              | baseUrl           | features            | phaseName            | phaseStartsOn        | phaseEndsOn          |
+      | accountKey | wardKey | PL01<rnum4>   | Test Engagement Created via API Automation | 2019-01-05T12:13:00Z | 2033-01-05T12:13:00Z | https://myurl.com | Admin","Fulfillment | testEngagementPhase1 | 2019-01-05T12:13:00Z | 2033-01-05T12:13:00Z |
     Then I should see the new engagement must be created successfully with status code as 204
     # Get Engagement with Engagement Key
     When I am able to get the following API endpoint
-      | url                     | endpoint                                  |
+      | url                     | endpoint                                        |
       | ServicesEngageEngageApi | services.engage.engagements.getEngagementPhases |
     And I send request for get engagement phases with engagement key
     Then I should see the engagement phases details in response
@@ -73,10 +73,6 @@ Feature: Verify Services.Engage.Engagements
       | ServicesEngageEngageApi | services.engage.engagements.getEngagementByPhaseKey |
     And I send request for get engagement phase by phase key
     Then I should see the engagement phases details in response for the given phase Key
-
-
-
-
 
 
   @APIAutomation_set1 @engage @engagements @getAllEngagements

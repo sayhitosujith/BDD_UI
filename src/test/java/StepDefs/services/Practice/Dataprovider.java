@@ -29,7 +29,7 @@ public class Dataprovider {
     // DataProvider method supplying test data
     @DataProvider(name = "userData")
     public Object[][] getUserData() {
-        return new Object[][] {
+        return new Object[][]{
                 {"keerthidharma1201@gmail.com", "Success@2024"},
         };
     }

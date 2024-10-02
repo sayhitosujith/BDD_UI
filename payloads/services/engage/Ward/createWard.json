@@ -5,7 +5,7 @@
   "licenseType": "<licenseType>",
   "licenseTier": "<licenseTier>",
   "isCdpWardSpecific": "<isCdpWardSpecific>",
-  "isPiiShareable":"<isPiiShareable>" ,
+  "isPiiShareable": "<isPiiShareable>",
   "isPiiMatchingAllowed": "<isPiiMatchingAllowed>",
   "isAnonymousMatchingAllowed": "<isAnonymousMatchingAllowed>",
   "isAnalyticsEnabled": "<isAnalyticsEnabled>",

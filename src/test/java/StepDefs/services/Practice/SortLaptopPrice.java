@@ -33,11 +33,11 @@ public class SortLaptopPrice {
             System.out.println(text);
         }
         //string array
-        String[] iphone = {"54,899","51,999","54,899","51,99951","999,51","999,60","900,61","999,34","999,69","999,61","900","1,299","1,399","2,299","1,999"};
+        String[] iphone = {"54,899", "51,999", "54,899", "51,99951", "999,51", "999,60", "900,61", "999,34", "999,69", "999,61", "900", "1,299", "1,399", "2,299", "1,999"};
         Arrays.sort(iphone);
         System.out.println(Arrays.toString(iphone));
 
         driver.quit();
     }
-    }
+}
 

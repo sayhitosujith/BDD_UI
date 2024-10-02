@@ -5,7 +5,7 @@
       "answerKeys": [
         "<answerKey_01>"
       ],
-      "answerText":[
+      "answerText": [
         "<answerText_01>"
       ]
     },
@@ -14,10 +14,9 @@
       "answerKeys": [
         "<answerKey_02>"
       ],
-      "answerText":[
+      "answerText": [
         "<answerText_02>"
       ]
     }
-
   ]
 }
