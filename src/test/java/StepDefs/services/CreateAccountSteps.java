@@ -1,5 +1,6 @@
 package StepDefs.services;
 
+import Pages.LoginPage;
 import configManager.ResourceData;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -10,24 +11,22 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
 import util.StepUtil;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
 
 public class CreateAccountSteps<IJavaScriptExecutor> {
     WebDriver driver;
+    LoginPage loginPage;
 
     @Given("I enter the Valid URL of Application by Launching Chrome Browser")
     public void IentertheValidURLofApplicationbyLaunchingChromeBrowser(io.cucumber.datatable.DataTable dataTable) throws InterruptedException {
@@ -42,27 +41,28 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
 
     @When("I enter Valid details and Update account")
     public void iEnterValidDetailsAndGenerateAccount() throws InterruptedException {
-        driver.findElement(By.xpath("//input[@id='usernameField']")).sendKeys("sayhitosujith@gmail.com");
+        loginPage = new LoginPage(driver);
+        loginPage.enterUsername("keerthidharma1201@gmail.com");
         System.out.println("Enter the User Name");
-
-        driver.findElement(By.xpath("//input[@id='passwordField']")).sendKeys("Qw@12345678");
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        loginPage.enterPassword("Success@2024");
         System.out.println("Enter the Password");
-
-        driver.findElement(By.xpath("//button[@class='waves-effect waves-light btn-large btn-block btn-bold blue-btn textTransform']")).click();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        loginPage.clickLogin();
         System.out.println("Click on login button");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-
         driver.findElement(By.xpath("//a[normalize-space()='View profile']")).click();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         System.out.println("Click on view profile");
     }
 
     @Then("should Logout Profile successfully")
-    public void shouldSeeAccountCreatedSuccessfully() throws InterruptedException {
+    public void shouldSeeAccountCreatedSuccessfully() throws InterruptedException
+    {
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.findElement(By.xpath("//img[@alt='naukri user profile img']")).click();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.findElement(By.xpath("//a[@title='Logout']")).click();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(8));
         System.out.println("Logged Successfully..!!");
         driver.quit();
     }
@@ -138,7 +138,7 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.findElement(By.xpath("//textarea[@id='resumeHeadlineTxt']")).clear();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.findElement(By.xpath("//textarea[@id='resumeHeadlineTxt']")).sendKeys("SDET 2 Professional with Experience of 6 years. serving notice period of 1 month , can join immediately");
+        driver.findElement(By.xpath("//textarea[@id='resumeHeadlineTxt']")).sendKeys("SDE-Python Professional with Experience of 4.4 years. serving notice period of 1 month , can join immediately");
         driver.findElement(By.xpath("//button[normalize-space()='Save']")).click();
         System.out.println("I Update Resume headline");
         //get updated date
@@ -170,24 +170,11 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
     public void iScrollPageDownAndUpdateTotalExperience() throws InterruptedException {
         driver.findElement(By.xpath("//em[@class='icon edit']")).click();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-
-        // Scroll down the page
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
-
-        // Wait for a while to observe the scrolling
-        try {
-            Thread.sleep(3000); // 3 seconds
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         driver.findElement(By.xpath("//input[@id='exp-years-droopeFor']")).clear();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-        driver.findElement(By.xpath("//input[@id='exp-years-droopeFor']")).sendKeys("6 Years");
+        driver.findElement(By.xpath("//input[@id='exp-years-droopeFor']")).sendKeys("4 Years");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-        driver.findElement(By.xpath("//input[@id='exp-months-droopeFor']")).sendKeys("1 Month");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-        driver.findElement((By.xpath("//span[normalize-space()='Total experience']"))).click();
+        driver.findElement(By.xpath("//input[@id='exp-months-droopeFor']")).sendKeys("4 Month");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         driver.findElement(By.xpath("//button[@id='saveBasicDetailsBtn']")).click();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
@@ -198,8 +185,8 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
     @And("I want to Find the Number of Rows and Columns")
     public void iWantToFindTheNumberOfRowsAndColumns() {
 
-        try {
-            Thread.sleep(5000);
+
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
             // Scroll down the page
             // Locate the element you want to scroll to
             WebElement elementToScrollTo = driver.findElement(By.xpath("//ul[@class='mb0']"));  // Replace with the appropriate locator
@@ -224,10 +211,6 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
             int columnCount = columns.size();
             System.out.println("Number of columns in the table: " + columnCount);
 
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } finally {
-        }
     }
 
     @When("I enter Valid details and search Iphone{int}")
@@ -246,7 +229,7 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
             System.out.println(text);
 
             //string array
-            String[] iphone = {"54,899","51,999","54,899","51,99951","999,51","999,60","900,61","999,34","999,69","999,61","900","1,299","1,399","2,299","1,999"};
+            String[] iphone = {"54,899", "51,999", "54,899", "51,99951", "999,51", "999,60", "900,61", "999,34", "999,69", "999,61", "900", "1,299", "1,399", "2,299", "1,999"};
             Arrays.sort(iphone);
             System.out.println(Arrays.toString(iphone));
         }
@@ -259,6 +242,6 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
 //        actions.moveToElement(elementToHover).perform();
 //        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 //        driver.findElement(By.xpath("//span[normalize-space()='Sign Out']")).click();
-      driver.quit();
+        driver.quit();
     }
 }
