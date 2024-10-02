@@ -42,10 +42,10 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
     @When("I enter Valid details and Update account")
     public void iEnterValidDetailsAndGenerateAccount() throws InterruptedException {
         loginPage = new LoginPage(driver);
-        loginPage.enterUsername("keerthidharma1201@gmail.com");
+        loginPage.enterUsername("darshankm393@gmail.com");
         System.out.println("Enter the User Name");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        loginPage.enterPassword("Success@2024");
+        loginPage.enterPassword("Darshu@2204dardee");
         System.out.println("Enter the Password");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         loginPage.clickLogin();
@@ -124,7 +124,7 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
     public void iUpdateMyResume() throws InterruptedException {
         WebElement upload_file = driver.findElement(By.xpath("//input[@value='Update resume']"));
         upload_file.click();
-        upload_file.sendKeys("F://BDD_UI//BDD_UI//resources//files//Profile.pdf");
+        upload_file.sendKeys("F://BDD_UI//BDD_UI//resources//files//Darshan_Resume.pdf");
         System.out.println("upload resume");
 
         //get updated date
@@ -138,7 +138,7 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.findElement(By.xpath("//textarea[@id='resumeHeadlineTxt']")).clear();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.findElement(By.xpath("//textarea[@id='resumeHeadlineTxt']")).sendKeys("SDE-Python Professional with Experience of 4.4 years. serving notice period of 1 month , can join immediately");
+        driver.findElement(By.xpath("//textarea[@id='resumeHeadlineTxt']")).sendKeys("SDET- Professional with Experience of 4.4 years. serving notice period ");
         driver.findElement(By.xpath("//button[normalize-space()='Save']")).click();
         System.out.println("I Update Resume headline");
         //get updated date
