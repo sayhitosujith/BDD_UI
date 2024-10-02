@@ -138,7 +138,7 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.findElement(By.xpath("//textarea[@id='resumeHeadlineTxt']")).clear();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.findElement(By.xpath("//textarea[@id='resumeHeadlineTxt']")).sendKeys("SDET- Professional with Experience of 4.4 years. serving notice period ");
+        driver.findElement(By.xpath("//textarea[@id='resumeHeadlineTxt']")).sendKeys("SDET - Professional with Experience of 4.4 years. serving notice period ");
         driver.findElement(By.xpath("//button[normalize-space()='Save']")).click();
         System.out.println("I Update Resume headline");
         //get updated date
