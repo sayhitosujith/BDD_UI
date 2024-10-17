@@ -51,7 +51,7 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
         loginPage.clickLogin();
         System.out.println("Click on login button");
         driver.findElement(By.xpath("//a[normalize-space()='View profile']")).click();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         System.out.println("Click on view profile");
     }
 
@@ -168,16 +168,16 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
 
     @And("I Scroll Page Down and Update Total experience")
     public void iScrollPageDownAndUpdateTotalExperience() throws InterruptedException {
-        driver.findElement(By.xpath("//em[@class='icon edit']")).click();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+        driver.findElement(By.xpath("//em[contains(@class,'icon edit')]")).click();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.findElement(By.xpath("//input[@id='exp-years-droopeFor']")).clear();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.findElement(By.xpath("//input[@id='exp-years-droopeFor']")).sendKeys("4 Years");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.findElement(By.xpath("//input[@id='exp-months-droopeFor']")).sendKeys("4 Month");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.findElement(By.xpath("//button[@id='saveBasicDetailsBtn']")).click();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         String exp = driver.findElement(By.xpath("//span[@name='Experience']")).getText();
         System.out.println(exp);
     }
