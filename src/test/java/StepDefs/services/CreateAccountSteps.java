@@ -1,6 +1,7 @@
 package StepDefs.services;
 
 import Pages.LoginPage;
+import Pages.LogoutPage;
 import configManager.ResourceData;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -27,6 +28,8 @@ import java.util.Map;
 public class CreateAccountSteps<IJavaScriptExecutor> {
     WebDriver driver;
     LoginPage loginPage;
+    LogoutPage logoutPage;
+
 
     @Given("I enter the Valid URL of Application by Launching Chrome Browser")
     public void IentertheValidURLofApplicationbyLaunchingChromeBrowser(io.cucumber.datatable.DataTable dataTable) throws InterruptedException {
@@ -58,10 +61,11 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
     @Then("should Logout Profile successfully")
     public void shouldSeeAccountCreatedSuccessfully() throws InterruptedException
     {
+        logoutPage = new LogoutPage(driver);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.findElement(By.xpath("//img[@alt='naukri user profile img']")).click();
+        logoutPage.userprofile();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.findElement(By.xpath("//a[@title='Logout']")).click();
+        logoutPage.logoutButton();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(8));
         System.out.println("Logged Successfully..!!");
         driver.quit();
