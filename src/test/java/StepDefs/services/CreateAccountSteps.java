@@ -51,7 +51,7 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
         loginPage.clickLogin();
         System.out.println("Click on login button");
         driver.findElement(By.xpath("//a[normalize-space()='View profile']")).click();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         System.out.println("Click on view profile");
     }
 
