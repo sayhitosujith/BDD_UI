@@ -12,6 +12,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import util.StepUtil;
 
 import javax.imageio.ImageIO;
@@ -134,6 +135,7 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
         //get updated date
         WebElement updateddate = driver.findElement(By.xpath("//div[@class='updateOn typ-14Regular']"));
         System.out.println(updateddate.getText());
+        Assert.assertEquals(updateddate,updateddate);
     }
 
     @And("I Update Resume headline")
@@ -148,6 +150,7 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
         //get updated date
         WebElement updateddate = driver.findElement(By.xpath("//div[@class='updateOn typ-14Regular']"));
         System.out.println(updateddate.getText());
+        Assert.assertEquals(updateddate,updateddate);
     }
 
     @And("I take screenshot")
@@ -182,8 +185,9 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.findElement(By.xpath("//button[@id='saveBasicDetailsBtn']")).click();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        String exp = driver.findElement(By.xpath("//span[@name='Experience']")).getText();
-        System.out.println(exp);
+        String totalExperience = driver.findElement(By.xpath("//span[@name='Experience']")).getText();
+        Assert.assertEquals(totalExperience,totalExperience);
+        System.out.println(totalExperience);
     }
 
     @And("I want to Find the Number of Rows and Columns")
