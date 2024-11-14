@@ -16,4 +16,4 @@ jobs:
       - name: Run a script
         run: |
           echo "Running daily job"
-          # Add your script or command here
+          tags = "@Naukri"
