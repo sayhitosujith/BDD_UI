@@ -4,6 +4,9 @@ on:
   schedule:
     - cron: '0 8 * * *'  # Runs at 8am IST daily
     - cron: '30 19 * * *' # Runs at 8pm IST daily.
+  push:
+    branches:
+      - main
 
 jobs:
   run-daily:
@@ -11,9 +14,11 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v3  # Correct action for checking out code
 
       - name: Run a script
         run: |
           echo "Running daily job"
-          # Add your script or command here
+          # Add any other commands you want to run here
+          # If you are using tags, you can add them to your script execution, e.g.:
+         tags = "@Naukri"
