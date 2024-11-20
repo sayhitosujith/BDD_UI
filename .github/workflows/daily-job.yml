@@ -3,7 +3,7 @@ name: Daily Job
 on:
   schedule:
     - cron: '0 8 * * *'  # Runs at 8am IST daily
-    - cron: '30 19 * * *' # Runs at 8pm IST daily.
+    - cron: '15 20 * * *' # Runs at 8pm IST daily.
 
 jobs:
   run-daily:
