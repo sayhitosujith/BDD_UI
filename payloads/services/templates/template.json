@@ -2,7 +2,7 @@
   "wardKey": "<wardKey>",
   "engagementKey": "<engagementKey>",
   "name": "<name>",
-  "description":"<description>",
+  "description": "<description>",
   "templateRenderType": "<templateRenderType>",
   "templateTypeKey": "<templateTypeKey>",
   "propertyTemplates": [
@@ -20,7 +20,7 @@
       "templateText": "<templateText1>"
     },
     {
-      "locale":"<local2>",
+      "locale": "<local2>",
       "propertyTemplateType": "<propertyTemplateType2>",
       "templateText": "<templateText2>"
     }

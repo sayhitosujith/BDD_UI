@@ -6,5 +6,7 @@
   "startsOn": "<starts-on>",
   "endsOn": "<ends-on>",
   "baseUrl": "<baseUrl>",
-  "features": ["<features>"]
+  "features": [
+    "<features>"
+  ]
 }

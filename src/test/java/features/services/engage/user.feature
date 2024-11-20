@@ -110,7 +110,7 @@ Feature: Verify Services.Engage.Users
     Then I should see the response with status code as 204
     #Remove Roles from Engage User
     When I am able to get the following API endpoint
-      | url                     | endpoint                                       |
+      | url                     | endpoint                                |
       | ServicesEngageEngageApi | services.engage.EngageUsers.removeRoles |
     And I send request for remove roles with below details
       | RoleKeys         |
@@ -177,7 +177,7 @@ Feature: Verify Services.Engage.Users
     Then I should see newly created User key in the response
     #Search Engage User by accountKey
     When I am able to get the following API endpoint
-      | url                     | endpoint                                     |
+      | url                     | endpoint                                    |
       | ServicesEngageEngageApi | services.engage.EngageUsers.getUserByFilter |
     And I send request for search user by accountKey filter
     Then I should see user details in the response
@@ -212,7 +212,7 @@ Feature: Verify Services.Engage.Users
     Then I should see the response with status code as 204
     #Create Team
     When I am able to get the following API endpoint
-      | url                     | endpoint                  |
+      | url                     | endpoint                         |
       | ServicesEngageEngageApi | services.engage.teams.createTeam |
     And I send request for create Team with below details ward
       | teamName    | accountKey | description                                    | userIds |
@@ -220,7 +220,7 @@ Feature: Verify Services.Engage.Users
     Then I should see the team created with status code as 200
     #Search User with Team and role
     When I am able to get the following API endpoint
-      | url                     | endpoint                                       |
+      | url                     | endpoint                                    |
       | ServicesEngageEngageApi | services.engage.EngageUsers.getUserByFilter |
     And I send request for search user with teamName, roleKey and accountkey
     Then I should see the newly created user in the response with status code as 200

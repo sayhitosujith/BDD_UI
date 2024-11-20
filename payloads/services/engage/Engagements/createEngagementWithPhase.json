@@ -6,12 +6,14 @@
   "startsOn": "<starts-on>",
   "endsOn": "<ends-on>",
   "baseUrl": "<baseUrl>",
-  "features": ["<features>"],
+  "features": [
+    "<features>"
+  ],
   "phases": [
-  {
-  "name": "<phaseName>",
-  "startsOn": "<phaseStartsOn>",
-  "endsOn": "<phaseEndsOn>"
-  }
+    {
+      "name": "<phaseName>",
+      "startsOn": "<phaseStartsOn>",
+      "endsOn": "<phaseEndsOn>"
+    }
   ]
 }

@@ -41,7 +41,7 @@
     }
   ],
   "submittedOn": "<submittedOn>",
-  "submissionType" : "<submissionType>",
+  "submissionType": "<submissionType>",
   "isReviewNeeded": false,
   "participantKey": "<participantKey>",
   "desiredOfferKey": "<desiredOfferKey>",

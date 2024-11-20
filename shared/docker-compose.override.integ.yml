@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   integrationtests:
-    image:  plcrnonprod.azurecr.io/api-automation:latest
+    image: plcrnonprod.azurecr.io/api-automation:latest
     command: ${TAGS}
     environment:
       JAVA_ENV: DOCKER # Constant to indicate we use local docker testing configs

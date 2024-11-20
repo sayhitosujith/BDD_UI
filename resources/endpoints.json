@@ -1,13 +1,12 @@
 {
   "services": {
-    "participant":
-    {
+    "participant": {
       "tokenApi": {
         "createToken": "/connect/token"
       },
       "participantKeysByFilter": "/participant/ParticipantKeys/filter",
       "RegisterParticipantforanengagement": "/engagement/{engagementKey}/register",
-       "createParticipant": "/participant/internal",
+      "createParticipant": "/participant/internal",
       "createDatedParticipants": "/participant/dated",
       "BulkUpsertParticipants": "/participant/upsert/bulk",
       "VerifyPhoneIsValid": "/participant/phone/isValid",
@@ -42,7 +41,7 @@
       "CreateBulkUpsertaparticipantwithCSVfile": "/participant/upsert/bulkcsv",
       "getAttributesforwardusingEngagementKey": "/attribute/{participantKey}/{engagementKey}",
       "VerifyParticipantkeyisregisteredtoanengegement": "/participant/{participantKey}/IsRegistered/{engagementKey}",
-     "Getaslimparticipantusingparticipantkeyrestrictedbywardkey": "/participant/{participantKey}/slim-participant",
+      "Getaslimparticipantusingparticipantkeyrestrictedbywardkey": "/participant/{participantKey}/slim-participant",
       "Looksforparticipantsinthecurrentward": "/participant/attribute/{attributeKey}",
       "Updatesparticipantsusername": "/participant/{participantKey}/username",
       "Updatesparticipantsusernamewithanemailaddress": "/participant/{participantKey}/email-as-username",
@@ -65,7 +64,7 @@
       "updateAction": "/action/{actionKey}",
       "deleteAction": "/action/{actionKey}",
       "getActionsForEngagement": "action/engagement/{engagementKey}",
-      "addTimeframe" : "/action/{actionKey}/timeframe",
+      "addTimeframe": "/action/{actionKey}/timeframe",
       "addPrerequisite": "/action/{actionKey}/prerequisite",
       "removePrerequisite": "/action/{actionKey}/prerequisite/{prerequisiteKey}",
       "addLimit": "/action/{actionKey}/limit",
@@ -79,7 +78,7 @@
       "requestActionToken": "/token/request",
       "removeaconstraintsfromaction": "/action/{actionKey}/constraint/{ConstraintKey}",
       "ChecktheAvailibilityofOccuranceStep": "/token/check/{occurrenceKey}",
-      "getAvailableLimitOccurances":"/participant/{participantKey}/available/{actionKey}"
+      "getAvailableLimitOccurances": "/participant/{participantKey}/available/{actionKey}"
     },
     "address": {
       "addressValidation": "/ValidateAddress"
@@ -135,7 +134,7 @@
         "getEngagementsByfilter": "/engagement/filter",
         "getTimeZones": "/engagement/time-zones",
         "getEngagementPhases": "/engagement/{engagementKey}/phases",
-        "getEngagementByPhaseKey" : "/engagement/phase/{phaseKey}"
+        "getEngagementByPhaseKey": "/engagement/phase/{phaseKey}"
       },
       "teams": {
         "createTeam": "/team",
@@ -193,20 +192,20 @@
         "updateResponse": "/response/{responseKey}/participant/{participantKey}"
       }
     },
-     "sweepstakes" : {
-       "createEntry" : "/entry",
-       "getEntry" : "/entry/{sweepsConfirmKey}",
-       "createSweepstake" : "/sweepstake",
-       "getSweepstakes" : "/sweepstake/{sweepsKey}",
-       "getSweepstakesbyparticipantKey" : "/sweepstake/participant/{participantKey}",
-       "getSweepstakeEntrybyParticipantKeyAndSweepstakeKey": "/entry/participant/{participantKey}/sweepstake/{sweepstakeKey}",
-       "getSweepstakeByfilter" : "/sweepstake/filter",
-       "getEntrySetKeyByfilter": "/entry/filter",
-       "updateSweepstake": "/sweepstake/{sweepsKey}",
-       "deleteSweepstake" : "/sweepstake/{sweepsKey}"
-     },
+    "sweepstakes": {
+      "createEntry": "/entry",
+      "getEntry": "/entry/{sweepsConfirmKey}",
+      "createSweepstake": "/sweepstake",
+      "getSweepstakes": "/sweepstake/{sweepsKey}",
+      "getSweepstakesbyparticipantKey": "/sweepstake/participant/{participantKey}",
+      "getSweepstakeEntrybyParticipantKeyAndSweepstakeKey": "/entry/participant/{participantKey}/sweepstake/{sweepstakeKey}",
+      "getSweepstakeByfilter": "/sweepstake/filter",
+      "getEntrySetKeyByfilter": "/entry/filter",
+      "updateSweepstake": "/sweepstake/{sweepsKey}",
+      "deleteSweepstake": "/sweepstake/{sweepsKey}"
+    },
     "offering": {
-      "createOffering" : "/offering",
+      "createOffering": "/offering",
       "createOfferingsShipping": "/offering/shipping",
       "updateOfferingShipping": "/offering/shipping/{OfferingShippingKey}",
       "getOffering": "/offering/{OfferingKey}",
@@ -218,7 +217,7 @@
       "getOfferingClaimStatus": "/offeringclaim",
       "CreateShippingCarriers": "/shipping/carrier",
       "getAllShippingCarriers": "/shipping/carrier/{shippingCarrierKey}",
-      "updateShippingCarrier" : "/shipping/carrier/{shippingCarrierKey}",
+      "updateShippingCarrier": "/shipping/carrier/{shippingCarrierKey}",
       "getShippingCarrier": "/shipping/carrier/{shippingCarrierKey}",
       "DeleteShippingCarriers": "/shipping/carrier/{shippingCarrierKey}",
       "createshippingmethod": "/shipping/carrier/{shippingCarrierKey}/method",
@@ -233,8 +232,6 @@
       "updateOfferingusingofferingKey": "/offering/{OfferingKey}",
       "getOfferingusingofferingKey": "/offering/{OfferingKey}/shipping",
       "getofferingShippingUsingofferingShippingKey": "/offering/shipping/{OfferingShippingKey}"
-
-
     },
     "purchaseIncentive": {
       "createPurchaseIncentive": "/purchase-incentive",
@@ -244,53 +241,51 @@
       "setPIDisabled": "/purchase-incentive/{purchaseIncentiveKey}/disabled/{disabledStatus}",
       "getPurchaseIncentives": "/purchase-incentive/engagement/{engagementKey}",
       "getPurchaseIncentiveByfilter": "/purchase-incentive/filter",
-      "createOffer" : "/offer",
-      "getOffer" : "/offer/{offerKey}",
-      "getOffersByPurchaseIncentiveKey" : "/offer/purchaseincentive/{purchaseIncentiveKey}",
-      "updateOffer" : "/offer/{offerKey}",
-      "setOfferDisabled" : "/offer/{offerKey}/disabled/{disabledStatus}",
-      "createPrizeAllocation" : "/offer/{offerKey}/prize-allocation",
-      "createSubmission" : "/submission/{purchaseIncentiveKey}",
-      "createHandledSubmissionAndClaim" : "/submission/{purchaseIncentiveKey}/handled_claim",
+      "createOffer": "/offer",
+      "getOffer": "/offer/{offerKey}",
+      "getOffersByPurchaseIncentiveKey": "/offer/purchaseincentive/{purchaseIncentiveKey}",
+      "updateOffer": "/offer/{offerKey}",
+      "setOfferDisabled": "/offer/{offerKey}/disabled/{disabledStatus}",
+      "createPrizeAllocation": "/offer/{offerKey}/prize-allocation",
+      "createSubmission": "/submission/{purchaseIncentiveKey}",
+      "createHandledSubmissionAndClaim": "/submission/{purchaseIncentiveKey}/handled_claim",
       "createSubmissionAndClaim": "/submission/{purchaseIncentiveKey}/claim",
-      "submissionWithQualifiedSelection" : "/submission/claim/{submissionClaimKey}/qualifiedselection",
-      "getOffersBysubmissionClaimKey" : "/submission/claim/{submissionClaimKey}/offers",
-      "getPendingReviews" : "/submission/review/pending",
-      "createSubmissionOverride" : "/submission/{offerKey}/override",
-      "getRelatedSubmissions" : "/submission/{submissionKey}/related",
-      "updateSubmissionReview" : "/submission/{submissionKey}/review",
-      "updateSubmissionClaim" : "/submission/claim/{submissionClaimKey}",
-      "getSubmissionsByparticipantKey" : "/submission/participantkeys",
-      "getCanUserCreateSubmission" : "/submission/{purchaseIncentiveKey}/user/{participantKey}",
-      "getSubmissionClaimByParticipantKey" : "/submission/claim/participant/{participantKey}",
-      "getCustomerServiceOfferings" : "/submission/{submissionKey}/customerServiceOfferings",
-      "createResubmission" : "/resubmission/{submissionKey}",
-      "canUserResubmit" : "/resubmission/{submissionKey}/can-submit",
-      "claimSubmission" : "/submission/claim/{submissionKey}",
+      "submissionWithQualifiedSelection": "/submission/claim/{submissionClaimKey}/qualifiedselection",
+      "getOffersBysubmissionClaimKey": "/submission/claim/{submissionClaimKey}/offers",
+      "getPendingReviews": "/submission/review/pending",
+      "createSubmissionOverride": "/submission/{offerKey}/override",
+      "getRelatedSubmissions": "/submission/{submissionKey}/related",
+      "updateSubmissionReview": "/submission/{submissionKey}/review",
+      "updateSubmissionClaim": "/submission/claim/{submissionClaimKey}",
+      "getSubmissionsByparticipantKey": "/submission/participantkeys",
+      "getCanUserCreateSubmission": "/submission/{purchaseIncentiveKey}/user/{participantKey}",
+      "getSubmissionClaimByParticipantKey": "/submission/claim/participant/{participantKey}",
+      "getCustomerServiceOfferings": "/submission/{submissionKey}/customerServiceOfferings",
+      "createResubmission": "/resubmission/{submissionKey}",
+      "canUserResubmit": "/resubmission/{submissionKey}/can-submit",
+      "claimSubmission": "/submission/claim/{submissionKey}",
       "createInventory": "/inventory/{offeringKey}",
-      "getCanUserCreateSubmissionWithLimit" : "/submission/{purchaseIncentiveKey}/user/{participantKey}/limit-available",
-      "getRelatedSubmissionOverrides" : "/submission/{submissionOverrideKey}/related/override",
-      "createSubmissionClaimOverride" : "/submission/claim/{submissionOverrideKey}/override",
+      "getCanUserCreateSubmissionWithLimit": "/submission/{purchaseIncentiveKey}/user/{participantKey}/limit-available",
+      "getRelatedSubmissionOverrides": "/submission/{submissionOverrideKey}/related/override",
+      "createSubmissionClaimOverride": "/submission/claim/{submissionOverrideKey}/override",
       "getSubmissionClaimsByFilter": "/submission/claim/filter",
-      "getSubmissionClaimByClaimKey" : "/submission/claim/{submissionClaimKey}/detail",
-      "getSubmissionClaimsByParticipantKeys" : "/submission/claim/participantkeys",
-      "getClaimsBySubmissionKeys" : "/submission/claim/submissionkeys"
+      "getSubmissionClaimByClaimKey": "/submission/claim/{submissionClaimKey}/detail",
+      "getSubmissionClaimsByParticipantKeys": "/submission/claim/participantkeys",
+      "getClaimsBySubmissionKeys": "/submission/claim/submissionkeys"
     },
-
-    "dispatch" : {
-      "subscription" : {
+    "dispatch": {
+      "subscription": {
         "createSubscription": "/subscription",
         "getSubscription": "/subscription/{subscriptionKey}",
         "createOptIn": "/subscription/{subscriptionKey}/optin/{participantKey}",
-        "getOptIn" : "/subscription/optin/{subscriptionKey}/{participantKey}",
+        "getOptIn": "/subscription/optin/{subscriptionKey}/{participantKey}",
         "getSubscriptionByFilter": "/subscription/filter",
         "setSubscriptionDisabled": "/subscription/{subscriptionKey}/disabled/true",
-        "optOut" : "/subscription/{subscriptionKey}/optout/{participantKey}",
-        "creatBulkOptin":"/subscription/{subscriptionKey}/optin",
-        "creatBulkOptOut":"/subscription/{subscriptionKey}/optout"
+        "optOut": "/subscription/{subscriptionKey}/optout/{participantKey}",
+        "creatBulkOptin": "/subscription/{subscriptionKey}/optin",
+        "creatBulkOptOut": "/subscription/{subscriptionKey}/optout"
       },
-      "SendSingle" :
-      {
+      "SendSingle": {
         "sendEmailToSingleRecipient": "/send_single/email"
       }
     },
@@ -299,19 +294,18 @@
       "getList": "/list/{listKey}",
       "getListItems": "/list/{listKey}/items",
       "createWardList": "/list/{wardKey}",
-      "getWardList":"/list/GetWardList/{wardKey}",
+      "getWardList": "/list/GetWardList/{wardKey}",
       "getListObjects": "/list/{listKey}/items",
-      "addItemsToList" : "/list/{listKey}/items",
+      "addItemsToList": "/list/{listKey}/items",
       "removeItemsFromList": "/list/{listKey}/items",
       "disableList": "/list/{listKey}",
       "updateList": "/list/{listKey}/items",
       "getPagedListItems": "/list/{listKey}/items/paged",
-      "checkItemInList" : "/check/{listKey}/{item}",
-      "checkItemsInList" : "/check/{listKey}",
-      "checkItemsInLists" : "/check/lists",
-      "createListFileUpload" : "/list/CreateListFileUpload",
-      "createWardListFileUpload" : "/list/CreateWardListFileUpload/{wardKey}"
-
+      "checkItemInList": "/check/{listKey}/{item}",
+      "checkItemsInList": "/check/{listKey}",
+      "checkItemsInLists": "/check/lists",
+      "createListFileUpload": "/list/CreateListFileUpload",
+      "createWardListFileUpload": "/list/CreateWardListFileUpload/{wardKey}"
     },
     "template": {
       "createTemplateType": "/template/templateType",
@@ -323,19 +317,19 @@
     },
     "fraudAudit": {
       "createEngagementConfig": "/engagementconfig",
-      "updateAndGetEngagementConfig" : "/engagementconfig/{engagementKey}",
-      "createViolation" : "/violation",
-      "getViolationsbyActionKey" : "/violation/action/{actionKey}",
-      "getViolationsbyParticipantKey" : "/violation/participant/{participantKey}",
-      "getManualFraudCategories" : "/violation/manual-fraud",
-      "createBlacklistIPRecord" : "/blacklist/ip",
-      "disablesBlacklistIPRecord" : "/blacklist/ip/{ipAddress}/disable",
-      "createBlacklistAddressRecord" : "/blacklist/address",
-      "disablesBlacklistAddressRecord" : "/blacklist/address/disable",
-      "createBlacklistDomainRecord" : "/blacklist/domain",
-      "disablesBlacklistDomainRecord" : "/blacklist/domain/{domain}/disable",
-      "createBlacklistPhoneRecord" : "/blacklist/phone",
-      "disablesBlacklistPhoneRecord" : "/blacklist/phone/{phone}/disable"
+      "updateAndGetEngagementConfig": "/engagementconfig/{engagementKey}",
+      "createViolation": "/violation",
+      "getViolationsbyActionKey": "/violation/action/{actionKey}",
+      "getViolationsbyParticipantKey": "/violation/participant/{participantKey}",
+      "getManualFraudCategories": "/violation/manual-fraud",
+      "createBlacklistIPRecord": "/blacklist/ip",
+      "disablesBlacklistIPRecord": "/blacklist/ip/{ipAddress}/disable",
+      "createBlacklistAddressRecord": "/blacklist/address",
+      "disablesBlacklistAddressRecord": "/blacklist/address/disable",
+      "createBlacklistDomainRecord": "/blacklist/domain",
+      "disablesBlacklistDomainRecord": "/blacklist/domain/{domain}/disable",
+      "createBlacklistPhoneRecord": "/blacklist/phone",
+      "disablesBlacklistPhoneRecord": "/blacklist/phone/{phone}/disable"
     },
     "document": {
       "createFromTemplate": "/envelope/create_from_template",
@@ -345,29 +339,27 @@
     },
     "powerBI": {
       "getReportpanalRendering": "/embed/report/Registration"
-
     },
-    "rule" : {
-      "createEngagementDataSet" : "/dataset/engagement",
+    "rule": {
+      "createEngagementDataSet": "/dataset/engagement",
       "getEngagementDataSet": "/dataset/engagement/{engagementKey}",
-      "updateEngagementDataSet" : "/dataset/engagement/{engagementKey}",
-      "deleteEngagementDataSet" : "/dataset/engagement/{engagementKey}",
-      "evaluatePurchaseModelAgainstRuleSet" : "/evaluate/purchase",
-      "evaluateSamplePurchase" : "/evaluate/sample/purchase",
-      "evaluateArvCalculation" : "/evaluate/arvcalculation",
+      "updateEngagementDataSet": "/dataset/engagement/{engagementKey}",
+      "deleteEngagementDataSet": "/dataset/engagement/{engagementKey}",
+      "evaluatePurchaseModelAgainstRuleSet": "/evaluate/purchase",
+      "evaluateSamplePurchase": "/evaluate/sample/purchase",
+      "evaluateArvCalculation": "/evaluate/arvcalculation",
       "evaluateSampleArvCalculation": "/evaluate/sample/arvcalculation",
-      "evaluateOfferSelectionRule" : "/evaluate/offerselection",
-      "evaluateSampleOfferSelection" : "/evaluate/sample/offerselection",
-      "evaluateDemographics" : "/evaluate/demographics",
-      "createRule" : "/rule",
+      "evaluateOfferSelectionRule": "/evaluate/offerselection",
+      "evaluateSampleOfferSelection": "/evaluate/sample/offerselection",
+      "evaluateDemographics": "/evaluate/demographics",
+      "createRule": "/rule",
       "getRule": "/rule/{ruleKey}",
       "updateRule": "/rule/{ruleKey}",
-      "deleteRule" : "/rule/{ruleKey}",
-      "getListOfSKUs" : "/rule/{ruleKey}/evaluationdata/{listKey}"
+      "deleteRule": "/rule/{ruleKey}",
+      "getListOfSKUs": "/rule/{ruleKey}/evaluationdata/{listKey}"
     },
     "captcha": {
       "validatecaptcha": "/captcha/recaptcha/siteverify"
-
     },
     "email": {
       "sendEmail": "/email/send",
@@ -378,9 +370,7 @@
       "getPrivacyRequest": "/request/filter",
       "getprivacyrequestusingcontinuationTokenfilter": "/request/filter",
       "getprivacyrequestforaspecificWardusingfilter": "/request/ward/{wardKey}/filter"
-
     },
-
     "warehouse": {
       "searchWardParticipants": "/participant/search",
       "searchParticipantsClaim": "/participant/claims"

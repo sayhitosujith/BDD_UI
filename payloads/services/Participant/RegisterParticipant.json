@@ -1,25 +1,26 @@
 {
-  "userName" : "<userName>",
-  "password" : "<password>",
+  "userName": "<userName>",
+  "password": "<password>",
   "namePrefix": "<namePrefix>",
-  "firstName" : "<firstName>",
+  "firstName": "<firstName>",
   "middleName": "<middleName>",
-  "lastName" : "<lastName>",
+  "lastName": "<lastName>",
   "nameSuffix": "<nameSuffix>",
   "birthdate": "<birthdate>",
   "culture": "<culture>",
-  "emailAddress" : "<emailAddress>",
-  "emailType" : "<emailType>",
-  "engagementKey" : "<engagementKey>",
+  "emailAddress": "<emailAddress>",
+  "emailType": "<emailType>",
+  "engagementKey": "<engagementKey>",
   "engagementPassword": "<engagementPassword>",
-  "isAgeVerified" : true,
+  "isAgeVerified": true,
   "ageBracket": "<ageBracket>",
   "participantAttributes": [
     {
-      "engagementKey" : "<engagementKey>",
+      "engagementKey": "<engagementKey>",
       "value": "<value>",
       "wardAttributeKey": "<wardAttributeKey>"
-    }],
+    }
+  ],
   "participantAddresses": [
     {
       "address1": "<address1>",

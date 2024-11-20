@@ -5,7 +5,6 @@ import configManager.DataLoad;
 import configManager.Payloads;
 import configManager.ResourceData;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import util.GenericUtil;
@@ -15,11 +14,9 @@ import util.StepUtil;
 
 import java.util.Map;
 
-public class EmailSteps
-
-{
+public class EmailSteps {
     @When("I am able to get the following endpoint and generate token for {string}")
-    public void iAmAbleToGetTheFollowingEndpointAndGenerateTokenFor(String arg0,io.cucumber.datatable.DataTable dataTable) {
+    public void iAmAbleToGetTheFollowingEndpointAndGenerateTokenFor(String arg0, io.cucumber.datatable.DataTable dataTable) {
 
         StepUtil.generateParticipantToken(arg0);
         Map<String, String> dataMap = StepUtil.toMap(dataTable);
@@ -43,7 +40,7 @@ public class EmailSteps
 
     @Then("I should send email successfully")
     public void iShouldSendEmailSuccessfully() {
-        Validations.assertEquals(204, RestResponse.getStatusCode(),"Status Code to verify email sent successfully");
+        Validations.assertEquals(204, RestResponse.getStatusCode(), "Status Code to verify email sent successfully");
     }
 
     @And("I send request to send emails with below details")
@@ -59,7 +56,6 @@ public class EmailSteps
         RestUtil.post(jsonData, true);
 
     }
-
 
 
 }

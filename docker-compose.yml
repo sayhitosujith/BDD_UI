@@ -2,9 +2,9 @@ version: '3.7'
 
 services:
   integrationtests:
-    image:  plcrnonprod.azurecr.io/api-automation
-    build: 
-        context: ./
+    image: plcrnonprod.azurecr.io/api-automation
+    build:
+      context: ./
     command: ${TAGS:-@address}
     environment:
       #JAVA_ENV: DOCKER # Use to toggle the environment

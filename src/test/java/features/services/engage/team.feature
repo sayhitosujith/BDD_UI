@@ -5,7 +5,7 @@ Feature: Verify Services.Engage.Teams
    #create Account
     Given I am getting the participant token for the "Engage" scope
     When I am able to get the following API endpoint
-      | url                     | endpoint                      |
+      | url                     | endpoint                              |
       | ServicesEngageEngageApi | services.engage.account.createAccount |
     And I send request for create account with below details
       | accountKey     | name                 |
@@ -21,7 +21,7 @@ Feature: Verify Services.Engage.Teams
     Then I should see newly created User key in the response
    #Create Team
     When I am able to get the following API endpoint
-      | url                     | endpoint                  |
+      | url                     | endpoint                         |
       | ServicesEngageEngageApi | services.engage.teams.createTeam |
     And I send request for create Team with below details ward
       | teamName    | accountKey | description                                    | userIds |
@@ -32,8 +32,8 @@ Feature: Verify Services.Engage.Teams
   Scenario: Verify get all Teams
     Given I am getting the participant token for the "Engage" scope
     When I am able to get the following API endpoint
-      | url                     | endpoint                    |
-      | ServicesEngageEngageApi | services.engage.teams.getAllTeams  |
+      | url                     | endpoint                          |
+      | ServicesEngageEngageApi | services.engage.teams.getAllTeams |
     And I send request for get all teams
     Then I should see the response with a list of all Teams
 
@@ -43,7 +43,7 @@ Feature: Verify Services.Engage.Teams
     #Create Account
     Given I am getting the participant token for the "Engage" scope
     When I am able to get the following API endpoint
-      | url                     | endpoint                      |
+      | url                     | endpoint                              |
       | ServicesEngageEngageApi | services.engage.account.createAccount |
     And I send request for create account with below details
       | accountKey     | name                 |
@@ -59,7 +59,7 @@ Feature: Verify Services.Engage.Teams
     Then I should see newly created User key in the response
    #Create Team
     When I am able to get the following API endpoint
-      | url                     | endpoint                  |
+      | url                     | endpoint                         |
       | ServicesEngageEngageApi | services.engage.teams.createTeam |
     And I send request for create Team with below details ward
       | teamName    | accountKey | description                                    | userIds |
@@ -67,8 +67,8 @@ Feature: Verify Services.Engage.Teams
     Then I should see the team created with status code as 200
     #Get All Teams by Account Key
     When I am able to get the following API endpoint
-      | url                     | endpoint                              |
-      | ServicesEngageEngageApi | services.engage.teams.getAllTeamsbyFilter|
+      | url                     | endpoint                                  |
+      | ServicesEngageEngageApi | services.engage.teams.getAllTeamsbyFilter |
     And I send request for get team with accountkey
     Then I should see teamkey in response
 
@@ -77,7 +77,7 @@ Feature: Verify Services.Engage.Teams
   #Create Account
     Given I am getting the participant token for the "Engage" scope
     When I am able to get the following API endpoint
-      | url                     | endpoint                      |
+      | url                     | endpoint                              |
       | ServicesEngageEngageApi | services.engage.account.createAccount |
     And I send request for create account with below details
       | accountKey     | name                 |
@@ -93,7 +93,7 @@ Feature: Verify Services.Engage.Teams
     Then I should see newly created User key in the response
    #Create Team
     When I am able to get the following API endpoint
-      | url                     | endpoint                  |
+      | url                     | endpoint                         |
       | ServicesEngageEngageApi | services.engage.teams.createTeam |
     And I send request for create Team with below details ward
       | teamName    | accountKey | description                                    | userIds |
@@ -101,8 +101,8 @@ Feature: Verify Services.Engage.Teams
     Then I should see the team created with status code as 200
     #Get all teams by accountKey
     When I am able to get the following API endpoint
-      | url                     | endpoint                              |
-      | ServicesEngageEngageApi | services.engage.teams.getAllTeamsbyFilter|
+      | url                     | endpoint                                  |
+      | ServicesEngageEngageApi | services.engage.teams.getAllTeamsbyFilter |
     And I send request for get all teams with teamkey
     Then I should see teamkey in response
 
@@ -111,7 +111,7 @@ Feature: Verify Services.Engage.Teams
     #Create Account
     Given I am getting the participant token for the "Engage" scope
     When I am able to get the following API endpoint
-      | url                     | endpoint                      |
+      | url                     | endpoint                              |
       | ServicesEngageEngageApi | services.engage.account.createAccount |
     And I send request for create account with below details
       | accountKey     | name                 |
@@ -127,7 +127,7 @@ Feature: Verify Services.Engage.Teams
     Then I should see newly created User key in the response
    #Create Team
     When I am able to get the following API endpoint
-      | url                     | endpoint                  |
+      | url                     | endpoint                         |
       | ServicesEngageEngageApi | services.engage.teams.createTeam |
     And I send request for create Team with below details ward
       | teamName    | accountKey | description                                    | userIds |
@@ -135,8 +135,8 @@ Feature: Verify Services.Engage.Teams
     Then I should see the team created with status code as 200
     #Get Team details
     When I am able to get the following API endpoint
-      | url                     | endpoint                     |
-      | ServicesEngageEngageApi | services.engage.teams.getTeamDetails|
+      | url                     | endpoint                             |
+      | ServicesEngageEngageApi | services.engage.teams.getTeamDetails |
     And I send request for get team with teamkey
     Then I should see teamkey in team details response
 
@@ -145,7 +145,7 @@ Feature: Verify Services.Engage.Teams
    #Create Account
     Given I am getting the participant token for the "Engage" scope
     When I am able to get the following API endpoint
-      | url                     | endpoint                      |
+      | url                     | endpoint                              |
       | ServicesEngageEngageApi | services.engage.account.createAccount |
     And I send request for create account with below details
       | accountKey     | name                 |
@@ -161,7 +161,7 @@ Feature: Verify Services.Engage.Teams
     Then I should see newly created User key in the response
    #Create Team
     When I am able to get the following API endpoint
-      | url                     | endpoint                  |
+      | url                     | endpoint                         |
       | ServicesEngageEngageApi | services.engage.teams.createTeam |
     And I send request for create Team with below details ward
       | teamName    | accountKey | description                                    | userIds |
@@ -169,45 +169,45 @@ Feature: Verify Services.Engage.Teams
     Then I should see the team created with status code as 200
     #Update Team
     When I am able to get the following API endpoint
-      | url                     | endpoint                 |
-      | ServicesEngageEngageApi | services.engage.teams.updateTeam|
+      | url                     | endpoint                         |
+      | ServicesEngageEngageApi | services.engage.teams.updateTeam |
     And I send request for Update team with teamkey
-      |teamName   | description                                           |
-      |teamName | This is a test Team Updated via API automation<rstr6> |
+      | teamName | description                                           |
+      | teamName | This is a test Team Updated via API automation<rstr6> |
     Then I should see the response with status code as 204
 
 
-   @APIAutomation_set1 @engage @team @DeleteTeam
+  @APIAutomation_set1 @engage @team @DeleteTeam
   Scenario: Verify delete team
    #Create Account
     Given I am getting the participant token for the "Engage" scope
     When I am able to get the following API endpoint
-      | url                     | endpoint                      |
+      | url                     | endpoint                              |
       | ServicesEngageEngageApi | services.engage.account.createAccount |
     And I send request for create account with below details
       | accountKey     | name                 |
       | TESTACC<rstr6> | Test Account <rstr6> |
     Then I should see account created successfully with status code 204
     #Create User
-     When I am able to get the following API endpoint
-       | url                     | endpoint                                     |
-       | ServicesEngageEngageApi | services.engage.EngageUsers.createEngageUser |
-     And I send request for create user with below details
-       | accountKey | userName     | password    | firstName    | lastname     | email            |
-       | accountKey | NewQA<rstr6> | PASS<rstr6> | FNAME<rstr6> | LNAME<rstr6> | QATest@gmail.com |
-     Then I should see newly created User key in the response
+    When I am able to get the following API endpoint
+      | url                     | endpoint                                     |
+      | ServicesEngageEngageApi | services.engage.EngageUsers.createEngageUser |
+    And I send request for create user with below details
+      | accountKey | userName     | password    | firstName    | lastname     | email            |
+      | accountKey | NewQA<rstr6> | PASS<rstr6> | FNAME<rstr6> | LNAME<rstr6> | QATest@gmail.com |
+    Then I should see newly created User key in the response
    #Create Team
-     When I am able to get the following API endpoint
-       | url                     | endpoint                  |
-       | ServicesEngageEngageApi | services.engage.teams.createTeam |
-     And I send request for create Team with below details ward
-       | teamName    | accountKey | description                                    | userIds |
-       | Team<rstr6> | accountKey | This is a test ward created via API automation | userKey |
-     Then I should see the team created with status code as 200
+    When I am able to get the following API endpoint
+      | url                     | endpoint                         |
+      | ServicesEngageEngageApi | services.engage.teams.createTeam |
+    And I send request for create Team with below details ward
+      | teamName    | accountKey | description                                    | userIds |
+      | Team<rstr6> | accountKey | This is a test ward created via API automation | userKey |
+    Then I should see the team created with status code as 200
     #Delete Team
     When I am able to get the following API endpoint
-      | url                     | endpoint                 |
-      | ServicesEngageEngageApi | services.engage.teams.deleteTeam|
+      | url                     | endpoint                         |
+      | ServicesEngageEngageApi | services.engage.teams.deleteTeam |
     And I send request for Delete team
     Then I should see team Deleted Successfully
 
@@ -217,7 +217,7 @@ Feature: Verify Services.Engage.Teams
    #Create Account
     Given I am getting the participant token for the "Engage" scope
     When I am able to get the following API endpoint
-      | url                     | endpoint                      |
+      | url                     | endpoint                              |
       | ServicesEngageEngageApi | services.engage.account.createAccount |
     And I send request for create account with below details
       | accountKey     | name                 |
@@ -233,7 +233,7 @@ Feature: Verify Services.Engage.Teams
     Then I should see newly created User key in the response
    #Create Team
     When I am able to get the following API endpoint
-      | url                     | endpoint                  |
+      | url                     | endpoint                         |
       | ServicesEngageEngageApi | services.engage.teams.createTeam |
     And I send request for create Team with below details ward
       | teamName    | accountKey | description                                    | userIds |
@@ -249,16 +249,16 @@ Feature: Verify Services.Engage.Teams
     Then I should see newly created User key in the response
     #Add Users to the team
     When I am able to get the following API endpoint
-      | url                     | endpoint                 |
-      | ServicesEngageEngageApi | services.engage.teams.addUsersToTeam|
+      | url                     | endpoint                             |
+      | ServicesEngageEngageApi | services.engage.teams.addUsersToTeam |
     And I send request Add Users to team
-      | EngageUserKeys  |
-      | UserKey |
+      | EngageUserKeys |
+      | UserKey        |
     Then I should see Users added to team Successfully
     #Get Team details
     When I am able to get the following API endpoint
-      | url                     | endpoint                     |
-      | ServicesEngageEngageApi | services.engage.teams.getTeamDetails|
+      | url                     | endpoint                             |
+      | ServicesEngageEngageApi | services.engage.teams.getTeamDetails |
     And I send request for get team with teamkey
     Then I should see newly added user in the team details response with status code as 200
 

@@ -5,5 +5,7 @@
   "prePromoStartsOn": "<starts-on>",
   "postPromoEndsOn": "<ends-on>",
   "baseUrl": "<baseUrl>",
-  "features": ["<features>"]
+  "features": [
+    "<features>"
+  ]
 }

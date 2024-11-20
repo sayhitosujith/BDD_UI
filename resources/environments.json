@@ -19,15 +19,13 @@
   },
   "CI": {
     "demowebshop": "http://demowebshop.tricentis.com/login"
-
   },
   "QA": {
-      "RC13": "http://dft11-t13-ags01.lab.nordigy.ru:8081/ag/generate",
-    "Naukri": "https://www.naukri.com/nlogin/login?utm_source=google&utm_medium=cpc&utm_campaign=Brand&gad_source=1&gclid=CjwKCAjwo6GyBhBwEiwAzQTmc34DfBd9dNPPn_R_W3UozmHxoGFxQRepNJgOcFPHLMUoYhEwNErtOxoC6a0QAvD_BwE&gclsrc=aw.ds"
-
+    "RC13": "http://dft11-t13-ags01.lab.nordigy.ru:8081/ag/generate",
+    "Naukri": "https://www.naukri.com/nlogin/login?utm_source=google&utm_medium=cpc&utm_campaign=Brand&gad_source=1&gclid=CjwKCAjwo6GyBhBwEiwAzQTmc34DfBd9dNPPn_R_W3UozmHxoGFxQRepNJgOcFPHLMUoYhEwNErtOxoC6a0QAvD_BwE&gclsrc=aw.ds",
+    "Amazon": "https://www.amazon.in/"
   },
   "STG": {
     "demowebshop": "http://demowebshop.tricentis.com/login"
-
   }
 }

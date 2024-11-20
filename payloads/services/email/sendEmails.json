@@ -3,11 +3,12 @@
   "messageText": "<messageText>",
   "messageHtml": "<messageHtml>",
   "subject": "<subject>",
-  "toRecipients":[
+  "toRecipients": [
     {
       "emailAddress": "<emailAddress>",
       "friendlyName": "<friendlyName>"
-    }],
+    }
+  ],
   "ccRecipients": [
     {
       "emailAddress": "<ccRecipients>",

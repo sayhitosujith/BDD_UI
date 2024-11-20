@@ -19,16 +19,16 @@ public class ResourceData {
 
     public static String getConfigProperty(String propertyName) {
 
-        return getProperty(CONFIG_PROPERTIES,propertyName);
+        return getProperty(CONFIG_PROPERTIES, propertyName);
     }
 
     public static String getScopesProperty(String propertyName) {
 
-        return getProperty(SCOPES_PROPERTIES,propertyName);
+        return getProperty(SCOPES_PROPERTIES, propertyName);
     }
 
 
-    public static String getEnvironment(){
+    public static String getEnvironment() {
         /**
          * Seems we want this to be obtained 
          * FIRST from Environment var
@@ -42,47 +42,48 @@ public class ResourceData {
         return getConfigProperty("environment");
     }
 
-    public static String getEnvironmentURL(String path){
-        return getValueFromJson(ENVIRONMENTS_JSON,path);
+    public static String getEnvironmentURL(String path) {
+        return getValueFromJson(ENVIRONMENTS_JSON, path);
     }
 
-    public static String getEndPoint(String path){
-        return getValueFromJson(ENDPOINTS_JSON,path);
+    public static String getEndPoint(String path) {
+        return getValueFromJson(ENDPOINTS_JSON, path);
     }
 
 
     /**
      * This method reads the jsonFile and return the matching json value based on JSON path
+     *
      * @param jsonFile
      * @param path
      * @return jsonValue
      */
-    public static String getValueFromJson(String jsonFile, String path){
-        String jsonValue="";
+    public static String getValueFromJson(String jsonFile, String path) {
+        String jsonValue = "";
         try {
             String json = readFileAsString(jsonFile);
             JsonPath jsonPath = new JsonPath(json);
             jsonValue = jsonPath.get(path).toString();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return jsonValue;
     }
 
-    public static String readFileAsString(String file)throws Exception
-    {
+    public static String readFileAsString(String file) throws Exception {
         return new String(Files.readAllBytes(Paths.get(file)));
     }
 
     /**
      * This method reads the propertyFile and return the matching propertyValue for the propertyName
+     *
      * @param propertyFile
      * @param propertyName
      * @return propertyValue
      */
     public static String getProperty(String propertyFile, String propertyName) {
 
-        String propertyValue="";
+        String propertyValue = "";
 
         try {
             FileReader fileReader = new FileReader(propertyFile);
@@ -92,7 +93,7 @@ public class ResourceData {
 
             propertyValue = properties.getProperty(propertyName);
 
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return propertyValue;

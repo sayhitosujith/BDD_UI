@@ -1,38 +1,22 @@
 package StepDefs.services;
 
 import StepDefs.Validations;
-import configManager.DataLoad;
-import configManager.Payloads;
-import configManager.ResourceData;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.restassured.RestAssured;
-import io.restassured.specification.RequestSpecification;
-import net.bytebuddy.agent.builder.AgentBuilder;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
-import util.*;
-
-import java.util.Map;
 import java.util.Random;
 
 
-public class LoginStepDefs<IJavaScriptExecutor>
-
-{
+public class LoginStepDefs<IJavaScriptExecutor> {
     WebDriver driver;
 
 
     @When("I enter Valid Credentials and Login Successfully")
     public void IenterValidCredentialsandLoginSuccessfully() throws Throwable {
-      //  driver.findElement(By.xpath("//a[@href='/login']")).click();
+        //  driver.findElement(By.xpath("//a[@href='/login']")).click();
 //        GenericUtil genericUtil = new GenericUtil();
 //        DataLoad dataLoad = DataLoad.getInstance();
 //        String payload = genericUtil.getFileData(Payloads.USER_LOGIN);
@@ -43,7 +27,7 @@ public class LoginStepDefs<IJavaScriptExecutor>
         driver.findElement(By.xpath("//input[@class='button-1 login-button']")).click();
 
         System.out.println("Enter Valid Credentials and verify the details");
-       System.out.println("Login is Successful");
+        System.out.println("Login is Successful");
 
     }
 
@@ -55,11 +39,10 @@ public class LoginStepDefs<IJavaScriptExecutor>
     }
 
 
-
     @And("i should Verify page title")
     public void iShouldVerifyPageTitle() {
 
-        Validations.assertEquals("Demo Web Shop", driver.getTitle(),"Status code validation for Verify page title");
+        Validations.assertEquals("Demo Web Shop", driver.getTitle(), "Status code validation for Verify page title");
         System.out.println("Verification of Page Title");
     }
 
@@ -90,16 +73,16 @@ public class LoginStepDefs<IJavaScriptExecutor>
         Thread.sleep(5000);
 
         String heading = driver.findElement(By.xpath("//span[@class='cart-qty']")).getText();
-        System.out.println("The expected heading is same as actual heading --- "+heading);
+        System.out.println("The expected heading is same as actual heading --- " + heading);
 
-        Validations.assertEquals("Demo Web Shop. Smartphone", driver.getTitle(),"Status code validation for Verify page title");
+        Validations.assertEquals("Demo Web Shop. Smartphone", driver.getTitle(), "Status code validation for Verify page title");
 
     }
 
     @And("I verify cart details")
     public void iVerifyCartDetails() {
 
-     //....Click on shopping cart....
+        //....Click on shopping cart....
         driver.findElement(By.xpath("//span[normalize-space()='Shopping cart']")).click();
         System.out.println("Click on shopping cart");
     }
@@ -118,7 +101,7 @@ public class LoginStepDefs<IJavaScriptExecutor>
         System.out.println("Update Shoopping Cart - Your Shopping Cart is empty!");
 
         String heading = driver.findElement(By.xpath("//span[@class='cart-qty']")).getText();
-        System.out.println("The expected heading is same as actual heading --- "+heading);
+        System.out.println("The expected heading is same as actual heading --- " + heading);
 
     }
 // IJavaScriptExecutor js = (IJavaScriptExecutor)SeleniumActions.driver;

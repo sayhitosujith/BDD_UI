@@ -18,7 +18,7 @@
       ],
       "answers": [
         {
-          "sortOrder":  "<answers_sortOrder>",
+          "sortOrder": "<answers_sortOrder>",
           "isCorrect": "<answers_isCorrect>",
           "prompts": [
             {
@@ -39,7 +39,7 @@
         },
         {
           "sortOrder": "<answers_sortOrder2>",
-          "isCorrect":  "<answers_isCorrect2>",
+          "isCorrect": "<answers_isCorrect2>",
           "prompts": [
             {
               "text": "<answers_text2>",

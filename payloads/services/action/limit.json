@@ -1,7 +1,7 @@
 {
-  "appliesTo":"<appliesTo>",
-  "demographicKey":"<demographicKey>",
-  "required":"<required>",
-  "quantity":"<quantity>",
-  "period":"<period>"
+  "appliesTo": "<appliesTo>",
+  "demographicKey": "<demographicKey>",
+  "required": "<required>",
+  "quantity": "<quantity>",
+  "period": "<period>"
 }
