@@ -2,8 +2,8 @@ name: Daily Job
 
 on:
   schedule:
-    - cron: '0 8 * * *'  # Runs at 8am IST daily
-    - cron: '0 22 * * *' # Runs at 10pm IST daily.
+    - cron: '0 2 * * *'  # 8am IST (adjusted to UTC)
+    - cron: '30 16 * * *' # 10pm IST (adjusted to UTC)
 
 jobs:
   run-script:
@@ -12,29 +12,29 @@ jobs:
     steps:
       # Step 1: Checkout code
       - name: Checkout main
-        uses: actions/main
+        uses: actions/checkout@v3
 
       # Step 2: Set up Java (if your main class is Java-based)
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
-          java-version: '17' # Adjust based on your project's requirements
+          java-version: '17'
 
       # Step 3: Switch to the desired branch
-      - name: Switch to target branch
+      - name: Switch to main branch
         run: git checkout main
 
-      # Step 4: Build/Compile your project (if required)
+      # Step 4: Build/Compile the project (if required)
       - name: Build project
         run: |
-          # Use Maven
+          # Example with Maven
           mvn clean install
-          # If using Gradle, replace the above line with:
+          # If using Gradle, replace Maven with:
           # ./gradlew build
 
-      # Step 5: Run the main class/script
-      - name: Run the script
+      # Step 5: Run the Java main class/script
+      - name: Run the Java main class
         run: |
-          # Running a Java main class (example for Maven projects)
-          java -cp target/RunCukesTest.java
-          # Replace this with the actual classpath and main class
+          # Example for a Maven project:
+          java -cp target/classes your.package.RunCukesTest
+          # Replace 'target/classes' with the correct classpath and ensure you use the fully qualified class name
