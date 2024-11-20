@@ -12,11 +12,13 @@ jobs:
     steps:
       # Step 1: Checkout code
       - name: Checkout main
-        uses: actions/checkout@v3
+        uses: actions/checkout main
+        with:
+          fetch-depth: 0  # Fetch all history for proper branch checkout
 
       # Step 2: Set up Java (if your main class is Java-based)
       - name: Set up JDK 17
-        uses: actions/setup-java@v3
+        uses: actions/checkout main
         with:
           java-version: '17'
 
@@ -36,5 +38,5 @@ jobs:
       - name: Run the Java main class
         run: |
           # Example for a Maven project:
-          java -cp target/classes your.package.RunCukesTest
-          # Replace 'target/classes' with the correct classpath and ensure you use the fully qualified class name
+          java -cp target/classes:target/dependency/* your.package.RunCukesTest
+          # Replace 'target/classes' and 'your.package.RunCukesTest' with the actual values
