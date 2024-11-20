@@ -3,17 +3,38 @@ name: Daily Job
 on:
   schedule:
     - cron: '0 8 * * *'  # Runs at 8am IST daily
-    - cron: '0 19 * * *' # Runs at 7pmam IST daily.
+    - cron: '0 22 * * *' # Runs at 10pm IST daily.
 
 jobs:
-  run-daily:
+  run-script:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      # Step 1: Checkout code
+      - name: Checkout main
+        uses: actions/main
 
-      - name: Run a script
+      # Step 2: Set up Java (if your main class is Java-based)
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17' # Adjust based on your project's requirements
+
+      # Step 3: Switch to the desired branch
+      - name: Switch to target branch
+        run: git checkout main
+
+      # Step 4: Build/Compile your project (if required)
+      - name: Build project
         run: |
-          echo "Running daily job"
-          # Add your script or command here
+          # Use Maven
+          mvn clean install
+          # If using Gradle, replace the above line with:
+          # ./gradlew build
+
+      # Step 5: Run the main class/script
+      - name: Run the script
+        run: |
+          # Running a Java main class (example for Maven projects)
+          java -cp target/RunCukesTest.java
+          # Replace this with the actual classpath and main class
