@@ -12,13 +12,13 @@ jobs:
     steps:
       # Step 1: Checkout code
       - name: Checkout main
-        uses: actions/checkout main
+        uses: owner/repository@ref
         with:
           fetch-depth: 0  # Fetch all history for proper branch checkout
 
       # Step 2: Set up Java (if your main class is Java-based)
       - name: Set up JDK 17
-        uses: actions/checkout main
+        uses: owner/repository@ref
         with:
           java-version: '17'
 
