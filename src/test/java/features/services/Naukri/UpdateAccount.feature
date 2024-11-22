@@ -1,4 +1,4 @@
-Feature: Verify Naukri Application
+Feature: Verify Update Naukri Application
 
     #....................Verify Upload Resume And Update Account...........
   @Naukri @VerifyUploadResumeAndUpdateAccount
