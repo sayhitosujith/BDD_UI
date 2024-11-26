@@ -9,17 +9,14 @@ on:
       - main  # Runs when pushing to the main branch
 
 jobs:
-  run-daily:
+  Checkout:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@main
 
-  push:
+  checkour and Run:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@main
-
       - name: Run tests with @Naukri tag
         run: mvn test -Dcucumber.options="--tags @Naukri"
