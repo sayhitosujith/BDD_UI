@@ -15,9 +15,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@main # Checkout the repository code
 
-      - name: Compile the script
-        run: |
-          javac src/RunCukesTest.java  # Compile the Java file
 
       - name: Run the script
         run: |
@@ -28,10 +25,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@sujith  # Checkout the repository code
-
-      - name: Compile the script
-        run: |
-          javac src/RunCukesTest.java  # Compile the Java file
 
       - name: Run the script
         run: |
