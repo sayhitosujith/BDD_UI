@@ -21,7 +21,7 @@ jobs:
 
       - name: Run the script
         run: |
-          - name: dryrun
-    default:  tags = "@Naukri"
-    name: environment
+          - name: Run the script with @Naukri tag
+  run: |
+    mvn test -Dcucumber.options="--tags @Naukri"
 
