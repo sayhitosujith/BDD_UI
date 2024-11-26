@@ -24,3 +24,19 @@ jobs:
       - name: Run a script
         run: |
           java RunCukesTest
+          
+          push:
+            branches:
+              - sujith
+
+            steps:
+              - name: Checkout code
+                uses: sayhitosujith/BDD_UI
+
+              - name: Complie a script
+                run: |
+                  javac src/RunCukesTest.java
+
+              - name: Run a script
+                run: |
+                  java RunCukesTest
