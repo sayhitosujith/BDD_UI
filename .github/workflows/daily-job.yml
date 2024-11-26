@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@main
+        uses: actions/checkout@main  # Checkout the repository code (use v2 for stability)
 
       - name: Run the script for dry run (daily)
         run: |
@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@main
+        uses: actions/checkout@main  # Checkout the repository code
 
       - name: Run tests with @Naukri tag
         run: |
