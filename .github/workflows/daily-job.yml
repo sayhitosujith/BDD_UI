@@ -2,37 +2,37 @@ name: Daily Job
 
 on:
   schedule:
-    - cron: '0 8 * * *'  # Runs at 8am IST daily
-    - cron: '0 19 * * *' # Runs at 7pm IST daily
+    - cron: '0 2 * * *'  # Runs at 8am IST daily (UTC 2:00 AM)
+    - cron: '30 13 * * *' # Runs at 7pm IST daily (UTC 1:30 PM)
   push:
     branches:
-      - main  # Runs on push to the main branch
+      - main  # Runs when pushing to the main branch
 
 jobs:
   run-daily:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/main  # Use the correct action for checkout
+        uses: actions/checkout@main # Checkout the repository code
 
-      - name: Compile a script
+      - name: Compile the script
         run: |
-          javac src/RunCukesTest.java
+          javac src/RunCukesTest.java  # Compile the Java file
 
       - name: Run the script
         run: |
-          java RunCukesTest
+          java RunCukesTest  # Run the compiled Java file
 
   push:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/sujith  # Ensure correct usage of the checkout action
+        uses: actions/checkout@sujith  # Checkout the repository code
 
-      - name: Compile a script
+      - name: Compile the script
         run: |
-          javac src/RunCukesTest.java
+          javac src/RunCukesTest.java  # Compile the Java file
 
       - name: Run the script
         run: |
-          java RunCukesTest
+          java RunCukesTest  # Run the compiled Java file
