@@ -15,6 +15,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@main
 
+          - name: Install dependencies
+              run: |
+                sudo apt-get update
+                sudo apt-get install -y wget unzip google-chrome-stable
+                # Install matching ChromeDriver
+                CHROME_VERSION=$(google-chrome --version | awk '{print $3}' | cut -d'.' -f1)
+                DRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_${CHROME_VERSION}")
+                wget -N "https://chromedriver.storage.googleapis.com/$DRIVER_VERSION/chromedriver_linux64.zip" -P drivers/
+                unzip -o drivers/chromedriver_linux64.zip -d drivers/
+                chmod +x drivers/chromedriver
+
   push:
     runs-on: ubuntu-latest
     steps:
