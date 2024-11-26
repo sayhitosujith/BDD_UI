@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: sayhitosujith/BDD_UI
+        uses: github.com/sayhitosujith/BDD_UI
 
       - name: Complie a script
         run: |
@@ -31,7 +31,7 @@ jobs:
 
             steps:
               - name: Checkout code
-                uses: sayhitosujith/BDD_UI
+                uses: github.com/sayhitosujith/BDD_UI
 
               - name: Complie a script
                 run: |
