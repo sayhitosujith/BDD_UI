@@ -21,4 +21,4 @@ jobs:
 
       - name: Run the script
         run: |
-          RunCukesTest.java  # Run the Java file
+          java RunCukesTest  # Run the Java file
