@@ -22,4 +22,4 @@ jobs:
       - name: Run the script
         run: |
           - name: dryrun
-    default: '@Naukri'
+    tags: '@Naukri'
