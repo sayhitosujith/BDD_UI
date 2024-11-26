@@ -27,7 +27,7 @@ jobs:
         uses: actions/checkout@main
 
       - name: Navigate to project directory (if needed)
-        run: cd /home/runner/work/BDD_UI_Naukri/BDD_UI_Naukri
+        run: cd C:/Users/Sadashivareddys/IdeaProjects/BDD_UI_Naukri
 
       - name: Run tests with @Naukri tag
         run: mvn test -Dcucumber.options="--tags @Naukri"
