@@ -19,10 +19,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      - name: Comple the script
-        run: |
-          javac /src/test/java/RunCukesTest.java  # Run the Java file 
-
       - name: Run the script
         run: |
           java /src/test/java/RunCukesTest  # Run the Java file
