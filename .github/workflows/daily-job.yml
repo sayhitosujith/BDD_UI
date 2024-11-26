@@ -15,11 +15,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@main
 
-      - name: Run the script for dry run (daily)
-        run: |
-          echo "Dry Run for daily job"
-          # Your dry run commands
-
   push:
     runs-on: ubuntu-latest
     steps:
@@ -27,4 +22,4 @@ jobs:
         uses: actions/checkout@main
 
       - name: Run tests with @Naukri tag
-        run: mvn test -Dcucumber.options="--tags @Naukri--dry-run"
+        run: mvn test -Dcucumber.options="--tags @Naukri --dry-run"
