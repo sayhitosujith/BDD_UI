@@ -21,4 +21,7 @@ jobs:
 
       - name: Run the script
         run: |
-          - tags: @Naukri
+          - name: dryrun
+    default: @CucumberOptions tags = "@Naukri"
+    name: environment
+
