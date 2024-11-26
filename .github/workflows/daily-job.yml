@@ -13,21 +13,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@main  # Checkout the repository code (use v2 for stability)
+        uses: actions/checkout@main
 
       - name: Run the script for dry run (daily)
         run: |
           echo "Dry Run for daily job"
-          # Run dry run for the Cucumber tests
-          mvn test -Dcucumber.options="--tags @Naukri --dry-run"  # Dry run option for Cucumber tests
+          # Your dry run commands
 
   push:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@main  # Checkout the repository code
+        uses: actions/checkout@main
 
       - name: Run tests with @Naukri tag
-        run: |
-          echo "Running Cucumber tests with @Naukri tag"
-          mvn test -Dcucumber.options="--tags @Naukri"  # Regular test run with @Naukri tag
+        run: mvn test -Dcucumber.options="--tags @Naukri--dry-run"
