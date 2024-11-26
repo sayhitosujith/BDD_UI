@@ -19,10 +19,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      - name: Compile the script
-        run: |
-          java src/RunCukesTest.java  # Compile the script
-
       - name: Run the script
         run: |
           java RunCukesTest  # Run the Java file
