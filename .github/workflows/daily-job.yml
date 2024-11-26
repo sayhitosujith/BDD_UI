@@ -22,7 +22,6 @@ jobs:
       - name: Run the script
         run: |
           - name: dryrun
-    displayName: 'Compile Run'
     type: string
     default: '@Naukri'
     name: environment
