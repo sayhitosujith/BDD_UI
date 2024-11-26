@@ -22,4 +22,3 @@ jobs:
       - name: Run the script
         run: |
           - name: dryrun
-    tags: '@Naukri'
