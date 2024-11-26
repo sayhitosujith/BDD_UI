@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: checkout@master
+        uses: BDD_UI/checkout@master
 
       - name: Complie a script
         run: |
