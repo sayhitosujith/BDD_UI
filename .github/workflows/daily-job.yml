@@ -15,17 +15,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@main # Checkout the repository code
 
-
-      - name: Run the script
-        run: |
-          java RunCukesTest  # Run the compiled Java file
-
   push:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@sujith  # Checkout the repository code
 
+      - name: Compile the script
+        run: |
+          java src/RunCukesTest.java  # Compile the script
+
       - name: Run the script
         run: |
-          java RunCukesTest  # Run the compiled Java file
+          java RunCukesTest  # Run the Java file
