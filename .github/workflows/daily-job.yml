@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: C:\Users\Sadashivareddys\IdeaProjects\BDD_UI_Naukri
+        uses: actions/checkout@master
 
       - name: Complie a script
         run: |
@@ -31,7 +31,7 @@ jobs:
 
             steps:
               - name: Checkout code
-                uses: C:\Users\Sadashivareddys\IdeaProjects\BDD_UI_Naukri
+                uses: actions/checkout@master
 
               - name: Complie a script
                 run: |
