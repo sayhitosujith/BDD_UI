@@ -11,9 +11,9 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: sayhitosujith/BDD_UI
 
       - name: Run a script
         run: |
           echo "Running daily job"
-          # Add your script or command here
+          tags = "@Naukri",
