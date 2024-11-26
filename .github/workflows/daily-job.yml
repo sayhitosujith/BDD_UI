@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@master
+        uses: checkout@master
 
       - name: Complie a script
         run: |
