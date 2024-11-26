@@ -9,11 +9,18 @@ jobs:
   run-daily:
     runs-on: ubuntu-latest
 
+  push:
+    branches:
+      - main
+
     steps:
       - name: Checkout code
         uses: sayhitosujith/BDD_UI
 
+      - name: Complie a script
+        run: |
+          javac src/RunCukesTest.java
+          
       - name: Run a script
         run: |
-          echo "Running daily job"
-          tags = "@Naukri",
+          java RunCukesTest
