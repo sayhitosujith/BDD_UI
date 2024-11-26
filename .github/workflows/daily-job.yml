@@ -13,13 +13,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@main # Checkout the repository code
+        uses: actions/checkout@main
+
+      - name: Run the script for dry run (daily)
+        run: |
+          echo "Dry Run for daily job"
+          # Your dry run commands
 
   push:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@main
 
-      - name: Run the script
-        run: |
-          mvn test -Dcucumber.options="--tags @Naukri"
+      - name: Navigate to project directory (if needed)
+        run: cd project  C:\Users\Sadashivareddys\IdeaProjects\BDD_UI_Naukri
 
+      - name: Run tests with @Naukri tag
+        run: mvn test -Dcucumber.options="--tags @Naukri"
