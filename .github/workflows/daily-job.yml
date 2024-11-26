@@ -21,4 +21,10 @@ jobs:
 
       - name: Run the script
         run: |
-          java /src/test/java/RunCukesTest  # Run the Java file
+          - name: dryrun
+    displayName: 'Compile Run'
+    type: string
+    default: '@Naukri'
+    name: environment
+displayName: 'Environment'
+default: QA
