@@ -22,8 +22,4 @@ jobs:
       - name: Run the script
         run: |
           - name: dryrun
-    type: string
     default: '@Naukri'
-    name: environment
-displayName: 'Environment'
-default: QA
