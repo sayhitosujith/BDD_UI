@@ -25,18 +25,3 @@ jobs:
         run: |
           java RunCukesTest
           
-          push:
-            branches:
-              - sujith
-
-            steps:
-              - name: Checkout code
-                uses: actions/checkout@master
-
-              - name: Complie a script
-                run: |
-                  javac src/RunCukesTest.java
-
-              - name: Run a script
-                run: |
-                  java RunCukesTest
