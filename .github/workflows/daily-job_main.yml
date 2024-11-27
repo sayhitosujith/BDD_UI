@@ -1,0 +1,25 @@
+name: Daily Job
+
+on:
+  schedule:
+    - cron: '0 2 * * *'  # Runs at 8am IST daily (UTC 2:00 AM)
+    - cron: '30 13 * * *' # Runs at 7pm IST daily (UTC 1:30 PM)
+  push:
+    branches:
+      - main  # Runs when pushing to the main branch
+
+jobs:
+  run-daily:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@main
+
+  push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@main
+
+      - name: Run tests with @Naukri tag
+        run: mvn test -Dcucumber.options="--tags @Naukri --dry-run"
