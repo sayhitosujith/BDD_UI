@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@main
+        uses: actions/checkout@l
 
       - name: Run tests with @Naukri tag
         run: mvn test -Dcucumber.options="--tags @Naukri"
