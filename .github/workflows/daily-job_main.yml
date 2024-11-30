@@ -14,20 +14,23 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@main
-      # Install Google Chrome and ChromeDriver
-      - name: Install Google Chrome
-        run: |
-          sudo apt update
-          sudo apt install -y wget curl
-          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-          sudo apt install -y ./google-chrome-stable_current_amd64.deb
+          # Install Google Chrome
+                - name: Install Google Chrome
+                run: |
+                choco install googlechrome -y
 
-      - name: Install ChromeDriver
-        run: |
-          CHROME_DRIVER_VERSION=$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)
-          wget https://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip
-          unzip chromedriver_linux64.zip
-          sudo mv chromedriver /usr/local/bin/
+          # Install ChromeDriver (Windows version)
+                - name: Install ChromeDriver
+                  run: |
+                    $chromeDriverVersion = Invoke-RestMethod https://chromedriver.storage.googleapis.com/LATEST_RELEASE
+                    Invoke-WebRequest "https://chromedriver.storage.googleapis.com/$chromeDriverVersion/chromedriver_win32.zip" -OutFile "chromedriver.zip"
+                    Expand-Archive chromedriver.zip -DestinationPath ./drivers
+                    Remove-Item chromedriver.zip
+
+          # Set the path for ChromeDriver
+                - name: Set environment variable for ChromeDriver
+                  run: |
+                    echo "CHROMEDRIVER_PATH=$(pwd)/drivers/chromedriver.exe" >> $env:QA
 
   push:
     runs-on: ubuntu-latest
