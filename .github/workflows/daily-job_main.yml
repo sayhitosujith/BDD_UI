@@ -22,5 +22,4 @@ jobs:
         uses: actions/checkout@main
 
       - name: Run tests with @Naukri tag
-        run: mvn test -Dcucumber.options="--tags '@Naukri'"
-
+        run: mvn test -Dcucumber.options="--tags '@Naukri'" -e
