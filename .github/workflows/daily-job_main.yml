@@ -13,13 +13,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@main
+        uses: actions/checkout@v1
 
   push:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@l
+        uses: actions/checkout@v1
 
       - name: Run tests with @Naukri tag
         run: mvn test -Dcucumber.options="--tags @Naukri"
