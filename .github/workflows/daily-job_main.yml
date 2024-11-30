@@ -22,4 +22,4 @@ jobs:
         uses: actions/checkout@v1
 
       - name: Run tests with @Naukri tag
-        run: mvn test -Dcucumber.options="--tags @Naukri"
+        run: mvn test -Dcucumber.options="--tags @Naukri" -Dchrome.options="--headless --disable-gpu"
