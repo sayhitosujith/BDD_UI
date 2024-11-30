@@ -13,13 +13,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
+      # Add more steps for daily tasks here if needed
 
-  push:
+  push-tests:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
 
       - name: Run tests with @Naukri tag
-        run: mvn test -Dcucumber.options="--tags @Naukri" -Dchrome.options="--headless --disable-gpu"
+        run: mvn test -Dcucumber.options="--tags '@Naukri'"
