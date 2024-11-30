@@ -24,4 +24,4 @@ jobs:
         uses: actions/checkout@v2  # Use v2 instead of main for consistency
 
       - name: Run tests with @Naukri tag
-        run: mvn test -Dcucumber.options="--tags @Naukri --dry-run"
+        run: mvn test -Dcucumber.options="--tags @Naukri"
