@@ -46,10 +46,10 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
     @When("I enter Valid details and Update account")
     public void iEnterValidDetailsAndGenerateAccount() throws InterruptedException {
         loginPage = new LoginPage(driver);
-        loginPage.enterUsername("darshankm393@gmail.com");
+        loginPage.enterUsername("Keerthidharma1201@gmail.com");
         System.out.println("Enter the User Name");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        loginPage.enterPassword("Darshu@2204dardee");
+        loginPage.enterPassword("Success@2024");
         System.out.println("Enter the Password");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         loginPage.clickLogin();
@@ -129,7 +129,7 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
     public void iUpdateMyResume() throws InterruptedException {
         WebElement upload_file = driver.findElement(By.xpath("//input[@value='Update resume']"));
         upload_file.click();
-        upload_file.sendKeys("F://BDD_UI//BDD_UI//resources//files//Darshan_Resume.pdf");
+        upload_file.sendKeys("F://BDD_UI//BDD_UI//resources//files//Dharma_Python_Developer.pdf");
         System.out.println("upload resume");
 
         //get updated date
