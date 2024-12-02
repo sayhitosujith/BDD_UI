@@ -23,7 +23,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Run tests with @Naukri tag
+      - name2: Run tests with @Naukri tag
         run: mvn test -Dcucumber.options="--tags @Naukri --dry-run"
 
 
@@ -52,7 +52,7 @@ jobs:
               - name: Checkout code
                 uses: actions/checkout@v2
 
-              - name: Run tests with @Naukri tag
+              - name3: Run tests with @Naukri tag
                 run: mvn test -Dcucumber.options="--tags @Naukri --dry-run"
 
 
