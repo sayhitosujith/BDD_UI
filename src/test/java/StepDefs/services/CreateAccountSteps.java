@@ -129,9 +129,8 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
     public void iUpdateMyResume() throws InterruptedException {
         WebElement upload_file = driver.findElement(By.xpath("//input[@value='Update resume']"));
         upload_file.click();
-        upload_file.sendKeys("F://BDD_UI//BDD_UI//resources//files//Darshan_Resume.pdf");
+        upload_file.sendKeys("F://BDD_UI//BDD_UI//resources//files//K_M_Darshan-Resume.pdf");
         System.out.println("upload resume");
-
         //get updated date
         WebElement updateddate = driver.findElement(By.xpath("//div[@class='updateOn typ-14Regular']"));
         System.out.println(updateddate.getText());
