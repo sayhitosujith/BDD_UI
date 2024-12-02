@@ -7,8 +7,6 @@ on:
   push:
     branches:
       - main  # Runs when pushing to the main branch
-      - Darshan
-      - Dharma
 
 jobs:
   run-daily:
@@ -27,3 +25,61 @@ jobs:
 
       - name: Run tests with @Naukri tag
         run: mvn test -Dcucumber.options="--tags @Naukri --dry-run"
+
+
+        name: Daily Job
+
+        on:
+          schedule:
+            - cron: '0 2 * * *'  # Runs at 8am IST daily (UTC 2:00 AM)
+            - cron: '30 13 * * *' # Runs at 7pm IST daily (UTC 1:30 PM)
+          push:
+            branches:
+              - Dharma  # Runs when pushing to the main branch
+
+        jobs:
+          run-daily:
+            runs-on: ubuntu-latest
+            steps:
+              - name: Checkout code
+                uses: actions/checkout@v2
+              # Add more steps for daily tasks here if needed
+
+
+          push-tests:
+            runs-on: ubuntu-latest
+            steps:
+              - name: Checkout code
+                uses: actions/checkout@v2
+
+              - name: Run tests with @Naukri tag
+                run: mvn test -Dcucumber.options="--tags @Naukri --dry-run"
+
+
+                name: Daily Job
+
+                on:
+                  schedule:
+                    - cron: '0 2 * * *'  # Runs at 8am IST daily (UTC 2:00 AM)
+                    - cron: '30 13 * * *' # Runs at 7pm IST daily (UTC 1:30 PM)
+                  push:
+                    branches:
+                      - Darshan  # Runs when pushing to the main branch
+
+                jobs:
+                  run-daily:
+                    runs-on: ubuntu-latest
+                    steps:
+                      - name: Checkout code
+                        uses: actions/checkout@v2
+                      # Add more steps for daily tasks here if needed
+
+
+                  push-tests:
+                    runs-on: ubuntu-latest
+                    steps:
+                      - name: Checkout code
+                        uses: actions/checkout@v2
+
+                      - name: Run tests with @Naukri tag
+                        run: mvn test -Dcucumber.options="--tags @Naukri --dry-run"
