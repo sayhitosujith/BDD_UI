@@ -2,7 +2,7 @@ name: Daily Job
 
 on:
   schedule:
-    - cron: '0 2 * * *'  # Runs at 8am IST daily (UTC 2:00 AM)
+    - cron: '0 9 * * *'  # Runs at 9am IST daily (UTC 2:00 AM)
     - cron: '30 13 * * *' # Runs at 7pm IST daily (UTC 1:30 PM)
   push:
     branches:
