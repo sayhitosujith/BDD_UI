@@ -15,12 +15,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install Chrome and Chromedriver
+      - name: Install Compatible Chrome and Chromedriver
         run: |
           sudo apt-get update
-          sudo apt-get install -y google-chrome-stable chromium-chromedriver
-          chmod +x /usr/lib/chromium-browser/chromedriver
-          export PATH=$PATH:/usr/lib/chromium-browser/
+          sudo apt-get install -y google-chrome-stable
+          CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+')
+          wget https://chromedriver.storage.googleapis.com/$CHROME_VERSION/chromedriver_linux64.zip
+          unzip chromedriver_linux64.zip -d $HOME/chromedriver
+          export PATH=$PATH:$HOME/chromedriver
 
       - name: Verify Chrome and Chromedriver
         run: |
@@ -36,12 +38,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install Chrome and Chromedriver
+      - name: Install Compatible Chrome and Chromedriver
         run: |
           sudo apt-get update
-          sudo apt-get install -y google-chrome-stable chromium-chromedriver
-          chmod +x /usr/lib/chromium-browser/chromedriver
-          export PATH=$PATH:/usr/lib/chromium-browser/
+          sudo apt-get install -y google-chrome-stable
+          CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+')
+          wget https://chromedriver.storage.googleapis.com/$CHROME_VERSION/chromedriver_linux64.zip
+          unzip chromedriver_linux64.zip -d $HOME/chromedriver
+          export PATH=$PATH:$HOME/chromedriver
 
       - name: Verify Chrome and Chromedriver
         run: |
@@ -57,7 +61,14 @@ jobs:
             ${{ runner.os }}-maven-
 
       - name: Run tests with @Naukri tag
+        run: mvn test -Dcucumber.options="--tags '@Naukri'" --batch-mode --errors
+
+      - name: Cleanup after test run
+        run: sudo apt-get clean
+
+      - name: Notify Slack
+        uses: rtCamp/action-slack-notify@v2
         env:
-          CHROME_DRIVER_PATH: /usr/lib/chromium-browser/chromedriver
-        run: |
-          mvn test -Dcucumber.options="--tags '@Naukri'"
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        with:
+          args: success
