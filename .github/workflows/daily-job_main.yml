@@ -15,19 +15,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install Compatible Chrome and Chromedriver
+      - name: Install Chrome and Chromedriver
         run: |
           sudo apt-get update
-          sudo apt-get install -y google-chrome-stable
-          CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+')
-          wget https://chromedriver.storage.googleapis.com/$CHROME_VERSION/chromedriver_linux64.zip
-          unzip chromedriver_linux64.zip -d $HOME/chromedriver
-          export PATH=$PATH:$HOME/chromedriver
-
-      - name: Verify Chrome and Chromedriver
-        run: |
-          google-chrome --version
-          chromedriver --version
+          sudo apt-get install -y google-chrome-stable chromium-chromedriver
+          export PATH=$PATH:/usr/lib/chromium-browser/
 
       - name: Run daily tasks
         run: echo "Daily tasks go here"
@@ -38,37 +30,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install Compatible Chrome and Chromedriver
+      - name: Install Chrome and Chromedriver
         run: |
           sudo apt-get update
-          sudo apt-get install -y google-chrome-stable
-          CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+')
-          wget https://chromedriver.storage.googleapis.com/$CHROME_VERSION/chromedriver_linux64.zip
-          unzip chromedriver_linux64.zip -d $HOME/chromedriver
-          export PATH=$PATH:$HOME/chromedriver
-
-      - name: Verify Chrome and Chromedriver
-        run: |
-          google-chrome --version
-          chromedriver --version
-
-      - name: Cache Maven dependencies
-        uses: actions/cache@v2
-        with:
-          path: ~/.m2/repository
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-          restore-keys: |
-            ${{ runner.os }}-maven-
+          sudo apt-get install -y google-chrome-stable chromium-chromedriver
+          export PATH=$PATH:/usr/lib/chromium-browser/
 
       - name: Run tests with @Naukri tag
-        run: mvn test -Dcucumber.options="--tags '@Naukri'" --batch-mode --errors
-
-      - name: Cleanup after test run
-        run: sudo apt-get clean
-
-      - name: Notify Slack
-        uses: rtCamp/action-slack-notify@v2
-        env:
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-        with:
-          args: success
+        run: mvn test -Dcucumber.options="--tags '@Naukri'"
