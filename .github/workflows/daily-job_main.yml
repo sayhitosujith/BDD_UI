@@ -21,6 +21,11 @@ jobs:
           sudo apt-get install -y google-chrome-stable chromium-chromedriver
           export PATH=$PATH:/usr/lib/chromium-browser/
 
+      - name: Verify Chrome and Chromedriver
+        run: |
+          google-chrome --version
+          chromedriver --version
+
       - name: Run daily tasks
         run: echo "Daily tasks go here"
 
@@ -36,5 +41,18 @@ jobs:
           sudo apt-get install -y google-chrome-stable chromium-chromedriver
           export PATH=$PATH:/usr/lib/chromium-browser/
 
+      - name: Verify Chrome and Chromedriver
+        run: |
+          google-chrome --version
+          chromedriver --version
+
+      - name: Cache Maven dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
       - name: Run tests with @Naukri tag
-        run: mvn test -Dcucumber.options="--tags '@Naukri'"
+        run: mvn test -Dcucumber.options="--tags '@Naukri'" --batch-mode --errors
