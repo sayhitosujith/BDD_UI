@@ -16,13 +16,10 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install Chrome and Chromedriver
-          run: |
-            sudo apt-get update
-            sudo apt-get install -y google-chrome-stable chromium-chromedriver
-            export PATH=$PATH:/usr/lib/chromium-browser/
-
-      - name: Ensure Chromedriver is Executable
-        run: chmod +x /usr/lib/chromium-browser/chromedriver
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable chromium-chromedriver
+          export PATH=$PATH:/usr/lib/chromium-browser/
 
       - name: Run daily tasks
         run: echo "Daily tasks go here"
@@ -38,9 +35,6 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y google-chrome-stable chromium-chromedriver
           export PATH=$PATH:/usr/lib/chromium-browser/
-
-      - name: Ensure Chromedriver is Executable
-        run: chmod +x /usr/lib/chromium-browser/chromedriver
 
       - name: Run tests with @Naukri tag
         run: mvn test -Dcucumber.options="--tags '@Naukri'"
