@@ -21,6 +21,9 @@ jobs:
             sudo apt-get install -y google-chrome-stable chromium-chromedriver
             export PATH=$PATH:/usr/lib/chromium-browser/
 
+      - name: Ensure Chromedriver is Executable
+        run: chmod +x /usr/lib/chromium-browser/chromedriver
+
       - name: Run daily tasks
         run: echo "Daily tasks go here"
 
