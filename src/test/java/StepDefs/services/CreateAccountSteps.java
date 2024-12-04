@@ -34,13 +34,13 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
 
     @Given("I enter the Valid URL of Application by Launching Chrome Browser")
     public void IentertheValidURLofApplicationbyLaunchingChromeBrowser(io.cucumber.datatable.DataTable dataTable) throws InterruptedException {
-        //System.setProperty("webdriver.chrome.driver", ".//drivers//chromedriver.exe");
-//        driver = new ChromeDriver();
-//        driver.manage().window().maximize();
-//        Map<String, String> dataMap = StepUtil.toMap(dataTable);
-//        driver.get(ResourceData.getEnvironmentURL(ResourceData.getEnvironment() + "." + dataMap.get("url")));
-//        System.out.println("This Step open the Chrome and launch the application.");
-//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        System.setProperty("webdriver.chrome.driver", ".//drivers//chromedriver.exe");
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        Map<String, String> dataMap = StepUtil.toMap(dataTable);
+        driver.get(ResourceData.getEnvironmentURL(ResourceData.getEnvironment() + "." + dataMap.get("url")));
+        System.out.println("This Step open the Chrome and launch the application.");
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
     @When("I enter Valid details and Update account")
