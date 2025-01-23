@@ -7,9 +7,7 @@ on:
   push:
     branches:
       - main  # Runs when pushing to the main branch
-with:
-  java-version: '17' # Or '11'
-  distribution: 'temurin'
+
 jobs:
   run-daily:
     runs-on: ubuntu-latest
