@@ -35,6 +35,5 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
 
-      - name: Run tests with @Naukri tag
-        run: |
-          mvn clean test -DsuiteXmlFile=BDD_UI/BDD_UI/testng.xml -Dcucumber.filter.tags="@Naukri"
+          - name: Run tests with @Naukri tag
+                  run: mvn test -DsuiteXmlFile=BDD_UI\testng.xml
