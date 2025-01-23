@@ -2,7 +2,7 @@ name: Daily Job
 
 on:
   schedule:
-    - cron: '0 9 * * *'  # Runs at 9am IST daily (UTC 3:30 AM)
+    - cron: '0 3 * * *'  # Runs at 9am IST daily (UTC 3:30 AM)
     - cron: '30 13 * * *' # Runs at 7pm IST daily (UTC 1:30 PM)
   push:
     branches:
@@ -15,11 +15,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-  - name: Install Chrome and Chromedriver
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y google-chrome-stable chromium-chromedriver
-        export PATH=$PATH:/usr/lib/chromium-browser/
+      - name: Install Chrome and Chromedriver
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable chromium-chromedriver
+          export PATH=$PATH:/usr/lib/chromium-browser/
 
       - name: Set up JDK
         uses: actions/setup-java@v3
