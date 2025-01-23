@@ -14,14 +14,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
   - name: Install Chrome and Chromedriver
-      run: sudo apt-get update
+      run: |
+        sudo apt-get update
         sudo apt-get install -y google-chrome-stable chromium-chromedriver
         export PATH=$PATH:/usr/lib/chromium-browser/
-
-      - name: Run daily tasks
-        run: echo "Daily tasks go here"
-
   push-tests:
     runs-on: ubuntu-latest
     steps:
