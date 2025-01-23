@@ -33,5 +33,4 @@ jobs:
 
       # Step 4: Run Maven commands to build and run tests
       - name: Build and run TestNG suite
-        run: |
-          mvn clean test -DsuiteXmlFile=path/to/testng.xml
+        run: mvn clean test -DsuiteXmlFile=path/to/testng.xml
