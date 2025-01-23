@@ -14,15 +14,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
-      - name: Install Chrome and Chromedriver
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y google-chrome-stable chromium-chromedriver
-          export PATH=$PATH:/usr/lib/chromium-browser/
-
-      - name: Run daily tasks
-        run: echo "Daily tasks go here"
+      # Add more steps for daily tasks here if needed
 
   push-tests:
     runs-on: ubuntu-latest
@@ -30,11 +22,5 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install Chrome and Chromedriver
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y google-chrome-stable chromium-chromedriver
-          export PATH=$PATH:/usr/lib/chromium-browser/
-
       - name: Run tests with @Naukri tag
-        mvn test -DsuiteXmlFile=\BDD_UI\BDD_UI\testng.xml
+        run: mvn test -Dcucumber.options="--tags @Naukri --dry-run"
