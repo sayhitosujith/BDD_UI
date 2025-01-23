@@ -36,6 +36,5 @@ jobs:
           sudo apt-get install -y google-chrome-stable chromium-chromedriver
           export PATH=$PATH:/usr/lib/chromium-browser/
 
-      - name: Build with Maven and run TestNG
-          run: |
-            mvn clean test -DsuiteXmlFile=testng.xml
+      - name: Run tests with @Naukri tag
+        run: mvn clean test -DsuiteXmlFile=testng.xml
