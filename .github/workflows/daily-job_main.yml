@@ -2,7 +2,7 @@ name: Daily Job
 
 on:
   schedule:
-    - cron: '0 9 * * *'  # Runs at 9am IST daily (UTC 2:00 AM)
+    - cron: '0 9 * * *'  # Runs at 9am IST daily (UTC 3:30 AM)
     - cron: '30 13 * * *' # Runs at 7pm IST daily (UTC 1:30 PM)
   push:
     branches:
@@ -14,7 +14,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      # Add more steps for daily tasks here if needed
 
   push-tests:
     runs-on: ubuntu-latest
@@ -22,5 +21,20 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17' # Specify your required Java version
+          distribution: 'temurin'
+
+      - name: Cache Maven dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
       - name: Run tests with @Naukri tag
-        run: mvn test -DsuiteXmlFile=BDD_UI\testng.xml
+        run: |
+          mvn clean test -DsuiteXmlFile=BDD_UI/BDD_UI/testng.xml -Dcucumber.filter.tags="@Naukri"
