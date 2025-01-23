@@ -1,36 +1,40 @@
-name: Run TestNG Tests
+name: Daily Job
 
 on:
+  schedule:
+    - cron: '0 9 * * *'  # Runs at 9am IST daily (UTC 2:00 AM)
+    - cron: '30 13 * * *' # Runs at 7pm IST daily (UTC 1:30 PM)
   push:
     branches:
-      - main
-  pull_request:
+      - main  # Runs when pushing to the main branch
 
 jobs:
-  run-tests:
+  run-daily:
     runs-on: ubuntu-latest
-
     steps:
-      # Step 1: Check out the repository
-      - name: Check out code
-        uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      # Step 2: Set up Java (JDK)
-      - name: Set up JDK
-        uses: actions/setup-java@v3
-        with:
-          java-version: '17' # Specify the required Java version (e.g., 11, 17)
-          distribution: 'temurin'
+      - name: Install Chrome and Chromedriver
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable chromium-chromedriver
+          export PATH=$PATH:/usr/lib/chromium-browser/
 
-      # Step 3: Cache Maven dependencies
-      - name: Cache Maven dependencies
-        uses: actions/cache@v3
-        with:
-          path: ~/.m2/repository
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-          restore-keys: |
-            ${{ runner.os }}-maven-
+      - name: Run daily tasks
+        run: echo "Daily tasks go here"
 
-      # Step 4: Run Maven commands to build and run tests
-      - name: Build and run TestNG suite
-        run: mvn clean test -DsuiteXmlFile=path/to/testng.xml
+  push-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Chrome and Chromedriver
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable chromium-chromedriver
+          export PATH=$PATH:/usr/lib/chromium-browser/
+
+      - name: Run tests with @Naukri tag
+        mvn test -DsuiteXmlFile=path/to/testng.xml
