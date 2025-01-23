@@ -23,4 +23,4 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run tests with @Naukri tag
-        run: mvn test -Dcucumber.options="--tags @Naukri --dry-run"
+        run: mvn test -DsuiteXmlFile=BDD_UI\testng.xml
