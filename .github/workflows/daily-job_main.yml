@@ -36,5 +36,5 @@ jobs:
             ${{ runner.os }}-maven-
 
       - name: Run tests in testng xml
-          run: mvn test -DsuiteXmlFile=BDD_UI/BDD_UI/testng.xml --dry-run
+          run: mvn test -DsuiteXmlFile=BDD_UI/BDD_UI/testng.xml
 
