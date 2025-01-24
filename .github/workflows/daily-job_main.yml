@@ -39,5 +39,6 @@ jobs:
       - name: Run Selenium tests
         run: mvn test
 
-          - name: Run TestNG suite
-            run: mvn test -Dsurefire.suiteXmlFiles=BDD_UI/BDD_UI/testng.xml"
+          # Step 5: Run Selenium suite
+      - name: Run TestNG suite
+        run: mvn test -Dsurefire.suiteXmlFiles=BDD_UI/BDD_UI/testng.xml"
