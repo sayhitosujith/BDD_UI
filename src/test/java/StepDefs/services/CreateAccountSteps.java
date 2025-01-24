@@ -34,7 +34,7 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
 
     @Given("I enter the Valid URL of Application by Launching Chrome Browser")
     public void IentertheValidURLofApplicationbyLaunchingChromeBrowser(io.cucumber.datatable.DataTable dataTable) throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver", ".//drivers//chromedriver");
+        System.setProperty("webdriver.chrome.driver", ".//drivers//chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         Map<String, String> dataMap = StepUtil.toMap(dataTable);
@@ -143,7 +143,7 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.findElement(By.xpath("//textarea[@id='resumeHeadlineTxt']")).clear();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.findElement(By.xpath("//textarea[@id='resumeHeadlineTxt']")).sendKeys("SDET-Professional with Experience of 6 years. serving notice period of 1 month , can join immediately");
+        driver.findElement(By.xpath("//textarea[@id='resumeHeadlineTxt']")).sendKeys("SDET-Professional with Experience of 6.5 years.");
         driver.findElement(By.xpath("//button[normalize-space()='Save']")).click();
         System.out.println("I Update Resume headline");
         //get updated date
