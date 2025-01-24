@@ -1,43 +1,26 @@
-name: Run BDD Tests
+name: Daily Job
 
 on:
+  schedule:
+    - cron: '0 9 * * *'  # Runs at 9am IST daily (UTC 2:00 AM)
+    - cron: '30 13 * * *' # Runs at 7pm IST daily (UTC 1:30 PM)
   push:
     branches:
-      - main
-  pull_request:
+      - main  # Runs when pushing to the main branch
 
 jobs:
-  run-bdd-tests:
+  run-daily:
     runs-on: ubuntu-latest
-
     steps:
-      # Step 1: Check out the repository
-      - name: Checkout Code
-        uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v2
+      # Add more steps for daily tasks here if needed
 
-      # Step 2: Set up Java
-      - name: Set up Java
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin' # Options: 'temurin', 'adopt', etc.
-          java-version: '17'      # Use the Java version your project requires
+  push-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      # Step 3: Cache Maven dependencies
-      - name: Cache Maven Dependencies
-        uses: actions/cache@v3
-        with:
-          path: ~/.m2
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-          restore-keys: |
-            ${{ runner.os }}-maven-
-
-      # Step 4: Install dependencies
-      - name: Install Dependencies
-        run: mvn install -DskipTests
-
-      # Step 5: Run Cucumber BDD tests
-      - name: Run Cucumber Tests
-        run: mvn test
-
-  - name: Run Specific Cucumber Tests
-    run: mvn test -Dcucumber.options="F:/BDD_UI/BDD_UI/testng.xml"
+      - name: Run tests with @Naukri tag
+        run: mvn test -Dcucumber.options="--tags @Naukri --dry-run"
