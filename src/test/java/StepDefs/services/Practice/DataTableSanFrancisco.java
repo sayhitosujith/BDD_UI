@@ -11,7 +11,7 @@ import java.util.List;
 public class DataTableSanFrancisco {
     public static void main(String[] args) {
         // Set the path to the ChromeDriver executable
-        System.setProperty("webdriver.chrome.driver", ".//drivers//chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", ".//drivers//chromedriver");
 
         // Create a new instance of ChromeDriver
         WebDriver driver = new ChromeDriver();

@@ -9,7 +9,7 @@ import java.util.Set;
 public class CheckCookiesExample {
     public static void main(String[] args) {
         // Set the path for the WebDriver executable (e.g., chromedriver)
-        System.setProperty("webdriver.chrome.driver", ".//drivers//chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", ".//drivers//chromedriver");
 
         WebDriver driver = new ChromeDriver();
 

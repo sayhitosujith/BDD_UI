@@ -15,7 +15,7 @@ public class Dataprovider {
     @BeforeClass
     public void setUp() throws InterruptedException {
         // Set the path to the ChromeDriver executable
-        System.setProperty("webdriver.chrome.driver", ".//drivers//chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", ".//drivers//chromedriver");
 
         // Initialize ChromeDriver
         driver = new ChromeDriver();

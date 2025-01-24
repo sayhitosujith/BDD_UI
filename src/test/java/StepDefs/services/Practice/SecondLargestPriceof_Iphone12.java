@@ -12,7 +12,7 @@ import java.util.List;
 class SecondLargestPriceof_Iphone12 {
     public static void main(String[] args) throws InterruptedException {
         // Set up ChromeDriver (make sure the path to chromedriver is correct)
-        System.setProperty("webdriver.chrome.driver", ".//drivers//chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", ".//drivers//chromedriver");
         WebDriver driver = new ChromeDriver();
 
         //maximise browser

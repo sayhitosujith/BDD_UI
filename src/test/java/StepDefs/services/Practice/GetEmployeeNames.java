@@ -10,7 +10,7 @@ import java.util.List;
 class GetEmployeeNames {
     public static void main(String[] args) {
         // Set the path to your ChromeDriver
-        System.setProperty("webdriver.chrome.driver", ".//drivers//chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", ".//drivers//chromedriver");
 
         WebDriver driver = new ChromeDriver();
         driver.get("https://selectorshub.com/xpath-practice-page/");
