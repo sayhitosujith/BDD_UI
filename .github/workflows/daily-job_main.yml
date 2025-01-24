@@ -37,4 +37,4 @@ jobs:
 
       - name: Run tests with @Naukri tag
         run: |
-          mvn clean test -DsuiteXmlFile=BDD_UI/BDD_UI/testng.xml -Dcucumber.filter.tags="@Naukri"
+          mvn clean test -DsuiteXmlFile=BDD_UI/BDD_UI/testng.xml
