@@ -179,7 +179,7 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.findElement(By.xpath("//input[@id='exp-years-droopeFor']")).sendKeys("6 Years");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.findElement(By.xpath("//input[@id='exp-months-droopeFor']")).sendKeys("2 Months");
+        driver.findElement(By.xpath("//input[@id='exp-months-droopeFor']")).sendKeys("5 Months");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.findElement(By.xpath("//span[normalize-space()='Total experience']")).click();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
@@ -191,35 +191,29 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
         System.out.println(totalExperience);
     }
 
-    @And("I want to Find the Number of Rows and Columns")
-    public void iWantToFindTheNumberOfRowsAndColumns() {
-
-
+    @And("I want to Update Profile Summary")
+    public void IwanttoUpdateProfileSummary() {
+        driver.findElement(By.xpath("//span[normalize-space()='Profile summary']")).click();
+        System.out.println("Clicked on Update profile successfully..!!");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-            // Scroll down the page
-            // Locate the element you want to scroll to
-            WebElement elementToScrollTo = driver.findElement(By.xpath("//ul[@class='mb0']"));  // Replace with the appropriate locator
 
-            // Use JavascriptExecutor to scroll to the element
-            JavascriptExecutor js = (JavascriptExecutor) driver;
-            js.executeScript("arguments[0].scrollIntoView(true);", elementToScrollTo);
+        driver.findElement(By.xpath("//div[@class='card']//div//div[@class='widgetHead']//span[@class='edit icon'][normalize-space()='editOneTheme']")).click();
+        System.out.println("Clicked on Edit Icon");
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
-            // Locate the web table using a suitable locator
-            WebElement table = driver.findElement(By.xpath("//ul[@class='mb0']"));  // Replace "tableId" with the actual ID of the table
+        //click and clear Text
+        driver.findElement(By.xpath("//textarea[@id='profileSummaryTxt']")).clear();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
-            // Find all rows in the table
-            java.util.List<WebElement> rows = table.findElements(By.tagName("tr"));
-            int rowCount = rows.size();
-            System.out.println("Number of rows in the table: " + rowCount);
-
-            // Find all columns in the first row (header or a data row)
-            List<WebElement> columns = rows.get(0).findElements(By.tagName("th"));  // For header row
-            if (columns.isEmpty()) {
-                columns = rows.get(0).findElements(By.tagName("td"));  // For data row if no header row is present
-            }
-            int columnCount = columns.size();
-            System.out.println("Number of columns in the table: " + columnCount);
-
+        //Enter text
+       driver.findElement(By.xpath("//textarea[@id='profileSummaryTxt']")).sendKeys("SDET Engineer at Exostar with 6.5 years of experience\n" +
+                "\n" +
+                "Having hands on experience in manual testing, C# ,Java ,Java script selenium with BDD Cucumber Framework ,REST API Automation with BDD, Jenkins for CI/CD.\n" +
+                "working on Selenium BDD framework also Functionize AI Automation tool.\n" +
+                "Using Git lab for source code control");
+        driver.findElement(By.xpath("//button[normalize-space()='Save']")).click();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        System.out.println("Profile summary updated successfully");
     }
 
     @When("I enter Valid details and search Iphone{int}")

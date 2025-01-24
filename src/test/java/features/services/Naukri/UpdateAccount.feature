@@ -40,14 +40,14 @@ Feature: Verify Update Naukri Application
     And I Scroll Page Down and Update Total experience
     Then should Logout Profile successfully
 
-       #....................Verify Applied jobs count...........
-  @Naukri @VerifyAppliedjobscount
-  Scenario:Verify Applied jobs count
+       #....................Verify Profile Summary...........
+  @Naukri @VerifyProfileSummary
+  Scenario:Verify Profile Summary
     Given I enter the Valid URL of Application by Launching Chrome Browser
       | url    |
       | Naukri |
     When I enter Valid details and Update account
-    And I want to Find the Number of Rows and Columns
+    And I want to Update Profile Summary
     Then should Logout Profile successfully
 
 
