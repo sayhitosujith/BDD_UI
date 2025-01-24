@@ -24,6 +24,3 @@ jobs:
 
       - name: Run tests with @Naukri tag
         run: mvn test -Dcucumber.options="--tags @Naukri --dry-run"
-
-      - name: Run tests in xml file
-      run: mvn test -Dsurefire.suiteXmlFiles=BDD_UI/BDD_UI/testng.xml"
