@@ -11,7 +11,7 @@ import org.testng.annotations.BeforeClass;
         features = "src/test/java/features",
         glue = "StepDefs",
         dryRun = false,
-        tags = "@VerifyProfileSummary",
+        tags = "@Naukri",
         //tags = "@VerifyEmploymentExperienceAndUpdateAccount",
         monochrome = true)
 
