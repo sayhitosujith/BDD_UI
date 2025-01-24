@@ -1,39 +1,43 @@
-name: Daily Job
+name: Run Selenium Tests
 
 on:
-  schedule:
-    - cron: '0 3 * * *'  # Runs at 9am IST daily (UTC 3:30 AM)
-    - cron: '30 13 * * *' # Runs at 7pm IST daily (UTC 1:30 PM)
   push:
     branches:
-      - main  # Runs when pushing to the main branch
+      - main
+  pull_request:
 
 jobs:
-  run-daily:
-    runs-on: Ubuntu-24.04
+  selenium-tests:
+    runs-on: ubuntu-latest
+
     steps:
+      # Step 1: Check out the repository
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - name: Install Chrome and Chromedriver
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y google-chrome-stable chromium-chromedriver
-          export PATH=$PATH:/usr/lib/chromium-browser/
-
-      - name: Set up JDK
+      # Step 2: Set up Java
+      - name: Set up Java
         uses: actions/setup-java@v3
         with:
-          java-version: '17' # Specify your required Java version
-          distribution: 'temurin'
+          distribution: 'temurin' # or 'zulu', 'adopt', etc.
+          java-version: '17'      # Use your required Java version
 
+      # Step 3: Cache Maven dependencies (optional, speeds up builds)
       - name: Cache Maven dependencies
         uses: actions/cache@v3
         with:
-          path: ~/.m2/repository
+          path: ~/.m2
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
 
-      - name: Run tests in testng xml
-        run: mvn clean test -DsuiteXmlFile=BDD_UI/BDD_UI/testng.xml
+      # Step 4: Install dependencies
+      - name: Install dependencies
+        run: mvn install -DskipTests
+
+      # Step 5: Run Selenium tests
+      - name: Run Selenium tests
+        run: mvn test
+
+          - name: Run TestNG suite
+            run: mvn test -Dsurefire.suiteXmlFiles=BDD_UI/BDD_UI/testng.xml"
