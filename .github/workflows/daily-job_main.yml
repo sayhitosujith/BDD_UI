@@ -18,7 +18,6 @@ jobs:
         with:
           distribution: 'adopt'
           java-version: '11'
-      - cd /StepDefs
       - run: javac RunCukesTest.java
       - run: java -cp java  RunCukesTest
 
