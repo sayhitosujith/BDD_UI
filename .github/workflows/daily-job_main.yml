@@ -35,46 +35,7 @@ jobs:
         uses: actions/checkout@v2
       # Add more steps for daily tasks here if needed
 
-        steps:
-          - task: Maven@3
-            inputs:
-              mavenPomFile: 'pom.xml'
-              mavenOptions: '-Xmx3072m'
-              javaHomeOption: 'JDKVersion'
-              jdkVersionOption: '1.8'
-              jdkArchitectureOption: 'x64'
-              goals: 'compile'
-
-          - ${{ if eq(parameters.dryrun, false) }}:
-              - script: 'mvn test -Dcucumber.options="--tags ${{parameters.tags}} --no-dry-run"'
-                displayName: 'Scripts Run'
-                env:
-                  JAVA_ENV: ${{ parameters.environment }}
-
-          - ${{ if eq(parameters.dryrun, true) }}:
-              - script: 'mvn test -Dcucumber.options="--tags ${{parameters.tags}} --dry-run"'
-                displayName: 'Dry Run'
-
-          - task: PublishBuildArtifacts@1
-            inputs:
-              pathToPublish: 'Report'
-              artifactName: report
-            condition: succeededOrFailed()
-
-          - task: PublishTestResults@2
-            inputs:
-              testResultsFormat: 'JUnit'
-              testResultsFiles: 'out/cucumber.xml'
-              publishRunAttachments: true
-            condition: succeededOrFailed()
-
-
 
   push-tests:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
       - name: Run tests with @Naukri tag
         run: mvn test -Dcucumber.options="--tags @Naukri --dry-run"
