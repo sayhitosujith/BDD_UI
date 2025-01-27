@@ -25,8 +25,8 @@ jobs:
           distribution: 'adopt'
           java-version: '11'
       - run: cd /home/runner/work/BDD_UI/BDD_UI/src/test/java/StepDefs
-      - run: javac StepDefs.RunCukesTest.java
-      - run: java -cp java StepDefs.RunCukesTest
+      - run: javac StepDefs/RunCukesTest.java
+      - run: java -cp java StepDefs/RunCukesTest
 
       # Step 2: Set up JDK (Java Development Kit)
       - name: Set up JDK 11
