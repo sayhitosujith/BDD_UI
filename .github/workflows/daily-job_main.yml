@@ -18,7 +18,7 @@ jobs:
         with:
           distribution: 'adopt'
           java-version: '11'
-      - cd C:\Users\Sadashivareddys\IdeaProjects\BDD_UI\src\test\java\StepDefs
+      - cd /StepDefs
       - run: javac RunCukesTest.java
       - run: java -cp java  RunCukesTest
 
