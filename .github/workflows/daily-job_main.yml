@@ -35,8 +35,6 @@ jobs:
         uses: actions/checkout@v2
       # Add more steps for daily tasks here if needed
 
-      pool:
-        vmImage: ubuntu-latest
         steps:
           - task: Maven@3
             inputs:
