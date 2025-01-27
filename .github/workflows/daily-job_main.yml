@@ -25,7 +25,6 @@ jobs:
           distribution: 'adopt'
           java-version: '11'
       - run: cd /home/runner/work/BDD_UI/BDD_UI/src/test/java/StepDefs
-      - run: javac RunCukesTest.java
       - run: java -cp java  RunCukesTest
 
       - name: List current directory
