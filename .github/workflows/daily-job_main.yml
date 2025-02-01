@@ -1,54 +1,45 @@
-name: Run Cucumber BDD Tests
-
-on:
-  schedule:
-    - cron: '0 9 * * *'  # Runs at 9am IST daily (UTC 2:00 AM)
-    - cron: '30 13 * * *' # Runs at 7pm IST daily (UTC 1:30 PM)
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
-
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
 
-      - name: List current directory
-        run: ls -la
-
-      - name: Print working directory
-        run: pwd
-      - uses: actions/checkout@v2
-      - uses: actions/setup-java@v2
-        with:
-          distribution: 'adopt'
-          java-version: '17'
-      - run: chmod +x ./drivers/chromedriver.exe
-      - run: mvn test -Dcucumber.features="F:\BDD_UI\BDD_UI\src\test\java\features\services\Naukri\UpdateAccount.feature"
-
-      # Step 2: Set up JDK (Java Development Kit)
-      - name: Set up JDK 11
-        uses: actions/setup-java@v2
+      - name: Set Up Java
+        uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
           java-version: '17'
 
+      - name: Install Chrome & ChromeDriver
+        run: |
+          sudo apt update
+          sudo apt install -y google-chrome-stable
+          CHROME_VERSION=$(google-chrome --version | awk '{print $3}')
+          CHROMEDRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION")
+          wget -N https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
+          unzip chromedriver_linux64.zip
+          chmod +x chromedriver
+          sudo mv chromedriver /usr/local/bin/
 
-      # Step 3: Set up Maven (if using Maven)
-      - name: Set up Maven
-        uses: actions/setup-java@v2
-        with:
-          java-version: '11'
-          distribution: 'adoptopenjdk'
+      - name: Verify Chrome & ChromeDriver Versions
+        run: |
+          google-chrome --version
+          chromedriver --version
 
-      # Step 4: Install dependencies (Maven)
-      - name: Install dependencies
-        run: mvn install  # This will install dependencies based on pom.xml
+          # Step 3: Set up Maven (if using Maven)
+        - name: Set up Maven
+                  uses: actions/setup-java@v2
+                  with:
+                    java-version: '11'
+                    distribution: 'adoptopenjdk'
+                      - run: mvn test -Dcucumber.features="F:\BDD_UI\BDD_UI\src\test\java\features\services\Naukri\UpdateAccount.feature"
 
-      # Step 5: Run tests (Cucumber with Maven)
-      - name: Run Cucumber tests
-        run: mvn test  # This will run the Cucumber tests defined in your feature files
+
+                      # Step 4: Install dependencies (Maven)
+                    - name: Install dependencies
+                      run: mvn install  # This will install dependencies based on pom.xml
+
+                    # Step 5: Run tests (Cucumber with Maven)
+                    - name: Run Cucumber tests
+                      run: mvn test  # This will run the Cucumber tests defined in your feature files
