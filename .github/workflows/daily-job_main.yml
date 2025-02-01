@@ -20,16 +20,7 @@ jobs:
       - name: List current directory
         run: ls -la
 
-          - name: Install Chrome and ChromeDriver
-            run: |
-              sudo apt update
-              sudo apt install -y google-chrome-stable
-              CHROME_VERSION=$(google-chrome --version | awk '{print $3}')
-              CHROMEDRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION")
-              wget -N https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
-              unzip chromedriver_linux64.zip
-              chmod +x chromedriver
-              sudo mv chromedriver /usr/local/bin/
+
 
 
       - name: Print working directory
@@ -39,6 +30,16 @@ jobs:
         with:
           distribution: 'adopt'
           java-version: '11'
+
+            - name: Install Chrome and ChromeDriver
+                run: sudo apt update
+                  sudo apt install -y google-chrome-stable
+                  CHROME_VERSION=$(google-chrome --version | awk '{print $3}')
+                  CHROMEDRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION")
+                  wget -N https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
+                  unzip chromedriver_linux64.zip
+                  chmod +x chromedriver
+                  sudo mv chromedriver /usr/local/bin/
       - run: chmod +x ./drivers/chromedriver.exe
       - run: mvn test -Dcucumber.features="F:\BDD_UI\BDD_UI\src\test\java\features\services\Naukri\UpdateAccount.feature"
 
