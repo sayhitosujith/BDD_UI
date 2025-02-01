@@ -34,7 +34,7 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
 
     @Given("I enter the Valid URL of Application by Launching Chrome Browser")
     public void IentertheValidURLofApplicationbyLaunchingChromeBrowser(io.cucumber.datatable.DataTable dataTable) throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver", "/home/runner/work/BDD_UI/BDD_UI/drivers/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "/home/runner/work/BDD_UI/BDD_UI/drivers/chromedriver");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         Map<String, String> dataMap = StepUtil.toMap(dataTable);
