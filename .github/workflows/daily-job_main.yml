@@ -35,23 +35,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           distribution: 'temurin'
-
           java-version: '17'
-            - name: Install Chrome & ChromeDriver
-                run: |
-                  sudo apt update
-                  sudo apt install -y google-chrome-stable
-                  CHROME_VERSION=$(google-chrome --version | awk '{print $3}')
-                  CHROMEDRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION")
-                  wget -N https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
-                  unzip chromedriver_linux64.zip
-                  chmod +x chromedriver
-                  sudo mv chromedriver /usr/local/bin/
-
-                  - name: Verify Chrome & ChromeDriver
-                    run: |
-                      google-chrome --version
-                      chromedriver --version
 
 
       # Step 3: Set up Maven (if using Maven)
