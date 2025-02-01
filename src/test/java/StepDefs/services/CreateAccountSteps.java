@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.Map;
 
 
-public class CreateAccountSteps<IJavaScriptExecutor> {
+public class CreateAccountSteps {
     WebDriver driver;
     LoginPage loginPage;
     LogoutPage logoutPage;

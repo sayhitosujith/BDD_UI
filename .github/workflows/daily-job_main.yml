@@ -29,8 +29,8 @@ jobs:
           java-version: '11'
       - run: chmod +x ./drivers/chromedriver.exe
       - run: cd /home/runner/work/BDD_UI/BDD_UI/src/test/java/StepDefs
-      - run: javac /home/runner/work/BDD_UI/BDD_UI/src/test/java/StepDefs/services/RunCukesTest.java
-      - run: java -cp java RunCukesTest
+      - run: javac /home/runner/work/BDD_UI/BDD_UI/src/test/java/StepDefs/services/CreateAccountSteps.java
+      - run: java -cp java CreateAccountSteps
 
       # Step 2: Set up JDK (Java Development Kit)
       - name: Set up JDK 11
