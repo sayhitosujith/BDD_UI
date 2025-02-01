@@ -3,7 +3,7 @@
 <suite name="unified-admin-suite" configfailurepolicy="continue">
     <test name="unified-parallel-via-backend" parallel='classes' thread-count="3">
         <classes>
-            <class name="StepDefs.services.CreateAccountSteps" />
+            <class name="StepDefs.RunCukesTest" />
         </classes>
     </test>
 </suite>
