@@ -27,21 +27,8 @@ jobs:
         with:
           distribution: 'adopt'
           java-version: '17'
-  - name: Install Chrome & ChromeDriver
-      run: |
-        sudo apt update
-        sudo apt install -y google-chrome-stable
-        CHROME_VERSION=$(google-chrome --version | awk '{print $3}')
-        CHROMEDRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION")
-        wget -N https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
-        unzip chromedriver_linux64.zip
-        chmod +x chromedriver
-        sudo mv chromedriver /usr/local/bin/
-
-      - name: Verify Chrome & ChromeDriver
-        run: |
-          google-chrome --version
-          chromedriver --version      - run: mvn test -Dcucumber.features="F:\BDD_UI\BDD_UI\src\test\java\features\services\Naukri\UpdateAccount.feature"
+      - run: chmod +x ./drivers/chromedriver.exe
+      - run: mvn test -Dcucumber.features="F:\BDD_UI\BDD_UI\src\test\java\features\services\Naukri\UpdateAccount.feature"
 
       # Step 2: Set up JDK (Java Development Kit)
       - name: Set up JDK 11
