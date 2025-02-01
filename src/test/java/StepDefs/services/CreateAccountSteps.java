@@ -11,6 +11,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import util.StepUtil;
 
@@ -33,6 +34,12 @@ public class CreateAccountSteps {
     @Given("I enter the Valid URL of Application by Launching Chrome Browser")
     public void IentertheValidURLofApplicationbyLaunchingChromeBrowser(io.cucumber.datatable.DataTable dataTable) throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", ".//drivers//chromedriver.exe");
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless");  // Run Chrome in headless mode
+        options.addArguments("--no-sandbox");  // Required for some environments
+        options.addArguments("--disable-dev-shm-usage");  // For stability in CI/CD
+        options.addArguments("--disable-gpu");  // Disable GPU hardware acceleration
+        options.addArguments("--remote-allow-origins=*");  // Fix Chrome 111+ issues
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         Map<String, String> dataMap = StepUtil.toMap(dataTable);
