@@ -223,7 +223,7 @@ public class CreateAccountSteps {
     }
 
     @And("I sort the price in ascending order")
-    public void ISortThePriceInAscendingOrder() throws InterruptedException {
+    public void ISortThePriceInAscendingOrder() {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         List<WebElement> iphone_price = driver.findElements(By.xpath("//span[@class='a-price-whole']"));
         for (int i = 0; i < iphone_price.size(); i++) {
