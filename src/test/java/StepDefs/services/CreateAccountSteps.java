@@ -12,6 +12,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 import util.StepUtil;
 
@@ -20,6 +21,8 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
@@ -32,15 +35,11 @@ public class CreateAccountSteps {
     LogoutPage logoutPage;
 
     @Given("I enter the Valid URL of Application by Launching Chrome Browser")
-    public void IentertheValidURLofApplicationbyLaunchingChromeBrowser(io.cucumber.datatable.DataTable dataTable) throws InterruptedException {
+    public void IentertheValidURLofApplicationbyLaunchingChromeBrowser(io.cucumber.datatable.DataTable dataTable) throws InterruptedException, MalformedURLException {
         System.setProperty("webdriver.chrome.driver", ".//drivers//chromedriver.exe");
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");  // Run Chrome in headless mode
-        options.addArguments("--no-sandbox");  // Required for some environments
-        options.addArguments("--disable-dev-shm-usage");  // For stability in CI/CD
-        options.addArguments("--disable-gpu");  // Disable GPU hardware acceleration
-        options.addArguments("--remote-allow-origins=*");  // Fix Chrome 111+ issues
-        WebDriver driver = new ChromeDriver();
+        URL remoteUrl = new URL("http://10.1.0.110:4444/wd/hub");
+        WebDriver driver = new RemoteWebDriver(remoteUrl, new ChromeOptions());
+
         driver.manage().window().maximize();
         Map<String, String> dataMap = StepUtil.toMap(dataTable);
         driver.get(ResourceData.getEnvironmentURL(ResourceData.getEnvironment() + "." + dataMap.get("url")));
