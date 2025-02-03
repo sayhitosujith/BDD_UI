@@ -41,7 +41,7 @@ public class CreateAccountSteps {
         options.addArguments("--headless");  // Run Chrome in headless mode
         options.addArguments("--no-sandbox"); // Ensure Chrome runs in a secure environment
         options.addArguments("--disable-dev-shm-usage"); // Avoid resource limits
-        WebDriver driver = new RemoteWebDriver(new URL("http://17:00:50.877:4444/wd/hub"), options);
+        WebDriver driver = new RemoteWebDriver(new URL("http://192.168.1.100:4444/wd/hub"), options);
         String logEntry = "00:50.877:4444";
         String[] parts = logEntry.split(":");
         String port = "4444";
