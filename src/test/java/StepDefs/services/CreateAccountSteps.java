@@ -42,6 +42,10 @@ public class CreateAccountSteps {
         options.addArguments("--no-sandbox"); // Ensure Chrome runs in a secure environment
         options.addArguments("--disable-dev-shm-usage"); // Avoid resource limits
         WebDriver driver = new RemoteWebDriver(new URL("http://17:00:50.877:4444/wd/hub"), options);
+        String logEntry = "00:50.877:4444";
+        String[] parts = logEntry.split(":");
+        String port = "4444";
+        int portNumber = Integer.parseInt(port);  // This works fine
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         Map<String, String> dataMap = StepUtil.toMap(dataTable);
