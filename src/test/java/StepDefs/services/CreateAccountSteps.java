@@ -42,7 +42,7 @@ public class CreateAccountSteps {
         options.addArguments("--headless");  // Run Chrome in headless mode
         options.addArguments("--no-sandbox"); // Ensure Chrome runs in a secure environment
         options.addArguments("--disable-dev-shm-usage"); // Avoid resource limits
-        WebDriver driver = new RemoteWebDriver(new URL("http://10.1.0.18:4444/wd/hub"), options);
+        WebDriver driver = new RemoteWebDriver(new URL("http://17:00:50.877:4444/wd/hub"), options);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         Map<String, String> dataMap = StepUtil.toMap(dataTable);
