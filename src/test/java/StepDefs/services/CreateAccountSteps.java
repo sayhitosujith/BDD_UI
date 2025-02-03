@@ -27,6 +27,7 @@ import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 
 public class CreateAccountSteps {
@@ -43,6 +44,7 @@ public class CreateAccountSteps {
         options.addArguments("--disable-dev-shm-usage"); // Avoid resource limits
         WebDriver driver = new RemoteWebDriver(new URL("http://10.1.0.18:4444/wd/hub"), options);
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         Map<String, String> dataMap = StepUtil.toMap(dataTable);
         driver.get(ResourceData.getEnvironmentURL(ResourceData.getEnvironment() + "." + dataMap.get("url")));
         System.out.println("This Step open the Chrome and launch the application.");
