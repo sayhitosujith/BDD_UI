@@ -8,7 +8,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -27,7 +26,7 @@ import java.util.List;
 import java.util.Map;
 
 
-public class CreateAccountSteps<IJavaScriptExecutor> {
+public class CreateAccountSteps {
     WebDriver driver;
     LoginPage loginPage;
     LogoutPage logoutPage;
@@ -35,7 +34,13 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
     @Given("I enter the Valid URL of Application by Launching Chrome Browser")
     public void IentertheValidURLofApplicationbyLaunchingChromeBrowser(io.cucumber.datatable.DataTable dataTable) throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", ".//drivers//chromedriver.exe");
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless");  // Run Chrome in headless mode
+        options.addArguments("--no-sandbox");  // Required for some environments
+        options.addArguments("--disable-dev-shm-usage");  // For stability in CI/CD
+        options.addArguments("--disable-gpu");  // Disable GPU hardware acceleration
+        options.addArguments("--remote-allow-origins=*");  // Fix Chrome 111+ issues
+        WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         Map<String, String> dataMap = StepUtil.toMap(dataTable);
         driver.get(ResourceData.getEnvironmentURL(ResourceData.getEnvironment() + "." + dataMap.get("url")));
@@ -225,7 +230,7 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
     }
 
     @And("I sort the price in ascending order")
-    public void ISortThePriceInAscendingOrder() throws InterruptedException {
+    public void ISortThePriceInAscendingOrder() {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         List<WebElement> iphone_price = driver.findElements(By.xpath("//span[@class='a-price-whole']"));
         for (int i = 0; i < iphone_price.size(); i++) {
