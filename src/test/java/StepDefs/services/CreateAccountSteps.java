@@ -37,9 +37,11 @@ public class CreateAccountSteps {
     @Given("I enter the Valid URL of Application by Launching Chrome Browser")
     public void IentertheValidURLofApplicationbyLaunchingChromeBrowser(io.cucumber.datatable.DataTable dataTable) throws InterruptedException, MalformedURLException {
         System.setProperty("webdriver.chrome.driver", ".//drivers//chromedriver.exe");
-        URL remoteUrl = new URL("http://10.1.0.110:4444/wd/hub");
-        WebDriver driver = new RemoteWebDriver(remoteUrl, new ChromeOptions());
-
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless");  // Run Chrome in headless mode
+        options.addArguments("--no-sandbox"); // Ensure Chrome runs in a secure environment
+        options.addArguments("--disable-dev-shm-usage"); // Avoid resource limits
+        WebDriver driver = new RemoteWebDriver(new URL("http://<hub_host>:4444/wd/hub"), options);
         driver.manage().window().maximize();
         Map<String, String> dataMap = StepUtil.toMap(dataTable);
         driver.get(ResourceData.getEnvironmentURL(ResourceData.getEnvironment() + "." + dataMap.get("url")));
