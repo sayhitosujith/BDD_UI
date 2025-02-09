@@ -207,7 +207,7 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
         //Enter text
-       driver.findElement(By.xpath("//textarea[@id='profileSummaryTxt']")).sendKeys("SDET Engineer at Exostar with 6.5 years of experience\n" +
+        driver.findElement(By.xpath("//textarea[@id='profileSummaryTxt']")).sendKeys("SDET Engineer at Exostar with 6.5 years of experience\n" +
                 "\n" +
                 "Having hands on experience in manual testing, C# ,Java ,Java script selenium with BDD Cucumber Framework ,REST API Automation with BDD, Jenkins for CI/CD.\n" +
                 "working on Selenium BDD framework also Functionize AI Automation tool.\n" +
