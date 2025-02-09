@@ -8,11 +8,11 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 import util.StepUtil;
 
@@ -21,22 +21,35 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 
-public class CreateAccountSteps<IJavaScriptExecutor> {
+public class CreateAccountSteps {
     WebDriver driver;
     LoginPage loginPage;
     LogoutPage logoutPage;
 
     @Given("I enter the Valid URL of Application by Launching Chrome Browser")
-    public void IentertheValidURLofApplicationbyLaunchingChromeBrowser(io.cucumber.datatable.DataTable dataTable) throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver", ".//drivers//chromedriver.exe");
-        driver = new ChromeDriver();
+    public void IentertheValidURLofApplicationbyLaunchingChromeBrowser(io.cucumber.datatable.DataTable dataTable) throws InterruptedException, MalformedURLException {
+       System.setProperty("webdriver.chrome.driver", ".//drivers//chromedriver.exe");
+//        ChromeOptions options = new ChromeOptions();
+//        options.addArguments("--headless");  // Run Chrome in headless mode
+//        options.addArguments("--no-sandbox"); // Ensure Chrome runs in a secure environment
+//        options.addArguments("--disable-dev-shm-usage"); // Avoid resource limits
+//        WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
+//        String logEntry = "00:50.877:4444";
+//        String[] parts = logEntry.split(":");
+//        String port = "4444";
+//        int portNumber = Integer.parseInt(port);  // This works fine
+        WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         Map<String, String> dataMap = StepUtil.toMap(dataTable);
         driver.get(ResourceData.getEnvironmentURL(ResourceData.getEnvironment() + "." + dataMap.get("url")));
         System.out.println("This Step open the Chrome and launch the application.");
@@ -225,7 +238,7 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
     }
 
     @And("I sort the price in ascending order")
-    public void ISortThePriceInAscendingOrder() throws InterruptedException {
+    public void ISortThePriceInAscendingOrder() {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         List<WebElement> iphone_price = driver.findElements(By.xpath("//span[@class='a-price-whole']"));
         for (int i = 0; i < iphone_price.size(); i++) {
