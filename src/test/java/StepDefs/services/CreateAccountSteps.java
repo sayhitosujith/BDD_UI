@@ -260,5 +260,5 @@ public class CreateAccountSteps {
 //        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 //        driver.findElement(By.xpath("//span[normalize-space()='Sign Out']")).click();
         driver.quit();
-    }
+}
 }
