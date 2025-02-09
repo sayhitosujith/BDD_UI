@@ -2,7 +2,6 @@ package StepDefs.services;
 
 import Pages.LoginPage;
 import Pages.LogoutPage;
-import Pages.ProfilesPage;
 import configManager.ResourceData;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -35,7 +34,6 @@ public class CreateAccountSteps {
     WebDriver driver;
     LoginPage loginPage;
     LogoutPage logoutPage;
-    ProfilesPage ProfilesPage;
 
     @Given("I enter the Valid URL of Application by Launching Chrome Browser")
     public void IentertheValidURLofApplicationbyLaunchingChromeBrowser(io.cucumber.datatable.DataTable dataTable) throws InterruptedException, MalformedURLException {
@@ -44,10 +42,10 @@ public class CreateAccountSteps {
 //        options.addArguments("--headless");  // Run Chrome in headless mode
 //        options.addArguments("--no-sandbox"); // Ensure Chrome runs in a secure environment
 //        options.addArguments("--disable-dev-shm-usage"); // Avoid resource limits
-//        WebDriver driver = new RemoteWebDriver(new URL("http://192.168.237.138"), options);
+//        WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
 //        String logEntry = "00:50.877:4444";
 //        String[] parts = logEntry.split(":");
-//        String port = "EXOSTAR676CD24";
+//        String port = "4444";
 //        int portNumber = Integer.parseInt(port);  // This works fine
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -142,9 +140,9 @@ public class CreateAccountSteps {
 
     @And("I Update my Resume")
     public void iUpdateMyResume() throws InterruptedException {
-        ProfilesPage = new ProfilesPage(driver);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        ProfilesPage.userprofile();
+        WebElement upload_file = driver.findElement(By.xpath("//input[@value='Update resume']"));
+        upload_file.click();
+        upload_file.sendKeys("F://BDD_UI//BDD_UI//resources//files//Profile.pdf");
         System.out.println("upload resume");
 
         //get updated date
