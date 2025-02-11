@@ -4,6 +4,7 @@ import Pages.LoginPage;
 import Pages.LogoutPage;
 import configManager.DriverFactory;
 import configManager.ResourceData;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -36,17 +37,17 @@ public class CreateAccountSteps {
 
 
     @Given("I enter the Valid URL of Application by Launching Browser")
-    public void IentertheValidURLofApplicationbyLaunchingBrowser(io.cucumber.datatable.DataTable dataTable) throws InterruptedException, MalformedURLException {
+    public ChromeDriver IentertheValidURLofApplicationbyLaunchingBrowser(DataTable dataTable) throws InterruptedException, MalformedURLException {
 //        System.setProperty("webdriver.chrome.driver", ".//drivers//chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless");  // Run Chrome in headless mode
         options.addArguments("--no-sandbox"); // Ensure Chrome runs in a secure environment
         options.addArguments("--disable-dev-shm-usage"); // Avoid resource limits
-////        WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
-////        String logEntry = "00:50.877:4444";
-////        String[] parts = logEntry.split(":");
-////        String port = "4444";
-////        int portNumber = Integer.parseInt(port);  // This works fine
+//        WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
+//        String logEntry = "00:50.877:4444";
+//        String[] parts = logEntry.split(":");
+//        String port = "4444";
+//        int portNumber = Integer.parseInt(port);  // This works fine
 //        WebDriver driver = new ChromeDriver();
         DriverFactory factory = new DriverFactory();
         WebDriver driver = factory.getDriver("firefox");
@@ -56,6 +57,8 @@ public class CreateAccountSteps {
         driver.get(ResourceData.getEnvironmentURL(ResourceData.getEnvironment() + "." + dataMap.get("url")));
         System.out.println("This Step open the Chrome and launch the application.");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+
+        return new ChromeDriver(options);
     }
 
     @When("I enter Valid details and Update account")
