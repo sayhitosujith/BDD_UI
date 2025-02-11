@@ -54,7 +54,7 @@ public class CreateAccountSteps {
         Path tempDir = Paths.get("temp/chrome_user_data_dir_" + System.nanoTime());
         try {
             Files.createDirectories(tempDir); // Ensure the directory is created
-            options.addArguments("--user-data-dir=" + tempDir.toString()); // Specify the unique user data directory
+            options.addArguments("--user-data-dirs=" + tempDir.toString()); // Specify the unique user data directory
         } catch (Exception e) {
             e.printStackTrace();
         }
