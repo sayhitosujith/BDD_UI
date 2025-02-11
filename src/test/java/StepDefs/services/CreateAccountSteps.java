@@ -14,6 +14,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 import util.StepUtil;
 
@@ -23,6 +24,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
@@ -43,11 +45,11 @@ public class CreateAccountSteps {
         options.addArguments("--headless");  // Run Chrome in headless mode
         options.addArguments("--no-sandbox"); // Ensure Chrome runs in a secure environment
         options.addArguments("--disable-dev-shm-usage"); // Avoid resource limits
-//        WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
-//        String logEntry = "00:50.877:4444";
-//        String[] parts = logEntry.split(":");
-//        String port = "4444";
-//        int portNumber = Integer.parseInt(port);  // This works fine
+       //WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
+        String logEntry = "10.1.0.35:4444";
+        String[] parts = logEntry.split(":");
+        String port = "4444";
+        int portNumber = Integer.parseInt(port);  // This works fine
 //        WebDriver driver = new ChromeDriver();
         DriverFactory factory = new DriverFactory();
         WebDriver driver = factory.getDriver("chrome");
