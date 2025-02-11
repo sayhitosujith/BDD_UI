@@ -32,6 +32,7 @@ import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 
@@ -50,14 +51,18 @@ public class CreateAccountSteps {
         options.addArguments("--disable-dev-shm-usage"); // Avoid resource limits
         options.addArguments("--window-size=1920x1080"); // Set window size for headless mode
         options.addArguments("--user-data-dir=/tmp/chrome-profiles"); // Specify a unique user data directory
-        // Generate a unique user data directory for each test run
-        Path tempDir = Paths.get("temp/chrome_user_data_dir_" + System.nanoTime());
+        // Create a unique temporary user data directory for each session using UUID
+        Path tempDir = Paths.get("temp/chrome_user_data_dir_" + UUID.randomUUID().toString());
+
         try {
             Files.createDirectories(tempDir); // Ensure the directory is created
-            options.addArguments("--user-data-dirs=" + tempDir.toString()); // Specify the unique user data directory
+            options.addArguments("--user-data-dir=" + tempDir.toString()); // Specify the unique user data directory
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        // Ensure the path to the ChromeDriver executable is set if necessary
+        // System.setProperty("webdriver.chrome.driver", "path_to_chromedriver");
 
         //WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
         String logEntry = "10.1.0.35:4444";
