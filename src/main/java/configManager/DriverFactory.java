@@ -15,6 +15,7 @@ public class DriverFactory {
             case "chrome":
                 WebDriverManager.chromedriver().setup();  // Automatically manage ChromeDriver version
                 driver = new ChromeDriver();
+                WebDriverManager.chromedriver().clearResolutionCache().setup();
                 break;
 
             case "firefox":

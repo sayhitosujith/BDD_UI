@@ -3,7 +3,7 @@ Feature: Verify Update Naukri Application
     #....................Verify Upload Resume And Update Account...........
   @Naukri @VerifyUploadResumeAndUpdateAccount
   Scenario:Verify upload resume and Update Account
-    Given I enter the Valid URL of Application by Launching Chrome Browser
+    Given I enter the Valid URL of Application by Launching Browser
       | url    |
       | Naukri |
     When I enter Valid details and Update account

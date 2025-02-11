@@ -34,8 +34,8 @@ public class CreateAccountSteps {
     LogoutPage logoutPage;
 
 
-    @Given("I enter the Valid URL of Application by Launching Chrome Browser")
-    public void IentertheValidURLofApplicationbyLaunchingChromeBrowser(io.cucumber.datatable.DataTable dataTable) throws InterruptedException, MalformedURLException {
+    @Given("I enter the Valid URL of Application by Launching Browser")
+    public void IentertheValidURLofApplicationbyLaunchingBrowser(io.cucumber.datatable.DataTable dataTable) throws InterruptedException, MalformedURLException {
 //        System.setProperty("webdriver.chrome.driver", ".//drivers//chromedriver.exe");
 ////        ChromeOptions options = new ChromeOptions();
 ////        options.addArguments("--headless");  // Run Chrome in headless mode
