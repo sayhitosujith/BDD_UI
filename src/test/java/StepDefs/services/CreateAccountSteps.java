@@ -52,11 +52,11 @@ public class CreateAccountSteps {
         options.addArguments("--window-size=1920x1080"); // Set window size for headless mode
         options.addArguments("--user-data-dir=/tmp/chrome-profiles"); // Specify a unique user data directory
         // Create a unique temporary user data directory for each session using UUID
-        Path tempDir = Paths.get("C:\\Users\\Sadashivareddys\\.cache\\selenium" + UUID.randomUUID().toString());
+        Path tempDir = Paths.get("C:\\Users\\Sadashivareddys\\AppData\\Local\\Google\\Chrome\\User Data\\Profile 1" + UUID.randomUUID().toString());
 
         try {
             Files.createDirectories(tempDir); // Ensure the directory is created
-            options.addArguments("user-data-dir=C:\\Users\\Sadashivareddys\\AppData\\Local\\Google\\Chrome\\User Data\\Profile 1");  // Change this path
+            options.addArguments("--user-data-dir=" + tempDir.toString()); // Specify the unique user data directory
         } catch (Exception e) {
             e.printStackTrace();
         }
