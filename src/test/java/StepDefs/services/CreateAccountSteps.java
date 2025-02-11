@@ -12,6 +12,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import util.StepUtil;
 
@@ -37,10 +38,10 @@ public class CreateAccountSteps {
     @Given("I enter the Valid URL of Application by Launching Browser")
     public void IentertheValidURLofApplicationbyLaunchingBrowser(io.cucumber.datatable.DataTable dataTable) throws InterruptedException, MalformedURLException {
 //        System.setProperty("webdriver.chrome.driver", ".//drivers//chromedriver.exe");
-////        ChromeOptions options = new ChromeOptions();
-////        options.addArguments("--headless");  // Run Chrome in headless mode
-////        options.addArguments("--no-sandbox"); // Ensure Chrome runs in a secure environment
-////        options.addArguments("--disable-dev-shm-usage"); // Avoid resource limits
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless");  // Run Chrome in headless mode
+        options.addArguments("--no-sandbox"); // Ensure Chrome runs in a secure environment
+        options.addArguments("--disable-dev-shm-usage"); // Avoid resource limits
 ////        WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
 ////        String logEntry = "00:50.877:4444";
 ////        String[] parts = logEntry.split(":");
