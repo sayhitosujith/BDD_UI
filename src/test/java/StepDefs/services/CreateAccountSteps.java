@@ -50,7 +50,7 @@ public class CreateAccountSteps {
 //        int portNumber = Integer.parseInt(port);  // This works fine
 //        WebDriver driver = new ChromeDriver();
         DriverFactory factory = new DriverFactory();
-        WebDriver driver = factory.getDriver("firefox");
+        WebDriver driver = factory.getDriver("chrome");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         Map<String, String> dataMap = StepUtil.toMap(dataTable);
