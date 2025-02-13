@@ -9,6 +9,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -36,15 +37,17 @@ import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 
-public class CreateAccountSteps {
+public class CreateAccountSteps extends BaseTest {
     WebDriver driver;
     LoginPage loginPage;
     LogoutPage logoutPage;
 
 
     @Given("I enter the Valid URL of Application by Launching Browser")
-    public ChromeDriver IentertheValidURLofApplicationbyLaunchingBrowser(DataTable dataTable) throws InterruptedException, MalformedURLException {
-//        System.setProperty("webdriver.chrome.driver", ".//drivers//chromedriver.exe");
+    public ChromeDriver IentertheValidURLofApplicationbyLaunchingBrowser(DataTable dataTable) throws InterruptedException, MalformedURLException
+    {
+       // System.setProperty("webdriver.chrome.driver", ".//drivers//chromedriver.exe");
+        WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless");  // Run Chrome in headless mode
         options.addArguments("--no-sandbox"); // Ensure Chrome runs in a secure environment
