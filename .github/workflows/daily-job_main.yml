@@ -51,4 +51,4 @@ jobs:
 
       # Step 5: Run tests (Cucumber with Maven)
       - name: Run Cucumber tests
-        run: mvn test -Dcucumber.features="F:\BDD_UI\BDD_UI\src\test\java\features\services\Naukri\UpdateAccount.feature" -Dwebdriver.chrome.args="--user-data-dir=${{ runner.temp }}/chrome-user-data"
+  run: mvn test -Dcucumber.features="F:\BDD_UI\BDD_UI\src\test\java\features\services\Naukri\UpdateAccount.feature" -Dwebdriver.chrome.args="--user-data-dir=${{ runner.temp }}/chrome-user-data"
