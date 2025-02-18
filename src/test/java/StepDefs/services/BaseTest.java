@@ -20,6 +20,7 @@ public class BaseTest {
 //        ChromeOptions options = new ChromeOptions();
 //        options.addArguments("--start-maximized");  // Maximize the window at launch
 //        driver = new ChromeDriver(options);
+
     }
 
     // Wait for an element to be visible
