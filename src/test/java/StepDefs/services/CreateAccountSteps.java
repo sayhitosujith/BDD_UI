@@ -11,7 +11,6 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import util.StepUtil;
 
@@ -28,7 +27,7 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 
-public class CreateAccountSteps {
+public class CreateAccountSteps extends BaseTest {
     WebDriver driver;
     LoginPage loginPage;
     LogoutPage logoutPage;
@@ -36,19 +35,8 @@ public class CreateAccountSteps {
 
     @Given("I enter the Valid URL of Application by Launching Chrome Browser")
     public void IentertheValidURLofApplicationbyLaunchingChromeBrowser(io.cucumber.datatable.DataTable dataTable) throws InterruptedException, MalformedURLException {
-//        System.setProperty("webdriver.chrome.driver", ".//drivers//chromedriver.exe");
-////        ChromeOptions options = new ChromeOptions();
-////        options.addArguments("--headless");  // Run Chrome in headless mode
-////        options.addArguments("--no-sandbox"); // Ensure Chrome runs in a secure environment
-////        options.addArguments("--disable-dev-shm-usage"); // Avoid resource limits
-////        WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
-////        String logEntry = "00:50.877:4444";
-////        String[] parts = logEntry.split(":");
-////        String port = "4444";
-////        int portNumber = Integer.parseInt(port);  // This works fine
-//        WebDriver driver = new ChromeDriver();
         DriverFactory factory = new DriverFactory();
-        WebDriver driver = factory.getDriver("firefox");
+        WebDriver driver = factory.getDriver("chrome");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         Map<String, String> dataMap = StepUtil.toMap(dataTable);

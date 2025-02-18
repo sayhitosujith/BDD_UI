@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class LoginPage {
 
-    WebDriver driver;
+    private WebDriver driver;
 
     // Locators
     By usernameField = By.xpath("//input[@id='usernameField']");
