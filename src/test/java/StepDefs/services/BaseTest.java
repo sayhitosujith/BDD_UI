@@ -20,13 +20,17 @@ public class BaseTest {
 //        ChromeOptions options = new ChromeOptions();
 //        options.addArguments("--start-maximized");  // Maximize the window at launch
 //        driver = new ChromeDriver(options);
-
     }
 
     // Wait for an element to be visible
     public void waitForElementToBeVisible(WebElement element, int timeout) {
         new WebDriverWait(driver, Duration.ofSeconds(timeout))
                 .until(ExpectedConditions.visibilityOf(element));
+    }
+
+    // Sleep
+    public void waitForElement(WebElement element, int timeout) {
+        new WebDriverWait(driver, Duration.ofSeconds(timeout));
     }
 
     // Click an element
