@@ -128,7 +128,7 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
     public void iUpdateMyResume() throws InterruptedException {
         WebElement upload_file = driver.findElement(By.xpath("//input[@value='Update resume']"));
         upload_file.click();
-        upload_file.sendKeys(".//resources//files//Profile.pdf");
+        upload_file.sendKeys(".//resources//files//Sujith_Profile.pdf");
         System.out.println("upload resume");
 
         //get updated date
@@ -142,7 +142,7 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.findElement(By.xpath("//textarea[@id='resumeHeadlineTxt']")).clear();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.findElement(By.xpath("//textarea[@id='resumeHeadlineTxt']")).sendKeys("SDET-Professional with Experience of 6 years. serving notice period of 1 month , can join immediately");
+        driver.findElement(By.xpath("//textarea[@id='resumeHeadlineTxt']")).sendKeys("SDET-Professional with with Full stack Automation knowledge");
         driver.findElement(By.xpath("//button[normalize-space()='Save']")).click();
         System.out.println("I Update Resume headline");
         //get updated date
