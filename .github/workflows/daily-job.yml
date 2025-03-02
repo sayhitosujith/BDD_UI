@@ -12,15 +12,20 @@ jobs:
   run-daily:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout sujith branch
         uses: actions/checkout@v2
-      # Add more steps for daily tasks here if needed
+        with:
+          ref: sujith  # Ensures the 'sujith' branch is checked out
 
   push-tests:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest  # Use Windows runner to execute batch file
     steps:
-      - name: Checkout code
+      - name: Checkout sujith branch
         uses: actions/checkout@v2
+        with:
+          ref: sujith  # Ensures the 'sujith' branch is checked out
 
-      - name: Run tests with @Naukri tag
-        run: mvn test -Dcucumber.options="--tags @Naukri --dry-run"
+      - name: Run Selenium Tests using Batch File
+        run: |
+          cd D:\WinWire\Price Logic\Automation\BDD_UI
+          .\run_tests.bat

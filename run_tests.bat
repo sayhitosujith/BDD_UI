@@ -4,12 +4,6 @@ echo Running Selenium Tests with Maven in 'sujith' branch...
 :: Navigate to the project folder
 cd /d "%~dp0"
 
-:: Ensure we are in the correct branch
-git checkout sujith
-
-:: Pull the latest changes from the remote repository (optional)
-git pull origin sujith
-
 :: Clean and compile the project (optional)
 mvn clean compile
 
