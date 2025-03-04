@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.Map;
 
 
-public class CreateAccountSteps<IJavaScriptExecutor> {
+public class CreateAccountSteps extends BaseTest {
     WebDriver driver;
     LoginPage loginPage;
     LogoutPage logoutPage;
@@ -171,14 +171,16 @@ public class CreateAccountSteps<IJavaScriptExecutor> {
     }
 
     @And("I Scroll Page Down and Update Total experience")
-    public void iScrollPageDownAndUpdateTotalExperience() throws InterruptedException {
+    public void iScrollPageDownAndUpdateTotalExperience(String experienceText_years, String experienceText_months) throws InterruptedException {
         driver.findElement(By.xpath("//em[contains(@class,'icon edit')]")).click();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.findElement(By.xpath("//input[@id='exp-years-droopeFor']")).clear();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.findElement(By.xpath("//input[@id='exp-years-droopeFor']")).sendKeys("6 Years");
+        driver.findElement(By.xpath("//input[@id='exp-years-droopeFor']")).sendKeys(experienceText_years);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.findElement(By.xpath("//input[@id='exp-months-droopeFor']")).sendKeys("2 Months");
+        driver.findElement(By.xpath("//input[@id='exp-months-droopeFor']")).clear();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.findElement(By.xpath("//input[@id='exp-months-droopeFor']")).sendKeys(experienceText_months);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.findElement(By.xpath("//span[normalize-space()='Total experience']")).click();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
