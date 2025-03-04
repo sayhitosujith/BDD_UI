@@ -27,7 +27,7 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 
-public class CreateAccountSteps<IJavaScriptExecutor> {
+public class CreateAccountSteps extends BaseTest {
     WebDriver driver;
     LoginPage loginPage;
     LogoutPage logoutPage;
