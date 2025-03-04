@@ -8,6 +8,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 import java.time.Duration;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+
+import static StepDefs.services.Practice.ExperienceCalculator.insertExperienceToLocator;
 
 public class BaseTest {
 
@@ -42,6 +46,35 @@ public class BaseTest {
     public void typeText(WebElement element, String text) {
         waitForElementToBeVisible(element, 10);  // Wait until the element is visible
         element.sendKeys(text);
+    }
+
+    //  calculate experience range
+    public void  calculate_experience_range(WebElement element, String text) {
+            // Starting date of experience
+            LocalDate startDate = LocalDate.of(2018, 8, 1);
+
+            // Get current date
+            LocalDate currentDate = LocalDate.now();
+
+            // Calculate the experience in years, months, and days
+            long years = ChronoUnit.YEARS.between(startDate, currentDate);
+            long months = ChronoUnit.MONTHS.between(startDate, currentDate) % 12;
+            long days = ChronoUnit.DAYS.between(startDate.plusYears(years).plusMonths(months), currentDate);
+
+            // Print experience duration
+            System.out.println("Experience Duration: " + years + " Years, " + months + " Months, " + days + " Days");
+
+            // Insert the experience into a specific locator (for example, updating a web element)
+            String experienceText_years = years + "Years";
+            String experienceText_months = months + "Months";
+
+            // Assume you have a method insertExperienceToLocator() to insert the experience into the locator
+            insertExperienceToLocator(experienceText_years);
+        waitForElementToBeVisible(element, 10);  // Wait until the element is visible
+        element.sendKeys(text);
+        System.out.println("Inserting experience into locator: " + experienceText_years);
+        System.out.println("Inserting experience into locator: " + experienceText_months);
+
     }
 
     // Navigate to a URL
