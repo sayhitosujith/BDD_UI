@@ -41,11 +41,11 @@ jobs:
       - name: Install dependencies
         run: mvn install  # This will install dependencies based on pom.xml
 
-      # Install ChromeDriver
-      - name: Set up Chromedriver
-        uses: googlechromelabs/github-actions/setup-chromedriver@v2
+      # Set up ChromeDriver using WebDriverIO action
+      - name: Set up ChromeDriver
+        uses: webdriverio/github-actions/setup-chromedriver@v6
         with:
-          chromedriver-version: 'latest'  # You can specify a version, or use 'latest'
+          chromedriver-version: 'latest'  # You can specify a version or use 'latest'
 
       # Clean up old user data directory completely (if it exists)
       - name: Clean up old user data directory
