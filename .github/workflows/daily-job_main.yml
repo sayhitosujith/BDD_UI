@@ -65,5 +65,4 @@ jobs:
       # Run the Cucumber tests without --user-data-dir argument
       - name: Run Cucumber tests
         run: |
-          mvn test -Dcucumber.features="src/test/java/features/services/Naukri/UpdateAccount.feature" \
-          -Dwebdriver.chrome.args="--disable-dev-shm-usage --no-sandbox"
+          mvn test -Dcucumber.features="src/test/java/features/services/Naukri/UpdateAccount.feature"
