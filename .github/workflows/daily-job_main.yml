@@ -29,3 +29,17 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '11'
+          distribution: 'temurin'  # Add the distribution input here
+
+      # Set up Maven (optional)
+      - name: Set up Maven
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'temurin'  # Ensure consistency with the JDK version and distribution
+
+      - name: Install dependencies
+        run: mvn install  # This will install dependencies based on pom.xml
+
+      - name: Run Cucumber tests
+        run: mvn test -Dcucumber.features="src/test/java/features/services/Naukri/UpdateAccount.feature" -Dwebdriver.chrome.args="--user-data-dir=${{ runner.temp }}/chrome-user-data"
