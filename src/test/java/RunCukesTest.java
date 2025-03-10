@@ -11,7 +11,7 @@ import org.testng.annotations.BeforeClass;
         dryRun = false,
         tags = "@Naukri",
         //tags = "@VerifyUploadResumeAndUpdateAccount",
-        monochrome = true)
+        monochrome = false)
 
 public class RunCukesTest extends AbstractTestNGCucumberTests {
 
