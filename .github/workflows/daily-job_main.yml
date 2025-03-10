@@ -41,6 +41,10 @@ jobs:
       - name: Install dependencies
         run: mvn install  # This will install dependencies based on pom.xml
 
+      # Clean up any old user data directory (if it exists)
+      - name: Clean up old user data directory
+        run: rm -rf ${runner.temp}/chrome-user-data-${{ github.run_id }}
+
       # Run the Cucumber tests with a unique user data directory
       - name: Run Cucumber tests
-        run: mvn test -Dcucumber.features="src/test/java/features/services/Naukri/UpdateAccount.feature" -Dwebdriver.chrome.args="--user-data-dir=${{ runner.temp }}/chrome-user-data-${{ github.run_id }}"
+        run: mvn test -Dcucumber.features="src/test/java/features/services/Naukri/UpdateAccount.feature" -Dwebdriver.chrome.args="--user-data-dir=${{ runner.temp }}/chrome-user-data-${{ github.run_id }} --no-sandbox"
