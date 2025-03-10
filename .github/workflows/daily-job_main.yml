@@ -43,7 +43,7 @@ jobs:
 
       # Set up ChromeDriver using WebDriverIO action
       - name: Set up ChromeDriver
-        uses: webdriverio/github-actions/setup-chromedriver@v6
+        uses: .//drivers//Chromedriver.exe
         with:
           chromedriver-version: 'latest'  # You can specify a version or use 'latest'
 
