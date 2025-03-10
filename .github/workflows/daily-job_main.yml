@@ -41,11 +41,20 @@ jobs:
       - name: Install dependencies
         run: mvn install  # This will install dependencies based on pom.xml
 
-      # Set up ChromeDriver using WebDriverIO action
-      - name: Set up ChromeDriver
-        uses: .//drivers//Chromedriver.exe
-        with:
-          chromedriver-version: 'latest'  # You can specify a version or use 'latest'
+      # Install Chrome and Chromedriver manually
+      - name: Install Chrome and Chromedriver
+        run: |
+          # Install Google Chrome (in case it's not installed)
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
+
+          # Install chromedriver (make sure it's the correct version)
+          CHROME_VERSION=$(google-chrome-stable --version | awk '{print $3}' | sed 's/\([0-9]*\)\.[0-9]*\.[0-9]*\./\1./')
+          DRIVER_VERSION=$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION)
+          wget https://chromedriver.storage.googleapis.com/$DRIVER_VERSION/chromedriver_linux64.zip
+          unzip chromedriver_linux64.zip
+          sudo mv chromedriver /usr/local/bin/
+          sudo chmod +x /usr/local/bin/chromedriver
 
       # Clean up old user data directory completely (if it exists)
       - name: Clean up old user data directory
