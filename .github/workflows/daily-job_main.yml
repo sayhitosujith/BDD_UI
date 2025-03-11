@@ -36,21 +36,15 @@ jobs:
         run: mvn install  # This will install dependencies based on pom.xml
 
       # Install Chrome and Chromedriver manually
-      - name: Install Chrome and Chromedriver
+      - name: Download chromedriver
         run: |
-          # Install Google Chrome (in case it's not installed)
-          sudo apt-get update
-          sudo apt-get install -y google-chrome-stable
+          mkdir -p drivers
+          wget -O drivers/chromedriver.zip https://chromedriver.storage.googleapis.com/$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)/chromedriver_linux64.zip
+          unzip drivers/chromedriver.zip -d drivers
+          chmod +x drivers/chromedriver.exe
+        
 
-          # Install chromedriver (make sure it's the correct version)
-          CHROME_VERSION=$(google-chrome-stable --version | awk '{print $3}' | sed 's/\([0-9]*\)\.[0-9]*\.[0-9]*\./\1./')
-          DRIVER_VERSION=$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION)
-          wget https://chromedriver.storage.googleapis.com/$DRIVER_VERSION/chromedriver_linux64.zip
-          unzip chromedriver_linux64.zip
-          sudo mv chromedriver /usr/local/bin/
-          sudo chmod +x C:/Users/Sadashivareddys/IdeaProjects/BDD_UI/drivers/chromedriver.exe
-
-      # Install Firefox
+        # Install Firefox
       - name: Install Firefox
         run: sudo apt-get update && sudo apt-get install -y firefox
 
