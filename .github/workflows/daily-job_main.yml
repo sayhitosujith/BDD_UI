@@ -34,13 +34,13 @@ jobs:
           chromedriver --version
 
       - name: Grant execute permission for gradlew
-        run: chmod +x ./subdirectory/gradlew
+        run: chmod +x :/Users/Sadashivareddys/IdeaProjects/BDD_UI
 
       - name: Build with Gradle
-        run: ./subdirectory/gradlew build
+        run: :/Users/Sadashivareddys/IdeaProjects/BDD_UI build
 
       - name: Run tests
-        run: ./subdirectory/gradlew test
+        run: :/Users/Sadashivareddys/IdeaProjects/BDD_UI test
 
       - name: Run Cucumber BDD Tests
-        run: ./subdirectory/gradlew cucumber
+        run: C:/Users/Sadashivareddys/IdeaProjects/BDD_UI cucumber
