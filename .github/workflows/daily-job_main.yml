@@ -34,7 +34,6 @@ jobs:
           sudo mv chromedriver /usr/local/bin/
           chromedriver --version
 
-      # Run the Cucumber tests without --user-data-dir argument
-      - name: Run Cucumber tests
-        run: |
-          mvn test -Dcucumber.features="src/test/java/features/services/Naukri/UpdateAccount.feature"
+
+      - name: Run tests
+        run: mvn test
