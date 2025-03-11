@@ -36,11 +36,15 @@ jobs:
         run: mvn install  # This will install dependencies based on pom.xml
 
       # Install Chrome and Chromedriver manually
-      - name: Download chromedriver
-        run: wget -P ./drivers https://chromedriver.storage.googleapis.com/2.42/chromedriver_linux64.zip && unzip ./drivers/chromedriver_linux64.zip -d ./drivers && chmod +x ./drivers/chromedriver
-         chmod +x ./drivers/chromedriver
-
-        # Install Firefox
+      - name: Download and setup ChromeDriver
+        run: |
+            wget https://chromedriver.storage.googleapis.com/$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)/chromedriver_linux64.zip
+            unzip chromedriver_linux64.zip
+            sudo mv chromedriver /usr/local/bin/
+            sudo chmod +x /usr/local/bin/chromedriver
+          
+          
+          # Install Firefox
       - name: Install Firefox
         run: sudo apt-get update && sudo apt-get install -y firefox
 
