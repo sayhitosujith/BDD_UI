@@ -8,7 +8,8 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 9 * * *'  # Runs at 9am IST daily (UTC 2:00 AM)
+    - cron: '30 13 * * *' # Runs at 7pm IST daily (UTC 1:30 PM)
 
 jobs:
   test:
