@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.IOException;
 import java.time.Duration;
 
 public class BaseTest {
@@ -54,7 +55,7 @@ public class BaseTest {
     }
 
     // Tear down the WebDriver after tests
-    public void tearDown() {
+    public void tearDown() throws IOException {
         if (driver != null) {
             driver.quit();
         }

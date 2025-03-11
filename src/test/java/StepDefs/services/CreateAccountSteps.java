@@ -4,20 +4,20 @@ import Pages.LoginPage;
 import Pages.LogoutPage;
 import configManager.DriverFactory;
 import configManager.ResourceData;
+import io.cucumber.java.After;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.io.FileHandler;
 import org.testng.Assert;
 import util.StepUtil;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -249,4 +249,14 @@ public class CreateAccountSteps extends BaseTest {
 //        driver.findElement(By.xpath("//span[normalize-space()='Sign Out']")).click();
         driver.quit();
 }
+    @After
+    public void tearDown() throws IOException {
+        // Check if the driver is an instance of TakesScreenshot
+        if (driver instanceof TakesScreenshot) {
+            TakesScreenshot screenshotTaker = (TakesScreenshot) driver;
+            File screenshot = screenshotTaker.getScreenshotAs(OutputType.FILE);
+            FileHandler.copy(screenshot, new File("screenshot.png"));  // Save the screenshot to a file
+        }
+        driver.quit();
+    }
 }

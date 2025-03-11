@@ -1,7 +1,7 @@
 Feature: Verify Update Naukri Application
 
     #....................Verify Upload Resume And Update Account...........
-  @Naukri @VerifyUploadResumeAndUpdateAccount(invocationCount = 10)
+  @Naukri @VerifyUploadResumeAndUpdateAccount
   Scenario:Verify upload resume and Update Account
     Given I enter the Valid URL of Application by Launching Chrome Browser
       | url    |
@@ -28,6 +28,7 @@ Feature: Verify Update Naukri Application
       | Naukri |
     When I enter Valid details and Update account
     And I Update Resume headline
+    And I take screenshot
     Then should Logout Profile successfully
 
              #....................Verify Employment Experience And Update Account...........
