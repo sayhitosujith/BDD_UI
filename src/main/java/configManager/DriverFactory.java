@@ -1,37 +1,26 @@
 package configManager;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class DriverFactory {
+    public static WebDriver getDriver() {
+        // Set the path to the GeckoDriver executable
+        System.setProperty("webdriver.gecko.driver", "C:/Users/Sadashivareddys/IdeaProjects/BDD_UI/drivers/geckodriver.exe");
 
-    public WebDriver getDriver(String browser) {
-        WebDriver driver;  // Initialize driver to null
+        // Set Firefox options
+        FirefoxOptions options = new FirefoxOptions();
+        options.setAcceptInsecureCerts(true);
 
-        switch (browser.toLowerCase()) {
-            case "chrome":
-                WebDriverManager.chromedriver().setup();  // Automatically manage ChromeDriver version
-                driver = new ChromeDriver();
-                WebDriverManager.chromedriver().clearResolutionCache().setup();
-                break;
-
-            case "firefox":
-                WebDriverManager.firefoxdriver().setup();  // Automatically manage GeckoDriver version
-                driver = new FirefoxDriver();
-                break;
-
-            case "edge":
-                WebDriverManager.edgedriver().setup();  // Automatically manage EdgeDriver version
-                driver = new EdgeDriver();
-                break;
-
-            default:
-                // Log message and throw an exception for unsupported browsers
-                System.out.println("Browser " + browser + " is not supported.");
-                throw new IllegalArgumentException("Browser " + browser + " is not supported.");
+        // Initialize the WebDriver
+        WebDriver driver = null;
+        try {
+            driver = new FirefoxDriver(options);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("Failed to initialize WebDriver", e);
         }
 
         return driver;
