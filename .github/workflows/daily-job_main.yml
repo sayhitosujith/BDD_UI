@@ -33,14 +33,3 @@ jobs:
           sudo mv chromedriver /usr/local/bin/
           chromedriver --version
 
-      - name: Grant execute permission for gradlew
-        run: chmod +x :/Users/Sadashivareddys/IdeaProjects/BDD_UI
-
-      - name: Build with Gradle
-        run: :/Users/Sadashivareddys/IdeaProjects/BDD_UI build
-
-      - name: Run tests
-        run: :/Users/Sadashivareddys/IdeaProjects/BDD_UI test
-
-      - name: Run Cucumber BDD Tests
-        run: C:/Users/Sadashivareddys/IdeaProjects/BDD_UI cucumber
