@@ -1,72 +1,30 @@
 name: Run Cucumber BDD Tests
 
 on:
-  schedule:
-    - cron: '0 9 * * *'  # Runs at 9am IST daily (UTC 2:00 AM)
-    - cron: '30 13 * * *' # Runs at 7pm IST daily (UTC 1:30 PM)
   push:
     branches:
       - main
   pull_request:
     branches:
       - main
+  schedule:
+    - cron: '0 0 * * *'
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: List current directory
-        run: ls -la
+      - name: Checkout
+        uses: actions/checkout@v2
 
-      - name: Print working directory
-        run: pwd
-
-      - uses: actions/checkout@v2
-
-      # Set up Java 11 using Temurin (Eclipse Adoptium)
-      - name: Set up JDK 11 (Temurin)
+      - name: Set up JDK 11
         uses: actions/setup-java@v2
         with:
           java-version: '11'
-          distribution: 'temurin'  # Set the distribution for Java
 
-      # Install dependencies
-      - name: Install dependencies
-        run: mvn install  # This will install dependencies based on pom.xml
-
-      # Install Chrome and Chromedriver manually
-      - name: Download ChromeDriver
+      - name: Set up ChromeDriver
         run: |
-            mkdir -p drivers
-            wget -O drivers/chromedriver.zip https://chromedriver.storage.googleapis.com/$(curl -s https://chromedriver.storage.googleapis.com/LATEST_RELEASE)/chromedriver_linux64.zip
-            unzip drivers/chromedriver.zip -d drivers/
-            chmod +x drivers/chromedriver
-          
-          
-          # Install Firefox
-      - name: Install Firefox
-        run: sudo apt-get update && sudo apt-get install -y firefox
-
-      # Install geckodriver
-      - name: Download geckodriver
-        run: |
-            wget https://github.com/mozilla/geckodriver/releases/download/v0.30.0/geckodriver-v0.30.0-linux64.tar.gz
-            tar -xvzf geckodriver-v0.30.0-linux64.tar.gz
-            sudo mv geckodriver /usr/local/bin/
-
-      # Install Firefox dependencies
-      - name: Install Firefox dependencies
-        run: |
-          sudo apt-get install -y libgtk-3-0 libdbus-glib-1-2 libxt6 libx11-xcb1
-
-      # Clean up old user data directory completely (if it exists)
-      - name: Clean up old chrome user data directory
-        run: |
-          echo "Cleaning up old chrome user data directory..."
-          rm -rf ${runner.temp}/chrome-user-data-${{ github.run_id }}
-
-      # Run the Cucumber tests without --user-data-dir argument
-      - name: Run Cucumber tests
-        run: |
-          mvn test -Dcucumber.features="src/test/java/features/services/Naukri/UpdateAccount.feature"
+          sudo apt-get update
+          sudo apt-get install -y wget
+          wget https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64 ▋
