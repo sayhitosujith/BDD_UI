@@ -5,6 +5,7 @@ import com.aventstack.extentreports.service.ExtentService;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 @CucumberOptions(
         plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:", "pretty", "json:out/cucumber.json", "junit:out/cucumber.xml", "rerun:target/failed_scenarios.txt"},

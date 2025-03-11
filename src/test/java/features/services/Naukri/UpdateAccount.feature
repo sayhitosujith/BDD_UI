@@ -1,7 +1,7 @@
 Feature: Verify Update Naukri Application
 
     #....................Verify Upload Resume And Update Account...........
-  @Naukri @VerifyUploadResumeAndUpdateAccount
+  @Naukri @VerifyUploadResumeAndUpdateAccount(invocationCount = 10)
   Scenario:Verify upload resume and Update Account
     Given I enter the Valid URL of Application by Launching Chrome Browser
       | url    |
