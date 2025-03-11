@@ -1,31 +1,31 @@
 name: Run Cucumber BDD Tests
 
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+  schedule:
+    - cron: '0 0 * * *'
 
 jobs:
-  build:
+  run-tests:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Setup Java
+      - name: Set up Java
         uses: actions/setup-java@v2
         with:
+          distribution: 'temurin' # Add the required distribution input
           java-version: '11'
 
-      - name: Download Chromedriver
-        run: wget -O ./drivers/chromedriver.exe https://chromedriver.storage.googleapis.com/91.0.4472.19/chromedriver_linux64.zip && unzip ./drivers/chromedriver.exe
+      - name: Set up ChromeDriver
+        run: |
+                  sudo apt-get update
+                  sudo apt-get install -y wget
+                  wget https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip
+                  unzip chromedriver_linux64.zip
+                  sudo mv chromedriver /usr/local/bin/
+                  chromedriver --version
 
-      - name: Make Chromedriver executable
-        run: chmod +x ./drivers/chromedriver.exe
-
-      - name: Run Tests
-        run: mvn test
+      - name: Run Cucumber tests
+        run: ./gradlew test
