@@ -2,25 +2,30 @@ package configManager;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.NoSuchDriverException;
 
 public class DriverFactory {
+
     public static WebDriver getDriver() {
-        // Set the path to the GeckoDriver executable
-        System.setProperty("webdriver.gecko.driver", "C:/Users/Sadashivareddys/IdeaProjects/BDD_UI/drivers/geckodriver.exe");
+        String browser = System.getProperty("browser", "chrome");
+        WebDriver driver;
 
-        // Set Firefox options
-        FirefoxOptions options = new FirefoxOptions();
-        options.setAcceptInsecureCerts(true);
+        switch (browser.toLowerCase()) {
+            case "firefox":
+                // Update the path to geckodriver if necessary
+                System.setProperty("webdriver.gecko.driver", "C://Users//Sadashivareddys//IdeaProjects//BDD_UI//drivers/geckodriver.exe");
+                driver = new FirefoxDriver();
+                break;
 
-        // Initialize the WebDriver
-        WebDriver driver = null;
-        try {
-            driver = new FirefoxDriver(options);
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new RuntimeException("Failed to initialize WebDriver", e);
+            case "chrome":
+                // Specify the path to chromedriver if using Chrome
+                System.setProperty("webdriver.chrome.driver","C://Users//Sadashivareddys//IdeaProjects//BDD_UI//drivers//chromedriver.exe");
+                driver = new ChromeDriver();
+                break;
+
+            default:
+                throw new NoSuchDriverException("No valid driver specified for browser: " + browser);
         }
 
         return driver;
