@@ -7,33 +7,20 @@ on:
   pull_request:
     branches:
       - main
-  schedule:
-    - cron: '0 0 * * *'
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v2
 
       - name: Set up JDK 11
         uses: actions/setup-java@v2
         with:
-            java-version: '11'
-            distribution: 'adopt'
-      - name: Set up ChromeDriver
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y wget
-          wget https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip
-          unzip chromedriver_linux64.zip
-          sudo mv chromedriver /usr/local/bin/
-          chromedriver --version
-
-      - name: Run tests
-        run: ./gradlew test
+          distribution: 'adopt'
+          java-version: '11'
 
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
@@ -41,5 +28,5 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build
 
-      - name: Run Cucumber BDD Tests
+      - name: Run Cucumber Tests
         run: ./gradlew cucumber
