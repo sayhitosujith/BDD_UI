@@ -14,13 +14,13 @@ public class DriverFactory {
         switch (browser.toLowerCase()) {
             case "firefox":
                 // Update the path to geckodriver if necessary
-                System.setProperty("webdriver.gecko.driver", "C://Users//Sadashivareddys//IdeaProjects//BDD_UI//drivers/geckodriver.exe");
+                System.setProperty("webdriver.gecko.driver", ".//drivers/geckodriver.exe");
                 driver = new FirefoxDriver();
                 break;
 
             case "chrome":
                 // Specify the path to chromedriver if using Chrome
-                System.setProperty("webdriver.chrome.driver","C://Users//Sadashivareddys//IdeaProjects//BDD_UI//drivers//chromedriver.exe");
+                System.setProperty("webdriver.chrome.driver",".//drivers//chromedriver.exe");
                 driver = new ChromeDriver();
                 break;
 
