@@ -22,9 +22,16 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '11'
+          distribution: 'adopt' # or any other valid distribution value
 
       - name: Set up ChromeDriver
         run: |
           sudo apt-get update
           sudo apt-get install -y wget
-          wget https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64 ▋
+          wget https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64/chromedriver_linux64.zip
+          unzip chromedriver_linux64.zip
+          sudo mv chromedriver /usr/local/bin/
+          chromedriver --version
+
+      - name: Run tests
+        run: ./gradlew test
