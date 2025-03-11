@@ -37,8 +37,7 @@ jobs:
 
       # Install Chrome and Chromedriver manually
       - name: Download chromedriver
-        run: wget -P ./drivers https://chromedriver.storage.googleapis.com/2.42/chromedriver_linux64.zip && unzip ./drivers/chromedriver_linux64.zip -d ./drivers && chmod +x ./drivers/chromedriver.zip
-         unzip chromedriver_linux64.zip -d ./drivers
+        run: wget -P ./drivers https://chromedriver.storage.googleapis.com/2.42/chromedriver_linux64.zip && unzip ./drivers/chromedriver_linux64.zip -d ./drivers && chmod +x ./drivers/chromedriver
          chmod +x ./drivers/chromedriver
 
         # Install Firefox
