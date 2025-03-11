@@ -48,7 +48,7 @@ jobs:
           wget https://chromedriver.storage.googleapis.com/$DRIVER_VERSION/chromedriver_linux64.zip
           unzip chromedriver_linux64.zip
           sudo mv chromedriver /usr/local/bin/
-          sudo chmod +x /usr/local/bin/chromedriver
+          sudo chmod +x C:/Users/Sadashivareddys/IdeaProjects/BDD_UI/drivers/chromedriver.exe
 
       # Install Firefox
       - name: Install Firefox
