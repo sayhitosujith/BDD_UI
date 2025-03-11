@@ -7,7 +7,7 @@ import org.openqa.selenium.remote.NoSuchDriverException;
 
 public class DriverFactory {
 
-    public static WebDriver getDriver() {
+    public static WebDriver getDriver(String chrome) {
         String browser = System.getProperty("browser", "chrome");
         WebDriver driver;
 

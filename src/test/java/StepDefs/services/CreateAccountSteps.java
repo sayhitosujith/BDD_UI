@@ -36,7 +36,7 @@ public class CreateAccountSteps extends BaseTest {
     @Given("I enter the Valid URL of Application by Launching Chrome Browser")
     public void IentertheValidURLofApplicationbyLaunchingChromeBrowser(io.cucumber.datatable.DataTable dataTable) throws InterruptedException {
         DriverFactory factory = new DriverFactory();
-        driver = factory.getDriver();
+        driver = factory.getDriver("chrome");
         driver.manage().window().maximize();
         Map<String, String> dataMap = StepUtil.toMap(dataTable);
         driver.get(ResourceData.getEnvironmentURL(ResourceData.getEnvironment() + "." + dataMap.get("url")));
