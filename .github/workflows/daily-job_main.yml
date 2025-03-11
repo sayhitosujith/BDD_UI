@@ -31,13 +31,7 @@ jobs:
           java-version: '11'
           distribution: 'temurin'  # Set the distribution for Java
 
-      # Set up Maven (optional)
-      - name: Set up Maven
-        uses: actions/setup-java@v2
-        with:
-          java-version: '11'
-          distribution: 'temurin'  # Ensure consistency with the JDK version
-
+      # Install dependencies
       - name: Install dependencies
         run: mvn install  # This will install dependencies based on pom.xml
 
@@ -56,8 +50,27 @@ jobs:
           sudo mv chromedriver /usr/local/bin/
           sudo chmod +x /usr/local/bin/chromedriver
 
+      # Install Firefox
+      - name: Install Firefox
+        run: sudo apt-get update && sudo apt-get install -y firefox
+
+      # Install geckodriver
+      - name: Install geckodriver
+        run: |
+          FIREFOX_VERSION=$(firefox --version | cut -d ' ' -f 3)
+          GECKODRIVER_VERSION=$(curl -s https://github.com/mozilla/geckodriver/releases/latest | grep -oP 'tag/v\K[0-9.]+')
+          curl -sSLo /tmp/geckodriver.tar.gz "https://github.com/mozilla/geckodriver/releases/download/v${GECKODRIVER_VERSION}/geckodriver-v${GECKODRIVER_VERSION}-linux64.tar.gz"
+          tar -xzf /tmp/geckodriver.tar.gz -C /tmp
+          sudo mv /tmp/geckodriver /usr/local/bin/
+          geckodriver --version
+
+      # Install Firefox dependencies
+      - name: Install Firefox dependencies
+        run: |
+          sudo apt-get install -y libgtk-3-0 libdbus-glib-1-2 libxt6 libx11-xcb1
+
       # Clean up old user data directory completely (if it exists)
-      - name: Clean up old user data directory
+      - name: Clean up old chrome user data directory
         run: |
           echo "Cleaning up old chrome user data directory..."
           rm -rf ${runner.temp}/chrome-user-data-${{ github.run_id }}
