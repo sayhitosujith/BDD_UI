@@ -7,33 +7,25 @@ on:
   pull_request:
     branches:
       - main
-  schedule:
-    - cron: '0 9 * * *'  # Runs at 9am IST daily (UTC 2:00 AM)
-    - cron: '30 13 * * *' # Runs at 7pm IST daily (UTC 1:30 PM)
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Set up JDK 11
+      - name: Setup Java
         uses: actions/setup-java@v2
         with:
           java-version: '11'
-          distribution: 'adopt'
 
-      - name: Set up ChromeDriver
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y wget
-          wget https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip
-          unzip chromedriver_linux64.zip
-          sudo mv chromedriver /usr/local/bin/
-          chromedriver --version
+      - name: Download Chromedriver
+        run: wget -O ./drivers/chromedriver.exe https://chromedriver.storage.googleapis.com/91.0.4472.19/chromedriver_linux64.zip && unzip ./drivers/chromedriver.exe
 
+      - name: Make Chromedriver executable
+        run: chmod +x ./drivers/chromedriver.exe
 
-      - name: Run tests
+      - name: Run Tests
         run: mvn test
