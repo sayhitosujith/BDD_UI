@@ -21,9 +21,8 @@ jobs:
       - name: Set up JDK 11
         uses: actions/setup-java@v2
         with:
-          java-version: '11'
-          distribution: 'adopt' # or any other valid distribution value
-
+            java-version: '11'
+            distribution: 'adopt'
       - name: Set up ChromeDriver
         run: |
           sudo apt-get update
@@ -35,3 +34,12 @@ jobs:
 
       - name: Run tests
         run: ./gradlew test
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x ./gradlew
+
+      - name: Build with Gradle
+        run: ./gradlew build
+
+      - name: Run Cucumber BDD Tests
+        run: ./gradlew cucumber
