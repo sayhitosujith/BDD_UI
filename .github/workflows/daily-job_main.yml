@@ -8,8 +8,8 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 9 * * *'  # Runs at 9am IST daily (UTC 2:00 AM)
-    - cron: '30 13 * * *' # Runs at 7pm IST daily (UTC 1:30 PM)
+    - cron: '0 9 * * *'  # Runs at 7:30am IST daily (UTC 2:00 AM)
+    - cron: '30 13 * * *' # Runs at 7:00pm IST daily (UTC 1:30 PM)
 
 jobs:
   test:
@@ -33,3 +33,44 @@ jobs:
           unzip chromedriver_linux64.zip
           sudo mv chromedriver /usr/local/bin/
           chromedriver --version
+
+      - name: Run Cucumber Tests
+        run: |
+          # Command to run Cucumber BDD tests
+          mvn clean test
+
+      - name: Send Success Email
+        if: success()
+        run: |
+          curl -X POST "https://api.sendgrid.com/v3/mail/send" \
+            -H "Authorization: Bearer ${{ secrets.SENDGRID_API_KEY }}" \
+            -H "Content-Type: application/json" \
+            -d '{
+                  "personalizations": [{
+                    "to": [{"email": "sayhitosujith@gmail.com"}],
+                    "subject": "Cucumber BDD Tests - Success"
+                  }],
+                  "from": {"email": "sujithreddy1991@gmail.com"},
+                  "content": [{
+                    "type": "text/plain",
+                    "value": "The Cucumber BDD tests have passed successfully."
+                  }]
+                }'
+
+      - name: Send Failure Email
+        if: failure()
+        run: |
+          curl -X POST "https://api.sendgrid.com/v3/mail/send" \
+            -H "Authorization: Bearer ${{ secrets.SENDGRID_API_KEY }}" \
+            -H "Content-Type: application/json" \
+            -d '{
+                  "personalizations": [{
+                    "to": [{"email": "sayhitosujith@gmail.com"}],
+                    "subject": "Cucumber BDD Tests - Failure"
+                  }],
+                  "from": {"email": "sujithreddy1991@gmail.com"},
+                  "content": [{
+                    "type": "text/plain",
+                    "value": "The Cucumber BDD tests have failed. Please check the logs for details."
+                  }]
+                }'
