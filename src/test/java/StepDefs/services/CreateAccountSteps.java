@@ -2,6 +2,7 @@ package StepDefs.services;
 
 import Pages.LoginPage;
 import Pages.LogoutPage;
+import StepDefs.services.Practice.ExperienceCalculator;
 import configManager.ResourceData;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -29,7 +30,7 @@ public class CreateAccountSteps extends BaseTest {
     WebDriver driver;
     LoginPage loginPage;
     LogoutPage logoutPage;
-
+    ExperienceCalculator ExperienceCalculator;
 
     @Given("I enter the Valid URL of Application by Launching Chrome Browser")
     public void IentertheValidURLofApplicationbyLaunchingChromeBrowser(io.cucumber.datatable.DataTable dataTable) throws InterruptedException {
@@ -169,30 +170,16 @@ public class CreateAccountSteps extends BaseTest {
             System.err.println(ex);
         }
     }
-
-    @And("I Scroll Page Down and Update Total experience")
-    public void iScrollPageDownAndUpdateTotalExperience(String experienceText_years, String experienceText_months) throws InterruptedException {
+    @And("I Scroll Page Down and Update Total experience {string} {string}")
+    public void iScrollPageDownAndUpdateTotalExperience(String experienceText_years, String experienceText_months) {
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.findElement(By.xpath("//em[contains(@class,'icon edit')]")).click();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.findElement(By.xpath("//input[@id='exp-years-droopeFor']")).clear();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.findElement(By.xpath("//input[@id='exp-years-droopeFor']")).sendKeys(experienceText_years);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.findElement(By.xpath("//input[@id='exp-months-droopeFor']")).clear();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.findElement(By.xpath("//input[@id='exp-months-droopeFor']")).sendKeys(experienceText_months);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.findElement(By.xpath("//span[normalize-space()='Total experience']")).click();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.findElement(By.xpath("//button[@id='saveBasicDetailsBtn']")).click();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        System.out.println("User experience updated successfully..!!");
+        ExperienceCalculator.insertexperienceTextyears(experienceText_years);
+        ExperienceCalculator.insertexperienceTextmonths(experienceText_months);
     }
 
     @And("I want to Find the Number of Rows and Columns")
     public void iWantToFindTheNumberOfRowsAndColumns() {
-
-
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
             // Scroll down the page
             // Locate the element you want to scroll to

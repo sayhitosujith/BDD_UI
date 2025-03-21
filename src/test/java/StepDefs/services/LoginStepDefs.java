@@ -104,6 +104,7 @@ public class LoginStepDefs<IJavaScriptExecutor> {
         System.out.println("The expected heading is same as actual heading --- " + heading);
 
     }
+
 // IJavaScriptExecutor js = (IJavaScriptExecutor)SeleniumActions.driver;
 //WebDriverWait wait = new WebDriverWait(SeleniumActions.driver, new TimeSp(0, 0, 40));
 //wait.Until(wd => js.ExecuteScript("return document.readyState").ToString() == "complete");
