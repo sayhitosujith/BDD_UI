@@ -1,28 +1,30 @@
 package StepDefs.services;
 
+import StepDefs.services.Practice.ExperienceCalculator;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import io.github.bonigarcia.wdm.WebDriverManager;
 
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
-import static StepDefs.services.Practice.ExperienceCalculator.insertExperienceToLocator;
 
 public class BaseTest {
 
-    protected WebDriver driver;
+    public static WebDriver driver;
 
     // Launches the browser
     public void setUp() {
-//        WebDriverManager.chromedriver().setup();  // Automatically download the right version of the driver
-//        ChromeOptions options = new ChromeOptions();
-//        options.addArguments("--start-maximized");  // Maximize the window at launch
-//        driver = new ChromeDriver(options);
+        WebDriverManager.chromedriver().setup();  // Automatically download the right version of the driver
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--start-maximized");  // Maximize the window at launch
+        driver = new ChromeDriver(options);
     }
 
     // Wait for an element to be visible
@@ -69,11 +71,10 @@ public class BaseTest {
             String experienceText_months = months + "Months";
 
             // Assume you have a method insertExperienceToLocator() to insert the experience into the locator
-            insertExperienceToLocator(experienceText_years);
+        ExperienceCalculator.insertexperienceTextyears(experienceText_years);
         waitForElementToBeVisible(element, 10);  // Wait until the element is visible
         element.sendKeys(text);
         System.out.println("Inserting experience into locator: " + experienceText_years);
-        System.out.println("Inserting experience into locator: " + experienceText_months);
 
     }
 
