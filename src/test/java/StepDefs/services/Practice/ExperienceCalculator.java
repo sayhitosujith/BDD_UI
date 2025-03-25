@@ -7,7 +7,7 @@ public class ExperienceCalculator {
 
     public static void main(String[] args) {
         // Starting date of experience
-        LocalDate startDate = LocalDate.of(2018, 8, 1);
+        LocalDate startDate = LocalDate.of(2017, 8, 1);
 
         // Get current date
         LocalDate currentDate = LocalDate.now();

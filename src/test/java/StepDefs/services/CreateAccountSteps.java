@@ -26,7 +26,7 @@ import java.util.Map;
 
 
 public class CreateAccountSteps extends BaseTest {
-    WebDriver driver;
+    static WebDriver driver;
     LoginPage loginPage;
     LogoutPage logoutPage;
 
