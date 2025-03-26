@@ -20,14 +20,14 @@ public class GridUpdateExample {
 
         // Sample data for the grid (2D array)
         String[][] data = {
-                {"1", "John", "25"},
-                {"2", "Alice", "30"},
-                {"3", "Bob", "35"},
-                {"4", "Sujith", "34"}
+                {"John", "25"},
+                {"Alice", "30"},
+                {"Bob", "35"},
+                {"Sujith", "34"}
         };
 
         // Column names
-        String[] columnNames = {"ID", "Email ID", "Password"};
+        String[] columnNames = {"Email ID", "Password"};
 
         // Create DefaultTableModel and JTable
         DefaultTableModel tableModel = new DefaultTableModel(data, columnNames);
@@ -47,8 +47,6 @@ public class GridUpdateExample {
         JTextField ageField = new JTextField(5);
 
         // Add labels and input fields to the inputPanel
-        inputPanel.add(new JLabel("ID:"));
-        inputPanel.add(idField);
         inputPanel.add(new JLabel("EmailID:"));
         inputPanel.add(nameField);
         inputPanel.add(new JLabel("Password:"));
@@ -65,22 +63,20 @@ public class GridUpdateExample {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Get the values entered by the user
-                String id = idField.getText();
                 String name = nameField.getText();
                 String age = ageField.getText();
 
                 // Check if all fields are filled
-                if (id.isEmpty() || name.isEmpty() || age.isEmpty()) {
+                if (name.isEmpty() || age.isEmpty()) {
                     JOptionPane.showMessageDialog(frame, "Please fill in all fields", "Input Error", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
 
                 // Add new row to the table
-                String[] newRow = {id, name, age};
+                String[] newRow = {name, age};
                 tableModel.addRow(newRow);
 
                 // Clear input fields after adding
-                idField.setText("");
                 nameField.setText("");
                 ageField.setText("");
             }
