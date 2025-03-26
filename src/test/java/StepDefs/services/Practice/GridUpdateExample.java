@@ -20,10 +20,7 @@ public class GridUpdateExample {
 
         // Sample data for the grid (2D array)
         String[][] data = {
-                {"John", "25"},
-                {"Alice", "30"},
-                {"Bob", "35"},
-                {"Sujith", "34"}
+                {"sayhitosujith@gmail.com", "Qw@12345678"},
         };
 
         // Column names
