@@ -17,7 +17,7 @@ public class ExperienceCalculator extends BaseTest {
 
     public static void main(String[] args) {
         // Starting date of experience
-        LocalDate startDate = LocalDate.of(2017, 8, 1);
+        LocalDate startDate = LocalDate.of(2018, 8, 1);
 
         // Get current date
         LocalDate currentDate = LocalDate.now();
@@ -30,25 +30,21 @@ public class ExperienceCalculator extends BaseTest {
         // Print experience duration
         System.out.println("Experience Duration: " + years + " Years, " + months + " Months, " + days + " Days");
 
-        // Create an instance of ExperienceCalculator to call non-static methods
-        ExperienceCalculator calculator = new ExperienceCalculator();
-
         // Call the methods to insert experience
         String experienceTextyears = years + " Years, ";
-        calculator.insertexperienceTextyears(experienceTextyears);
+        insertexperienceTextyears(experienceTextyears);
 
         String experienceTextmonths = months + " Months, ";
-        calculator.insertexperienceTextmonths(experienceTextmonths);
+        insertexperienceTextmonths(experienceTextmonths);
     }
 
     // Method to insert years into the input field
     public static void insertexperienceTextyears(String experienceTextyears) {
-
         if (driver != null) {
             try {
                 // Use explicit wait to ensure the element is visible and clickable
                 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-                WebElement Years = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='exp-years-droopeFor']']")));
+                WebElement Years = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='exp-years-droopeFor']")));
 
                 // Clear the existing value and send new experience
                 Years.clear();
@@ -62,19 +58,17 @@ public class ExperienceCalculator extends BaseTest {
         }
     }
 
-
     // Method to insert months into the input field
     public static void insertexperienceTextmonths(String experienceTextmonths) {
-        // Ensure WebDriver is initialized correctly
         if (driver != null) {
             try {
                 // Use explicit wait to ensure the element is visible and clickable
                 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-                WebElement Years = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='exp-months-droopeFor']']")));
+                WebElement Months = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='exp-months-droopeFor']")));
 
                 // Clear the existing value and send new experience
-                Years.clear();
-                Years.sendKeys(experienceTextmonths);
+                Months.clear();
+                Months.sendKeys(experienceTextmonths);
                 System.out.println("Inserting experience into locator: " + experienceTextmonths);
             } catch (Exception e) {
                 System.out.println("Error while interacting with the element: " + e.getMessage());
