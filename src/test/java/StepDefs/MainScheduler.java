@@ -2,6 +2,7 @@ package StepDefs;
 
 import org.testng.TestNG;
 
+import java.io.File;
 import java.time.LocalDateTime;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -16,11 +17,17 @@ public class MainScheduler {
 
     public static void main(String[] args) {
         try {
+            // Ensure logs directory exists
+            File logDir = new File("logs");
+            if (!logDir.exists()) {
+                logDir.mkdirs();
+            }
+
             // Set up logger to write to a file
             FileHandler fh = new FileHandler("logs/TestExecutionLog.log", true); // true = append mode
             fh.setFormatter(new SimpleFormatter());
             logger.addHandler(fh);
-            logger.setUseParentHandlers(false); // prevent log messages from showing in console if needed
+            logger.setUseParentHandlers(false); // Optional: suppress console output
 
             ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
 
