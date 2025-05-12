@@ -3,7 +3,9 @@ package StepDefs;
 import org.testng.TestNG;
 
 import java.io.File;
+import java.time.Duration;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -32,9 +34,11 @@ public class MainScheduler {
             ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
 
             Runnable task = () -> {
-                LocalDateTime now = LocalDateTime.now();
+                LocalDateTime startTime = LocalDateTime.now();
+                long start = System.nanoTime();  // Start time in nanoseconds
+
                 logger.info("==========================================");
-                logger.info("Test execution started at: " + now);
+                logger.info("Test execution started at: " + startTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
 
                 try {
                     TestNG testng = new TestNG();
@@ -46,7 +50,15 @@ public class MainScheduler {
                     e.printStackTrace();
                 }
 
-                logger.info("Test execution finished at: " + LocalDateTime.now());
+                long end = System.nanoTime(); // End time
+                long durationInSeconds = TimeUnit.NANOSECONDS.toSeconds(end - start);
+                Duration duration = Duration.ofSeconds(durationInSeconds);
+
+                logger.info("Test execution finished at: " + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+                logger.info(String.format("Total Execution Time: %02d:%02d:%02d (hh:mm:ss)",
+                        duration.toHours(),
+                        duration.toMinutesPart(),
+                        duration.toSecondsPart()));
             };
 
             logger.info("Scheduler started. First run will begin immediately.");
