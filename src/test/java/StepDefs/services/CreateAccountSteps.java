@@ -145,7 +145,7 @@ public class CreateAccountSteps extends BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.findElement(By.xpath("//textarea[@id='resumeHeadlineTxt']")).clear();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.findElement(By.xpath("//textarea[@id='resumeHeadlineTxt']")).sendKeys("SDET-Professional with Experience of 6.5 years.");
+        driver.findElement(By.xpath("//textarea[@id='resumeHeadlineTxt']")).sendKeys("SDET-Professional with Experience of 6.9 year.Actively looking out for new opportunities");
         driver.findElement(By.xpath("//button[normalize-space()='Save']")).click();
         System.out.println("I Update Resume headline");
         //get updated date

@@ -37,7 +37,7 @@ Feature: Verify Update Naukri Application
       | url    |
       | Naukri |
     When I enter Valid details and Update account
-    And I Scroll Page Down and Update Total experience "experienceText_years" "String experienceText_months"
+    And I Scroll Page Down and Update Total experience
     Then should Logout Profile successfully
 
        #....................Verify Applied jobs count...........
