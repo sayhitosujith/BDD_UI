@@ -6,16 +6,16 @@ import org.openqa.selenium.WebDriver;
 public class LoginPage {
 
     WebDriver driver;
-
+    // Constructor
+    public LoginPage(WebDriver driver) {
+        this.driver = driver;
+    }
     // Locators
     By usernameField = By.xpath("//input[@id='usernameField']");
     By passwordField = By.xpath("//input[@id='passwordField']");
     By loginButton = By.xpath("//button[@class='waves-effect waves-light btn-large btn-block btn-bold blue-btn textTransform']");
 
-    // Constructor
-    public LoginPage(WebDriver driver) {
-        this.driver = driver;
-    }
+
 
     // Actions
     public void enterUsername(String username) {

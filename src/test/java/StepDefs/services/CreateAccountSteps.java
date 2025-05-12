@@ -2,21 +2,22 @@ package StepDefs.services;
 
 import Pages.LoginPage;
 import Pages.LogoutPage;
-import StepDefs.services.Practice.ExperienceCalculator;
 import configManager.ResourceData;
+import io.cucumber.java.After;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.io.FileHandler;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.Assert;
 import util.StepUtil;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -24,19 +25,21 @@ import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 
 public class CreateAccountSteps extends BaseTest {
-    static WebDriver driver;
+    WebDriver driver;
     LoginPage loginPage;
     LogoutPage logoutPage;
-    ExperienceCalculator ExperienceCalculator;
+
 
     @Given("I enter the Valid URL of Application by Launching Chrome Browser")
     public void IentertheValidURLofApplicationbyLaunchingChromeBrowser(io.cucumber.datatable.DataTable dataTable) throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver", ".//drivers//chromedriver.exe");
-        driver = new ChromeDriver();
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver(); // ✅ Set class-level driver
         driver.manage().window().maximize();
+
         Map<String, String> dataMap = StepUtil.toMap(dataTable);
         driver.get(ResourceData.getEnvironmentURL(ResourceData.getEnvironment() + "." + dataMap.get("url")));
         System.out.println("This Step open the Chrome and launch the application.");
@@ -60,8 +63,7 @@ public class CreateAccountSteps extends BaseTest {
     }
 
     @Then("should Logout Profile successfully")
-    public void shouldSeeAccountCreatedSuccessfully() throws InterruptedException
-    {
+    public void shouldSeeAccountCreatedSuccessfully() throws InterruptedException {
         logoutPage = new LogoutPage(driver);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         logoutPage.userprofile();
@@ -129,7 +131,7 @@ public class CreateAccountSteps extends BaseTest {
     public void iUpdateMyResume() throws InterruptedException {
         WebElement upload_file = driver.findElement(By.xpath("//input[@value='Update resume']"));
         upload_file.click();
-        upload_file.sendKeys(".//resources//files//Sujith_Profile.pdf");
+        upload_file.sendKeys("F://BDD_UI//BDD_UI//resources//files//Profile.pdf");
         System.out.println("upload resume");
 
         //get updated date
@@ -143,12 +145,13 @@ public class CreateAccountSteps extends BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.findElement(By.xpath("//textarea[@id='resumeHeadlineTxt']")).clear();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.findElement(By.xpath("//textarea[@id='resumeHeadlineTxt']")).sendKeys("SDET-Professional with with Strong Automation knowledge . have an ability to setup end to end Automation process with various frameworks");
+        driver.findElement(By.xpath("//textarea[@id='resumeHeadlineTxt']")).sendKeys("SDET-Professional with Experience of 6.5 years.");
         driver.findElement(By.xpath("//button[normalize-space()='Save']")).click();
         System.out.println("I Update Resume headline");
         //get updated date
         WebElement updateddate = driver.findElement(By.xpath("//div[@class='updateOn typ-14Regular']"));
         System.out.println(updateddate.getText());
+        Assert.assertEquals(updateddate, updateddate);
     }
 
     @And("I take screenshot")
@@ -170,41 +173,50 @@ public class CreateAccountSteps extends BaseTest {
             System.err.println(ex);
         }
     }
-    @And("I Scroll Page Down and Update Total experience {string} {string}")
-    public void iScrollPageDownAndUpdateTotalExperience(String experienceText_years, String experienceText_months) {
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+    @And("I Scroll Page Down and Update Total experience")
+    public void iScrollPageDownAndUpdateTotalExperience() throws InterruptedException {
         driver.findElement(By.xpath("//em[contains(@class,'icon edit')]")).click();
-        ExperienceCalculator.insertexperienceTextyears(experienceText_years);
-        ExperienceCalculator.insertexperienceTextmonths(experienceText_months);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.findElement(By.xpath("//input[@id='exp-years-droopeFor']")).clear();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.findElement(By.xpath("//input[@id='exp-years-droopeFor']")).sendKeys("6 Years");
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.findElement(By.xpath("//input[@id='exp-months-droopeFor']")).sendKeys("8 Months");
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.findElement(By.xpath("//span[normalize-space()='Total experience']")).click();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.findElement(By.xpath("//button[@id='saveBasicDetailsBtn']")).click();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        System.out.println("User experience updated successfully..!!");
+        String totalExperience = driver.findElement(By.xpath("//span[@name='Experience']")).getText();
+        Assert.assertEquals(totalExperience, totalExperience);
+        System.out.println(totalExperience);
     }
 
-    @And("I want to Find the Number of Rows and Columns")
-    public void iWantToFindTheNumberOfRowsAndColumns() {
+    @And("I want to Update Profile Summary")
+    public void IwanttoUpdateProfileSummary() {
+        driver.findElement(By.xpath("//span[normalize-space()='Profile summary']")).click();
+        System.out.println("Clicked on Update profile successfully..!!");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-            // Scroll down the page
-            // Locate the element you want to scroll to
-            WebElement elementToScrollTo = driver.findElement(By.xpath("//ul[@class='mb0']"));  // Replace with the appropriate locator
 
-            // Use JavascriptExecutor to scroll to the element
-            JavascriptExecutor js = (JavascriptExecutor) driver;
-            js.executeScript("arguments[0].scrollIntoView(true);", elementToScrollTo);
+        driver.findElement(By.xpath("//div[@class='card']//div//div[@class='widgetHead']//span[@class='edit icon'][normalize-space()='editOneTheme']")).click();
+        System.out.println("Clicked on Edit Icon");
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
-            // Locate the web table using a suitable locator
-            WebElement table = driver.findElement(By.xpath("//ul[@class='mb0']"));  // Replace "tableId" with the actual ID of the table
+        //click and clear Text
+        driver.findElement(By.xpath("//textarea[@id='profileSummaryTxt']")).clear();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
-            // Find all rows in the table
-            java.util.List<WebElement> rows = table.findElements(By.tagName("tr"));
-            int rowCount = rows.size();
-            System.out.println("Number of rows in the table: " + rowCount);
-
-            // Find all columns in the first row (header or a data row)
-            List<WebElement> columns = rows.get(0).findElements(By.tagName("th"));  // For header row
-            if (columns.isEmpty()) {
-                columns = rows.get(0).findElements(By.tagName("td"));  // For data row if no header row is present
-            }
-            int columnCount = columns.size();
-            System.out.println("Number of columns in the table: " + columnCount);
-
+        //Enter text
+        driver.findElement(By.xpath("//textarea[@id='profileSummaryTxt']")).sendKeys("SDET Engineer at Exostar with 6.5 years of experience\n" +
+                "\n" +
+                "Having hands on experience in manual testing, C# ,Java ,Java script selenium with BDD Cucumber Framework ,REST API Automation with BDD, Jenkins for CI/CD.\n" +
+                "working on Selenium BDD framework also Functionize AI Automation tool.\n" +
+                "Using Git lab for source code control");
+        driver.findElement(By.xpath("//button[normalize-space()='Save']")).click();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        System.out.println("Profile summary updated successfully");
     }
 
     @When("I enter Valid details and search Iphone{int}")
@@ -215,7 +227,7 @@ public class CreateAccountSteps extends BaseTest {
     }
 
     @And("I sort the price in ascending order")
-    public void ISortThePriceInAscendingOrder() throws InterruptedException {
+    public void ISortThePriceInAscendingOrder() {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         List<WebElement> iphone_price = driver.findElements(By.xpath("//span[@class='a-price-whole']"));
         for (int i = 0; i < iphone_price.size(); i++) {
@@ -237,5 +249,25 @@ public class CreateAccountSteps extends BaseTest {
 //        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 //        driver.findElement(By.xpath("//span[normalize-space()='Sign Out']")).click();
         driver.quit();
+    }
+
+    @After
+    public void tearDown() throws IOException {
+        if (driver != null) {
+            try {
+                // Only take a screenshot if the session is still active
+                if (((RemoteWebDriver) driver).getSessionId() != null && driver instanceof TakesScreenshot) {
+                    File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+                    FileHandler.copy(screenshot, new File("screenshot.png"));
+                }
+            } catch (NoSuchSessionException e) {
+                System.out.println("WebDriver session already closed. Skipping screenshot.");
+            } finally {
+                try {
+                    driver.quit(); // safe quit
+                } catch (Exception ignored) {
+                }
+            }
+        }
     }
 }
