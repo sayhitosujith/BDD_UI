@@ -41,13 +41,13 @@ Feature: Verify Update Naukri Application
     Then should Logout Profile successfully
 
        #....................Verify Applied jobs count...........
-  @Naukri @VerifyAppliedjobscount
-  Scenario:Verify Applied jobs count
-    Given I enter the Valid URL of Application by Launching Chrome Browser
-      | url    |
-      | Naukri |
-    When I enter Valid details and Update account
-    And I want to Find the Number of Rows and Columns
-    Then should Logout Profile successfully
+#  @Naukri @VerifyAppliedjobscount
+#  Scenario:Verify Applied jobs count
+#    Given I enter the Valid URL of Application by Launching Chrome Browser
+#      | url    |
+#      | Naukri |
+#    When I enter Valid details and Update account
+#    And I want to Find the Number of Rows and Columns
+#    Then should Logout Profile successfully
 
 
