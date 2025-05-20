@@ -200,6 +200,7 @@ public class CreateAccountSteps extends BaseTest {
         System.out.println("Clicked on Update profile successfully..!!");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
+        //click edit icon
         driver.findElement(By.xpath("//div[@class='card']//div//div[@class='widgetHead']//span[@class='edit icon'][normalize-space()='editOneTheme']")).click();
         System.out.println("Clicked on Edit Icon");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
