@@ -1,0 +1,106 @@
+May 12, 2025 11:12:13 AM StepDefs.MainScheduler main
+INFO: Scheduler started. First run will begin immediately.
+May 12, 2025 11:12:13 AM StepDefs.MainScheduler lambda$main$0
+INFO: ==========================================
+May 12, 2025 11:12:13 AM StepDefs.MainScheduler lambda$main$0
+INFO: Test execution started at: 2025-05-12T11:12:13.274487700
+May 12, 2025 11:13:48 AM StepDefs.MainScheduler lambda$main$0
+INFO: TestNG run completed successfully.
+May 12, 2025 11:13:48 AM StepDefs.MainScheduler lambda$main$0
+INFO: Test execution finished at: 2025-05-12T11:13:48.282085100
+May 12, 2025 12:12:13 PM StepDefs.MainScheduler lambda$main$0
+INFO: ==========================================
+May 12, 2025 12:12:13 PM StepDefs.MainScheduler lambda$main$0
+INFO: Test execution started at: 2025-05-12T12:12:13.286797
+May 12, 2025 12:13:58 PM StepDefs.MainScheduler lambda$main$0
+INFO: TestNG run completed successfully.
+May 12, 2025 12:13:58 PM StepDefs.MainScheduler lambda$main$0
+INFO: Test execution finished at: 2025-05-12T12:13:58.055919200
+May 12, 2025 1:12:13 PM StepDefs.MainScheduler lambda$main$0
+INFO: ==========================================
+May 12, 2025 1:12:13 PM StepDefs.MainScheduler lambda$main$0
+INFO: Test execution started at: 2025-05-12T13:12:13.280847600
+May 12, 2025 1:13:31 PM StepDefs.MainScheduler lambda$main$0
+INFO: TestNG run completed successfully.
+May 12, 2025 1:13:31 PM StepDefs.MainScheduler lambda$main$0
+INFO: Test execution finished at: 2025-05-12T13:13:31.605348700
+May 12, 2025 2:12:13 PM StepDefs.MainScheduler lambda$main$0
+INFO: ==========================================
+May 12, 2025 2:12:13 PM StepDefs.MainScheduler lambda$main$0
+INFO: Test execution started at: 2025-05-12T14:12:13.290385100
+May 12, 2025 2:13:21 PM StepDefs.MainScheduler lambda$main$0
+INFO: TestNG run completed successfully.
+May 12, 2025 2:13:21 PM StepDefs.MainScheduler lambda$main$0
+INFO: Test execution finished at: 2025-05-12T14:13:21.333175200
+May 12, 2025 3:12:13 PM StepDefs.MainScheduler lambda$main$0
+INFO: ==========================================
+May 12, 2025 3:12:13 PM StepDefs.MainScheduler lambda$main$0
+INFO: Test execution started at: 2025-05-12T15:12:13.279752300
+May 12, 2025 3:13:29 PM StepDefs.MainScheduler lambda$main$0
+INFO: TestNG run completed successfully.
+May 12, 2025 3:13:29 PM StepDefs.MainScheduler lambda$main$0
+INFO: Test execution finished at: 2025-05-12T15:13:29.814340400
+May 12, 2025 4:12:42 PM StepDefs.MainScheduler main
+INFO: Scheduler started. First run will begin immediately.
+May 12, 2025 4:12:43 PM StepDefs.MainScheduler lambda$main$0
+INFO: ==========================================
+May 12, 2025 4:12:43 PM StepDefs.MainScheduler lambda$main$0
+INFO: Test execution started at: 2025-05-12 16:12:43
+May 12, 2025 4:14:18 PM StepDefs.MainScheduler lambda$main$0
+INFO: TestNG run completed successfully.
+May 12, 2025 4:14:18 PM StepDefs.MainScheduler lambda$main$0
+INFO: Test execution finished at: 2025-05-12 16:14:18
+May 12, 2025 4:14:18 PM StepDefs.MainScheduler lambda$main$0
+INFO: Total Execution Time: 00:01:35 (hh:mm:ss)
+May 12, 2025 5:12:43 PM StepDefs.MainScheduler lambda$main$0
+INFO: ==========================================
+May 12, 2025 5:12:43 PM StepDefs.MainScheduler lambda$main$0
+INFO: Test execution started at: 2025-05-12 17:12:43
+May 12, 2025 5:13:56 PM StepDefs.MainScheduler lambda$main$0
+INFO: TestNG run completed successfully.
+May 12, 2025 5:13:56 PM StepDefs.MainScheduler lambda$main$0
+INFO: Test execution finished at: 2025-05-12 17:13:56
+May 12, 2025 5:13:56 PM StepDefs.MainScheduler lambda$main$0
+INFO: Total Execution Time: 00:01:13 (hh:mm:ss)
+May 12, 2025 6:12:43 PM StepDefs.MainScheduler lambda$main$0
+INFO: ==========================================
+May 12, 2025 6:12:43 PM StepDefs.MainScheduler lambda$main$0
+INFO: Test execution started at: 2025-05-12 18:12:43
+May 12, 2025 6:13:52 PM StepDefs.MainScheduler lambda$main$0
+INFO: TestNG run completed successfully.
+May 12, 2025 6:13:52 PM StepDefs.MainScheduler lambda$main$0
+INFO: Test execution finished at: 2025-05-12 18:13:52
+May 12, 2025 6:13:52 PM StepDefs.MainScheduler lambda$main$0
+INFO: Total Execution Time: 00:01:08 (hh:mm:ss)
+May 12, 2025 7:12:43 PM StepDefs.MainScheduler lambda$main$0
+INFO: ==========================================
+May 12, 2025 7:12:43 PM StepDefs.MainScheduler lambda$main$0
+INFO: Test execution started at: 2025-05-12 19:12:43
+May 12, 2025 7:13:54 PM StepDefs.MainScheduler lambda$main$0
+INFO: TestNG run completed successfully.
+May 12, 2025 7:13:54 PM StepDefs.MainScheduler lambda$main$0
+INFO: Test execution finished at: 2025-05-12 19:13:54
+May 12, 2025 7:13:54 PM StepDefs.MainScheduler lambda$main$0
+INFO: Total Execution Time: 00:01:10 (hh:mm:ss)
+May 12, 2025 8:12:43 PM StepDefs.MainScheduler lambda$main$0
+INFO: ==========================================
+May 12, 2025 8:12:43 PM StepDefs.MainScheduler lambda$main$0
+INFO: Test execution started at: 2025-05-12 20:12:43
+May 12, 2025 8:13:59 PM StepDefs.MainScheduler lambda$main$0
+INFO: TestNG run completed successfully.
+May 12, 2025 8:13:59 PM StepDefs.MainScheduler lambda$main$0
+INFO: Test execution finished at: 2025-05-12 20:13:59
+May 12, 2025 8:13:59 PM StepDefs.MainScheduler lambda$main$0
+INFO: Total Execution Time: 00:01:16 (hh:mm:ss)
+May 19, 2025 7:12:00 PM StepDefs.MainScheduler main
+INFO: Scheduler started. First run will begin immediately.
+May 19, 2025 7:12:00 PM StepDefs.MainScheduler lambda$main$0
+INFO: ==========================================
+May 19, 2025 7:12:00 PM StepDefs.MainScheduler lambda$main$0
+INFO: Test execution started at: 2025-05-19 19:12:00
+May 19, 2025 7:13:38 PM StepDefs.MainScheduler lambda$main$0
+INFO: TestNG run completed successfully.
+May 19, 2025 7:13:38 PM StepDefs.MainScheduler lambda$main$0
+INFO: Test execution finished at: 2025-05-19 19:13:38
+May 19, 2025 7:13:38 PM StepDefs.MainScheduler lambda$main$0
+INFO: Total Execution Time: 00:01:38 (hh:mm:ss)
