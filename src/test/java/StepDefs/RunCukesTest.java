@@ -1,3 +1,5 @@
+package StepDefs;
+
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.service.ExtentService;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
@@ -9,8 +11,8 @@ import org.testng.annotations.BeforeClass;
         features = "src/test/java/features",
         glue = "StepDefs",
         dryRun = false,
-        tags = "@Naukri",
-        //tags = "@VerifyUploadResumeAndUpdateAccount",
+        //tags = "@Naukri",
+        tags = "@VerifyUploadResumeAndUpdateAccount",
         monochrome = false)
 
 public class RunCukesTest extends AbstractTestNGCucumberTests {
