@@ -3,6 +3,7 @@ package StepDefs;
 import org.testng.TestNG;
 
 import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -16,57 +17,81 @@ import java.util.logging.SimpleFormatter;
 public class MainScheduler {
 
     private static final Logger logger = Logger.getLogger(MainScheduler.class.getName());
+    private static ScheduledExecutorService scheduler;
 
     public static void main(String[] args) {
         try {
-            // Ensure logs directory exists
-            File logDir = new File("logs");
-            if (!logDir.exists()) {
-                logDir.mkdirs();
-            }
+            setupLogger();
+            setupScheduler();
 
-            // Set up logger to write to a file
-            FileHandler fh = new FileHandler("logs/TestExecutionLog.log", true); // true = append mode
-            fh.setFormatter(new SimpleFormatter());
-            logger.addHandler(fh);
-            logger.setUseParentHandlers(false); // Optional: suppress console output
+            logger.info("Scheduler started. First test run will begin immediately.");
+            scheduler.scheduleAtFixedRate(MainScheduler::runTests, 0, 1, TimeUnit.HOURS);
 
-            ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
-
-            Runnable task = () -> {
-                LocalDateTime startTime = LocalDateTime.now();
-                long start = System.nanoTime();  // Start time in nanoseconds
-
-                logger.info("==========================================");
-                logger.info("Test execution started at: " + startTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
-
+            // Shutdown hook to gracefully terminate scheduler
+            Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+                logger.info("Shutdown initiated. Terminating scheduler...");
+                scheduler.shutdown();
                 try {
-                    TestNG testng = new TestNG();
-                    testng.setTestClasses(new Class[]{RunCukesTest.class});
-                    testng.run();
-                    logger.info("TestNG run completed successfully.");
-                } catch (Exception e) {
-                    logger.severe("Error during test execution: " + e.getMessage());
-                    e.printStackTrace();
+                    if (!scheduler.awaitTermination(10, TimeUnit.SECONDS)) {
+                        logger.warning("Scheduler did not terminate in the allotted time.");
+                        scheduler.shutdownNow();
+                    }
+                    logger.info("Scheduler shutdown complete.");
+                } catch (InterruptedException e) {
+                    logger.severe("Shutdown interrupted: " + e.getMessage());
+                    scheduler.shutdownNow();
                 }
-
-                long end = System.nanoTime(); // End time
-                long durationInSeconds = TimeUnit.NANOSECONDS.toSeconds(end - start);
-                Duration duration = Duration.ofSeconds(durationInSeconds);
-
-                logger.info("Test execution finished at: " + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
-                logger.info(String.format("Total Execution Time: %02d:%02d:%02d (hh:mm:ss)",
-                        duration.toHours(),
-                        duration.toMinutesPart(),
-                        duration.toSecondsPart()));
-            };
-
-            logger.info("Scheduler started. First run will begin immediately.");
-            scheduler.scheduleAtFixedRate(task, 0, 1, TimeUnit.HOURS);
+            }));
 
         } catch (Exception e) {
             logger.severe("Failed to initialize scheduler: " + e.getMessage());
             e.printStackTrace();
         }
+    }
+
+    private static void setupLogger() throws IOException {
+        File logDir = new File("logs");
+        if (!logDir.exists()) {
+            logDir.mkdirs();
+        }
+
+        FileHandler fileHandler = new FileHandler("logs/TestExecutionLog.log", true); // Append mode
+        fileHandler.setFormatter(new SimpleFormatter());
+
+        // Remove existing handlers if any
+        if (logger.getHandlers().length == 0) {
+            logger.addHandler(fileHandler);
+        }
+
+        logger.setUseParentHandlers(false); // Suppress console output
+    }
+
+    private static void setupScheduler() {
+        scheduler = Executors.newSingleThreadScheduledExecutor();
+    }
+
+    private static void runTests() {
+        LocalDateTime startTime = LocalDateTime.now();
+        logger.info("==========================================");
+        logger.info("Test execution started at: " + startTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+
+        try {
+            TestNG testng = new TestNG();
+            testng.setTestClasses(new Class[]{RunCukesTest.class});
+            testng.run();
+            logger.info("TestNG execution completed successfully.");
+        } catch (Exception e) {
+            logger.severe("Error during test execution: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+        LocalDateTime endTime = LocalDateTime.now();
+        Duration duration = Duration.between(startTime, endTime);
+
+        logger.info("Test execution finished at: " + endTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+        logger.info(String.format("Total Execution Time: %02d:%02d:%02d (hh:mm:ss)",
+                duration.toHours(),
+                duration.toMinutesPart(),
+                duration.toSecondsPart()));
     }
 }
