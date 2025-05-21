@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="4" passed="3" failed="1" skipped="0">
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-05-20T19:29:17 IST" name="Command line suite" finished-at="2025-05-20T19:30:21 IST" duration-ms="63571">
+  <suite started-at="2025-05-21T21:35:33 IST" name="Command line suite" finished-at="2025-05-21T21:36:45 IST" duration-ms="72145">
     <groups>
       <group name="cucumber">
-        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleEventWrapper, io.cucumber.testng.CucumberFeatureWrapper)[pri:0, instance:StepDefs.RunCukesTest@740bbaa4]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleEventWrapper, io.cucumber.testng.CucumberFeatureWrapper)[pri:0, instance:StepDefs.RunCukesTest@54602a31]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2025-05-20T19:29:17 IST" name="Command line test" finished-at="2025-05-20T19:30:21 IST" duration-ms="63571">
+    <test started-at="2025-05-21T21:35:33 IST" name="Command line test" finished-at="2025-05-21T21:36:45 IST" duration-ms="72145">
       <class name="StepDefs.RunCukesTest">
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:StepDefs.RunCukesTest@740bbaa4]" started-at="2025-05-20T19:29:17 IST" name="setUpClass" finished-at="2025-05-20T19:29:17 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:StepDefs.RunCukesTest@54602a31]" started-at="2025-05-21T21:35:33 IST" name="setUpClass" finished-at="2025-05-21T21:35:34 IST" duration-ms="1672" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method is-config="true" signature="preset()[pri:0, instance:StepDefs.RunCukesTest@740bbaa4]" started-at="2025-05-20T19:29:17 IST" name="preset" finished-at="2025-05-20T19:29:17 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="preset()[pri:0, instance:StepDefs.RunCukesTest@54602a31]" started-at="2025-05-21T21:35:34 IST" name="preset" finished-at="2025-05-21T21:35:34 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- preset -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleEventWrapper, io.cucumber.testng.CucumberFeatureWrapper)[pri:0, instance:StepDefs.RunCukesTest@740bbaa4]" started-at="2025-05-20T19:29:17 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-05-20T19:29:30 IST" duration-ms="13088" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleEventWrapper, io.cucumber.testng.CucumberFeatureWrapper)[pri:0, instance:StepDefs.RunCukesTest@54602a31]" started-at="2025-05-21T21:35:35 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-05-21T21:36:01 IST" duration-ms="26760" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -34,7 +34,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleEventWrapper, io.cucumber.testng.CucumberFeatureWrapper)[pri:0, instance:StepDefs.RunCukesTest@740bbaa4]" started-at="2025-05-20T19:29:30 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-05-20T19:29:47 IST" duration-ms="16712" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleEventWrapper, io.cucumber.testng.CucumberFeatureWrapper)[pri:0, instance:StepDefs.RunCukesTest@54602a31]" started-at="2025-05-21T21:36:02 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-05-21T21:36:17 IST" duration-ms="15253" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -50,7 +50,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleEventWrapper, io.cucumber.testng.CucumberFeatureWrapper)[pri:0, instance:StepDefs.RunCukesTest@740bbaa4]" started-at="2025-05-20T19:29:47 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-05-20T19:30:00 IST" duration-ms="13713" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleEventWrapper, io.cucumber.testng.CucumberFeatureWrapper)[pri:0, instance:StepDefs.RunCukesTest@54602a31]" started-at="2025-05-21T21:36:17 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-05-21T21:36:32 IST" duration-ms="15580" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -66,7 +66,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleEventWrapper, io.cucumber.testng.CucumberFeatureWrapper)[pri:0, instance:StepDefs.RunCukesTest@740bbaa4]" started-at="2025-05-20T19:30:00 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-05-20T19:30:19 IST" duration-ms="18862" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleEventWrapper, io.cucumber.testng.CucumberFeatureWrapper)[pri:0, instance:StepDefs.RunCukesTest@54602a31]" started-at="2025-05-21T21:36:32 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-05-21T21:36:44 IST" duration-ms="11255" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -79,51 +79,10 @@
               </value>
             </param>
           </params>
-          <exception class="org.openqa.selenium.ElementClickInterceptedException">
-            <message>
-              <![CDATA[element click intercepted: Element <img alt="naukri user profile img" class="nI-gNb-icon-img" src="https://media.naukri.com/media/jphotov1/l244%253ALukcMT663AMdH7CxGUUCbZ4ywn4pbMU6g1s37Wf7BpZo6ntiS5lwIR2ko4s%253D"> is not clickable at point (1209, 37). Other element would receive the click: <div class="ltLayer open" style="z-index: 1002;"></div>
-  (Session info: chrome=136.0.7103.114)
-Build info: version: '4.21.0', revision: '79ed462ef4'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [93618dc6456bc398f74dd2befee0845d, clickElement {id=f.84D1DDFCB81F6A0BA24ACD1593BE7D3D.d.3376A67432F7487DB07D0AE55ED4F8A3.e.167}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 136.0.7103.114, chrome: {chromedriverVersion: 136.0.7103.94 (fa0be0b33deb..., userDataDir: C:\Users\Sujith\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56324}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56324/devtoo..., se:cdpVersion: 136.0.7103.114, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (93618dc6456bc398f74dd2befee0845d)] -> xpath: //img[@alt='naukri user profile img']]
-Session ID: 93618dc6456bc398f74dd2befee0845d]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <img alt="naukri user profile img" class="nI-gNb-icon-img" src="https://media.naukri.com/media/jphotov1/l244%253ALukcMT663AMdH7CxGUUCbZ4ywn4pbMU6g1s37Wf7BpZo6ntiS5lwIR2ko4s%253D"> is not clickable at point (1209, 37). Other element would receive the click: <div class="ltLayer open" style="z-index: 1002;"></div>
-  (Session info: chrome=136.0.7103.114)
-Build info: version: '4.21.0', revision: '79ed462ef4'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [93618dc6456bc398f74dd2befee0845d, clickElement {id=f.84D1DDFCB81F6A0BA24ACD1593BE7D3D.d.3376A67432F7487DB07D0AE55ED4F8A3.e.167}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 136.0.7103.114, chrome: {chromedriverVersion: 136.0.7103.94 (fa0be0b33deb..., userDataDir: C:\Users\Sujith\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56324}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56324/devtoo..., se:cdpVersion: 136.0.7103.114, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (93618dc6456bc398f74dd2befee0845d)] -> xpath: //img[@alt='naukri user profile img']]
-Session ID: 93618dc6456bc398f74dd2befee0845d
-at jdk.internal.reflect.GeneratedConstructorAccessor59.newInstance(Unknown Source)
-at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
-at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
-at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
-at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
-at Pages.LogoutPage.userprofile(LogoutPage.java:21)
-at StepDefs.services.CreateAccountSteps.shouldSeeAccountCreatedSuccessfully(CreateAccountSteps.java:69)
-at ✽.should Logout Profile successfully(file:src/test/java/features/services/Naukri/UpdateAccount.feature:41)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:StepDefs.RunCukesTest@740bbaa4]" started-at="2025-05-20T19:30:19 IST" name="tearDownClass" finished-at="2025-05-20T19:30:21 IST" duration-ms="1181" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:StepDefs.RunCukesTest@54602a31]" started-at="2025-05-21T21:36:44 IST" name="tearDownClass" finished-at="2025-05-21T21:36:45 IST" duration-ms="954" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
