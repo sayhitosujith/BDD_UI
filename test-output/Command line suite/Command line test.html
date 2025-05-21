@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Command line test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>3/1/1</td>
+<td>Tests passed/Failed/Skipped:</td><td>3/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Mon May 19 19:12:01 IST 2025</td>
+<td>Started on:</td><td>Tue May 20 19:29:17 IST 2025</td>
 </tr>
-<tr><td>Total time:</td><td>96 seconds (96906 ms)</td>
+<tr><td>Total time:</td><td>63 seconds (63571 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -81,10 +81,10 @@ function toggleAllBoxes() {
 Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;
 System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.1&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [deafe1674f4b05a59f744f0b26dc3e68, clickElement {id=f.17172D4A4E9DBC4E7A2B737CA896C8AE.d.F227FA74F0FC999D8E327EDC9CCF1503.e.121}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 136.0.7103.114, chrome: {chromedriverVersion: 136.0.7103.94 (fa0be0b33deb..., userDataDir: C:\Users\Sujith\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51635}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51635/devtoo..., se:cdpVersion: 136.0.7103.114, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (deafe1674f4b05a59f744f0b26dc3e68)] -&gt; xpath: //img[@alt=&apos;naukri user profile img&apos;]]
-Session ID: deafe1674f4b05a59f744f0b26dc3e68
+Command: [93618dc6456bc398f74dd2befee0845d, clickElement {id=f.84D1DDFCB81F6A0BA24ACD1593BE7D3D.d.3376A67432F7487DB07D0AE55ED4F8A3.e.167}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 136.0.7103.114, chrome: {chromedriverVersion: 136.0.7103.94 (fa0be0b33deb..., userDataDir: C:\Users\Sujith\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56324}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56324/devtoo..., se:cdpVersion: 136.0.7103.114, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (93618dc6456bc398f74dd2befee0845d)] -&gt; xpath: //img[@alt=&apos;naukri user profile img&apos;]]
+Session ID: 93618dc6456bc398f74dd2befee0845d
 	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
@@ -97,18 +97,17 @@ Session ID: deafe1674f4b05a59f744f0b26dc3e68
 	at Pages.LogoutPage.userprofile(LogoutPage.java:21)
 	at StepDefs.services.CreateAccountSteps.shouldSeeAccountCreatedSuccessfully(CreateAccountSteps.java:69)
 	at ✽.should Logout Profile successfully(file:src/test/java/features/services/Naukri/UpdateAccount.feature:41)
-... Removed 5 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1192428102", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1192428102'><pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;img alt=&quot;naukri user profile img&quot; class=&quot;nI-gNb-icon-img&quot; src=&quot;https://media.naukri.com/media/jphotov1/l244%253ALukcMT663AMdH7CxGUUCbZ4ywn4pbMU6g1s37Wf7BpZo6ntiS5lwIR2ko4s%253D&quot;&gt; is not clickable at point (1209, 37). Other element would receive the click: &lt;div class=&quot;ltLayer open&quot; style=&quot;z-index: 1002;&quot;&gt;&lt;/div&gt;
+... Removed 4 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace500142753", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace500142753'><pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;img alt=&quot;naukri user profile img&quot; class=&quot;nI-gNb-icon-img&quot; src=&quot;https://media.naukri.com/media/jphotov1/l244%253ALukcMT663AMdH7CxGUUCbZ4ywn4pbMU6g1s37Wf7BpZo6ntiS5lwIR2ko4s%253D&quot;&gt; is not clickable at point (1209, 37). Other element would receive the click: &lt;div class=&quot;ltLayer open&quot; style=&quot;z-index: 1002;&quot;&gt;&lt;/div&gt;
   (Session info: chrome=136.0.7103.114)
 Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;
 System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.1&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [deafe1674f4b05a59f744f0b26dc3e68, clickElement {id=f.17172D4A4E9DBC4E7A2B737CA896C8AE.d.F227FA74F0FC999D8E327EDC9CCF1503.e.121}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 136.0.7103.114, chrome: {chromedriverVersion: 136.0.7103.94 (fa0be0b33deb..., userDataDir: C:\Users\Sujith\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51635}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51635/devtoo..., se:cdpVersion: 136.0.7103.114, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (deafe1674f4b05a59f744f0b26dc3e68)] -&gt; xpath: //img[@alt=&apos;naukri user profile img&apos;]]
-Session ID: deafe1674f4b05a59f744f0b26dc3e68
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+Command: [93618dc6456bc398f74dd2befee0845d, clickElement {id=f.84D1DDFCB81F6A0BA24ACD1593BE7D3D.d.3376A67432F7487DB07D0AE55ED4F8A3.e.167}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 136.0.7103.114, chrome: {chromedriverVersion: 136.0.7103.94 (fa0be0b33deb..., userDataDir: C:\Users\Sujith\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56324}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56324/devtoo..., se:cdpVersion: 136.0.7103.114, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (93618dc6456bc398f74dd2befee0845d)] -&gt; xpath: //img[@alt=&apos;naukri user profile img&apos;]]
+Session ID: 93618dc6456bc398f74dd2befee0845d
+	at jdk.internal.reflect.GeneratedConstructorAccessor59.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
@@ -125,8 +124,8 @@ Session ID: deafe1674f4b05a59f744f0b26dc3e68
 	at StepDefs.services.CreateAccountSteps.shouldSeeAccountCreatedSuccessfully(CreateAccountSteps.java:69)
 	at ✽.should Logout Profile successfully(file:src/test/java/features/services/Naukri/UpdateAccount.feature:41)
 </pre></div></td>
-<td>14</td>
-<td>StepDefs.RunCukesTest@2c90fba1</td></tr>
+<td>18</td>
+<td>StepDefs.RunCukesTest@740bbaa4</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
@@ -138,80 +137,18 @@ Session ID: deafe1674f4b05a59f744f0b26dc3e68
 <tr>
 <td title='StepDefs.RunCukesTest.runScenario()'><b>runScenario</b><br>Test class: StepDefs.RunCukesTest<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify upload resume and Update Account", "Verify Update Naukri Application"</td>
 <td></td>
-<td>37</td>
-<td>StepDefs.RunCukesTest@2c90fba1</td></tr>
+<td>13</td>
+<td>StepDefs.RunCukesTest@740bbaa4</td></tr>
 <tr>
 <td title='StepDefs.RunCukesTest.runScenario()'><b>runScenario</b><br>Test class: StepDefs.RunCukesTest<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify UpdateResume Headline And Update Account", "Verify Update Naukri Application"</td>
 <td></td>
-<td>17</td>
-<td>StepDefs.RunCukesTest@2c90fba1</td></tr>
+<td>16</td>
+<td>StepDefs.RunCukesTest@740bbaa4</td></tr>
 <tr>
 <td title='StepDefs.RunCukesTest.runScenario()'><b>runScenario</b><br>Test class: StepDefs.RunCukesTest<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify UpdateResume Headline Take screenshot And Update Account", "Verify Update Naukri Application"</td>
 <td></td>
 <td>13</td>
-<td>StepDefs.RunCukesTest@2c90fba1</td></tr>
-</table><p>
-<table width='100%' border='1' class='invocation-skipped'>
-<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
-<tr><td><b>Test method</b></td>
-<td width="30%"><b>Exception</b></td>
-<td width="10%"><b>Time (seconds)</b></td>
-<td><b>Instance</b></td>
-</tr>
-<tr>
-<td title='StepDefs.RunCukesTest.runScenario()'><b>runScenario</b><br>Test class: StepDefs.RunCukesTest<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify Applied jobs count", "Verify Update Naukri Application"</td>
-<td><div><pre>org.testng.SkipException: There are undefined steps
-	at io.cucumber.testng.TestCaseResultListener.getError(TestCaseResultListener.java:60)
-	at io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:83)
-	at io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:24)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at StepDefs.MainScheduler.lambda$main$0(MainScheduler.java:46)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-... Removed 24 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1953799329", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1953799329'><pre>org.testng.SkipException: There are undefined steps
-	at io.cucumber.testng.TestCaseResultListener.getError(TestCaseResultListener.java:60)
-	at io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:83)
-	at io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:24)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at org.testng.TestRunner.privateRun(TestRunner.java:766)
-	at org.testng.TestRunner.run(TestRunner.java:587)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:286)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
-	at org.testng.TestNG.runSuites(TestNG.java:1039)
-	at org.testng.TestNG.run(TestNG.java:1007)
-	at StepDefs.MainScheduler.lambda$main$0(MainScheduler.java:46)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-</pre></div></td>
-<td>11</td>
-<td>StepDefs.RunCukesTest@2c90fba1</td></tr>
+<td>StepDefs.RunCukesTest@740bbaa4</td></tr>
 </table><p>
 </body>
 </html>
