@@ -12,7 +12,7 @@ import org.testng.annotations.BeforeClass;
         glue = "StepDefs",
         dryRun = false,
         tags = "@Naukri",
-        //tags = "@VerifyUpdateResumeHeadlineAndUpdateAccount",
+        //tags = "@VerifyUploadResumeAndUpdateAccount",
         monochrome = false)
 
 public class RunCukesTest extends AbstractTestNGCucumberTests {
