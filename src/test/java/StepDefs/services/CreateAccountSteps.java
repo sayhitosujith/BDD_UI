@@ -2,6 +2,8 @@ package StepDefs.services;
 
 import Pages.LoginPage;
 import Pages.LogoutPage;
+import configManager.DataLoad;
+import configManager.Payloads;
 import configManager.ResourceData;
 import io.cucumber.java.After;
 import io.cucumber.java.en.And;
@@ -13,6 +15,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
+import util.GenericUtil;
+import util.RestUtil;
 import util.StepUtil;
 
 import javax.imageio.ImageIO;
@@ -47,7 +51,16 @@ public class CreateAccountSteps extends BaseTest {
     }
 
     @When("I enter Valid details and Update account")
-    public void iEnterValidDetailsAndGenerateAccount() throws InterruptedException {
+    public void iEnterValidDetailsAndGenerateAccount(io.cucumber.datatable.DataTable dataTable) {
+        GenericUtil genericUtil = new GenericUtil();
+        String payload = genericUtil.getFileData(Payloads.NAUKRI_ADDUSER);
+        Map<String,String> dataMap = StepUtil.toMap(dataTable);
+        String jsonData = genericUtil.jsonConstruct(dataMap,payload);
+        System.out.println(jsonData);
+        RestUtil.post(jsonData,true);
+        DataLoad dataLoad = DataLoad.getInstance();
+        dataLoad.setEngageAccountKey(dataMap.get("accountKey"));
+        dataLoad.setEngageAccountName(dataMap.get("name"));
         loginPage = new LoginPage(driver);
         loginPage.enterUsername("sayhitosujith@gmail.com");
         System.out.println("Enter the User Name");

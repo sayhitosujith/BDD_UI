@@ -195,5 +195,5 @@ public class Payloads {
     public static final String PRIVACY_CREATEPRIVACY = "payloads/services/Privacy/CreatePrivacy.json";
 
 
-    public static final String USERS_ADDUSER = "payloads/services/Users/AddUser.json";
+    public static final String NAUKRI_ADDUSER = "payloads/services/Users/NaukriAdd_User.json";
 }
