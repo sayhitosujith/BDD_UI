@@ -10,7 +10,7 @@ import org.testng.annotations.BeforeClass;
         plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:", "pretty", "json:out/cucumber.json", "junit:out/cucumber.xml", "rerun:target/failed_scenarios.txt"},
         features = "src/test/java/features",
         glue = "StepDefs",
-        dryRun = false,
+        dryRun = true,
         tags = "@Naukri",
         //tags = "@VerifyUploadResumeAndUpdateAccount",
         monochrome = false)
