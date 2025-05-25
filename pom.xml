@@ -112,6 +112,12 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.28</version> <!-- Replace with the latest stable version -->
+            <scope>provided</scope>
+        </dependency>
 
     </dependencies>
 
@@ -122,9 +128,10 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.8.1</version>
+                    <version>3.11.0</version> <!-- Replace with the latest stable version -->
                     <configuration>
-                        <!-- put your configurations here -->
+                        <source>17</source> <!-- Replace with your JDK version -->
+                        <target>17</target> <!-- Replace with your JDK version -->
                     </configuration>
                 </plugin>
 
