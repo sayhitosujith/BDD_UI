@@ -26,6 +26,5 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
-
       - name: Run TestNG Tests
         run: mvn clean test -DsuiteXmlFile=testng.xml
