@@ -38,16 +38,15 @@ public class CreateAccountSteps extends BaseTest {
     @Given("I enter the Valid URL of Application by Launching Chrome Browser")
     public void IentertheValidURLofApplicationbyLaunchingChromeBrowser(io.cucumber.datatable.DataTable dataTable) throws InterruptedException {
         WebDriverManager.chromedriver().setup();
-//        driver = new ChromeDriver(); // ✅ Set class-level driver
-//        driver.manage().window().maximize();
+        driver = new ChromeDriver(); // ✅ Set class-level driver
+        driver.manage().window().maximize();
 
         //-----headless mode-----------------
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless=new"); // or "--headless" for older Chrome
-        options.addArguments("--disable-gpu");  // Required for headless mode
-        options.addArguments("--window-size=1920,1080"); // Optional but useful
-
-        driver = new ChromeDriver(options);
+//        ChromeOptions options = new ChromeOptions();
+//        options.addArguments("--headless=new"); // or "--headless" for older Chrome
+//        options.addArguments("--disable-gpu");  // Required for headless mode
+//        options.addArguments("--window-size=1920,1080"); // Optional but useful
+       // driver = new ChromeDriver(options);
 
         Map<String, String> dataMap = StepUtil.toMap(dataTable);
         driver.get(ResourceData.getEnvironmentURL(ResourceData.getEnvironment() + "." + dataMap.get("url")));
