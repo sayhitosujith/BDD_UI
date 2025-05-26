@@ -139,7 +139,7 @@ public class CreateAccountSteps extends BaseTest {
     public void iUpdateMyResume() throws InterruptedException {
         WebElement upload_file = driver.findElement(By.xpath("//input[@value='Update resume']"));
         upload_file.click();
-        upload_file.sendKeys("F://BDD_UI//BDD_UI//resources//files//Profile.pdf");
+        upload_file.sendKeys("F://BDD_UI//BDD_UI//resources//files//Sujith_Profile.pdf");
         System.out.println("upload resume");
 
         //get updated date
