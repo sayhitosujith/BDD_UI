@@ -1,4 +1,4 @@
-name: Run TestNG Tests
+name: Run TestNG naukri Tests
 
 on:
   push:
