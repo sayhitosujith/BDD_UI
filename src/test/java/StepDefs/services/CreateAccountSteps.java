@@ -22,6 +22,8 @@ import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
@@ -36,8 +38,11 @@ public class CreateAccountSteps extends BaseTest {
 
 
     @Given("I enter the Valid URL of Application by Launching Chrome Browser")
-    public void IentertheValidURLofApplicationbyLaunchingChromeBrowser(io.cucumber.datatable.DataTable dataTable) throws InterruptedException {
+    public void IentertheValidURLofApplicationbyLaunchingChromeBrowser(io.cucumber.datatable.DataTable dataTable) throws InterruptedException, IOException {
         WebDriverManager.chromedriver().setup();
+        ChromeOptions options = new ChromeOptions();
+        Path tempProfile = Files.createTempDirectory("chrome-profile-");
+        options.addArguments("--user-data-dir=" + tempProfile.toAbsolutePath().toString());
         driver = new ChromeDriver(); // ✅ Set class-level driver
         driver.manage().window().maximize();
 
