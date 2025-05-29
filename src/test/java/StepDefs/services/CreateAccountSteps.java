@@ -3,6 +3,7 @@ package StepDefs.services;
 import Pages.LoginPage;
 import Pages.LogoutPage;
 import configManager.ResourceData;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.After;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -22,8 +23,6 @@ import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
@@ -38,12 +37,12 @@ public class CreateAccountSteps extends BaseTest {
 
 
     @Given("I enter the Valid URL of Application by Launching Chrome Browser")
-    public void IentertheValidURLofApplicationbyLaunchingChromeBrowser(io.cucumber.datatable.DataTable dataTable) throws InterruptedException, IOException {
+    public ChromeDriver IentertheValidURLofApplicationbyLaunchingChromeBrowser(DataTable dataTable) throws InterruptedException, IOException {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
-        Path tempProfile = Files.createTempDirectory("chrome-profile-");
-        options.addArguments("--user-data-dir=" + tempProfile.toAbsolutePath().toString());
-        driver = new ChromeDriver(); // ✅ Set class-level driver
+        options.addArguments("--headless"); // Use headless mode for CI environments
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
         driver.manage().window().maximize();
 
         //-----headless mode-----------------
@@ -57,6 +56,7 @@ public class CreateAccountSteps extends BaseTest {
         driver.get(ResourceData.getEnvironmentURL(ResourceData.getEnvironment() + "." + dataMap.get("url")));
         System.out.println("This Step open the Chrome and launch the application.");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        return new ChromeDriver(options);
     }
 
     @When("I enter Valid details and Update account")
