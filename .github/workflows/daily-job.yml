@@ -1,4 +1,4 @@
-name: Run TestNG Naukri Tests
+name: Run TestNG naukri Tests
 
 on:
   push:
@@ -9,7 +9,6 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
       - name: Set up JDK 17
         uses: actions/setup-java@v3
@@ -27,9 +26,5 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
-
-      - name: Build with Maven
-        run: mvn clean install -DskipTests
-
       - name: Run TestNG Tests
-        run: mvn test -Dsurefire.suiteXmlFiles=**/testng.xml
+        run: mvn clean test -Dsurefire.suiteXmlFiles=testng.xml
