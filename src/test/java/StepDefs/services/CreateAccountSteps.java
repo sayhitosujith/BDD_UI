@@ -194,7 +194,7 @@ public class CreateAccountSteps extends BaseTest {
         driver.findElement(By.xpath("//input[@id='exp-years-droopeFor']")).clear();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.findElement(By.xpath("//input[@id='exp-years-droopeFor']")).sendKeys("6 Years");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         driver.findElement(By.xpath("//input[@id='exp-months-droopeFor']")).sendKeys("9 Months");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.findElement(By.xpath("//span[normalize-space()='Total experience']")).click();
