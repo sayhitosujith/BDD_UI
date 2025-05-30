@@ -39,12 +39,17 @@ public class CreateAccountSteps extends BaseTest {
 //        DriverFactory factory = new DriverFactory();
 //        driver = factory.getDriver("chrome");
         WebDriverManager.chromedriver().setup();
+
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--user-data-dir=/tmp/unique-profile-directory"); // Use a unique directory
+        options.addArguments("--headless=new"); // Enable headless mode (use "--headless=new" for latest Chrome)
+        options.addArguments("--window-size=1920,1080"); // Optional: set window size for headless mode
+
         WebDriver driver = new ChromeDriver(options);
         driver.manage().window().maximize();
+
         Map<String, String> dataMap = StepUtil.toMap(dataTable);
         driver.get(ResourceData.getEnvironmentURL(ResourceData.getEnvironment() + "." + dataMap.get("url")));
+
         System.out.println("This Step open the Chrome and launch the application.");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
