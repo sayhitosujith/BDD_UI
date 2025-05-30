@@ -3,17 +3,15 @@ package StepDefs.services;
 import Pages.LoginPage;
 import Pages.LogoutPage;
 import configManager.ResourceData;
-import io.cucumber.datatable.DataTable;
 import io.cucumber.java.After;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.io.FileHandler;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 import util.StepUtil;
 
@@ -27,7 +25,6 @@ import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import io.github.bonigarcia.wdm.WebDriverManager;
 
 
 public class CreateAccountSteps extends BaseTest {
@@ -37,26 +34,16 @@ public class CreateAccountSteps extends BaseTest {
 
 
     @Given("I enter the Valid URL of Application by Launching Chrome Browser")
-    public ChromeDriver IentertheValidURLofApplicationbyLaunchingChromeBrowser(DataTable dataTable) throws InterruptedException, IOException {
+    public void IentertheValidURLofApplicationbyLaunchingChromeBrowser(io.cucumber.datatable.DataTable dataTable) throws InterruptedException {
+//        DriverFactory factory = new DriverFactory();
+//        driver = factory.getDriver("chrome");
         WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless"); // Use headless mode for CI environments
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
-
-        //-----headless mode-----------------
-//        ChromeOptions options = new ChromeOptions();
-//        options.addArguments("--headless=new"); // or "--headless" for older Chrome
-//        options.addArguments("--disable-gpu");  // Required for headless mode
-//        options.addArguments("--window-size=1920,1080"); // Optional but useful
-       // driver = new ChromeDriver(options);
-
         Map<String, String> dataMap = StepUtil.toMap(dataTable);
         driver.get(ResourceData.getEnvironmentURL(ResourceData.getEnvironment() + "." + dataMap.get("url")));
         System.out.println("This Step open the Chrome and launch the application.");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        return new ChromeDriver(options);
     }
 
     @When("I enter Valid details and Update account")
@@ -76,7 +63,8 @@ public class CreateAccountSteps extends BaseTest {
     }
 
     @Then("should Logout Profile successfully")
-    public void shouldSeeAccountCreatedSuccessfully() throws InterruptedException {
+    public void shouldSeeAccountCreatedSuccessfully()
+    {
 //        logoutPage = new LogoutPage(driver);
 //        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 //        logoutPage.userprofile();
@@ -144,7 +132,7 @@ public class CreateAccountSteps extends BaseTest {
     public void iUpdateMyResume() throws InterruptedException {
         WebElement upload_file = driver.findElement(By.xpath("//input[@value='Update resume']"));
         upload_file.click();
-        upload_file.sendKeys("F://BDD_UI//BDD_UI//resources//files//Sujith_Profile.pdf");
+        upload_file.sendKeys("F://BDD_UI//BDD_UI//resources//files//Profile.pdf");
         System.out.println("upload resume");
 
         //get updated date
@@ -158,13 +146,13 @@ public class CreateAccountSteps extends BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.findElement(By.xpath("//textarea[@id='resumeHeadlineTxt']")).clear();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.findElement(By.xpath("//textarea[@id='resumeHeadlineTxt']")).sendKeys("SDET-Professional with Experience of 6.9 year.Actively looking out for new opportunities");
+        driver.findElement(By.xpath("//textarea[@id='resumeHeadlineTxt']")).sendKeys("SDET-Professional with Experience of 6.5 years.");
         driver.findElement(By.xpath("//button[normalize-space()='Save']")).click();
         System.out.println("I Update Resume headline");
         //get updated date
         WebElement updateddate = driver.findElement(By.xpath("//div[@class='updateOn typ-14Regular']"));
         System.out.println(updateddate.getText());
-        Assert.assertEquals(updateddate, updateddate);
+        Assert.assertEquals(updateddate,updateddate);
     }
 
     @And("I take screenshot")
@@ -194,8 +182,8 @@ public class CreateAccountSteps extends BaseTest {
         driver.findElement(By.xpath("//input[@id='exp-years-droopeFor']")).clear();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.findElement(By.xpath("//input[@id='exp-years-droopeFor']")).sendKeys("6 Years");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        driver.findElement(By.xpath("//input[@id='exp-months-droopeFor']")).sendKeys("9 Months");
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.findElement(By.xpath("//input[@id='exp-months-droopeFor']")).sendKeys("8 Months");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.findElement(By.xpath("//span[normalize-space()='Total experience']")).click();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
@@ -203,7 +191,7 @@ public class CreateAccountSteps extends BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         System.out.println("User experience updated successfully..!!");
         String totalExperience = driver.findElement(By.xpath("//span[@name='Experience']")).getText();
-        Assert.assertEquals(totalExperience, totalExperience);
+        Assert.assertEquals(totalExperience,totalExperience);
         System.out.println(totalExperience);
     }
 
@@ -262,25 +250,15 @@ public class CreateAccountSteps extends BaseTest {
 //        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 //        driver.findElement(By.xpath("//span[normalize-space()='Sign Out']")).click();
         driver.quit();
-    }
-
+}
     @After
     public void tearDown() throws IOException {
-        if (driver != null) {
-            try {
-                // Only take a screenshot if the session is still active
-                if (((RemoteWebDriver) driver).getSessionId() != null && driver instanceof TakesScreenshot) {
-                    File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-                    FileHandler.copy(screenshot, new File("screenshot.png"));
-                }
-            } catch (NoSuchSessionException e) {
-                System.out.println("WebDriver session already closed. Skipping screenshot.");
-            } finally {
-                try {
-                    driver.quit(); // safe quit
-                } catch (Exception ignored) {
-                }
-            }
-        }
+        // Check if the driver is an instance of TakesScreenshot
+//        if (driver instanceof TakesScreenshot) {
+//            TakesScreenshot screenshotTaker = (TakesScreenshot) driver;
+//            File screenshot = screenshotTaker.getScreenshotAs(OutputType.FILE);
+//            FileHandler.copy(screenshot, new File("screenshot.png"));  // Save the screenshot to a file
+//        }
+        driver.quit();
     }
 }

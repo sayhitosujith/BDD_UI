@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="BDD Test Suite" parallel="false" verbose="1">
-    <test name="Cucumber Tests">
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="unified-admin-suite" configfailurepolicy="continue">
+    <test name="unified-parallel-via-backend" parallel='classes' thread-count="3">
         <classes>
             <class name="StepDefs.RunCukesTest"/>
         </classes>

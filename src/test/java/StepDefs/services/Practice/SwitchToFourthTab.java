@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 public class SwitchToFourthTab {
     public static void main(String[] args) {
         // Set up WebDriver (Make sure to set the correct path to your chromedriver)
-        System.setProperty("webdriver.chrome.driver", ".//drivers//chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", ".//drivers//chromedriver");
         WebDriver driver = new ChromeDriver();
 
         // Maximize the browser window
