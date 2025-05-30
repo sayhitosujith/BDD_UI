@@ -2,6 +2,8 @@ package StepDefs;
 
 import org.testng.TestNG;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -10,18 +12,22 @@ import java.util.concurrent.TimeUnit;
 class TestRunnerSchedulerHourly {
 
     public static void main(String[] args) {
-        // Create a scheduled executor with one thread
         ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 
-        // Define the task to run TestNG suite
         Runnable task = () -> {
-            System.out.println("Running TestNG suite at: " + java.time.LocalDateTime.now());
+            LocalDateTime now = LocalDateTime.now();
+            LocalDateTime nextRun = now.plusHours(1);
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
+            System.out.println("Running TestNG suite at: " + now.format(formatter));
 
             TestNG testng = new TestNG();
             testng.setTestSuites(Collections.singletonList("testng.xml"));
             testng.run();
+
+            System.out.println("Next run scheduled at: " + nextRun.format(formatter));
         };
-        // Schedule the task to run every hour with initial delay of 0
+
         scheduler.scheduleAtFixedRate(task, 0, 1, TimeUnit.HOURS);
     }
 }
