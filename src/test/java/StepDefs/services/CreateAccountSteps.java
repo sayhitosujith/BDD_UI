@@ -11,6 +11,7 @@ import io.cucumber.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.io.FileHandler;
 import org.testng.Assert;
 import util.StepUtil;
@@ -38,7 +39,9 @@ public class CreateAccountSteps extends BaseTest {
 //        DriverFactory factory = new DriverFactory();
 //        driver = factory.getDriver("chrome");
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--user-data-dir=/tmp/unique-profile-directory"); // Use a unique directory
+        WebDriver driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         Map<String, String> dataMap = StepUtil.toMap(dataTable);
         driver.get(ResourceData.getEnvironmentURL(ResourceData.getEnvironment() + "." + dataMap.get("url")));
