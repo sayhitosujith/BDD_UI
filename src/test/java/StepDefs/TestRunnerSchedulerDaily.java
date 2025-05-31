@@ -19,7 +19,7 @@ class TestRunnerSchedulerDaily {
         // Desired run time: 8:30 AM
         LocalTime targetTime = LocalTime.of(8, 30);
         LocalDateTime now = LocalDateTime.now();
-        LocalDateTime firstRun = now.with(targetTime);
+        LocalDateTime firstRun = now.withHour(targetTime.getHour()).withMinute(targetTime.getMinute()).withSecond(0).withNano(0);
 
         // If the time has already passed today, schedule for tomorrow
         if (now.isAfter(firstRun)) {
@@ -27,22 +27,23 @@ class TestRunnerSchedulerDaily {
         }
 
         long initialDelay = Duration.between(now, firstRun).toMillis();
-
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
         System.out.println("First run scheduled at: " + firstRun.format(formatter));
+        System.out.println("Next run scheduled at: " + firstRun.plusDays(1).format(formatter)); // Log next run too
 
         Runnable task = new Runnable() {
             @Override
             public void run() {
-                LocalDateTime now = LocalDateTime.now();
-                System.out.println("Running TestNG suite at: " + now.format(formatter));
+                LocalDateTime currentRunTime = LocalDateTime.now();
+                System.out.println("Running TestNG suite at: " + currentRunTime.format(formatter));
 
                 TestNG testng = new TestNG();
                 testng.setTestSuites(Collections.singletonList("testng.xml"));
                 testng.run();
 
                 // Log the next run time
-                LocalDateTime nextRun = now.plusDays(1).withHour(targetTime.getHour()).withMinute(targetTime.getMinute()).withSecond(0);
+                LocalDateTime nextRun = currentRunTime.plusDays(1).withHour(targetTime.getHour()).withMinute(targetTime.getMinute()).withSecond(0).withNano(0);
                 System.out.println("Next run scheduled at: " + nextRun.format(formatter));
             }
         };
