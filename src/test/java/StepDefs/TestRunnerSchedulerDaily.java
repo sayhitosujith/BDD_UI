@@ -2,39 +2,45 @@ package StepDefs;
 
 import org.testng.TestNG;
 
-import java.time.Duration;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
 import java.util.Collections;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
+import java.util.List;
+import java.util.concurrent.*;
 
-class TestRunnerSchedulerDaily {
+public class TestRunnerSchedulerDaily {
 
     public static void main(String[] args) {
-        ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+        ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(4); // 4 times a day
 
-        // Desired run time: 8:30 AM
-        LocalTime targetTime = LocalTime.of(8, 30);
-        LocalDateTime now = LocalDateTime.now();
-        LocalDateTime firstRun = now.withHour(targetTime.getHour()).withMinute(targetTime.getMinute()).withSecond(0).withNano(0);
+        List<LocalTime> runTimes = Arrays.asList(
+                LocalTime.of(8, 0),
+                LocalTime.of(10, 0),
+                LocalTime.of(13, 0),
+                LocalTime.of(15, 0),
+                LocalTime.of(19, 0)
+        );
 
-        // If the time has already passed today, schedule for tomorrow
-        if (now.isAfter(firstRun)) {
-            firstRun = firstRun.plusDays(1);
-        }
-
-        long initialDelay = Duration.between(now, firstRun).toMillis();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
-        System.out.println("First run scheduled at: " + firstRun.format(formatter));
-        System.out.println("Next run scheduled at: " + firstRun.plusDays(1).format(formatter)); // Log next run too
+        for (LocalTime targetTime : runTimes) {
+            LocalDateTime now = LocalDateTime.now();
+            LocalDateTime firstRun = now.withHour(targetTime.getHour())
+                    .withMinute(targetTime.getMinute())
+                    .withSecond(0)
+                    .withNano(0);
 
-        Runnable task = new Runnable() {
-            @Override
-            public void run() {
+            if (now.isAfter(firstRun)) {
+                firstRun = firstRun.plusDays(1);
+            }
+
+            long initialDelay = Duration.between(now, firstRun).toMillis();
+            long period = TimeUnit.DAYS.toMillis(1);
+
+            System.out.println("Run for " + targetTime + " scheduled at: " + firstRun.format(formatter));
+
+            Runnable task = () -> {
                 LocalDateTime currentRunTime = LocalDateTime.now();
                 System.out.println("Running TestNG suite at: " + currentRunTime.format(formatter));
 
@@ -42,13 +48,16 @@ class TestRunnerSchedulerDaily {
                 testng.setTestSuites(Collections.singletonList("testng.xml"));
                 testng.run();
 
-                // Log the next run time
-                LocalDateTime nextRun = currentRunTime.plusDays(1).withHour(targetTime.getHour()).withMinute(targetTime.getMinute()).withSecond(0).withNano(0);
-                System.out.println("Next run scheduled at: " + nextRun.format(formatter));
-            }
-        };
+                LocalDateTime nextRun = currentRunTime.plusDays(1)
+                        .withHour(targetTime.getHour())
+                        .withMinute(targetTime.getMinute())
+                        .withSecond(0)
+                        .withNano(0);
 
-        // Schedule task to run daily at specified time
-        scheduler.scheduleAtFixedRate(task, initialDelay, TimeUnit.DAYS.toMillis(1), TimeUnit.MILLISECONDS);
+                System.out.println("Next run for " + targetTime + " scheduled at: " + nextRun.format(formatter));
+            };
+
+            scheduler.scheduleAtFixedRate(task, initialDelay, period, TimeUnit.MILLISECONDS);
+        }
     }
 }

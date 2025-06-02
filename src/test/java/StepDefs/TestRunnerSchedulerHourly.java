@@ -14,22 +14,23 @@ class TestRunnerSchedulerHourly {
     public static void main(String[] args) {
         ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 
-        final long intervalInHours = 3;
+        final long intervalInHours = 1;
 
         Runnable task = () -> {
             LocalDateTime now = LocalDateTime.now();
-            LocalDateTime nextRun = now.plusHours(intervalInHours);
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
             System.out.println("Running TestNG suite at: " + now.format(formatter));
-            System.out.println("Next scheduled run at: " + nextRun.format(formatter));
 
             TestNG testng = new TestNG();
             testng.setTestSuites(Collections.singletonList("testng.xml"));
             testng.run();
+
+            LocalDateTime nextRun = now.plusHours(intervalInHours);
+            System.out.println("Next scheduled run at: " + nextRun.format(formatter));
         };
 
-        // Schedule to run every 3 hours
+        // Schedule to run every 1 hour
         scheduler.scheduleAtFixedRate(task, 0, intervalInHours, TimeUnit.HOURS);
     }
 }

@@ -132,7 +132,7 @@ public class CreateAccountSteps extends BaseTest {
     public void iUpdateMyResume() throws InterruptedException {
         WebElement upload_file = driver.findElement(By.xpath("//input[@value='Update resume']"));
         upload_file.click();
-        upload_file.sendKeys("F://BDD_UI//BDD_UI//resources//files//Profile.pdf");
+        upload_file.sendKeys("F://BDD_UI//BDD_UI//resources//files//Sujith_Profile.pdf");
         System.out.println("upload resume");
 
         //get updated date
@@ -146,7 +146,7 @@ public class CreateAccountSteps extends BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.findElement(By.xpath("//textarea[@id='resumeHeadlineTxt']")).clear();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.findElement(By.xpath("//textarea[@id='resumeHeadlineTxt']")).sendKeys("SDET-Professional with Experience of 6.5 years.");
+        driver.findElement(By.xpath("//textarea[@id='resumeHeadlineTxt']")).sendKeys("SDET-Professional with Experience of 6 years and 10 months.");
         driver.findElement(By.xpath("//button[normalize-space()='Save']")).click();
         System.out.println("I Update Resume headline");
         //get updated date
@@ -183,12 +183,14 @@ public class CreateAccountSteps extends BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.findElement(By.xpath("//input[@id='exp-years-droopeFor']")).sendKeys("6 Years");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.findElement(By.xpath("//input[@id='exp-months-droopeFor']")).sendKeys("8 Months");
+        driver.findElement(By.xpath("//input[@id='exp-months-droopeFor']")).clear();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.findElement(By.xpath("//span[normalize-space()='Total experience']")).click();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.findElement(By.xpath("//input[@id='exp-months-droopeFor']")).sendKeys("10 Months");
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.findElement(By.xpath("//button[@id='saveBasicDetailsBtn']")).click();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
+        driver.findElement(By.xpath("//span[normalize-space()='Total experience']")).click();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         System.out.println("User experience updated successfully..!!");
         String totalExperience = driver.findElement(By.xpath("//span[@name='Experience']")).getText();
         Assert.assertEquals(totalExperience,totalExperience);
@@ -260,5 +262,25 @@ public class CreateAccountSteps extends BaseTest {
 //            FileHandler.copy(screenshot, new File("screenshot.png"));  // Save the screenshot to a file
 //        }
         driver.quit();
+    }
+
+    @And("I Update Profile summary")
+    public void iUpdateProfileSummary() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0, 800);"); // Scrolls down by 500 pixels
+
+        driver.findElement(By.xpath("//div[@class='profileSummary']//div[@class='card']//div//span[@class='edit icon'][normalize-space()='editOneTheme']")).click();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.findElement(By.xpath("//textarea[@id='profileSummaryTxt']")).clear();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.findElement(By.xpath("//textarea[@id='profileSummaryTxt']")).sendKeys("SDET professional . Having hands on experience in manual testing, C# ,Java ,Java script selenium with BDD Cucumber Framework ,REST API Automation with BDD, Jenkins for CI/CD.\n" +
+                "working on Selenium BDD framework also Functionize AI Automation tool.\n" +
+                "Using Git lab for source code control.");
+        driver.findElement(By.xpath("//button[normalize-space()='Save']")).click();
+        System.out.println("I Updated Profle summary");
+        //get updated date
+        WebElement updateddate = driver.findElement(By.xpath("//div[@class='updateOn typ-14Regular']"));
+        System.out.println(updateddate.getText());
+        Assert.assertEquals(updateddate,updateddate);
     }
 }

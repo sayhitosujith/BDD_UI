@@ -10,14 +10,14 @@ Feature: Verify Update Naukri Application
     And I Update my Resume
     Then should Logout Profile successfully
 
-     #....................Verify UpdateResume Headline And Update Account...........
-  @Naukri @VerifyUpdateResumeHeadlineAndUpdateAccount
+     #....................Verify Profile summary And Update Account...........
+  @Naukri @VerifyUpdateProfileSummaryAndUpdateAccount
   Scenario:Verify UpdateResume Headline And Update Account
     Given I enter the Valid URL of Application by Launching Chrome Browser
       | url    |
       | Naukri |
     When I enter Valid details and Update account
-    And I Update Resume headline
+    And I Update Profile summary
     Then should Logout Profile successfully
 
          #....................Verify UpdateResume Headline Take screenshot And Update Account...........
