@@ -12,6 +12,8 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.io.FileHandler;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import util.StepUtil;
 
@@ -177,24 +179,39 @@ public class CreateAccountSteps extends BaseTest {
 
     @And("I Scroll Page Down and Update Total experience")
     public void iScrollPageDownAndUpdateTotalExperience() throws InterruptedException {
+        // Set implicit wait globally ONCE
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+// Click the edit icon
         driver.findElement(By.xpath("//em[contains(@class,'icon edit')]")).click();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.findElement(By.xpath("//input[@id='exp-years-droopeFor']")).clear();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.findElement(By.xpath("//input[@id='exp-years-droopeFor']")).sendKeys("6 Years");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.findElement(By.xpath("//input[@id='exp-months-droopeFor']")).clear();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.findElement(By.xpath("//input[@id='exp-months-droopeFor']")).sendKeys("10 Months");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.findElement(By.xpath("//button[@id='saveBasicDetailsBtn']")).click();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
-        driver.findElement(By.xpath("//span[normalize-space()='Total experience']")).click();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+// Update years of experience
+        WebElement yearsInput = driver.findElement(By.id("exp-years-droopeFor"));
+        yearsInput.clear();
+        yearsInput.sendKeys("6 Years");
+
+// Update months of experience
+        WebElement monthsInput = driver.findElement(By.id("exp-months-droopeFor"));
+        monthsInput.clear();
+        monthsInput.sendKeys("10 Months");
+
+// Click save
+        driver.findElement(By.xpath("//button[@type='button']")).click();
+
+// Wait until total experience is clickable
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[normalize-space()='Total experience']"))).click();
+
+// Confirm update
         System.out.println("User experience updated successfully..!!");
+
+// Fetch and validate updated experience
         String totalExperience = driver.findElement(By.xpath("//span[@name='Experience']")).getText();
-        Assert.assertEquals(totalExperience,totalExperience);
-        System.out.println(totalExperience);
+        System.out.println("Updated experience: " + totalExperience);
+
+// ✅ Replace with actual expected value for a real assertion
+        Assert.assertEquals(totalExperience, "6 Years 10 Months");
+
     }
 
     @And("I want to Update Profile Summary")
@@ -269,7 +286,9 @@ public class CreateAccountSteps extends BaseTest {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0, 800);"); // Scrolls down by 500 pixels
 
-        driver.findElement(By.xpath("//div[@class='profileSummary']//div[@class='card']//div//span[@class='edit icon'][normalize-space()='editOneTheme']")).click();
+        driver.findElement(By.xpath("//div[@class='profileSummary']//div[@class='card']"));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.findElement(By.xpath("//div[@class='card']//div//div[@class='widgetHead']//span[@class='edit icon'][normalize-space()='editOneTheme']")).click();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.findElement(By.xpath("//textarea[@id='profileSummaryTxt']")).clear();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
