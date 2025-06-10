@@ -11,8 +11,8 @@ import org.testng.annotations.BeforeClass;
         features = "src/test/java/features",
         glue = "StepDefs",
         dryRun = false,
-        //tags = "@Naukri",
-        tags = "@VerifyEmploymentExperienceAndUpdateAccount",
+        tags = "@Naukri",
+        //tags = "@VerifyEmploymentExperienceAndUpdateAccount",
         monochrome = false)
 
 public class RunCukesTest extends AbstractTestNGCucumberTests {
