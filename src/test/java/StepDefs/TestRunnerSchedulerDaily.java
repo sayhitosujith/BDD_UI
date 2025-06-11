@@ -19,7 +19,7 @@ public class TestRunnerSchedulerDaily {
                 LocalTime.of(9, 0),
                 LocalTime.of(11, 0),
                 LocalTime.of(13, 0),
-                LocalTime.of(14, 20)
+                LocalTime.of(15, 0)
         );
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");

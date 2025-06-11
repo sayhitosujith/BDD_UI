@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite, 3 failed tests</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -91,7 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">4 methods, 3 failed,   1 passed</span>
+                    <span class="method-stats">4 methods, 1 failed,   3 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -105,16 +105,6 @@
                         <a href="#" panel-name="suite-unified_admin_suite" title="StepDefs.RunCukesTest" class="method navigator-link" hash-for-method="runScenario(&quot;Verify Employment Experience And Update Account&quot;, &quot;Verify Update Naukri Application&quot;)">runScenario("Verify Employment Experience And Update Account", "Verify Update Naukri Application")</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                      <span>
-                        <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-unified_admin_suite" title="StepDefs.RunCukesTest" class="method navigator-link" hash-for-method="runScenario(&quot;Verify upload resume and Update Account&quot;, &quot;Verify Update Naukri Application&quot;)">runScenario("Verify upload resume and Update Account", "Verify Update Naukri Application")</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-unified_admin_suite" title="StepDefs.RunCukesTest" class="method navigator-link" hash-for-method="runScenario(&quot;Verify UpdateResume Headline And Update Account&quot;, &quot;Verify Update Naukri Application&quot;)">runScenario("Verify UpdateResume Headline And Update Account", "Verify Update Naukri Application")</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
                     </div> <!-- method-list-content failed suite-unified_admin_suite -->
                   </li>
                   <li>
@@ -126,7 +116,17 @@
                     <div class="method-list-content passed suite-unified_admin_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-unified_admin_suite" title="StepDefs.RunCukesTest" class="method navigator-link" hash-for-method="runScenario(&quot;Verify upload resume and Update Account&quot;, &quot;Verify Update Naukri Application&quot;)">runScenario("Verify upload resume and Update Account", "Verify Update Naukri Application")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-unified_admin_suite" title="StepDefs.RunCukesTest" class="method navigator-link" hash-for-method="runScenario(&quot;Verify UpdateResume Headline Take screenshot And Update Account&quot;, &quot;Verify Update Naukri Application...)">runScenario("Verify UpdateResume Headline Take screenshot And Update Account", "Verify Update Naukri Application...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-unified_admin_suite" title="StepDefs.RunCukesTest" class="method navigator-link" hash-for-method="runScenario(&quot;Verify UpdateResume Headline And Update Account&quot;, &quot;Verify Update Naukri Application&quot;)">runScenario("Verify UpdateResume Headline And Update Account", "Verify Update Naukri Application")</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-unified_admin_suite -->
@@ -153,30 +153,16 @@
                   </a> <!-- runScenario("Verify Employment Experience And Update Account", "Verify Update Naukri Application") -->
                   <span class="method-name">runScenario</span>
                   <span class="parameters">("Verify Employment Experience And Update Account", "Verify Update Naukri Application")</span>
-                  <div class="stack-trace">java.lang.AssertionError: expected [6 Years 10 Months] but found [6 Years]
-	at StepDefs.services.CreateAccountSteps.iScrollPageDownAndUpdateTotalExperience(CreateAccountSteps.java:213)
-	at ✽.I Scroll Page Down and Update Total experience(file:src/test/java/features/services/Naukri/UpdateAccount.feature:40)
-... Removed 5 stack frames
-</div> <!-- stack-trace -->
-                  <em>
-(Runs Cucumber Scenarios)                  </em>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="runScenario(&quot;Verify upload resume and Update Account&quot;, &quot;Verify Update Naukri Application&quot;)">
-                  </a> <!-- runScenario("Verify upload resume and Update Account", "Verify Update Naukri Application") -->
-                  <span class="method-name">runScenario</span>
-                  <span class="parameters">("Verify upload resume and Update Account", "Verify Update Naukri Application")</span>
-                  <div class="stack-trace">org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;a href=&quot;/mnjuser/profile&quot;&gt;...&lt;/a&gt; is not clickable at point (230, 305). Other element would receive the click: &lt;div id=&quot;_3k5q7l1k52&quot; class=&quot;chatbot_Overlay show&quot;&gt;&lt;/div&gt;
+                  <div class="stack-trace">org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found in the current frame
   (Session info: chrome=137.0.7151.69)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
 Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;
 System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.1&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [306c8d13f764617b686a7f38f1455c07, clickElement {id=f.62308644B4FBEA528D96853DF354FB9A.d.5A6B5AF18368F2275377F2A50DF23EA7.e.42}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.69, chrome: {chromedriverVersion: 137.0.7151.68 (2989ffee9373..., userDataDir: C:\Users\Sujith\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52949}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52949/devtoo..., se:cdpVersion: 137.0.7151.69, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (306c8d13f764617b686a7f38f1455c07)] -&gt; xpath: //a[normalize-space()=&apos;View profile&apos;]]
-Session ID: 306c8d13f764617b686a7f38f1455c07
+Command: [ebaa40cd6bc139f9e1197ee1b973dd40, clickElement {id=f.2382EC8D0C1AE9D27492D5208FEBE1B8.d.F4D91232E566A2B3D78A8DE9058D95D4.e.162}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.69, chrome: {chromedriverVersion: 137.0.7151.68 (2989ffee9373..., userDataDir: C:\Users\Sujith\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55505}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55505/devtoo..., se:cdpVersion: 137.0.7151.69, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (ebaa40cd6bc139f9e1197ee1b973dd40)] -&gt; xpath: //span[normalize-space()=&apos;Total experience&apos;]]
+Session ID: ebaa40cd6bc139f9e1197ee1b973dd40
 	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
@@ -186,42 +172,8 @@ Session ID: 306c8d13f764617b686a7f38f1455c07
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
 	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
 	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
-	at StepDefs.services.CreateAccountSteps.iEnterValidDetailsAndGenerateAccount(CreateAccountSteps.java:62)
-	at ✽.I enter Valid details and Update account(file:src/test/java/features/services/Naukri/UpdateAccount.feature:9)
-... Removed 5 stack frames
-</div> <!-- stack-trace -->
-                  <em>
-(Runs Cucumber Scenarios)                  </em>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="runScenario(&quot;Verify UpdateResume Headline And Update Account&quot;, &quot;Verify Update Naukri Application&quot;)">
-                  </a> <!-- runScenario("Verify UpdateResume Headline And Update Account", "Verify Update Naukri Application") -->
-                  <span class="method-name">runScenario</span>
-                  <span class="parameters">("Verify UpdateResume Headline And Update Account", "Verify Update Naukri Application")</span>
-                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//div[@class=&apos;profileSummary&apos;]//div[@class=&apos;card&apos;]&quot;}
-  (Session info: chrome=137.0.7151.69)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;
-System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.1&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [302b7d6787210004d49e10bdbbe74ee0, findElement {using=xpath, value=//div[@class=&apos;profileSummary&apos;]//div[@class=&apos;card&apos;]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.69, chrome: {chromedriverVersion: 137.0.7151.68 (2989ffee9373..., userDataDir: C:\Users\Sujith\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53003}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53003/devtoo..., se:cdpVersion: 137.0.7151.69, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 302b7d6787210004d49e10bdbbe74ee0
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:349)
-	at StepDefs.services.CreateAccountSteps.iUpdateProfileSummary(CreateAccountSteps.java:289)
-	at ✽.I Update Profile summary(file:src/test/java/features/services/Naukri/UpdateAccount.feature:20)
+	at StepDefs.services.CreateAccountSteps.iScrollPageDownAndUpdateTotalExperience(CreateAccountSteps.java:202)
+	at ✽.I Scroll Page Down and Update Total experience(file:src/test/java/features/services/Naukri/UpdateAccount.feature:40)
 ... Removed 5 stack frames
 </div> <!-- stack-trace -->
                   <em>
@@ -238,10 +190,30 @@ Session ID: 302b7d6787210004d49e10bdbbe74ee0
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
+                  <a name="runScenario(&quot;Verify upload resume and Update Account&quot;, &quot;Verify Update Naukri Application&quot;)">
+                  </a> <!-- runScenario("Verify upload resume and Update Account", "Verify Update Naukri Application") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify upload resume and Update Account", "Verify Update Naukri Application")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
                   <a name="runScenario(&quot;Verify UpdateResume Headline Take screenshot And Update Account&quot;, &quot;Verify Update Naukri Application...)">
                   </a> <!-- runScenario("Verify UpdateResume Headline Take screenshot And Update Account", "Verify Update Naukri Application...) -->
                   <span class="method-name">runScenario</span>
                   <span class="parameters">("Verify UpdateResume Headline Take screenshot And Update Account", "Verify Update Naukri Application")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify UpdateResume Headline And Update Account&quot;, &quot;Verify Update Naukri Application&quot;)">
+                  </a> <!-- runScenario("Verify UpdateResume Headline And Update Account", "Verify Update Naukri Application") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify UpdateResume Headline And Update Account", "Verify Update Naukri Application")</span>
                   <em>
 (Runs Cucumber Scenarios)                  </em>
                 </div> <!-- method-content -->
@@ -312,19 +284,19 @@ data.addRows(4);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'runScenario')
 data.setCell(0, 2, 'StepDefs.RunCukesTest')
-data.setCell(0, 3, 46889);
+data.setCell(0, 3, 17637);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'runScenario')
 data.setCell(1, 2, 'StepDefs.RunCukesTest')
-data.setCell(1, 3, 32894);
+data.setCell(1, 3, 15943);
 data.setCell(2, 0, 2)
 data.setCell(2, 1, 'runScenario')
 data.setCell(2, 2, 'StepDefs.RunCukesTest')
-data.setCell(2, 3, 15071);
+data.setCell(2, 3, 14094);
 data.setCell(3, 0, 3)
 data.setCell(3, 1, 'runScenario')
 data.setCell(3, 2, 'StepDefs.RunCukesTest')
-data.setCell(3, 3, 14675);
+data.setCell(3, 3, 13286);
 window.suiteTableData['unified_admin_suite']= { tableData: data, tableDiv: 'times-div-unified_admin_suite'}
 return data;
 }
@@ -362,33 +334,29 @@ return data;
               </div> <!-- configuration-class before -->
               <div class="configuration-class before">
                 <span class="method-name">preset</span>
-                <span class="method-start">4828 ms</span>
+                <span class="method-start">828 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
                 <span class="method-name">runScenario("Verify upload resume and Update Account", "Verify Update Naukri Application")</span>
-                <span class="method-start">6172 ms</span>
+                <span class="method-start">1125 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
                 <span class="method-name">runScenario("Verify UpdateResume Headline And Update Account", "Verify Update Naukri Application")</span>
-                <span class="method-start">53061 ms</span>
+                <span class="method-start">18762 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">runScenario("Verify UpdateResume Headline Take screenshot And Update Account", "Verify Update Naukri Application...)</span>
-                <span class="method-start">85955 ms</span>
+                <span class="method-start">34705 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">runScenario("Verify Employment Experience And Update Account", "Verify Update Naukri Application")</span>
-                <span class="method-start">101026 ms</span>
+                <span class="method-start">47991 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDownClass</span>
-                <span class="method-start">115701 ms</span>
+                <span class="method-start">62085 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

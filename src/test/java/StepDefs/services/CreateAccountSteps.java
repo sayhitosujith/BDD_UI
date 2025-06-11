@@ -148,7 +148,7 @@ public class CreateAccountSteps extends BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.findElement(By.xpath("//textarea[@id='resumeHeadlineTxt']")).clear();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.findElement(By.xpath("//textarea[@id='resumeHeadlineTxt']")).sendKeys("SDET-Professional with Experience of 6 years and 10 months.");
+        driver.findElement(By.xpath("//textarea[@id='resumeHeadlineTxt']")).sendKeys("SDET-Professional with Experience of 6 years and 10 months");
         driver.findElement(By.xpath("//button[normalize-space()='Save']")).click();
         System.out.println("I Update Resume headline");
         //get updated date
@@ -196,7 +196,11 @@ public class CreateAccountSteps extends BaseTest {
         monthsInput.sendKeys("10 Months");
 
 // Click save
-        driver.findElement(By.xpath("//button[@type='button']")).click();
+        driver.findElement(By.xpath("//button[@id='saveBasicDetailsBtn']")).click();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+
+        driver.findElement(By.xpath("//span[normalize-space()='Total experience']")).click();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
 // Wait until total experience is clickable
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -283,10 +287,9 @@ public class CreateAccountSteps extends BaseTest {
 
     @And("I Update Profile summary")
     public void iUpdateProfileSummary() {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0, 800);"); // Scrolls down by 500 pixels
 
-        driver.findElement(By.xpath("//div[@class='profileSummary']//div[@class='card']"));
+
+        driver.findElement(By.xpath("//span[@class='text'][normalize-space()='Profile summary']")).click();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.findElement(By.xpath("//div[@class='card']//div//div[@class='widgetHead']//span[@class='edit icon'][normalize-space()='editOneTheme']")).click();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
