@@ -6,25 +6,29 @@ on:
   pull_request:
     branches: [ Sujith ]
 
+  schedule:
+    - cron: '0 3 * * *'  # 08:30 IST
+    - cron: '0 4 * * *'  # 09:30 IST
+    - cron: '0 5 * * *'  # 10:30 IST
+    - cron: '0 6 * * *'  # 11:30 IST
+    - cron: '0 8 * * *'  # 13:30 IST
+    workflow_dispatch:  # Allows manual run too
+
 jobs:
-  test:
+  run-tests:
     runs-on: ubuntu-latest
     steps:
-      - name: Set up JDK 17
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Java
         uses: actions/setup-java@v3
         with:
-          java-version: 17
           distribution: 'temurin'
+          java-version: '17'
 
-      - name: Checkout Repository
-        uses: actions/checkout@v3
+      - name: Build project
+        run: mvn clean compile
 
-      - name: Cache Maven packages
-        uses: actions/cache@v3
-        with:
-          path: ~/.m2
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-          restore-keys: |
-            ${{ runner.os }}-maven-
-      - name: Run TestNG Tests
-        run: mvn clean test -Dsurefire.suiteXmlFiles=testng.xml
+      - name: Run TestNG Suite
+        run: mvn exec:java -Dexec.mainClass="StepDefs.TestRunner"
