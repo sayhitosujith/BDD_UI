@@ -31,4 +31,4 @@ jobs:
         run: mvn clean compile
 
       - name: Run TestNG Suite
-        run: mvn exec:java -Dexec.mainClass="StepDefs.TestRunner"
+        run: mvn exec:java -Dexec.mainClass="StepDefs.TestRunnerSchedulerDaily"
