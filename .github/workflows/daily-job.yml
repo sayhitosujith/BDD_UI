@@ -1,22 +1,15 @@
-name: Run TestNG naukri Tests
+name: Run TestNG Hourly
 
 on:
-  push:
-    branches: [ Sujith ]
-  pull_request:
-    branches: [ Sujith ]
-
   schedule:
-    - cron: '0 3 * * *'  # 08:30 IST
-    - cron: '0 4 * * *'  # 09:30 IST
-    - cron: '0 5 * * *'  # 10:30 IST
-    - cron: '0 6 * * *'  # 11:30 IST
-    - cron: '0 8 * * *'  # 13:30 IST
-    workflow_dispatch:  # Allows manual run too
+    - cron: '0 * * * *'  # Every hour at minute 0 (UTC)
+  workflow_dispatch:
 
 jobs:
   run-tests:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -27,8 +20,8 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Build project
+      - name: Compile project
         run: mvn clean compile
 
       - name: Run TestNG Suite
-        run: mvn exec:java -Dexec.mainClass="StepDefs.TestRunnerSchedulerDaily"
+        run: mvn exec:java -Dexec.mainClass="StepDefs.TestRunner"

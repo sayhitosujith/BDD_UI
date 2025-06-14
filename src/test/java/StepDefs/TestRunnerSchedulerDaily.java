@@ -16,10 +16,10 @@ public class TestRunnerSchedulerDaily {
 
         List<LocalTime> runTimes = Arrays.asList(
                 LocalTime.of(8, 30),
-                LocalTime.of(9, 0),
-                LocalTime.of(11, 0),
-                LocalTime.of(13, 0),
-                LocalTime.of(15, 0)
+                LocalTime.of(9, 30),
+                LocalTime.of(10, 30),
+                LocalTime.of(11, 30),
+                LocalTime.of(13, 30)
         );
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");

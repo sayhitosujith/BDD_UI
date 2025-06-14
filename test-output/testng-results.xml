@@ -2,23 +2,23 @@
 <testng-results ignored="0" total="4" passed="3" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-06-10T15:00:00 IST" name="unified-admin-suite" finished-at="2025-06-10T15:01:03 IST" duration-ms="63412">
+  <suite started-at="2025-06-14T11:38:09 IST" name="unified-admin-suite" finished-at="2025-06-14T11:39:37 IST" duration-ms="87075">
     <groups>
       <group name="cucumber">
-        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleEventWrapper, io.cucumber.testng.CucumberFeatureWrapper)[pri:0, instance:StepDefs.RunCukesTest@7cc3a7ba]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleEventWrapper, io.cucumber.testng.CucumberFeatureWrapper)[pri:0, instance:StepDefs.RunCukesTest@40e0c714]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2025-06-10T15:00:00 IST" name="unified-parallel-via-backend" finished-at="2025-06-10T15:01:03 IST" duration-ms="63412">
+    <test started-at="2025-06-14T11:38:09 IST" name="unified-parallel-via-backend" finished-at="2025-06-14T11:39:37 IST" duration-ms="87075">
       <class name="StepDefs.RunCukesTest">
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:StepDefs.RunCukesTest@7cc3a7ba]" started-at="2025-06-10T15:00:00 IST" name="setUpClass" finished-at="2025-06-10T15:00:01 IST" duration-ms="828" status="PASS">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:StepDefs.RunCukesTest@40e0c714]" started-at="2025-06-14T11:38:10 IST" name="setUpClass" finished-at="2025-06-14T11:38:12 IST" duration-ms="2344" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method is-config="true" signature="preset()[pri:0, instance:StepDefs.RunCukesTest@7cc3a7ba]" started-at="2025-06-10T15:00:01 IST" name="preset" finished-at="2025-06-10T15:00:01 IST" duration-ms="16" status="PASS">
+        <test-method is-config="true" signature="preset()[pri:0, instance:StepDefs.RunCukesTest@40e0c714]" started-at="2025-06-14T11:38:12 IST" name="preset" finished-at="2025-06-14T11:38:12 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- preset -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleEventWrapper, io.cucumber.testng.CucumberFeatureWrapper)[pri:0, instance:StepDefs.RunCukesTest@7cc3a7ba]" started-at="2025-06-10T15:00:01 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-06-10T15:00:19 IST" duration-ms="17637" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleEventWrapper, io.cucumber.testng.CucumberFeatureWrapper)[pri:0, instance:StepDefs.RunCukesTest@40e0c714]" started-at="2025-06-14T11:38:13 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-06-14T11:38:46 IST" duration-ms="33267" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -34,7 +34,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleEventWrapper, io.cucumber.testng.CucumberFeatureWrapper)[pri:0, instance:StepDefs.RunCukesTest@7cc3a7ba]" started-at="2025-06-10T15:00:19 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-06-10T15:00:35 IST" duration-ms="15943" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleEventWrapper, io.cucumber.testng.CucumberFeatureWrapper)[pri:0, instance:StepDefs.RunCukesTest@40e0c714]" started-at="2025-06-14T11:38:46 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-06-14T11:39:03 IST" duration-ms="17086" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -50,7 +50,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleEventWrapper, io.cucumber.testng.CucumberFeatureWrapper)[pri:0, instance:StepDefs.RunCukesTest@7cc3a7ba]" started-at="2025-06-10T15:00:35 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-06-10T15:00:48 IST" duration-ms="13286" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleEventWrapper, io.cucumber.testng.CucumberFeatureWrapper)[pri:0, instance:StepDefs.RunCukesTest@40e0c714]" started-at="2025-06-14T11:39:03 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-06-14T11:39:21 IST" duration-ms="17441" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -66,7 +66,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleEventWrapper, io.cucumber.testng.CucumberFeatureWrapper)[pri:0, instance:StepDefs.RunCukesTest@7cc3a7ba]" started-at="2025-06-10T15:00:48 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-06-10T15:01:02 IST" duration-ms="14094" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleEventWrapper, io.cucumber.testng.CucumberFeatureWrapper)[pri:0, instance:StepDefs.RunCukesTest@40e0c714]" started-at="2025-06-14T11:39:21 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-06-14T11:39:35 IST" duration-ms="14149" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -82,27 +82,27 @@
           <exception class="org.openqa.selenium.StaleElementReferenceException">
             <message>
               <![CDATA[stale element reference: stale element not found in the current frame
-  (Session info: chrome=137.0.7151.69)
+  (Session info: chrome=137.0.7151.104)
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
 Build info: version: '4.21.0', revision: '79ed462ef4'
 System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.1'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [ebaa40cd6bc139f9e1197ee1b973dd40, clickElement {id=f.2382EC8D0C1AE9D27492D5208FEBE1B8.d.F4D91232E566A2B3D78A8DE9058D95D4.e.162}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.69, chrome: {chromedriverVersion: 137.0.7151.68 (2989ffee9373..., userDataDir: C:\Users\Sujith\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55505}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55505/devtoo..., se:cdpVersion: 137.0.7151.69, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (ebaa40cd6bc139f9e1197ee1b973dd40)] -> xpath: //span[normalize-space()='Total experience']]
-Session ID: ebaa40cd6bc139f9e1197ee1b973dd40]]>
+Command: [9a2b31dcb8901c1a0f67199f01d4bf5c, clickElement {id=f.64B0ABDBA2EF46DDF37712539378E905.d.633E6826E6EB361B5A713C4DD3F74222.e.149}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.104, chrome: {chromedriverVersion: 137.0.7151.70 (dfa4dc56b2ab..., userDataDir: C:\Users\Sujith\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64300}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64300/devtoo..., se:cdpVersion: 137.0.7151.104, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (9a2b31dcb8901c1a0f67199f01d4bf5c)] -> xpath: //span[normalize-space()='Total experience']]
+Session ID: 9a2b31dcb8901c1a0f67199f01d4bf5c]]>
             </message>
             <full-stacktrace>
               <![CDATA[org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found in the current frame
-  (Session info: chrome=137.0.7151.69)
+  (Session info: chrome=137.0.7151.104)
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
 Build info: version: '4.21.0', revision: '79ed462ef4'
 System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.1'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [ebaa40cd6bc139f9e1197ee1b973dd40, clickElement {id=f.2382EC8D0C1AE9D27492D5208FEBE1B8.d.F4D91232E566A2B3D78A8DE9058D95D4.e.162}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.69, chrome: {chromedriverVersion: 137.0.7151.68 (2989ffee9373..., userDataDir: C:\Users\Sujith\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55505}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55505/devtoo..., se:cdpVersion: 137.0.7151.69, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (ebaa40cd6bc139f9e1197ee1b973dd40)] -> xpath: //span[normalize-space()='Total experience']]
-Session ID: ebaa40cd6bc139f9e1197ee1b973dd40
+Command: [9a2b31dcb8901c1a0f67199f01d4bf5c, clickElement {id=f.64B0ABDBA2EF46DDF37712539378E905.d.633E6826E6EB361B5A713C4DD3F74222.e.149}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.104, chrome: {chromedriverVersion: 137.0.7151.70 (dfa4dc56b2ab..., userDataDir: C:\Users\Sujith\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64300}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64300/devtoo..., se:cdpVersion: 137.0.7151.104, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (9a2b31dcb8901c1a0f67199f01d4bf5c)] -> xpath: //span[normalize-space()='Total experience']]
+Session ID: 9a2b31dcb8901c1a0f67199f01d4bf5c
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -125,7 +125,7 @@ at ✽.I Scroll Page Down and Update Total experience(file:src/test/java/feature
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:StepDefs.RunCukesTest@7cc3a7ba]" started-at="2025-06-10T15:01:02 IST" name="tearDownClass" finished-at="2025-06-10T15:01:03 IST" duration-ms="1312" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:StepDefs.RunCukesTest@40e0c714]" started-at="2025-06-14T11:39:35 IST" name="tearDownClass" finished-at="2025-06-14T11:39:37 IST" duration-ms="1788" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
