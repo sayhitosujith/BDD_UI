@@ -133,7 +133,7 @@ public class CreateAccountSteps extends BaseTest {
     @And("I Update my Resume")
     public void iUpdateMyResume() throws InterruptedException {
         WebElement upload_file = driver.findElement(By.xpath("//input[@value='Update resume']"));
-        upload_file.click();
+        //upload_file.click();
         upload_file.sendKeys("F://BDD_UI//BDD_UI//resources//files//Sujith_Profile.pdf");
         System.out.println("upload resume");
 
@@ -287,8 +287,6 @@ public class CreateAccountSteps extends BaseTest {
 
     @And("I Update Profile summary")
     public void iUpdateProfileSummary() {
-
-
         driver.findElement(By.xpath("//span[@class='text'][normalize-space()='Profile summary']")).click();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.findElement(By.xpath("//div[@class='card']//div//div[@class='widgetHead']//span[@class='edit icon'][normalize-space()='editOneTheme']")).click();
