@@ -114,6 +114,13 @@
         </dependency>
 
         <dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>itext7-core</artifactId>
+            <version>8.0.3</version> <!-- Or latest -->
+        </dependency>
+
+
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.28</version> <!-- Replace with the latest stable version -->
@@ -135,6 +142,7 @@
                         <target>17</target> <!-- Replace with your JDK version -->
                     </configuration>
                 </plugin>
+
 
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>

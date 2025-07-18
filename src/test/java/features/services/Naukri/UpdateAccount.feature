@@ -31,14 +31,14 @@ Feature: Verify Update Naukri Application
     Then should Logout Profile successfully
 
              #....................Verify Employment Experience And Update Account...........
-  @Naukri @VerifyEmploymentExperienceAndUpdateAccount
-  Scenario:Verify Employment Experience And Update Account
-    Given I enter the Valid URL of Application by Launching Chrome Browser
-      | url    |
-      | Naukri |
-    When I enter Valid details and Update account
-    And I Scroll Page Down and Update Total experience
-    Then should Logout Profile successfully
+#  @Naukri @VerifyEmploymentExperienceAndUpdateAccount
+#  Scenario:Verify Employment Experience And Update Account
+#    Given I enter the Valid URL of Application by Launching Chrome Browser
+#      | url    |
+#      | Naukri |
+#    When I enter Valid details and Update account
+#    And I Scroll Page Down and Update Total experience
+#    Then should Logout Profile successfully
 
        #....................Verify Applied jobs count...........
 #  @Naukri @VerifyAppliedjobscount

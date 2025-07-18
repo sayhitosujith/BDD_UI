@@ -132,15 +132,26 @@ public class CreateAccountSteps extends BaseTest {
 
     @And("I Update my Resume")
     public void iUpdateMyResume() throws InterruptedException {
-        WebElement upload_file = driver.findElement(By.xpath("//input[@value='Update resume']"));
-        //upload_file.click();
-        upload_file.sendKeys("F://BDD_UI//BDD_UI//resources//files//Sujith_Profile.pdf");
-        System.out.println("upload resume");
+        // Locate the hidden file input - update XPath if needed
+        WebElement fileInput = driver.findElement(By.xpath("//input[@type='file']"));
 
-        //get updated date
+        // Make it visible if it's hidden using JS
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].style.display='block';", fileInput);
+
+        // Upload file (make sure path uses \\ in Java)
+        String filePath = new File("resources/files/Sujith_Profile.pdf").getAbsolutePath();
+        fileInput.sendKeys(filePath);
+        System.out.println("Upload resume");
+
+        // Wait for resume upload and updated date to reflect
+        Thread.sleep(3000); // Better to use WebDriverWait if possible
+
+        // Get updated date
         WebElement updateddate = driver.findElement(By.xpath("//div[@class='updateOn typ-14Regular']"));
-        System.out.println(updateddate.getText());
+        System.out.println("Updated on: " + updateddate.getText());
     }
+
 
     @And("I Update Resume headline")
     public void iUpdateResumeHeadline() throws InterruptedException {
@@ -148,7 +159,7 @@ public class CreateAccountSteps extends BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.findElement(By.xpath("//textarea[@id='resumeHeadlineTxt']")).clear();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.findElement(By.xpath("//textarea[@id='resumeHeadlineTxt']")).sendKeys("SDET-Professional with Experience of 6 years and 10 months");
+        driver.findElement(By.xpath("//textarea[@id='resumeHeadlineTxt']")).sendKeys("SDET-Professional with Experience of 6 years and 11 months");
         driver.findElement(By.xpath("//button[normalize-space()='Save']")).click();
         System.out.println("I Update Resume headline");
         //get updated date
@@ -179,43 +190,48 @@ public class CreateAccountSteps extends BaseTest {
 
     @And("I Scroll Page Down and Update Total experience")
     public void iScrollPageDownAndUpdateTotalExperience() throws InterruptedException {
-        // Set implicit wait globally ONCE
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        // Scroll down if needed
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,500)");
 
-// Click the edit icon
-        driver.findElement(By.xpath("//em[contains(@class,'icon edit')]")).click();
+        // Wait until the edit icon is clickable
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        WebElement editIcon = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//em[contains(@class,'icon edit')]")));
+        editIcon.click();
 
-// Update years of experience
-        WebElement yearsInput = driver.findElement(By.id("exp-years-droopeFor"));
+        // Wait for and update years of experience
+        WebElement yearsInput = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("exp-years-droopeFor")));
         yearsInput.clear();
         yearsInput.sendKeys("6 Years");
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 
-// Update months of experience
+        // Update months of experience
         WebElement monthsInput = driver.findElement(By.id("exp-months-droopeFor"));
         monthsInput.clear();
         monthsInput.sendKeys("10 Months");
 
-// Click save
-        driver.findElement(By.xpath("//button[@id='saveBasicDetailsBtn']")).click();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        // Click save
+        WebElement saveButton = driver.findElement(By.id("saveBasicDetailsBtn"));
+        saveButton.click();
 
-        driver.findElement(By.xpath("//span[normalize-space()='Total experience']")).click();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        // Wait for save to reflect (e.g. button disappears or loading stops)
+        Thread.sleep(3000); // Better: wait for some indicator to confirm update
 
-// Wait until total experience is clickable
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[normalize-space()='Total experience']"))).click();
+        // Optional: scroll again if needed
+      //  js.executeScript("window.scrollBy(0,300)");
 
-// Confirm update
-        System.out.println("User experience updated successfully..!!");
+        // Click or hover to expand Total Experience info if necessary
+        WebElement totalExpLabel = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[normalize-space()='Total experience']")));
+        totalExpLabel.click();
 
-// Fetch and validate updated experience
-        String totalExperience = driver.findElement(By.xpath("//span[@name='Experience']")).getText();
-        System.out.println("Updated experience: " + totalExperience);
+        // Wait for experience text to be visible
+        WebElement experienceText = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@name='Experience']")));
+        String totalExperience = experienceText.getText();
 
-// ✅ Replace with actual expected value for a real assertion
+        System.out.println("✅ Updated experience: " + totalExperience);
+
+        // Assertion
         Assert.assertEquals(totalExperience, "6 Years 10 Months");
-
     }
 
     @And("I want to Update Profile Summary")

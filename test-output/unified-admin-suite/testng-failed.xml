@@ -6,7 +6,7 @@
       <class name="StepDefs.RunCukesTest">
         <methods>
           <include name="preset"/>
-          <include name="runScenario" invocation-numbers="3"/>
+          <include name="runScenario" invocation-numbers="1"/>
           <include name="tearDownClass"/>
           <include name="setUpClass"/>
         </methods>
